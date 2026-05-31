@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agency Launch Plan — 90-Day Playbook for 2 People</title>
+  <meta name="robots" content="noindex, nofollow">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 3px; }
+    .sidebar { position: sticky; top: 70px; max-height: calc(100vh - 90px); overflow-y: auto; }
+    .sidebar::-webkit-scrollbar { width: 3px; }
+    .sidebar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; }
+    .toc-link { border-left: 2px solid transparent; padding-left: 10px; transition: all 0.2s; }
+    .toc-link.active { color: #2563eb; border-left-color: #2563eb; font-weight: 600; background: rgba(37,99,235,0.05); }
+    .day-card { border-left: 4px solid; }
+    .day-mike { border-color: #2563eb; }
+    .day-wife { border-color: #d946ef; }
+    .day-both { border-color: #10b981; }
+    .callout { border-left: 4px solid; border-radius: 0 0.5rem 0.5rem 0; }
+    .callout-cost { border-color: #f59e0b; background: #fffbeb; }
+    .callout-tool { border-color: #10b981; background: #ecfdf5; }
+    .callout-action { border-color: #2563eb; background: #eff6ff; }
+    .callout-warning { border-color: #ef4444; background: #fef2f2; }
+    .callout-script { border-color: #8b5cf6; background: #f5f3ff; }
+    .prompt-block { position: relative; background: #1e293b; color: #e2e8f0; border-radius: 0.75rem; padding: 1.25rem; font-family: 'Courier New', monospace; font-size: 0.85rem; line-height: 1.6; white-space: pre-wrap; word-wrap: break-word; }
+    .copy-btn { position: absolute; top: 0.5rem; right: 0.5rem; background: #334155; color: #94a3b8; border: none; padding: 0.3rem 0.6rem; border-radius: 0.375rem; cursor: pointer; font-size: 0.7rem; transition: all 0.2s; }
+    .copy-btn:hover { background: #475569; color: #e2e8f0; }
+    .copy-btn.copied { background: #059669; color: white; }
+    .check-item { position: relative; padding-left: 1.75rem; }
+    .check-item::before { content: ''; position: absolute; left: 0; top: 0.3rem; width: 1.1rem; height: 1.1rem; border: 2px solid #cbd5e1; border-radius: 0.25rem; }
+    .legend-dot { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+    .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #2563eb, #d946ef); z-index: 9999; transition: width 0.1s linear; }
+    @media print {
+      .sidebar, nav, .progress-bar { display: none !important; }
+      .day-card { break-inside: avoid; }
+      body { font-size: 10pt; }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased">
+  <div id="progress-bar" class="progress-bar" style="width:0%"></div>
+
+  <!-- Nav -->
+  <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14">
+      <div class="font-bold text-lg"><span class="text-blue-600">AI Agency</span> Launch Plan</div>
+      <div class="flex items-center gap-4 text-xs">
+        <span class="flex items-center gap-1.5"><span class="legend-dot bg-blue-600"></span> Mike</span>
+        <span class="flex items-center gap-1.5"><span class="legend-dot bg-fuchsia-500"></span> Wife</span>
+        <span class="flex items-center gap-1.5"><span class="legend-dot bg-emerald-500"></span> Both</span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="lg:grid lg:grid-cols-[240px_1fr] lg:gap-10">
+
+      <!-- Sidebar TOC -->
+      <aside class="sidebar hidden lg:block">
+        <div class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Plan</div>
+        <nav class="space-y-0.5 text-sm">
+          <a href="#overview" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Overview</a>
+          <a href="#niche" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">The Niche</a>
+          <a href="#services" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Services &amp; Pricing</a>
+          <a href="#stack" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Tech Stack</a>
+          <a href="#accounts" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">All Accounts Needed</a>
+          <a href="#roles" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Role Split</a>
+          <div class="text-xs font-bold text-blue-600 uppercase tracking-wide mt-4 mb-1">Phase 1 — Setup</div>
+          <a href="#week1" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Week 1: Foundation</a>
+          <a href="#week2" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Week 2: Build Demo</a>
+          <div class="text-xs font-bold text-purple-600 uppercase tracking-wide mt-4 mb-1">Phase 2 — Outreach</div>
+          <a href="#week3" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Week 3: Start Outreach</a>
+          <a href="#week4" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Week 4: First Client</a>
+          <div class="text-xs font-bold text-emerald-600 uppercase tracking-wide mt-4 mb-1">Phase 3 — Deliver</div>
+          <a href="#week5-6" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Weeks 5-6: Build &amp; Ship</a>
+          <a href="#week7-8" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Weeks 7-8: Optimize</a>
+          <div class="text-xs font-bold text-amber-600 uppercase tracking-wide mt-4 mb-1">Phase 4 — Scale</div>
+          <a href="#month3" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Month 3: Scale to 5</a>
+          <a href="#month4-6" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Months 4-6: Growth</a>
+          <div class="text-xs font-bold text-gray-500 uppercase tracking-wide mt-4 mb-1">Reference</div>
+          <a href="#scripts" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">All Scripts &amp; Templates</a>
+          <a href="#financials" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Financial Projections</a>
+          <a href="#faq" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">FAQ &amp; Objections</a>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="max-w-3xl">
+
+        <!-- Header -->
+        <div class="mb-12">
+          <p class="text-sm text-blue-600 font-semibold uppercase tracking-wide mb-2">Private Playbook &middot; Updated May 2026</p>
+          <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">AI Agency Launch Plan</h1>
+          <p class="mt-4 text-xl text-gray-600">A day-by-day, no-BS guide for Mike + Wife to build a $10K/month AI automation agency from scratch.</p>
+          <div class="mt-6 flex flex-wrap gap-3 text-xs">
+            <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full font-semibold">Home Services Niche</span>
+            <span class="bg-fuchsia-50 text-fuchsia-700 px-3 py-1 rounded-full font-semibold">2-Person Team</span>
+            <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full font-semibold">$200/mo Starting Cost</span>
+          </div>
+        </div>
+
+        <!-- ==================== OVERVIEW ==================== -->
+        <section id="overview" class="mb-16">
+          <h2 class="text-2xl font-extrabold mb-4">Overview: What You're Building</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">You're going to sell AI phone agents and automation to home service businesses (HVAC, plumbing, electrical, landscaping). These businesses lose <strong>$45,000-$120,000 per year</strong> from missed calls. You fix that problem with an AI voice agent that answers 24/7, captures leads, and books appointments.</p>
+          <p class="text-gray-700 leading-relaxed mb-4">This is not a passive income play. It's a real service business with real clients who pay you $500-$2,000/month because you save them real money. The margins are 80-90% because the tools cost almost nothing per client.</p>
+
+          <h3 class="text-lg font-bold mt-8 mb-3">The Numbers</h3>
+          <div class="grid sm:grid-cols-3 gap-4 mb-6">
+            <div class="bg-white rounded-xl border border-gray-200 p-5 text-center">
+              <div class="text-2xl font-extrabold text-blue-600">$200</div>
+              <div class="text-sm text-gray-500 mt-1">Monthly startup cost</div>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-5 text-center">
+              <div class="text-2xl font-extrabold text-emerald-600">$5,000</div>
+              <div class="text-sm text-gray-500 mt-1">Target by Month 4-6</div>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-5 text-center">
+              <div class="text-2xl font-extrabold text-purple-600">90%</div>
+              <div class="text-sm text-gray-500 mt-1">Gross margin per client</div>
+            </div>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-3">The Timeline</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-4 py-3 font-semibold">Phase</th><th class="text-left px-4 py-3 font-semibold">When</th><th class="text-left px-4 py-3 font-semibold">Goal</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr><td class="px-4 py-3 font-semibold text-blue-600">1. Setup</td><td class="px-4 py-3">Weeks 1-2</td><td class="px-4 py-3">Tools ready, demo built, outreach warming up</td></tr>
+                <tr><td class="px-4 py-3 font-semibold text-purple-600">2. Outreach</td><td class="px-4 py-3">Weeks 3-4</td><td class="px-4 py-3">Emails flowing, calls happening, first client signed</td></tr>
+                <tr><td class="px-4 py-3 font-semibold text-emerald-600">3. Deliver</td><td class="px-4 py-3">Weeks 5-8</td><td class="px-4 py-3">Client #1 live, testimonial collected, clients #2-3 closing</td></tr>
+                <tr><td class="px-4 py-3 font-semibold text-amber-600">4. Scale</td><td class="px-4 py-3">Months 3-6</td><td class="px-4 py-3">5-10 clients, $5K-$10K/month recurring</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ==================== THE NICHE ==================== -->
+        <section id="niche" class="mb-16">
+          <h2 class="text-2xl font-extrabold mb-4">The Niche: Home Services</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">Out of every niche researched, home services wins for a small team. Here's the cold data:</p>
+          <ul class="space-y-2 text-gray-700 mb-6">
+            <li class="check-item"><strong>500,000+</strong> home service businesses in the US alone</li>
+            <li class="check-item">Average HVAC company misses <strong>30-40%</strong> of calls during peak season</li>
+            <li class="check-item"><strong>78%</strong> of callers who reach voicemail hang up and call a competitor</li>
+            <li class="check-item">Each missed call = a <strong>$3,000-$10,000</strong> job lost</li>
+            <li class="check-item">Average annual loss from missed calls: <strong>$45,000-$120,000</strong></li>
+            <li class="check-item">Owners are <strong>non-technical</strong> — they want it done for them, not taught to them</li>
+            <li class="check-item">Most are owner-operators who <strong>answer their own phone</strong> while on jobs</li>
+            <li class="check-item">They understand ROI intuitively: "I pay you $500, I stop losing $5,000"</li>
+          </ul>
+
+          <h3 class="text-lg font-bold mt-8 mb-3">Sub-Niches (Pick 1-2 to Start)</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-4 py-3 font-semibold">Sub-Niche</th><th class="text-left px-4 py-3 font-semibold">Avg Job Value</th><th class="text-left px-4 py-3 font-semibold">Willingness to Pay</th><th class="text-left px-4 py-3 font-semibold">Notes</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr><td class="px-4 py-3 font-semibold">HVAC</td><td class="px-4 py-3">$3,000-$10,000</td><td class="px-4 py-3 text-emerald-600 font-semibold">Very High</td><td class="px-4 py-3">Seasonal urgency, after-hours emergencies</td></tr>
+                <tr><td class="px-4 py-3 font-semibold">Plumbing</td><td class="px-4 py-3">$500-$5,000</td><td class="px-4 py-3 text-emerald-600 font-semibold">Very High</td><td class="px-4 py-3">Emergency calls are gold, 24/7 need</td></tr>
+                <tr><td class="px-4 py-3 font-semibold">Electrical</td><td class="px-4 py-3">$1,000-$8,000</td><td class="px-4 py-3 text-blue-600 font-semibold">High</td><td class="px-4 py-3">Less urgent but high value per job</td></tr>
+                <tr><td class="px-4 py-3 font-semibold">Roofing</td><td class="px-4 py-3">$5,000-$15,000</td><td class="px-4 py-3 text-blue-600 font-semibold">High</td><td class="px-4 py-3">Highest job value, seasonal</td></tr>
+                <tr><td class="px-4 py-3 font-semibold">Landscaping</td><td class="px-4 py-3">$500-$3,000</td><td class="px-4 py-3 text-amber-600 font-semibold">Medium</td><td class="px-4 py-3">Lower margins but high volume</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout callout-action p-4 mt-6">
+            <p class="font-semibold text-blue-800 text-sm mb-1">Recommendation</p>
+            <p class="text-sm text-blue-700">Start with <strong>HVAC + Plumbing</strong>. Highest urgency, highest job values, most pain from missed calls, and they're everywhere. Once you have 5 clients, expand into electrical and roofing.</p>
+          </div>
+        </section>
+
+        <!-- ==================== SERVICES & PRICING ==================== -->
+        <section id="services" class="mb-16">
+          <h2 class="text-2xl font-extrabold mb-4">Services &amp; Pricing: What You Sell</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">You sell <strong>three productized services</strong>. Fixed scope, fixed price. No custom quotes, no scope creep.</p>
+
+          <div class="space-y-6">
+            <!-- Service 1 -->
+            <div class="bg-white rounded-xl border-2 border-blue-200 p-6">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-lg font-bold text-blue-700">Service 1: AI Phone Agent</h3>
+                <span class="text-xs font-bold text-white bg-blue-600 px-3 py-1 rounded-full">PRIMARY</span>
+              </div>
+              <p class="text-gray-700 text-sm mb-3">An AI voice agent that answers every call 24/7, captures caller info, books appointments, and sends confirmations. The client's phone never goes to voicemail again.</p>
+              <div class="grid sm:grid-cols-2 gap-4 text-sm">
+                <div><span class="font-semibold">Setup fee:</span> $1,500-$3,000</div>
+                <div><span class="font-semibold">Monthly retainer:</span> $500-$1,000/mo</div>
+                <div><span class="font-semibold">Your cost/client:</span> ~$50-150/mo</div>
+                <div><span class="font-semibold">Your margin:</span> 80-90%</div>
+              </div>
+              <p class="text-xs text-gray-500 mt-3"><strong>What the client gets:</strong> Dedicated phone number, custom-scripted AI agent, appointment booking, SMS confirmations, call logs dashboard, monthly performance report.</p>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="bg-white rounded-xl border border-gray-200 p-6">
+              <h3 class="text-lg font-bold mb-3">Service 2: Lead Follow-Up Automation</h3>
+              <p class="text-gray-700 text-sm mb-3">AI-powered SMS and email sequences that follow up with missed leads, send appointment reminders, and request Google reviews after completed jobs.</p>
+              <div class="grid sm:grid-cols-2 gap-4 text-sm">
+                <div><span class="font-semibold">Setup fee:</span> $500-$1,500</div>
+                <div><span class="font-semibold">Monthly retainer:</span> $300-$500/mo</div>
+              </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="bg-white rounded-xl border border-gray-200 p-6">
+              <h3 class="text-lg font-bold mb-3">Service 3: Review &amp; Reputation Management</h3>
+              <p class="text-gray-700 text-sm mb-3">Automatically request Google reviews after jobs, respond to reviews with AI, and alert the owner to negative reviews instantly.</p>
+              <div class="grid sm:grid-cols-2 gap-4 text-sm">
+                <div><span class="font-semibold">Setup fee:</span> $500</div>
+                <div><span class="font-semibold">Monthly retainer:</span> $200-$300/mo</div>
+              </div>
+            </div>
+
+            <!-- Bundle -->
+            <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border-2 border-purple-200 p-6">
+              <h3 class="text-lg font-bold mb-3">The "Never Miss a Call" Bundle (All 3)</h3>
+              <p class="text-gray-700 text-sm mb-3">Position this as the default. Most clients will choose the bundle because it's the complete solution.</p>
+              <div class="grid sm:grid-cols-2 gap-4 text-sm">
+                <div><span class="font-semibold">Setup fee:</span> $2,500 (saving them $500)</div>
+                <div><span class="font-semibold">Monthly retainer:</span> $1,000/mo (saving them $200)</div>
+              </div>
+              <p class="text-xs text-gray-500 mt-3"><strong>The math for the client:</strong> They pay $1,000/mo. They were losing $4,000-$10,000/mo from missed calls. ROI is obvious.</p>
+            </div>
+          </div>
+
+          <div class="callout callout-warning p-4 mt-6">
+            <p class="font-semibold text-red-800 text-sm mb-1">Pricing Psychology</p>
+            <p class="text-sm text-red-700">Always present three options (Service 1, Service 2, Bundle). Most choose the middle or bundle. <strong>Never charge hourly.</strong> You're selling an outcome (never miss a call), not your time.</p>
+          </div>
+        </section>
+
+        <!-- ==================== TECH STACK ==================== -->
+        <section id="stack" class="mb-16">
+          <h2 class="text-2xl font-extrabold mb-4">Tech Stack: Every Tool You Need</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">This is every tool you'll use, what it costs, and what it does. Total starting cost: ~$150-$200/month.</p>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-4 py-3 font-semibold">Tool</th><th class="text-left px-4 py-3 font-semibold">Purpose</th><th class="text-left px-4 py-3 font-semibold">Cost</th><th class="text-left px-4 py-3 font-semibold">URL</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr><td class="px-4 py-3 font-semibold">n8n</td><td class="px-4 py-3">Workflow automation engine (the brain)</td><td class="px-4 py-3">Free (self-hosted)</td><td class="px-4 py-3"><a href="https://n8n.io" class="text-blue-600 underline">n8n.io</a></td></tr>
+                <tr><td class="px-4 py-3 font-semibold">Vapi</td><td class="px-4 py-3">AI voice agent platform</td><td class="px-4 py-3">~$0.05-0.10/min</td><td class="px-4 py-3"><a href="https://vapi.ai" class="text-blue-600 underline">vapi.ai</a></td></tr>
+                <tr><td class="px-4 py-3 font-semibold">Twilio</td><td class="px-4 py-3">Phone numbers + SMS sending</td><td class="px-4 py-3">~$1/number + $0.0079/SMS</td><td class="px-4 py-3"><a href="https://twilio.com" class="text-blue-600 underline">twilio.com</a></td></tr>
+                <tr><td class="px-4 py-3 font-semibold">Claude API / OpenAI</td><td class="px-4 py-3">LLM for voice agent intelligence</td><td class="px-4 py-3">~$20-50/mo total</td><td class="px-4 py-3"><a href="https://console.anthropic.com" class="text-blue-600 underline">console.anthropic.com</a></td></tr>
+                <tr><td class="px-4 py-3 font-semibold">Supabase</td><td class="px-4 py-3">Database for leads, calls, clients</td><td class="px-4 py-3">Free tier</td><td class="px-4 py-3"><a href="https://supabase.com" class="text-blue-600 underline">supabase.com</a></td></tr>
+                <tr><td class="px-4 py-3 font-semibold">Cal.com</td><td class="px-4 py-3">Appointment scheduling</td><td class="px-4 py-3">Free tier</td><td class="px-4 py-3"><a href="https://cal.com" class="text-blue-600 underline">cal.com</a></td></tr>
+                <tr><td class="px-4 py-3 font-semibold">Resend</td><td class="px-4 py-3">Transactional email sending</td><td class="px-4 py-3">Free (100/day)</td><td class="px-4 py-3"><a href="https://resend.com" class="text-blue-600 underline">resend.com</a></td></tr>
+                <tr><td class="px-4 py-3 font-semibold">Hetzner VPS</td><td class="px-4 py-3">Server to host n8n</td><td class="px-4 py-3">~$5/mo</td><td class="px-4 py-3"><a href="https://hetzner.com/cloud" class="text-blue-600 underline">hetzner.com</a></td></tr>
+                <tr class="bg-yellow-50"><td class="px-4 py-3 font-semibold" colspan="4">Outreach tools:</td></tr>
+                <tr><td class="px-4 py-3 font-semibold">Smartlead</td><td class="px-4 py-3">Cold email + inbox warmup</td><td class="px-4 py-3">$39/mo</td><td class="px-4 py-3"><a href="https://smartlead.ai" class="text-blue-600 underline">smartlead.ai</a></td></tr>
+                <tr><td class="px-4 py-3 font-semibold">Apollo.io</td><td class="px-4 py-3">Lead database + contact scraping</td><td class="px-4 py-3">Free tier</td><td class="px-4 py-3"><a href="https://apollo.io" class="text-blue-600 underline">apollo.io</a></td></tr>
+                <tr><td class="px-4 py-3 font-semibold">Namecheap</td><td class="px-4 py-3">Domains (for email sending + agency website)</td><td class="px-4 py-3">~$10-20/yr each</td><td class="px-4 py-3"><a href="https://namecheap.com" class="text-blue-600 underline">namecheap.com</a></td></tr>
+                <tr class="bg-yellow-50"><td class="px-4 py-3 font-semibold" colspan="4">Presentation &amp; business:</td></tr>
+                <tr><td class="px-4 py-3 font-semibold">Carrd</td><td class="px-4 py-3">Simple agency website / landing page</td><td class="px-4 py-3">Free (or $19/yr Pro)</td><td class="px-4 py-3"><a href="https://carrd.co" class="text-blue-600 underline">carrd.co</a></td></tr>
+                <tr><td class="px-4 py-3 font-semibold">Loom</td><td class="px-4 py-3">Record demo videos for prospects</td><td class="px-4 py-3">Free tier</td><td class="px-4 py-3"><a href="https://loom.com" class="text-blue-600 underline">loom.com</a></td></tr>
+                <tr><td class="px-4 py-3 font-semibold">Stripe</td><td class="px-4 py-3">Invoice &amp; collect payments</td><td class="px-4 py-3">2.9% + 30¢ per charge</td><td class="px-4 py-3"><a href="https://stripe.com" class="text-blue-600 underline">stripe.com</a></td></tr>
+                <tr><td class="px-4 py-3 font-semibold">Google Workspace</td><td class="px-4 py-3">Professional email (you@youragency.com)</td><td class="px-4 py-3">$6/mo</td><td class="px-4 py-3"><a href="https://workspace.google.com" class="text-blue-600 underline">workspace.google.com</a></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout callout-cost p-4 mt-6">
+            <p class="font-semibold text-amber-800 text-sm mb-1">Monthly Cost Breakdown (Before First Client)</p>
+            <p class="text-sm text-amber-700">Hetzner VPS: $5 + Smartlead: $39 + Google Workspace: $6 + Domains: ~$5 (amortized) + Vapi/Twilio (demo usage): ~$10 + LLM API (demo usage): ~$10 = <strong>~$75/month.</strong> Add Carrd Pro ($19/yr) + Namecheap domains (~$30 one-time). <strong>First client's retainer covers 6+ months of costs.</strong></p>
+          </div>
+        </section>
+
+        <!-- ==================== ALL ACCOUNTS ==================== -->
+        <section id="accounts" class="mb-16">
+          <h2 class="text-2xl font-extrabold mb-4">Every Account You Need to Create</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">Create these in order. Each takes 5-10 minutes. Do all of them on Day 1-2.</p>
+
+          <div class="space-y-3">
+            <div class="bg-white rounded-lg border border-gray-200 p-4">
+              <h3 class="font-bold text-sm mb-2">Business Foundations</h3>
+              <div class="space-y-2 text-sm text-gray-700">
+                <p class="check-item"><strong>Google Workspace</strong> — youragency.com email (professional email is non-negotiable)</p>
+                <p class="check-item"><strong>Namecheap</strong> — register your agency domain + 2-3 cold email sending domains</p>
+                <p class="check-item"><strong>Carrd.co</strong> — single-page agency website</p>
+                <p class="check-item"><strong>Stripe</strong> — payment processing and recurring invoices</p>
+                <p class="check-item"><strong>LinkedIn</strong> — both personal profiles updated with agency info</p>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg border border-gray-200 p-4">
+              <h3 class="font-bold text-sm mb-2">Tech/Build Tools</h3>
+              <div class="space-y-2 text-sm text-gray-700">
+                <p class="check-item"><strong>Hetzner Cloud</strong> — spin up a CX22 VPS ($5/mo), install n8n via Docker</p>
+                <p class="check-item"><strong>Vapi.ai</strong> — create developer account, add payment method</p>
+                <p class="check-item"><strong>Twilio</strong> — sign up, verify, buy one phone number ($1/mo)</p>
+                <p class="check-item"><strong>Anthropic Console</strong> — API key for Claude (or OpenAI API key)</p>
+                <p class="check-item"><strong>Supabase</strong> — create a project for your agency CRM/lead tracking</p>
+                <p class="check-item"><strong>Cal.com</strong> — set up a scheduling page for demos AND for client appointment booking</p>
+                <p class="check-item"><strong>Resend</strong> — sign up, verify domain for transactional emails</p>
+                <p class="check-item"><strong>Loom</strong> — for recording demo videos</p>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg border border-gray-200 p-4">
+              <h3 class="font-bold text-sm mb-2">Outreach Tools</h3>
+              <div class="space-y-2 text-sm text-gray-700">
+                <p class="check-item"><strong>Smartlead.ai</strong> — sign up for Basic plan ($39/mo)</p>
+                <p class="check-item"><strong>Apollo.io</strong> — free account, set up your ideal customer filters</p>
+                <p class="check-item"><strong>Google Maps</strong> — no signup needed, but bookmark search URLs for your target cities</p>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg border border-gray-200 p-4">
+              <h3 class="font-bold text-sm mb-2">Learning Resources (Free)</h3>
+              <div class="space-y-2 text-sm text-gray-700">
+                <p class="check-item"><strong>n8n YouTube channel</strong> — watch "Getting Started" + "AI Agent" tutorials</p>
+                <p class="check-item"><strong>Vapi docs</strong> — read the quickstart guide</p>
+                <p class="check-item"><strong>n8n community templates</strong> — search "voice agent" and "twilio" workflows</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== ROLE SPLIT ==================== -->
+        <section id="roles" class="mb-16">
+          <h2 class="text-2xl font-extrabold mb-4">Role Split: Who Does What</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">Play to each person's strengths. One of you leans technical, one leans outreach. Both sell.</p>
+
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div class="bg-white rounded-xl border-2 border-blue-200 p-6">
+              <div class="flex items-center gap-2 mb-4">
+                <span class="legend-dot bg-blue-600"></span>
+                <h3 class="font-bold text-blue-700">Mike — Tech + Build</h3>
+              </div>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="check-item">Set up and manage n8n, Vapi, Twilio, Supabase</li>
+                <li class="check-item">Build the AI voice agent scripts and workflows</li>
+                <li class="check-item">Deploy and test automations for each client</li>
+                <li class="check-item">Handle technical troubleshooting</li>
+                <li class="check-item">Record Loom demos showing the product working</li>
+                <li class="check-item">Take the lead on demo calls (technical questions)</li>
+              </ul>
+            </div>
+            <div class="bg-white rounded-xl border-2 border-fuchsia-200 p-6">
+              <div class="flex items-center gap-2 mb-4">
+                <span class="legend-dot bg-fuchsia-500"></span>
+                <h3 class="font-bold text-fuchsia-700">Wife — Sales + Ops</h3>
+              </div>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="check-item">Manage Apollo lead lists and Smartlead campaigns</li>
+                <li class="check-item">Write and optimize cold email sequences</li>
+                <li class="check-item">Make the 10 daily phone calls to prospects</li>
+                <li class="check-item">Handle replies, schedule demos, follow up</li>
+                <li class="check-item">Manage client onboarding paperwork</li>
+                <li class="check-item">Send monthly client reports and handle billing (Stripe)</li>
+                <li class="check-item">Post on LinkedIn and local Facebook groups</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout callout-action p-4 mt-6">
+            <p class="font-semibold text-blue-800 text-sm mb-1">Overlap</p>
+            <p class="text-sm text-blue-700">Both of you should be on demo calls. Mike handles "how does it work?" and Wife handles "here's what happens next / let's get you started." Classic closer + technical expert combo.</p>
+          </div>
+        </section>
+
+        <!-- ==================== PHASE 1: WEEK 1 ==================== -->
+        <section id="week1" class="mb-16">
+          <div class="mb-6 pb-3 border-b-2 border-blue-200">
+            <span class="text-xs font-bold text-blue-600 uppercase tracking-widest">Phase 1 — Setup</span>
+            <h2 class="text-2xl font-extrabold mt-1">Week 1: Foundation</h2>
+          </div>
+
+          <!-- Day 1 -->
+          <h3 class="text-lg font-bold mt-8 mb-4 flex items-center gap-2"><span class="bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded">DAY 1</span> Business Setup</h3>
+          <div class="space-y-3">
+            <div class="day-card day-both bg-white rounded-lg p-4 shadow-sm">
+              <p class="text-xs font-bold text-emerald-600 uppercase mb-1">Both Together — 3-4 hours</p>
+              <div class="space-y-2 text-sm text-gray-700">
+                <p class="check-item"><strong>Choose your agency name.</strong> Keep it simple: "[City] AI Solutions" or "[Your Last Name] Automation" works fine. Don't overthink this — you can always change it.</p>
+                <p class="check-item"><strong>Register domain at <a href="https://namecheap.com" class="text-blue-600 underline">Namecheap</a>.</strong> Buy your agency domain (e.g., pittsautomation.com). Also buy 3 cold email sending domains (e.g., pittsauto-mail.com, pittsautomation-team.com, pitts-solutions.com). ~$10-12 each.</p>
+                <p class="check-item"><strong>Set up <a href="https://workspace.google.com" class="text-blue-600 underline">Google Workspace</a></strong> on your agency domain. Create mike@youragency.com and wife@youragency.com. $6/user/month.</p>
+                <p class="check-item"><strong>Set up <a href="https://stripe.com" class="text-blue-600 underline">Stripe</a></strong> account under your agency name. This is how you'll invoice clients.</p>
+                <p class="check-item"><strong>Create a <a href="https://carrd.co" class="text-blue-600 underline">Carrd</a> landing page.</strong> One page: headline ("We help HVAC companies stop losing jobs to missed calls"), 3 bullet points of what you do, a "Book a Demo" button linking to Cal.com, and your email. That's it. 30 minutes max.</p>
+                <p class="check-item"><strong>Update both LinkedIn profiles.</strong> Headline: "I help HVAC/plumbing companies capture every call with AI | [Agency Name]". Add the agency as your current position.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Day 2 -->
+          <h3 class="text-lg font-bold mt-8 mb-4 flex items-center gap-2"><span class="bg-blue-600 text-white text-xs font-bold px-2.5 py-1 rounded">DAY 2</span> Tech Account Setup</h3>
+          <div class="space-y-3">
+            <div class="day-card day-mike bg-white rounded-lg p-4 shadow-sm">
+              <p class="text-xs font-bold text-blue-600 uppercase mb-1">Mike — 4-5 hours</p>
+              <div class="space-y-2 text-sm text-gray-700">
+                <p class="check-item"><strong>Spin up Hetzner VPS.</strong> Go to <a href="https://hetzner.com/cloud" class="text-blue-600 underline">hetzner.com/cloud</a>. Create a CX22 server (2 vCPU, 4GB RAM, $5/mo). Choose Ubuntu 22.04. Save the IP address and root password.</p>
+                <p class="check-item"><strong>Install n8n on the VPS.</strong> SSH into your server and run:
+                  <div class="prompt-block mt-2 mb-2"><code>sudo apt update && sudo apt install -y docker.io docker-compose
+mkdir n8n && cd n8n
+# Create docker-compose.yml and start n8n
+# Follow: https://docs.n8n.io/hosting/installation/docker/</code></div>
+                </p>
+                <p class="check-item"><strong>Create <a href="https://vapi.ai" class="text-blue-600 underline">Vapi</a> account.</strong> Sign up, add a payment method. Get your API key from the dashboard.</p>
+                <p class="check-item"><strong>Create <a href="https://twilio.com" class="text-blue-600 underline">Twilio</a> account.</strong> Sign up, verify your phone number. Buy one local phone number ($1/mo). Get your Account SID and Auth Token.</p>
+                <p class="check-item"><strong>Create <a href="https://console.anthropic.com" class="text-blue-600 underline">Anthropic</a> account.</strong> Get API key. Add $10 in credits to start.</p>
+                <p class="check-item"><strong>Create <a href="https://supabase.com" class="text-blue-600 underline">Supabase</a> project.</strong> Name it "agency-crm". You'll set up tables later.</p>
+                <p class="check-item"><strong>Create <a href="https://cal.com" class="text-blue-600 underline">Cal.com</a> account.</strong> Set up two event types: "15-min Demo Call" (for prospects) and "Client Appointment" (template for client booking).</p>
+                <p class="check-item"><strong>Create <a href="https://resend.com" class="text-blue-600 underline">Resend</a> account.</strong> Verify your agency domain for sending.</p>
+                <p class="check-item"><strong>Create <a href="https://loom.com" class="text-blue-600 underline">Loom</a> account.</strong> Test recording a 30-second video.</p>
+              </div>
+            </div>
+            <div class="day-card day-wife bg-white rounded-lg p-4 shadow-sm">
+              <p class="text-xs font-bold text-fuchsia-600 uppercase mb-1">Wife — 3-4 hours</p>
+              <div class="space-y-2 text-sm text-gray-700">
+                <p class="check-item"><strong>Create <a href="https://smartlead.ai" class="text-blue-600 underline">Smartlead</a> account.</strong> Sign up for Basic plan ($39/mo). Connect your 3 cold email sending domains. Start inbox warmup immediately — this takes 14 days, so start now.</p>
+                <p class="check-item"><strong>Set up sending domains in Smartlead:</strong>
+                  <ol class="list-decimal list-inside ml-4 mt-1 space-y-1">
+                    <li>Go to Namecheap → each sending domain → set up MX, SPF, DKIM, DMARC records (Smartlead gives you the exact records to add)</li>
+                    <li>Create a mailbox on each domain (e.g., mike@pittsauto-mail.com) using Google Workspace or a $1/mo Zoho Mail account</li>
+                    <li>Connect each mailbox to Smartlead</li>
+                    <li>Turn on warmup for all 3 accounts</li>
+                  </ol>
+                </p>
+                <p class="check-item"><strong>Create <a href="https://apollo.io" class="text-blue-600 underline">Apollo.io</a> account.</strong> Free tier. Set up your first search: Industry = "HVAC" OR "Plumbing", Employees = 1-50, Location = [your metro area], Title = "Owner" OR "President" OR "General Manager".</p>
+                <p class="check-item"><strong>Export your first 200 leads</strong> from Apollo. Save as CSV. You'll upload these to Smartlead in Week 3.</p>
+                <p class="check-item"><strong>Google Maps research.</strong> Search "HVAC companies near [your city]" and "plumbers near [your city]". Note the top 50 companies — their names, phone numbers, and whether they have a website. This is your manual call list.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Day 3-4 -->
+          <h3 class="text-lg font-bold mt-8 mb-4 flex items-center gap-2"><span class="bg-blue-600 text-white text-xs font-bold px-2.5 py-1 rounded">DAYS 3-4</span> Learn the Stack</h3>
+          <div class="space-y-3">
+            <div class="day-card day-mike bg-white rounded-lg p-4 shadow-sm">
+              <p class="text-xs font-bold text-blue-600 uppercase mb-1">Mike — 8-10 hours over 2 days</p>
+              <div class="space-y-2 text-sm text-gray-700">
+                <p class="check-item"><strong>n8n crash course.</strong> Watch these on the n8n YouTube channel (in order):
+                  <ol class="list-decimal list-inside ml-4 mt-1 space-y-1">
+                    <li>"Getting Started with n8n" (basics of nodes, triggers, workflows)</li>
+                    <li>"HTTP Request node" (how to call APIs)</li>
+                    <li>"Webhook node" (how to receive data from external services)</li>
+                    <li>"AI Agent node" (how n8n handles AI-powered decisions)</li>
+                    <li>Search community workflows for "Vapi" or "voice agent" — clone and study them</li>
+                  </ol>
+                </p>
+                <p class="check-item"><strong>Vapi crash course.</strong> Read the <a href="https://docs.vapi.ai" class="text-blue-600 underline">Vapi quickstart docs</a>. Create your first test assistant. Make a test call. Understand: assistants, tools, phone numbers, and webhooks.</p>
+                <p class="check-item"><strong>Connect Vapi to n8n.</strong> Create a simple workflow: Vapi webhook → n8n receives call data → logs it. This is the foundation of everything you'll build.</p>
+              </div>
+            </div>
+            <div class="day-card day-wife bg-white rounded-lg p-4 shadow-sm">
+              <p class="text-xs font-bold text-fuchsia-600 uppercase mb-1">Wife — 4-5 hours over 2 days</p>
+              <div class="space-y-2 text-sm text-gray-700">
+                <p class="check-item"><strong>Cold email crash course.</strong> Watch 2-3 YouTube videos on "cold email for agencies 2026" (channels: Alex Berman, Patrick Dang). Key concepts: open rates, reply rates, warmup, avoiding spam.</p>
+                <p class="check-item"><strong>Write your cold email sequences.</strong> Draft all 3 emails in the sequence (see Scripts section below). Get them reviewed by Mike. Load them into Smartlead as a template (don't send yet — warmup still running).</p>
+                <p class="check-item"><strong>Build your lead list to 500.</strong> Continue Apollo exports + Google Maps scraping. Organize in a spreadsheet: Name, Company, Email, Phone, City, Sub-niche (HVAC/Plumbing/Electrical).</p>
+                <p class="check-item"><strong>Research 20 prospects deeply.</strong> Visit their websites, Google reviews, Facebook pages. Note: Do they have a "Contact Us" form or just a phone number? What are their hours? Do their Google reviews mention hard-to-reach or slow response? These become personalization hooks in your emails.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Day 5 -->
+          <h3 class="text-lg font-bold mt-8 mb-4 flex items-center gap-2"><span class="bg-blue-600 text-white text-xs font-bold px-2.5 py-1 rounded">DAY 5</span> Build the Demo Voice Agent</h3>
+          <div class="space-y-3">
+            <div class="day-card day-mike bg-white rounded-lg p-4 shadow-sm">
+              <p class="text-xs font-bold text-blue-600 uppercase mb-1">Mike — 5-6 hours</p>
+              <div class="space-y-2 text-sm text-gray-700">
+                <p class="check-item"><strong>Create a demo Vapi assistant</strong> for a fake HVAC company ("Comfort Pro HVAC"). Configure:
+                  <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+                    <li>Greeting: "Thanks for calling Comfort Pro HVAC, this is the scheduling assistant. How can I help you today?"</li>
+                    <li>The agent should collect: caller name, phone number, address, type of service needed (AC repair, heating, installation, maintenance), urgency level</li>
+                    <li>If urgent: "I'll make sure a technician calls you back within 15 minutes."</li>
+                    <li>If not urgent: offer to book an appointment (connect to Cal.com)</li>
+                    <li>End: "Great, you're all set. You'll receive a text confirmation shortly. Is there anything else I can help with?"</li>
+                  </ul>
+                </p>
+                <p class="check-item"><strong>Connect to Twilio phone number.</strong> Forward calls to your Twilio number to the Vapi assistant.</p>
+                <p class="check-item"><strong>Build n8n post-call workflow:</strong>
+                  <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+                    <li>Vapi fires webhook when call ends → n8n receives call data</li>
+                    <li>Extract: caller name, phone, address, service type, urgency</li>
+                    <li>Store in Supabase "leads" table</li>
+                    <li>Send SMS confirmation to caller via Twilio</li>
+                    <li>Send notification email to "business owner" via Resend</li>
+                  </ul>
+                </p>
+                <p class="check-item"><strong>Test it end-to-end.</strong> Call the number from your cell phone. Pretend to be a homeowner with a broken AC. Verify: the AI agent handles the call, data arrives in Supabase, you get the notification, caller gets the SMS.</p>
+              </div>
+            </div>
+            <div class="day-card day-wife bg-white rounded-lg p-4 shadow-sm">
+              <p class="text-xs font-bold text-fuchsia-600 uppercase mb-1">Wife — 2-3 hours</p>
+              <div class="space-y-2 text-sm text-gray-700">
+                <p class="check-item"><strong>Call the demo number</strong> as different customer personas. Test edge cases: "I need someone RIGHT NOW, my pipes are bursting", "I just want a quote", "What are your hours?", "Can I speak to a real person?"</p>
+                <p class="check-item"><strong>Note every issue</strong> — did the AI handle it well? Where did it stumble? Write down improvements for Mike to fix.</p>
+                <p class="check-item"><strong>Continue building lead lists.</strong> Target: 500 total leads by end of Week 1.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Days 6-7 -->
+          <h3 class="text-lg font-bold mt-8 mb-4 flex items-center gap-2"><span class="bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded">DAYS 6-7</span> Polish &amp; Record Demo</h3>
+          <div class="space-y-3">
+            <div class="day-card day-both bg-white rounded-lg p-4 shadow-sm">
+              <p class="text-xs font-bold text-emerald-600 uppercase mb-1">Both Together — 4-5 hours</p>
+              <div class="space-y-2 text-sm text-gray-700">
+                <p class="check-item"><strong>Fix every issue found during testing.</strong> Tweak the Vapi script. Improve the AI's responses for edge cases. Make the SMS confirmation sound professional.</p>
+                <p class="check-item"><strong>Record a Loom demo video (2-3 minutes).</strong> Structure:
+                  <ol class="list-decimal list-inside ml-4 mt-1 space-y-1">
+                    <li>Show the phone ringing and the AI answering (screen record + audio)</li>
+                    <li>Show the lead appearing in the dashboard in real-time</li>
+                    <li>Show the SMS confirmation the caller receives</li>
+                    <li>Show the notification the business owner gets</li>
+                    <li>End with: "This runs 24/7. You never miss a call again."</li>
+                  </ol>
+                </p>
+                <p class="check-item"><strong>Prep the sales pitch.</strong> Practice the demo call flow together. Who says what. How to handle "how much?" and "I need to think about it."</p>
+                <p class="check-item"><strong>Create a simple one-page PDF proposal</strong> (use Canva or Google Docs). Include: the problem (missed calls = lost revenue), the solution (AI phone agent), what's included, pricing (the 3 tiers), and a "Ready to start?" CTA.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout callout-tool p-4 mt-6">
+            <p class="font-semibold text-emerald-800 text-sm mb-1">End of Week 1 Checkpoint</p>
+            <p class="text-sm text-emerald-700">You should have: all accounts created, n8n running on your VPS, a working demo voice agent you can call, a recorded Loom demo, cold email domains warming up in Smartlead, 500+ leads in your list, and a simple agency website live. If anything is missing, Day 1 of Week 2 is your catch-up day.</p>
+          </div>
+        </section>
+
+        <!-- ==================== PHASE 1: WEEK 2 ==================== -->
+        <section id="week2" class="mb-16">
+          <h2 class="text-2xl font-extrabold mb-4">Week 2: Build Follow-Up Automation + Prep Outreach</h2>
+
+          <!-- Days 8-9 -->
+          <h3 class="text-lg font-bold mt-8 mb-4 flex items-center gap-2"><span class="bg-blue-600 text-white text-xs font-bold px-2.5 py-1 rounded">DAYS 8-9</span> Build Services 2 &amp; 3</h3>
+          <div class="space-y-3">
+            <div class="day-card day-mike bg-white rounded-lg p-4 shadow-sm">
+              <p class="text-xs font-bold text-blue-600 uppercase mb-1">Mike — 8-10 hours over 2 days</p>
+              <div class="space-y-2 text-sm text-gray-700">
+                <p class="check-item"><strong>Build the lead follow-up automation in n8n:</strong>
+                  <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+                    <li>When a new lead is captured → wait 5 minutes → send SMS: "Hi [Name], thanks for calling [Business]. We've received your request for [service]. A technician will contact you shortly."</li>
+                    <li>If no appointment booked within 2 hours → send follow-up SMS: "Hi [Name], just following up on your [service] request. Would you like to schedule a time? Reply YES and we'll set it up."</li>
+                    <li>24 hours before appointment → send reminder SMS</li>
+                    <li>1 hour after appointment time → send "How did it go?" SMS</li>
+                  </ul>
+                </p>
+                <p class="check-item"><strong>Build the review request automation in n8n:</strong>
+                  <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+                    <li>After "How did it go?" response is positive → wait 1 day → send SMS: "Glad we could help! Would you mind leaving us a quick Google review? It really helps: [Google Review Link]"</li>
+                    <li>If negative response → immediately email the business owner: "Alert: [Customer Name] reported a negative experience. Details: [response]. Follow up recommended."</li>
+                  </ul>
+                </p>
+                <p class="check-item"><strong>Build a simple client dashboard.</strong> Use Supabase + a basic HTML page (or a Notion embed) showing: total calls this week, leads captured, appointments booked, reviews requested. This is what you show clients in their monthly report.</p>
+              </div>
+            </div>
+            <div class="day-card day-wife bg-white rounded-lg p-4 shadow-sm">
+              <p class="text-xs font-bold text-fuchsia-600 uppercase mb-1">Wife — 6 hours over 2 days</p>
+              <div class="space-y-2 text-sm text-gray-700">
+                <p class="check-item"><strong>Finalize cold email copy.</strong> Write 3 variations of each email in the sequence (A/B/C test). Load all into Smartlead.</p>
+                <p class="check-item"><strong>Build a "hot prospects" list.</strong> From your 500 leads, identify 50 with the most pain signals:
+                  <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+                    <li>Google reviews mentioning "couldn't get through" or "didn't answer"</li>
+                    <li>Websites with only a phone number (no online booking)</li>
+                    <li>Companies with 4+ star ratings but few recent reviews (need review automation)</li>
+                    <li>Companies that answered YOUR call when you tested — they're the ones picking up while on jobs</li>
+                  </ul>
+                </p>
+                <p class="check-item"><strong>Write voicemail script</strong> for the phone call campaign (see Scripts section).</p>
+                <p class="check-item"><strong>Join 5-10 local Facebook groups:</strong> "[City] Small Business Owners", "[City] Home Services", "Contractors of [State]", etc. Don't post anything yet — just join and observe what they talk about.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Days 10-11 -->
+          <h3 class="text-lg font-bold mt-8 mb-4 flex items-center gap-2"><span class="bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded">DAYS 10-11</span> Test Everything End-to-End</h3>
+          <div class="space-y-3">
+            <div class="day-card day-both bg-white rounded-lg p-4 shadow-sm">
+              <p class="text-xs font-bold text-emerald-600 uppercase mb-1">Both Together — 4-5 hours</p>
+              <div class="space-y-2 text-sm text-gray-700">
+                <p class="check-item"><strong>Run the full customer journey simulation.</strong> Wife calls the demo number as a customer. Mike watches the backend. Track:
+                  <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+                    <li>Does the AI answer within 2 seconds?</li>
+                    <li>Does it capture all required info?</li>
+                    <li>Does the lead appear in Supabase?</li>
+                    <li>Does the caller get a confirmation SMS?</li>
+                    <li>Does the "owner" get notified?</li>
+                    <li>Does the follow-up sequence trigger correctly?</li>
+                    <li>Does the review request go out after the mock appointment?</li>
+                  </ul>
+                </p>
+                <p class="check-item"><strong>Fix every broken step.</strong> Run through again until it's flawless.</p>
+                <p class="check-item"><strong>Record an updated Loom demo</strong> showing the FULL flow (voice agent + follow-up + review request). This is your sales weapon.</p>
+                <p class="check-item"><strong>Practice the demo call.</strong> Role-play: one of you is the HVAC owner, the other pitches. Switch roles. Practice handling objections (see FAQ section).</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Days 12-14 -->
+          <h3 class="text-lg font-bold mt-8 mb-4 flex items-center gap-2"><span class="bg-fuchsia-500 text-white text-xs font-bold px-2.5 py-1 rounded">DAYS 12-14</span> Outreach Prep &amp; Warmup Check</h3>
+          <div class="space-y-3">
+            <div class="day-card day-wife bg-white rounded-lg p-4 shadow-sm">
+              <p class="text-xs font-bold text-fuchsia-600 uppercase mb-1">Wife — Focus</p>
+              <div class="space-y-2 text-sm text-gray-700">
+                <p class="check-item"><strong>Check warmup health in Smartlead.</strong> After 10-14 days of warmup, check your sender reputation. Open rates on warmup emails should be 40%+ and spam rate under 2%. If not, troubleshoot DNS records.</p>
+                <p class="check-item"><strong>Upload first 200 leads to Smartlead.</strong> Create your first campaign. Set to start Day 15 (Monday of Week 3).</p>
+                <p class="check-item"><strong>Prepare your phone call tracker spreadsheet.</strong> Columns: Company, Contact Name, Phone, Date Called, Result (Voicemail/Spoke/Not Interested/Demo Booked), Follow-up Date, Notes.</p>
+                <p class="check-item"><strong>Write your first LinkedIn post.</strong> Something like: "I just tested calling 20 HVAC companies in [City]. 14 of them went to voicemail. That's 14 potential customers lost to whoever picks up next. We're building something to fix this." Post it.</p>
+              </div>
+            </div>
+            <div class="day-card day-mike bg-white rounded-lg p-4 shadow-sm">
+              <p class="text-xs font-bold text-blue-600 uppercase mb-1">Mike — Focus</p>
+              <div class="space-y-2 text-sm text-gray-700">
+                <p class="check-item"><strong>Create a client onboarding template.</strong> A Google Doc with everything you need from a new client:
+                  <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+                    <li>Business name, address, phone number</li>
+                    <li>Services they offer (list of all service types)</li>
+                    <li>Business hours</li>
+                    <li>Service area (which zip codes/cities)</li>
+                    <li>How they want leads handled (call back? text? email?)</li>
+                    <li>Existing scheduling tool? (or will they use Cal.com)</li>
+                    <li>Google Business Profile link (for review automation)</li>
+                  </ul>
+                </p>
+                <p class="check-item"><strong>Build a "client clone" workflow.</strong> Make your demo setup duplicatable so when you sign a new client, you can spin up their voice agent in 2-4 hours, not 2 days. Create templates in Vapi and n8n that you just swap out business name, phone number, and services.</p>
+                <p class="check-item"><strong>Set up monitoring.</strong> Create an n8n workflow that checks every 6 hours whether all active phone agents are responding. If one fails, send yourself a Slack/SMS alert.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout callout-tool p-4 mt-6">
+            <p class="font-semibold text-emerald-800 text-sm mb-1">End of Week 2 Checkpoint</p>
+            <p class="text-sm text-emerald-700">You should have: a bulletproof demo, the full 3-service suite built and tested, a Loom recording ready to send, cold emails loaded in Smartlead and warmup looking healthy, 500+ leads ready to go, a cloneable setup so new client onboarding takes hours not days. You're ready to start selling.</p>
+          </div>
+        </section>
+
+        <!-- ==================== PHASE 2: WEEK 3 ==================== -->
+        <section id="week3" class="mb-16">
+          <div class="mb-6 pb-3 border-b-2 border-purple-200 mt-20">
+            <span class="text-xs font-bold text-purple-600 uppercase tracking-widest">Phase 2 — Outreach</span>
+            <h2 class="text-2xl font-extrabold mt-1">Week 3: Start Selling</h2>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4 flex items-center gap-2"><span class="bg-fuchsia-500 text-white text-xs font-bold px-2.5 py-1 rounded">DAY 15</span> Launch Cold Email Campaign</h3>
+          <div class="space-y-3">
+            <div class="day-card day-wife bg-white rounded-lg p-4 shadow-sm">
+              <p class="text-xs font-bold text-fuchsia-600 uppercase mb-1">Wife — Daily from now on, 2-3 hours/day</p>
+              <div class="space-y-2 text-sm text-gray-700">
+                <p class="check-item"><strong>Activate your first Smartlead campaign.</strong> 200 leads, 3-email sequence, sending 30-50/day per inbox (90-150 total/day across 3 inboxes). Emails go out automatically.</p>
+                <p class="check-item"><strong>Start the daily phone call routine.</strong> Every weekday morning, 9-11 AM local time:
+                  <ol class="list-decimal list-inside ml-4 mt-1 space-y-1">
+                    <li>Call 10 HVAC/plumbing companies from your Google Maps list</li>
+                    <li>Most will go to voicemail — leave the voicemail script (see Scripts section)</li>
+                    <li>Immediately send the cold email to the same person</li>
+                    <li>Log results in your call tracker spreadsheet</li>
+                    <li>The voicemail + email combo doubles your response rate vs email alone</li>
+                  </ol>
+                </p>
+                <p class="check-item"><strong>Check Smartlead replies</strong> at 12 PM and 5 PM daily. Respond to every reply within 1 hour during business hours. Positive reply → send Loom demo link + book a Cal.com demo call. Negative reply → thank them politely, remove from list.</p>
+              </div>
+            </div>
+            <div class="day-card day-mike bg-white rounded-lg p-4 shadow-sm">
+              <p class="text-xs font-bold text-blue-600 uppercase mb-1">Mike — Support role during outreach</p>
+              <div class="space-y-2 text-sm text-gray-700">
+                <p class="check-item"><strong>Be ready for demo calls.</strong> When Wife books a demo, both of you join. Mike handles the demo walkthrough and technical questions. Wife handles pricing, onboarding, and closing.</p>
+                <p class="check-item"><strong>Refine the demo based on feedback.</strong> If a prospect asks "can it handle X?", build that capability before the next demo.</p>
+                <p class="check-item"><strong>Create custom mini-demos.</strong> For hot prospects, record a personalized Loom: "Hey [Name], I called [Business Name] this morning and got voicemail — here's what your customers would experience instead." Show their actual business name in the demo voice agent.</p>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4 flex items-center gap-2"><span class="bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded">DAYS 16-21</span> Daily Outreach Rhythm</h3>
+          <div class="space-y-3">
+            <div class="day-card day-both bg-white rounded-lg p-4 shadow-sm">
+              <p class="text-xs font-bold text-emerald-600 uppercase mb-1">Both — Daily Schedule</p>
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden mt-2">
+                  <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Time</th><th class="text-left px-3 py-2 font-semibold">Wife</th><th class="text-left px-3 py-2 font-semibold">Mike</th></tr></thead>
+                  <tbody class="divide-y divide-gray-100 bg-white">
+                    <tr><td class="px-3 py-2 font-semibold">8:00 AM</td><td class="px-3 py-2">Check overnight email replies in Smartlead</td><td class="px-3 py-2">Check n8n workflows, system health</td></tr>
+                    <tr><td class="px-3 py-2 font-semibold">9:00-11:00</td><td class="px-3 py-2">Make 10 phone calls, send follow-up emails</td><td class="px-3 py-2">Build features, customize demos for prospects</td></tr>
+                    <tr><td class="px-3 py-2 font-semibold">11:00-12:00</td><td class="px-3 py-2">Respond to email replies, schedule demos</td><td class="px-3 py-2">Record personalized Looms for hot leads</td></tr>
+                    <tr><td class="px-3 py-2 font-semibold">12:00-1:00</td><td class="px-3 py-2" colspan="2">Lunch + compare notes on what's working</td></tr>
+                    <tr><td class="px-3 py-2 font-semibold">1:00-3:00</td><td class="px-3 py-2">Demo calls (both attend)</td><td class="px-3 py-2">Demo calls (both attend)</td></tr>
+                    <tr><td class="px-3 py-2 font-semibold">3:00-4:00</td><td class="px-3 py-2">Post on LinkedIn, engage in FB groups</td><td class="px-3 py-2">Build/improve automations</td></tr>
+                    <tr><td class="px-3 py-2 font-semibold">4:00-5:00</td><td class="px-3 py-2">Add new leads to pipeline, prep tomorrow</td><td class="px-3 py-2">Prep demo customizations for tomorrow's calls</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-3">Week 3 Metrics to Track</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-4 py-3 font-semibold">Metric</th><th class="text-left px-4 py-3 font-semibold">Target</th><th class="text-left px-4 py-3 font-semibold">If Below Target</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr><td class="px-4 py-3">Cold emails sent</td><td class="px-4 py-3">500-700</td><td class="px-4 py-3">Check Smartlead sending health, add more leads</td></tr>
+                <tr><td class="px-4 py-3">Email open rate</td><td class="px-4 py-3">40%+</td><td class="px-4 py-3">Rewrite subject lines, check spam score</td></tr>
+                <tr><td class="px-4 py-3">Reply rate</td><td class="px-4 py-3">2-5%</td><td class="px-4 py-3">Rewrite email body, improve personalization</td></tr>
+                <tr><td class="px-4 py-3">Phone calls made</td><td class="px-4 py-3">50+ (10/day x 5 days)</td><td class="px-4 py-3">Block the time, it's the #1 priority</td></tr>
+                <tr><td class="px-4 py-3">Demos booked</td><td class="px-4 py-3">2-5</td><td class="px-4 py-3">Improve follow-up speed, add Loom to every reply</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ==================== PHASE 2: WEEK 4 ==================== -->
+        <section id="week4" class="mb-16">
+          <h2 class="text-2xl font-extrabold mb-4">Week 4: Close Your First Client</h2>
+
+          <h3 class="text-lg font-bold mt-8 mb-4 flex items-center gap-2"><span class="bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded">DAYS 22-28</span> Demo → Close → Onboard</h3>
+
+          <h4 class="font-bold mt-6 mb-3">The Demo Call Script (15-20 min)</h4>
+          <div class="bg-white rounded-xl border border-gray-200 p-6 text-sm text-gray-700 space-y-4">
+            <div><strong>Minutes 1-3: Build rapport</strong>
+              <p class="mt-1">"Hey [Name], thanks for taking the time. Before I show you anything, tell me — how are you currently handling calls when you're out on a job?" <em>Listen. Take notes. Mirror their frustration back to them.</em></p></div>
+            <div><strong>Minutes 3-5: Quantify the pain</strong>
+              <p class="mt-1">"Roughly how many calls would you say you miss in a week? And what's your average job value?" <em>Do the math with them:</em> "So if you're missing even 5 calls a week at $3,000 average, that's potentially $60,000/year walking out the door."</p></div>
+            <div><strong>Minutes 5-10: Show the demo</strong>
+              <p class="mt-1">"Let me show you what it looks like. I'm going to call this number right now, and I want you to listen." <em>Call the demo number on speakerphone. Let them hear the AI handle a fake customer call. Then show the dashboard where the lead appeared.</em></p></div>
+            <div><strong>Minutes 10-12: Show the full flow</strong>
+              <p class="mt-1">"And here's the best part — after the call, the customer automatically gets a confirmation text. And you get an instant notification with all their info. No more playing phone tag."</p></div>
+            <div><strong>Minutes 12-15: Handle questions</strong>
+              <p class="mt-1"><em>Answer their questions honestly. Common ones: "What if the caller wants a real person?" (it can transfer), "What about my existing phone number?" (we forward, no change needed), "What if they ask something the AI can't handle?" (it takes a message and alerts you immediately).</em></p></div>
+            <div><strong>Minutes 15-18: Present pricing</strong>
+              <p class="mt-1">"We have three options: just the phone agent at $500/month, or add the follow-up automation for $800, or the full package with review management for $1,000/month. Most of our clients go with the full package because it handles the entire customer journey. Setup is a one-time $2,500 fee, and we have you live within a week."</p></div>
+            <div><strong>Minutes 18-20: Close</strong>
+              <p class="mt-1">"Based on what you told me about missing [X] calls per week, this would pay for itself within the first week or two. Want to get started? I can send over the agreement today and have you live by [date]."</p></div>
+          </div>
+
+          <h4 class="font-bold mt-8 mb-3">When They Say Yes</h4>
+          <div class="day-card day-both bg-white rounded-lg p-4 shadow-sm">
+            <p class="text-xs font-bold text-emerald-600 uppercase mb-1">Both — Client Onboarding (Day 1-2 after signing)</p>
+            <div class="space-y-2 text-sm text-gray-700">
+              <p class="check-item"><strong>Send Stripe invoice</strong> for setup fee ($2,500). Set up monthly recurring charge ($1,000/mo).</p>
+              <p class="check-item"><strong>Send onboarding questionnaire</strong> (the template Mike built in Week 2). Get: business name, services, hours, service area, existing phone number, Google Business link.</p>
+              <p class="check-item"><strong>Buy a Twilio phone number</strong> with their area code.</p>
+              <p class="check-item"><strong>Clone your demo Vapi assistant.</strong> Customize greeting, business name, services offered, and appointment availability.</p>
+              <p class="check-item"><strong>Clone your n8n workflow template.</strong> Update: phone number, business name, owner email/phone for notifications, Google review link.</p>
+              <p class="check-item"><strong>Set up call forwarding.</strong> Work with the client to forward their after-hours calls (or all calls) to the new Twilio number. This usually means a 5-minute change in their existing phone provider.</p>
+              <p class="check-item"><strong>Test with the client on the line.</strong> Call together, let them hear it work with their business name. Get their approval.</p>
+              <p class="check-item"><strong>Go live.</strong> Flip the switch. Send the client a "You're Live!" email with: their new phone number, a link to their dashboard, and your support contact.</p>
+            </div>
+          </div>
+
+          <div class="callout callout-warning p-4 mt-6">
+            <p class="font-semibold text-red-800 text-sm mb-1">What If You Haven't Closed Anyone by End of Week 4?</p>
+            <p class="text-sm text-red-700">This is normal. Most agencies close their first client in weeks 3-6. If Week 4 ends with no client: (1) Review your email metrics — are people opening but not replying? Rewrite the body. Not opening? Rewrite subject lines. (2) Increase phone calls to 15-20/day. (3) Try a different angle — instead of cold outreach, offer 3 local businesses a <strong>free 2-week trial</strong>. Getting them to experience the product is more powerful than any pitch. (4) Don't panic. Keep the daily rhythm.</p>
+          </div>
+        </section>
+
+        <!-- ==================== PHASE 3: WEEKS 5-6 ==================== -->
+        <section id="week5-6" class="mb-16">
+          <div class="mb-6 pb-3 border-b-2 border-emerald-200 mt-20">
+            <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest">Phase 3 — Deliver &amp; Grow</span>
+            <h2 class="text-2xl font-extrabold mt-1">Weeks 5-6: Deliver, Prove, Expand</h2>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-3">Client #1 Success Is Everything</h3>
+          <p class="text-gray-700 leading-relaxed mb-4">Your first client is your case study, your testimonial, your proof of concept. Over-deliver for them.</p>
+
+          <div class="space-y-3">
+            <div class="day-card day-mike bg-white rounded-lg p-4 shadow-sm">
+              <p class="text-xs font-bold text-blue-600 uppercase mb-1">Mike — Client Success</p>
+              <div class="space-y-2 text-sm text-gray-700">
+                <p class="check-item"><strong>Monitor daily for the first 2 weeks.</strong> Listen to call recordings in Vapi. Check for: AI stumbling on questions, incorrect information given, calls that should have been transferred but weren't. Fix issues same-day.</p>
+                <p class="check-item"><strong>Weekly check-in with client.</strong> 10-minute call every Friday: "How's it going? Any calls that didn't go well? Anything you'd like the agent to handle differently?"</p>
+                <p class="check-item"><strong>Track metrics for the case study:</strong>
+                  <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+                    <li>Total calls answered by AI</li>
+                    <li>After-hours calls captured (these would have been lost)</li>
+                    <li>Appointments booked</li>
+                    <li>Revenue attributed (calls answered x client's average job value x their close rate)</li>
+                  </ul>
+                </p>
+              </div>
+            </div>
+            <div class="day-card day-wife bg-white rounded-lg p-4 shadow-sm">
+              <p class="text-xs font-bold text-fuchsia-600 uppercase mb-1">Wife — Keep Selling + Get the Testimonial</p>
+              <div class="space-y-2 text-sm text-gray-700">
+                <p class="check-item"><strong>Don't stop outreach.</strong> Continue the daily rhythm: 10 calls, monitor email replies, book demos. Load the next 200 leads into Smartlead.</p>
+                <p class="check-item"><strong>After 2 weeks of client success, ask for a testimonial.</strong> "Hey [Client], the numbers are looking great — [X] calls answered, [Y] appointments booked. Would you mind giving us a quick 2-sentence review I can share with other contractors? Or even better — a 30-second video on your phone?"</p>
+                <p class="check-item"><strong>Ask for referrals.</strong> "Do you know any other contractors who struggle with missed calls? I'd love to help them too. Happy to give you a $200 credit for any referral that signs up."</p>
+                <p class="check-item"><strong>Write a LinkedIn case study post.</strong> "We helped [Client] capture [X] calls they would have missed in the first 2 weeks. That's an estimated $[Y] in jobs saved. Here's how..." (get client permission first).</p>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-3">Scaling Outreach with Proof</h3>
+          <p class="text-gray-700 leading-relaxed mb-4">Once you have real numbers from Client #1, your emails and calls become 10x more effective:</p>
+          <div class="prompt-block"><button class="copy-btn">Copy</button><code>Subject: How [Client City] HVAC company captured 47 calls they would have missed
+
+Hi [NAME],
+
+We just helped an HVAC company in [Client City] capture 47 after-hours calls in their first month using an AI phone agent.
+
+Their estimate: $23,000 in jobs that would have gone to competitors.
+
+It takes 5 days to set up and runs 24/7 without any work from you or your team.
+
+Worth a 2-minute demo? I can show you exactly how it sounds.
+
+[YOUR NAME]</code></div>
+        </section>
+
+        <!-- ==================== PHASE 3: WEEKS 7-8 ==================== -->
+        <section id="week7-8" class="mb-16">
+          <h2 class="text-2xl font-extrabold mb-4">Weeks 7-8: Optimize &amp; Close Clients 2-3</h2>
+
+          <div class="space-y-3">
+            <div class="day-card day-both bg-white rounded-lg p-4 shadow-sm">
+              <p class="text-xs font-bold text-emerald-600 uppercase mb-1">Both — Goals for Weeks 7-8</p>
+              <div class="space-y-2 text-sm text-gray-700">
+                <p class="check-item"><strong>Close clients #2 and #3.</strong> Use the case study data from Client #1 in every pitch. Real numbers close deals.</p>
+                <p class="check-item"><strong>Onboard new clients using your template process.</strong> Should now take 4-6 hours per client, not a full week.</p>
+                <p class="check-item"><strong>Send Client #1 their first monthly report.</strong> Include: total calls handled, after-hours captures, appointments booked, estimated revenue saved, comparison to their old missed-call rate.</p>
+                <p class="check-item"><strong>Review and optimize cold emails.</strong> Which subject line got the best open rate? Which email body got the most replies? Kill the losers, write new variations of the winners.</p>
+                <p class="check-item"><strong>Expand your lead list to 1,000+.</strong> Add new cities within driving distance. Consider expanding to a second sub-niche (e.g., add electrical contractors if you started with HVAC + plumbing).</p>
+                <p class="check-item"><strong>Set up a referral program.</strong> Offer existing clients $200 off next month for every referral that signs up. Contractors know other contractors.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout callout-tool p-4 mt-6">
+            <p class="font-semibold text-emerald-800 text-sm mb-1">End of Month 2 Checkpoint</p>
+            <p class="text-sm text-emerald-700">Target: 2-3 paying clients, $2,000-$3,000/month recurring revenue, one case study with real numbers, a repeatable onboarding process, and a healthy outreach pipeline. If you're here, you're ahead of 90% of people who attempt this.</p>
+          </div>
+        </section>
+
+        <!-- ==================== PHASE 4: MONTH 3 ==================== -->
+        <section id="month3" class="mb-16">
+          <div class="mb-6 pb-3 border-b-2 border-amber-200 mt-20">
+            <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">Phase 4 — Scale</span>
+            <h2 class="text-2xl font-extrabold mt-1">Month 3: Scale to 5 Clients</h2>
+          </div>
+
+          <div class="space-y-3">
+            <div class="day-card day-wife bg-white rounded-lg p-4 shadow-sm">
+              <p class="text-xs font-bold text-fuchsia-600 uppercase mb-1">Wife — Double Down on What Works</p>
+              <div class="space-y-2 text-sm text-gray-700">
+                <p class="check-item"><strong>Increase email volume.</strong> Add 2 more sending domains. Scale to 200-300 emails/day.</p>
+                <p class="check-item"><strong>Launch a second cold email campaign</strong> targeting a new sub-niche or new geographic area.</p>
+                <p class="check-item"><strong>Start posting on LinkedIn 3x/week.</strong> Alternate between: case study snippets, industry stats about missed calls, behind-the-scenes of building automations, client wins.</p>
+                <p class="check-item"><strong>Make your first Facebook group post.</strong> Share value, not a pitch: "I analyzed 50 HVAC companies' Google reviews in [City]. The #1 complaint? 'Couldn't get anyone on the phone.' Here's what the top-rated companies do differently..." Then respond to DMs.</p>
+                <p class="check-item"><strong>Consider a free webinar or workshop.</strong> "5 Calls Your HVAC Business Is Missing Every Week (And How to Capture Them)" — invite local contractors. This positions you as an expert, not a vendor.</p>
+              </div>
+            </div>
+            <div class="day-card day-mike bg-white rounded-lg p-4 shadow-sm">
+              <p class="text-xs font-bold text-blue-600 uppercase mb-1">Mike — Improve the Product</p>
+              <div class="space-y-2 text-sm text-gray-700">
+                <p class="check-item"><strong>Build a client-facing dashboard.</strong> A simple web page (host on your VPS) where each client can see their own stats: calls this week, leads captured, appointments booked. Pull from Supabase. Password-protected.</p>
+                <p class="check-item"><strong>Add Spanish language support</strong> to the voice agent (if relevant in your market). This is a competitive advantage.</p>
+                <p class="check-item"><strong>Build an automated monthly report.</strong> n8n workflow that pulls stats from Supabase, generates a summary, and emails it to the client on the 1st of each month. Saves Wife from doing it manually.</p>
+                <p class="check-item"><strong>Improve voice agent from real call data.</strong> Listen to 20-30 real calls. What questions are people asking that the AI stumbles on? Add those to the script. This is your product moat.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== MONTHS 4-6 ==================== -->
+        <section id="month4-6" class="mb-16">
+          <h2 class="text-2xl font-extrabold mb-4">Months 4-6: The Growth Machine</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">By now you should have a repeatable system. Here's where you push for 10 clients and $10K/month.</p>
+
+          <div class="space-y-3">
+            <div class="day-card day-both bg-white rounded-lg p-4 shadow-sm">
+              <p class="text-xs font-bold text-emerald-600 uppercase mb-1">Both — Growth Levers</p>
+              <div class="space-y-2 text-sm text-gray-700">
+                <p class="check-item"><strong>Geographic expansion.</strong> Take your exact playbook and target 3-5 new cities. Same sub-niche, same emails, same pitch. The beauty is nothing changes except the lead list.</p>
+                <p class="check-item"><strong>Sub-niche expansion.</strong> Add electrical, roofing, garage door, pest control. The voice agent barely changes — just swap the service types.</p>
+                <p class="check-item"><strong>Raise prices for new clients.</strong> Once you have 5+ clients and 2+ testimonials, bump setup to $3,000-$5,000 and monthly to $1,200-$1,500. Your existing clients stay at their original price.</p>
+                <p class="check-item"><strong>Hire a virtual assistant ($5-8/hr).</strong> Train them on lead list building, Smartlead campaign management, and call tracker updates. This frees Wife to focus on demos and closing.</p>
+                <p class="check-item"><strong>Explore partnerships.</strong> Connect with local HVAC suppliers, trade associations, and business coaches who serve contractors. Offer them a referral fee for introductions.</p>
+                <p class="check-item"><strong>Launch a Google Ads campaign ($10-20/day).</strong> Target: "HVAC answering service," "plumber phone service," "after hours call service for contractors." These are high-intent searches with low competition from AI agencies.</p>
+                <p class="check-item"><strong>Build a proper agency website</strong> (replace Carrd). Include: case studies, testimonials, a pricing page, a "Book a Demo" CTA, and an FAQ. Use your GitHub Pages setup or a simple WordPress site.</p>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-3">Month 6 Target State</h3>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="bg-white rounded-xl border border-gray-200 p-5 text-center">
+              <div class="text-3xl font-extrabold text-blue-600">10</div>
+              <div class="text-sm text-gray-500 mt-1">Active clients</div>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-5 text-center">
+              <div class="text-3xl font-extrabold text-emerald-600">$10,000</div>
+              <div class="text-sm text-gray-500 mt-1">Monthly recurring revenue</div>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-5 text-center">
+              <div class="text-3xl font-extrabold text-purple-600">$700</div>
+              <div class="text-sm text-gray-500 mt-1">Monthly tool costs</div>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-5 text-center">
+              <div class="text-3xl font-extrabold text-amber-600">$9,300</div>
+              <div class="text-sm text-gray-500 mt-1">Monthly profit (both of you)</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== SCRIPTS & TEMPLATES ==================== -->
+        <section id="scripts" class="mb-16">
+          <div class="mb-6 pb-3 border-b-2 border-gray-200 mt-20">
+            <span class="text-xs font-bold text-gray-500 uppercase tracking-widest">Reference</span>
+            <h2 class="text-2xl font-extrabold mt-1">All Scripts &amp; Templates</h2>
+          </div>
+
+          <p class="text-gray-700 leading-relaxed mb-6">Copy these exactly. Modify the bracketed fields. Don't overthink it — imperfect action beats perfect planning.</p>
+
+          <!-- Cold Email Sequence -->
+          <h3 class="text-lg font-bold mt-8 mb-3">Cold Email Sequence</h3>
+
+          <h4 class="font-bold mt-4 mb-2">Email 1 — The Opener (Day 1)</h4>
+          <div class="prompt-block"><button class="copy-btn">Copy</button><code>Subject: Quick question about [COMPANY NAME]
+
+Hi [FIRST NAME],
+
+I just called [COMPANY NAME] and it went to voicemail — which is actually why I'm reaching out.
+
+We help [CITY] [HVAC/plumbing] companies capture the calls they're missing after hours and on busy days. The average [HVAC/plumbing] company loses $45K-$120K/year from missed calls alone.
+
+We set up an AI phone agent that answers 24/7, captures the caller's info, and books the appointment — so you never lose a job to voicemail again.
+
+Would it make sense to show you a 2-minute demo?
+
+[YOUR NAME]
+[YOUR AGENCY NAME]</code></div>
+
+          <h4 class="font-bold mt-6 mb-2">Email 2 — The Follow-Up (Day 3)</h4>
+          <div class="prompt-block"><button class="copy-btn">Copy</button><code>Subject: Re: Quick question about [COMPANY NAME]
+
+Hi [FIRST NAME],
+
+Quick follow-up — here's what happens when someone calls and you can't answer:
+
+78% hang up and call the next contractor on Google.
+
+Our AI agent picks up in under 1 second, every time. It captures their info, books the appointment, and sends them a confirmation text — all before they even think about calling your competitor.
+
+Happy to show you how it sounds — takes 2 minutes.
+
+[YOUR NAME]</code></div>
+
+          <h4 class="font-bold mt-6 mb-2">Email 3 — The Breakup (Day 7)</h4>
+          <div class="prompt-block"><button class="copy-btn">Copy</button><code>Subject: Re: Quick question about [COMPANY NAME]
+
+Last note, [FIRST NAME] —
+
+If missed calls aren't a problem for [COMPANY NAME], totally ignore this.
+
+But if you've ever lost a job because you were on a roof and couldn't pick up, I'd love 5 minutes to show you the fix. We just helped a [HVAC/plumbing] company in [NEARBY CITY] capture 47 calls they would have missed last month.
+
+Either way, good luck this season.
+
+[YOUR NAME]</code></div>
+
+          <!-- Voicemail Script -->
+          <h3 class="text-lg font-bold mt-10 mb-3">Phone Voicemail Script</h3>
+          <div class="callout callout-script p-4">
+            <p class="text-sm text-purple-800 italic">"Hey [FIRST NAME], this is [YOUR NAME] with [YOUR AGENCY]. I just called and got your voicemail — which is actually the reason I'm calling. We help [HVAC/plumbing] companies in [CITY] stop losing jobs to missed calls. I'm going to shoot you a quick email with a demo — take a look when you get a chance. Have a great day."</p>
+            <p class="text-xs text-purple-600 mt-2"><strong>Keep it under 30 seconds.</strong> Speak naturally, like you're leaving a message for a friend. Don't sound like a salesperson reading a script.</p>
+          </div>
+
+          <!-- When They Reply -->
+          <h3 class="text-lg font-bold mt-10 mb-3">Reply Templates</h3>
+
+          <h4 class="font-bold mt-4 mb-2">When They Reply "Interested / Tell me more"</h4>
+          <div class="prompt-block"><button class="copy-btn">Copy</button><code>Hey [FIRST NAME], great to hear from you!
+
+Here's a quick 2-minute demo showing exactly how it works: [LOOM LINK]
+
+If you want to see it working live for [COMPANY NAME], I can set up a quick 15-minute call. Here's my calendar: [CAL.COM LINK]
+
+Talk soon,
+[YOUR NAME]</code></div>
+
+          <h4 class="font-bold mt-6 mb-2">When They Reply "How much?"</h4>
+          <div class="prompt-block"><button class="copy-btn">Copy</button><code>Great question, [FIRST NAME].
+
+We have three options:
+- AI Phone Agent only: $500/month
+- Phone Agent + Lead Follow-Up: $800/month
+- Full Package (Phone + Follow-Up + Review Management): $1,000/month
+
+One-time setup fee is $2,500, and we have you live within a week.
+
+Most of our clients go with the full package because it handles the entire customer journey from first call to Google review.
+
+Want to see a quick demo? Here's a 2-minute video: [LOOM LINK]
+
+Or book a call and I'll walk you through it: [CAL.COM LINK]
+
+[YOUR NAME]</code></div>
+
+          <h4 class="font-bold mt-6 mb-2">When They Reply "Not interested"</h4>
+          <div class="prompt-block"><button class="copy-btn">Copy</button><code>No worries at all, [FIRST NAME]. Appreciate you letting me know. If things change down the road, feel free to reach out. Good luck with the business!
+
+[YOUR NAME]</code></div>
+
+          <!-- LinkedIn Posts -->
+          <h3 class="text-lg font-bold mt-10 mb-3">LinkedIn Post Templates</h3>
+
+          <h4 class="font-bold mt-4 mb-2">Post 1 — The Research Post</h4>
+          <div class="prompt-block"><button class="copy-btn">Copy</button><code>I called 20 [HVAC/plumbing] companies in [CITY] this week.
+
+14 went to voicemail.
+
+That's 14 potential customers who probably hung up and called the next contractor on Google.
+
+The #1 complaint in Google reviews for contractors? "Couldn't get anyone on the phone."
+
+The fix isn't hiring a receptionist at $3,500/month. It's a system that picks up every call, captures the info, and books the appointment automatically.
+
+We just set this up for a contractor in [CITY] — 47 calls captured in the first month that would have gone to voicemail.
+
+If you're a contractor tired of missing calls, DM me. Happy to show you how it works.</code></div>
+
+          <h4 class="font-bold mt-6 mb-2">Post 2 — The Case Study Post</h4>
+          <div class="prompt-block"><button class="copy-btn">Copy</button><code>Results from our first 30 days working with a [CITY] [HVAC/plumbing] company:
+
+→ [X] calls answered by AI
+→ [X] after-hours calls captured (would have been lost)
+→ [X] appointments booked automatically
+→ Estimated $[X] in revenue saved from missed calls
+
+The owner told me: "[REAL QUOTE FROM CLIENT]"
+
+Setup took 5 days. Cost: less than a part-time receptionist.
+
+We build AI phone agents that answer every call for home service businesses. Never miss a call again.
+
+#HomeServices #HVAC #Plumbing #AI</code></div>
+
+          <!-- Facebook Group Post -->
+          <h3 class="text-lg font-bold mt-10 mb-3">Facebook Group Post Template</h3>
+          <div class="prompt-block"><button class="copy-btn">Copy</button><code>Question for contractors in the group:
+
+How do you handle calls when you're on a job site? Especially after hours or weekends?
+
+I've been researching this topic and found that the average contractor misses about 30% of their calls. At $3,000+ per job, that adds up fast.
+
+Curious what solutions people are using. Personal voicemail? Answering service? Something else?
+
+Would love to hear what's working for you.</code></div>
+          <div class="callout callout-action p-4 mt-3">
+            <p class="text-sm text-blue-700"><strong>Strategy:</strong> This is a genuine question, NOT a pitch. When people respond with their pain ("yeah I miss calls all the time"), reply helpfully. DM them privately later. Never pitch in the comments.</p>
+          </div>
+
+          <!-- Client Onboarding Email -->
+          <h3 class="text-lg font-bold mt-10 mb-3">Client Onboarding Email</h3>
+          <div class="prompt-block"><button class="copy-btn">Copy</button><code>Subject: Welcome to [YOUR AGENCY] — Let's Get You Set Up!
+
+Hi [CLIENT NAME],
+
+Welcome aboard! We're excited to get your AI phone agent up and running. Here's what happens next:
+
+STEP 1: Fill out this quick onboarding form (takes 5 min): [GOOGLE FORM / DOC LINK]
+
+STEP 2: We build your custom AI phone agent (3-4 business days)
+
+STEP 3: We test it together on a quick call (15 min)
+
+STEP 4: Go live! You'll never miss a call again.
+
+What we need from you:
+- Your business name, address, and service area
+- List of services you offer
+- Your business hours
+- How you'd like leads delivered (text, email, or both)
+- Your Google Business Profile link
+
+I'll be your main point of contact. Reply to this email anytime, or text me at [PHONE].
+
+Let's get started!
+
+[YOUR NAME]
+[YOUR AGENCY]</code></div>
+
+          <!-- Monthly Report Email -->
+          <h3 class="text-lg font-bold mt-10 mb-3">Monthly Client Report Email</h3>
+          <div class="prompt-block"><button class="copy-btn">Copy</button><code>Subject: [MONTH] Performance Report — [CLIENT BUSINESS NAME]
+
+Hi [CLIENT NAME],
+
+Here's your monthly AI phone agent report for [MONTH]:
+
+CALLS HANDLED: [X] total
+  - During business hours: [X]
+  - After hours / weekends: [X] (these would have been missed)
+
+LEADS CAPTURED: [X]
+APPOINTMENTS BOOKED: [X]
+REVIEW REQUESTS SENT: [X]
+NEW GOOGLE REVIEWS: [X]
+
+ESTIMATED REVENUE SAVED: $[X]
+(Based on [X] after-hours calls x your average job value of $[X])
+
+HIGHLIGHTS:
+- [Notable positive thing, e.g., "Captured 3 emergency plumbing calls on Saturday night"]
+- [Improvement made, e.g., "Updated agent to handle AC installation inquiries"]
+
+Any questions or adjustments you'd like? Just reply to this email.
+
+Talk soon,
+[YOUR NAME]</code></div>
+        </section>
+
+        <!-- ==================== FINANCIAL PROJECTIONS ==================== -->
+        <section id="financials" class="mb-16">
+          <h2 class="text-2xl font-extrabold mb-4">Financial Projections</h2>
+
+          <h3 class="text-lg font-bold mt-6 mb-3">Revenue Ramp-Up (Conservative)</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-3 font-semibold">Month</th><th class="text-right px-3 py-3 font-semibold">Clients</th><th class="text-right px-3 py-3 font-semibold">Setup Fees</th><th class="text-right px-3 py-3 font-semibold">Monthly Rev</th><th class="text-right px-3 py-3 font-semibold">Tool Costs</th><th class="text-right px-3 py-3 font-semibold">Profit</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr><td class="px-3 py-2">Month 1</td><td class="px-3 py-2 text-right">0</td><td class="px-3 py-2 text-right">$0</td><td class="px-3 py-2 text-right">$0</td><td class="px-3 py-2 text-right text-red-600">-$150</td><td class="px-3 py-2 text-right text-red-600">-$150</td></tr>
+                <tr><td class="px-3 py-2">Month 2</td><td class="px-3 py-2 text-right">1</td><td class="px-3 py-2 text-right">$2,500</td><td class="px-3 py-2 text-right">$1,000</td><td class="px-3 py-2 text-right text-red-600">-$200</td><td class="px-3 py-2 text-right text-emerald-600 font-bold">$3,300</td></tr>
+                <tr><td class="px-3 py-2">Month 3</td><td class="px-3 py-2 text-right">3</td><td class="px-3 py-2 text-right">$5,000</td><td class="px-3 py-2 text-right">$3,000</td><td class="px-3 py-2 text-right text-red-600">-$300</td><td class="px-3 py-2 text-right text-emerald-600 font-bold">$7,700</td></tr>
+                <tr><td class="px-3 py-2">Month 4</td><td class="px-3 py-2 text-right">5</td><td class="px-3 py-2 text-right">$5,000</td><td class="px-3 py-2 text-right">$5,000</td><td class="px-3 py-2 text-right text-red-600">-$400</td><td class="px-3 py-2 text-right text-emerald-600 font-bold">$9,600</td></tr>
+                <tr><td class="px-3 py-2">Month 5</td><td class="px-3 py-2 text-right">7</td><td class="px-3 py-2 text-right">$5,000</td><td class="px-3 py-2 text-right">$7,000</td><td class="px-3 py-2 text-right text-red-600">-$500</td><td class="px-3 py-2 text-right text-emerald-600 font-bold">$11,500</td></tr>
+                <tr class="bg-emerald-50"><td class="px-3 py-2 font-bold">Month 6</td><td class="px-3 py-2 text-right font-bold">10</td><td class="px-3 py-2 text-right">$7,500</td><td class="px-3 py-2 text-right font-bold">$10,000</td><td class="px-3 py-2 text-right text-red-600">-$700</td><td class="px-3 py-2 text-right text-emerald-600 font-bold">$16,800</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-xs text-gray-500 mt-2">Assumes $1,000/mo average retainer and $2,500 average setup fee. Setup fees are one-time. Tool costs grow ~$50/client/month. Profit includes both setup fees and retainers. After month 6, revenue is mostly recurring.</p>
+
+          <h3 class="text-lg font-bold mt-8 mb-3">Monthly Cost Breakdown (at 10 Clients)</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-4 py-3 font-semibold">Item</th><th class="text-right px-4 py-3 font-semibold">Monthly Cost</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr><td class="px-4 py-2">Vapi voice minutes (~500 min total)</td><td class="px-4 py-2 text-right">$50</td></tr>
+                <tr><td class="px-4 py-2">Twilio phone numbers (10) + SMS</td><td class="px-4 py-2 text-right">$40</td></tr>
+                <tr><td class="px-4 py-2">Claude/OpenAI API</td><td class="px-4 py-2 text-right">$50</td></tr>
+                <tr><td class="px-4 py-2">Hetzner VPS (upgraded)</td><td class="px-4 py-2 text-right">$15</td></tr>
+                <tr><td class="px-4 py-2">Smartlead</td><td class="px-4 py-2 text-right">$39</td></tr>
+                <tr><td class="px-4 py-2">Google Workspace (2 users)</td><td class="px-4 py-2 text-right">$12</td></tr>
+                <tr><td class="px-4 py-2">Domains (amortized)</td><td class="px-4 py-2 text-right">$5</td></tr>
+                <tr><td class="px-4 py-2">Stripe fees (~3% of $10K)</td><td class="px-4 py-2 text-right">$300</td></tr>
+                <tr><td class="px-4 py-2">Resend (upgraded)</td><td class="px-4 py-2 text-right">$20</td></tr>
+                <tr><td class="px-4 py-2">Buffer / misc</td><td class="px-4 py-2 text-right">$69</td></tr>
+                <tr class="bg-gray-50"><td class="px-4 py-2 font-bold">Total</td><td class="px-4 py-2 text-right font-bold">~$600-700</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout callout-cost p-4 mt-6">
+            <p class="font-semibold text-amber-800 text-sm mb-1">The Split</p>
+            <p class="text-sm text-amber-700">At $10,000/mo revenue - $700 costs = $9,300 profit. Split between two people = <strong>$4,650/person/month.</strong> At 20 clients ($20K/mo), that's $9,000+ each. This is a real, growing business — not a gig.</p>
+          </div>
+        </section>
+
+        <!-- ==================== FAQ & OBJECTIONS ==================== -->
+        <section id="faq" class="mb-16">
+          <h2 class="text-2xl font-extrabold mb-4">FAQ &amp; Handling Objections</h2>
+          <p class="text-gray-700 leading-relaxed mb-6">What prospects will ask, and exactly what to say.</p>
+
+          <div class="space-y-4">
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-gray-900 mb-2">"Can the AI handle complex questions?"</h4>
+              <p class="text-sm text-gray-700">"It handles 80-90% of calls perfectly — scheduling, service inquiries, hours, pricing questions. For anything outside its script, it takes a detailed message and sends it to you immediately. It's like having a really reliable receptionist who never misses a call and always takes perfect messages."</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-gray-900 mb-2">"What if the customer wants to talk to a real person?"</h4>
+              <p class="text-sm text-gray-700">"The agent can transfer to your cell phone or any number during business hours. After hours, it lets them know you'll call back first thing in the morning and captures all their info. The key is: instead of getting voicemail and calling your competitor, they get a helpful interaction and a confirmation text."</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-gray-900 mb-2">"That's too expensive."</h4>
+              <p class="text-sm text-gray-700">"I understand. Let me ask — how much is a single HVAC job worth? [$3,000-10,000]. If this saves you even one missed call a month, it pays for itself multiple times over. A part-time receptionist costs $2,000-3,000/month and only works 20 hours. This works 24/7/365 for a fraction of that."</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-gray-900 mb-2">"I need to think about it."</h4>
+              <p class="text-sm text-gray-700">"Totally fair. While you think about it, how many calls do you think you'll miss this week? I ask because every missed call is potentially $3,000+ walking to a competitor. How about this — I'll set up a free 1-week trial so you can see exactly how many calls it captures. If you don't see the value, no hard feelings."</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-gray-900 mb-2">"My customers won't want to talk to an AI."</h4>
+              <p class="text-sm text-gray-700">"That's the most common concern, and here's what we've found: customers prefer getting their problem solved immediately over leaving a voicemail that may or may not get returned. The AI sounds natural, is polite, and most callers don't even realize it's AI — they just know they got helped. Let me call the demo number right now so you can hear for yourself."</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-gray-900 mb-2">"I already have an answering service."</h4>
+              <p class="text-sm text-gray-700">"How much do you pay for that? [Usually $200-500/month]. What do they actually do — just take a message? Our AI does everything they do plus: books appointments directly, sends the customer a confirmation text, follows up if they don't book, and requests a Google review after the job. And it picks up in under a second — no hold music, no transfers, no 'please hold while I find someone.'"</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-gray-900 mb-2">"What if something goes wrong?"</h4>
+              <p class="text-sm text-gray-700">"We monitor every agent 24/7. If anything goes down, we get an alert before you do and fix it immediately. Plus, you can always set a backup: if the AI doesn't answer for any reason, calls automatically forward to your personal phone. You're never worse off than you are today."</p>
+            </div>
+          </div>
+
+          <h3 class="text-lg font-bold mt-10 mb-3">Internal FAQ (For You Two)</h3>
+          <div class="space-y-4">
+            <div class="bg-gray-50 rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-gray-900 mb-2">"Do we need an LLC?"</h4>
+              <p class="text-sm text-gray-700">Not to start. Operate as a sole proprietorship or partnership to start. Once you're consistently earning $3K+/month, file an LLC ($50-500 depending on state). It's a 30-minute online form. Don't let this delay you.</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-gray-900 mb-2">"What if n8n or Vapi goes down?"</h4>
+              <p class="text-sm text-gray-700">Set up monitoring (Mike builds this in Week 2). If your VPS goes down, restart it — takes 2 minutes via Hetzner dashboard. If Vapi has an outage, calls forward to the client's personal phone as backup. In 2+ years of operation, major outages are rare. Just have the fallback configured.</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-gray-900 mb-2">"What about client contracts?"</h4>
+              <p class="text-sm text-gray-700">Use a simple service agreement. Google "SaaS service agreement template" and customize. Key terms: month-to-month (no long-term contracts — reduces friction), 30-day cancellation notice, setup fee non-refundable, you own the technology. Keep it to 1-2 pages.</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-gray-900 mb-2">"What if we get more clients than we can handle?"</h4>
+              <p class="text-sm text-gray-700">Good problem. Each new client takes ~4-6 hours to onboard (after your first few). Ongoing maintenance is ~2 hours/client/month. At 20 clients = 40 hours/month of maintenance. That's very manageable for 2 people. Beyond 20, hire a part-time VA or bring on a technical contractor.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Final Motivation -->
+        <div class="mt-16 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 rounded-2xl p-8 sm:p-12 text-white text-center">
+          <h2 class="text-2xl sm:text-3xl font-extrabold mb-4">The Only Thing Left Is to Start</h2>
+          <p class="text-blue-100 leading-relaxed mb-6 max-w-xl mx-auto">You have the niche. You have the tools. You have every script, template, and daily action mapped out. The difference between this being a plan and this being a business is one thing: Day 1. Open your calendar. Block out tomorrow. Begin.</p>
+          <div class="flex justify-center gap-4 flex-wrap">
+            <a href="#week1" class="inline-flex items-center bg-white text-blue-700 font-semibold px-6 py-3 rounded-xl shadow">Go to Day 1 &rarr;</a>
+            <a href="#accounts" class="inline-flex items-center bg-blue-500 text-white font-semibold px-6 py-3 rounded-xl">All Accounts Checklist</a>
+          </div>
+          <p class="text-sm text-blue-200 mt-6">Built for Mike + Wife &middot; May 2026 &middot; Go build something real.</p>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Progress bar
+  var pb = document.getElementById('progress-bar');
+  if (pb) {
+    window.addEventListener('scroll', function() {
+      var s = window.scrollY, d = document.documentElement.scrollHeight - window.innerHeight;
+      pb.style.width = (d > 0 ? (s/d)*100 : 0) + '%';
+    }, {passive:true});
+  }
+  // Copy buttons
+  document.querySelectorAll('.copy-btn').forEach(function(b) {
+    b.addEventListener('click', function() {
+      var bl = b.closest('.prompt-block');
+      var c = bl.querySelector('code') || bl;
+      navigator.clipboard.writeText((c.textContent||c.innerText).trim()).then(function() {
+        b.textContent='Copied!'; b.classList.add('copied');
+        setTimeout(function(){b.textContent='Copy';b.classList.remove('copied');},2000);
+      });
+    });
+  });
+  // TOC active state
+  var links = document.querySelectorAll('.toc-link');
+  if (links.length) {
+    var secs = [];
+    links.forEach(function(l) {
+      var h = l.getAttribute('href');
+      if (h && h.startsWith('#')) { var s = document.querySelector(h); if (s) secs.push(s); }
+    });
+    if (secs.length) {
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            links.forEach(function(l){l.classList.remove('active');});
+            var a = document.querySelector('.toc-link[href="#'+e.target.id+'"]');
+            if (a) a.classList.add('active');
+          }
+        });
+      }, {rootMargin:'-70px 0px -60% 0px', threshold:0});
+      secs.forEach(function(s){obs.observe(s);});
+    }
+  }
+});
+</script>
+</body>
+</html>
