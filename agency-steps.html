@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agency — Detailed Setup Steps (Click-by-Click)</title>
+  <meta name="robots" content="noindex, nofollow">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 3px; }
+    .sidebar { position: sticky; top: 70px; max-height: calc(100vh - 90px); overflow-y: auto; }
+    .sidebar::-webkit-scrollbar { width: 3px; }
+    .sidebar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; }
+    .toc-link { border-left: 2px solid transparent; padding-left: 10px; transition: all 0.2s; }
+    .toc-link.active { color: #2563eb; border-left-color: #2563eb; font-weight: 600; background: rgba(37,99,235,0.05); }
+    .step-box { border-left: 3px solid #3b82f6; background: #f8fafc; padding: 1rem 1.25rem; border-radius: 0 0.5rem 0.5rem 0; margin-bottom: 0.75rem; }
+    .step-num { display: inline-flex; align-items: center; justify-content: center; width: 1.5rem; height: 1.5rem; background: #2563eb; color: white; border-radius: 50%; font-size: 0.7rem; font-weight: 700; margin-right: 0.5rem; flex-shrink: 0; }
+    .substep { padding-left: 2.25rem; position: relative; }
+    .substep::before { content: '→'; position: absolute; left: 0.75rem; color: #94a3b8; }
+    .cmd-block { background: #1e293b; color: #e2e8f0; border-radius: 0.5rem; padding: 0.75rem 1rem; font-family: 'Courier New', monospace; font-size: 0.8rem; line-height: 1.5; white-space: pre-wrap; word-wrap: break-word; position: relative; margin: 0.5rem 0; }
+    .copy-btn { position: absolute; top: 0.4rem; right: 0.4rem; background: #334155; color: #94a3b8; border: none; padding: 0.2rem 0.5rem; border-radius: 0.25rem; cursor: pointer; font-size: 0.65rem; }
+    .copy-btn:hover { background: #475569; color: #e2e8f0; }
+    .copy-btn.copied { background: #059669; color: white; }
+    .warn { background: #fef2f2; border-left-color: #ef4444; }
+    .tip { background: #ecfdf5; border-left-color: #10b981; }
+    .info { background: #eff6ff; border-left-color: #3b82f6; }
+    .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #2563eb, #d946ef); z-index: 9999; }
+    .day-badge { display: inline-flex; align-items: center; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    .mike { background: #dbeafe; color: #1e40af; }
+    .wife { background: #fae8ff; color: #86198f; }
+    .both { background: #d1fae5; color: #065f46; }
+    @media print { .sidebar, nav, .progress-bar { display: none !important; } }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased">
+  <div id="progress-bar" class="progress-bar" style="width:0%"></div>
+
+  <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14">
+      <div class="font-bold text-lg"><span class="text-blue-600">Detailed Steps</span> — Click-by-Click</div>
+      <a href="agency-plan.html" class="text-sm text-blue-600 font-semibold hover:underline">&larr; Back to Main Plan</a>
+    </div>
+  </nav>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="lg:grid lg:grid-cols-[220px_1fr] lg:gap-10">
+
+      <aside class="sidebar hidden lg:block">
+        <div class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Days</div>
+        <nav class="space-y-0.5 text-sm">
+          <a href="#day1" class="toc-link block py-1 text-gray-600 hover:text-blue-600">Day 1: Business Setup</a>
+          <a href="#day2-mike" class="toc-link block py-1 text-gray-600 hover:text-blue-600">Day 2: Tech Accounts (Mike)</a>
+          <a href="#day2-wife" class="toc-link block py-1 text-gray-600 hover:text-blue-600">Day 2: Outreach Setup (Wife)</a>
+          <a href="#day3" class="toc-link block py-1 text-gray-600 hover:text-blue-600">Day 3: Learn n8n</a>
+          <a href="#day4" class="toc-link block py-1 text-gray-600 hover:text-blue-600">Day 4: Learn Vapi</a>
+          <a href="#day5" class="toc-link block py-1 text-gray-600 hover:text-blue-600">Day 5: Build Demo Agent</a>
+          <a href="#day6" class="toc-link block py-1 text-gray-600 hover:text-blue-600">Day 6: Build n8n Workflows</a>
+          <a href="#day7" class="toc-link block py-1 text-gray-600 hover:text-blue-600">Day 7: Test + Record Demo</a>
+          <a href="#day8" class="toc-link block py-1 text-gray-600 hover:text-blue-600">Day 8: Follow-Up Automation</a>
+          <a href="#day9" class="toc-link block py-1 text-gray-600 hover:text-blue-600">Day 9: Review Automation</a>
+          <a href="#day10" class="toc-link block py-1 text-gray-600 hover:text-blue-600">Day 10: End-to-End Testing</a>
+          <a href="#day11" class="toc-link block py-1 text-gray-600 hover:text-blue-600">Day 11: Clone Templates</a>
+          <a href="#day12" class="toc-link block py-1 text-gray-600 hover:text-blue-600">Day 12: Outreach Launch Prep</a>
+          <a href="#day13" class="toc-link block py-1 text-gray-600 hover:text-blue-600">Day 13: Final Rehearsal</a>
+          <a href="#day14" class="toc-link block py-1 text-gray-600 hover:text-blue-600">Day 14: Rest + Review</a>
+          <a href="#day15" class="toc-link block py-1 text-gray-600 hover:text-blue-600">Day 15: GO LIVE</a>
+        </nav>
+      </aside>
+
+      <main class="max-w-3xl">
+
+        <div class="mb-12">
+          <p class="text-sm text-blue-600 font-semibold uppercase tracking-wide mb-2">Companion Document &middot; Every click, every field, every command</p>
+          <h1 class="text-4xl font-extrabold leading-tight">Day-by-Day Detailed Sub-Steps</h1>
+          <p class="mt-4 text-lg text-gray-600">This is the click-by-click companion to the <a href="agency-plan.html" class="text-blue-600 underline">main agency plan</a>. No step is assumed. If you need to click a button, it's listed here.</p>
+        </div>
+
+        <!-- ======================== DAY 1 ======================== -->
+        <section id="day1" class="mb-16">
+          <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-200">
+            <span class="day-badge both">Both</span>
+            <h2 class="text-2xl font-extrabold">Day 1 — Business Setup</h2>
+            <span class="text-sm text-gray-500">~3-4 hours</span>
+          </div>
+
+          <h3 class="font-bold mt-6 mb-3">1.1 Choose Your Agency Name</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>Sit down together. Brainstorm 5-10 names. Criteria: short, easy to spell, says what you do.</p>
+            <p class="substep text-sm text-gray-600 mt-1">Good examples: "Pitts Automation", "CallCapture AI", "[City] AI Solutions", "[LastName] Tech Services"</p>
+            <p class="substep text-sm text-gray-600">Bad examples: "Synergistic Quantum AI Innovations" — nobody will remember or type this</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Go to <a href="https://namecheap.com" class="text-blue-600 underline">namecheap.com</a>. Search your top 3 name choices as .com domains. Pick the one that's available.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>Final name chosen? Write it down. This is your agency name for everything that follows.</p>
+          </div>
+
+          <h3 class="font-bold mt-8 mb-3">1.2 Register Domains at Namecheap</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>Go to <a href="https://namecheap.com" class="text-blue-600 underline">namecheap.com</a> → click "Sign Up" → create account with your personal email.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Search for your agency domain (e.g., <code>pittsautomation.com</code>). Add to cart. ~$10-12/year.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>Now search and add 3 cold email sending domains. These are separate domains you'll only use for outbound email so if one gets flagged, your main domain stays clean.</p>
+            <p class="substep text-sm text-gray-600 mt-1">Example: <code>pittsauto-mail.com</code>, <code>pittsautomation-team.com</code>, <code>pitts-solutions.com</code></p>
+            <p class="substep text-sm text-gray-600">Keep them similar to your main domain so they look legit, but not identical</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>At checkout: turn OFF "WhoisGuard" auto-renew if you want to save money (it's free the first year). Turn OFF all upsells (SSL, hosting, email — you don't need them from Namecheap).</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span>Complete purchase. Total should be ~$40-50 for all 4 domains.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">6</span>After purchase: go to Dashboard → Domain List. Verify all 4 domains show "Active". You'll come back to configure DNS records later.</p>
+          </div>
+
+          <h3 class="font-bold mt-8 mb-3">1.3 Set Up Google Workspace</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>Go to <a href="https://workspace.google.com" class="text-blue-600 underline">workspace.google.com</a> → click "Get Started".</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Business name: your agency name. Number of employees: "Just you" (you can add users later).</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>When asked "Do you have a domain?": select "Yes, I have a domain I can use" → enter your main agency domain (e.g., pittsautomation.com).</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>Create your first user: <code>mike@pittsautomation.com</code>. Set a strong password.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span>Choose the "Business Starter" plan ($6/user/month). Enter payment info.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">6</span><strong>Verify domain ownership.</strong> Google will ask you to add a TXT record to your domain's DNS. Here's how:</p>
+            <p class="substep text-sm text-gray-600 mt-1">Go to Namecheap → Dashboard → Domain List → click "Manage" next to your agency domain</p>
+            <p class="substep text-sm text-gray-600">Click "Advanced DNS" tab</p>
+            <p class="substep text-sm text-gray-600">Click "Add New Record" → Type: TXT Record → Host: @ → Value: paste the Google verification string → TTL: Automatic</p>
+            <p class="substep text-sm text-gray-600">Click the green checkmark to save</p>
+            <p class="substep text-sm text-gray-600">Back in Google Workspace: click "Verify". May take 5-15 minutes to propagate.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">7</span><strong>Set up MX records</strong> (so email actually works). Google shows you the records. In Namecheap Advanced DNS, delete any existing MX records, then add these:</p>
+            <div class="cmd-block mt-2">Host: @  |  Type: MX  |  Value: ASPMX.L.GOOGLE.COM.      |  Priority: 1
+Host: @  |  Type: MX  |  Value: ALT1.ASPMX.L.GOOGLE.COM.  |  Priority: 5
+Host: @  |  Type: MX  |  Value: ALT2.ASPMX.L.GOOGLE.COM.  |  Priority: 5
+Host: @  |  Type: MX  |  Value: ALT3.ASPMX.L.GOOGLE.COM.  |  Priority: 10
+Host: @  |  Type: MX  |  Value: ALT4.ASPMX.L.GOOGLE.COM.  |  Priority: 10</div>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">8</span>Wait 15-30 minutes. Then go to <a href="https://mail.google.com" class="text-blue-600 underline">mail.google.com</a>, sign in with <code>mike@youragency.com</code>. Send a test email to your personal email. Confirm it arrives.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">9</span>In Google Admin (admin.google.com) → Users → Add new user: create your wife's email (e.g., <code>sarah@pittsautomation.com</code>). This is $6/month extra.</p>
+          </div>
+
+          <h3 class="font-bold mt-8 mb-3">1.4 Set Up Stripe</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>Go to <a href="https://stripe.com" class="text-blue-600 underline">stripe.com</a> → "Start now" → create account with your agency email.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Business type: "Individual/Sole proprietorship" (until you form an LLC).</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>Business name: your agency name. Industry: "IT Services" or "Computer Software".</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>Enter your personal details (legal name, SSN, DOB, address). Stripe requires this for payment processing compliance.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span>Add your bank account for payouts.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">6</span>Go to Stripe Dashboard → Settings → Branding → upload your agency logo (if you have one) and set brand color. This shows on invoices.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">7</span>Test: go to Dashboard → "+" → Create Invoice → make a test invoice to yourself for $1. Verify it looks right. Delete the test invoice.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">8</span>Go to Settings → Customer Portal → enable it. This lets clients update their payment method and view invoices themselves.</p>
+          </div>
+
+          <h3 class="font-bold mt-8 mb-3">1.5 Create Carrd Landing Page</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>Go to <a href="https://carrd.co" class="text-blue-600 underline">carrd.co</a> → Sign up (free tier works to start).</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Click "New Site" → choose a blank template or search for "agency" / "service" templates.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>Add these elements top to bottom:</p>
+            <p class="substep text-sm text-gray-600 mt-1"><strong>Headline:</strong> "Stop Losing $45,000/Year to Missed Calls"</p>
+            <p class="substep text-sm text-gray-600"><strong>Subheadline:</strong> "We set up AI phone agents for HVAC &amp; plumbing companies. Every call answered. Every lead captured. 24/7."</p>
+            <p class="substep text-sm text-gray-600"><strong>3 bullet points:</strong> "AI answers every call in under 1 second" / "Captures lead info and books appointments automatically" / "You get instant notifications — never miss a job again"</p>
+            <p class="substep text-sm text-gray-600"><strong>Button:</strong> Text = "Book a Free Demo" → link to your Cal.com scheduling page (you'll create this on Day 2)</p>
+            <p class="substep text-sm text-gray-600"><strong>Footer text:</strong> your agency email address</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>Click "Publish" → use the free carrd.co subdomain for now (e.g., pittsautomation.carrd.co). You can connect your custom domain later with Carrd Pro ($19/year).</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span>Visit the live URL in your browser. Verify it looks good on mobile too (resize browser window or check on your phone).</p>
+          </div>
+
+          <h3 class="font-bold mt-8 mb-3">1.6 Update LinkedIn Profiles</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>Log into LinkedIn. Click your profile photo → "View Profile".</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Click the pencil icon next to your name. Change <strong>Headline</strong> to:</p>
+            <div class="cmd-block mt-1">I help HVAC &amp; plumbing companies capture every call with AI | Founder @ [Agency Name]</div>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>Scroll to "Experience" → click "+" → Add position:</p>
+            <p class="substep text-sm text-gray-600 mt-1">Title: "Founder" or "Co-Founder"</p>
+            <p class="substep text-sm text-gray-600">Company: type your agency name → click "Create a new company page" → fill in basics (this also creates your agency's LinkedIn page)</p>
+            <p class="substep text-sm text-gray-600">Start date: this month</p>
+            <p class="substep text-sm text-gray-600">Description: "We help home service businesses stop losing jobs to missed calls. Our AI phone agents answer 24/7, capture leads, and book appointments automatically."</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>Repeat for Wife's LinkedIn profile.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span>Both of you: connect with each other, like each other's profile updates.</p>
+          </div>
+          <div class="step-box tip mt-4">
+            <p class="text-sm text-green-800"><strong>Day 1 Done.</strong> You now have: agency name, 4 domains, professional email, payment processing, a live landing page, and updated LinkedIn profiles. Take a break. Day 2 is heavier.</p>
+          </div>
+        </section>
+
+        <!-- ======================== DAY 2 — MIKE ======================== -->
+        <section id="day2-mike" class="mb-16">
+          <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-200">
+            <span class="day-badge mike">Mike</span>
+            <h2 class="text-2xl font-extrabold">Day 2 — Tech Account Setup</h2>
+            <span class="text-sm text-gray-500">~4-5 hours</span>
+          </div>
+
+          <h3 class="font-bold mt-6 mb-3">2M.1 Spin Up Hetzner VPS &amp; Install n8n</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>Go to <a href="https://accounts.hetzner.com/signUp" class="text-blue-600 underline">hetzner.com sign up</a>. Create account. Verify email. Add a payment method (credit card or PayPal).</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Go to <a href="https://console.hetzner.cloud" class="text-blue-600 underline">console.hetzner.cloud</a> → create a new project. Name it "agency".</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>Click "Add Server". Configure:</p>
+            <p class="substep text-sm text-gray-600 mt-1">Location: pick the one closest to you (e.g., Ashburn for US East)</p>
+            <p class="substep text-sm text-gray-600">Image: Ubuntu 22.04</p>
+            <p class="substep text-sm text-gray-600">Type: Shared vCPU → CX22 (2 vCPU, 4 GB RAM) — $4.85/month</p>
+            <p class="substep text-sm text-gray-600">Networking: leave defaults (public IPv4 + IPv6)</p>
+            <p class="substep text-sm text-gray-600">SSH Key: click "Add SSH Key" if you have one. If you don't know what that is, skip it and use password authentication instead</p>
+            <p class="substep text-sm text-gray-600">Name: "n8n-server"</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>Click "Create &amp; Buy Now". Wait 30 seconds. Your server appears with an IP address. <strong>Write down the IP address</strong> (e.g., 168.119.xxx.xxx). Hetzner emails you the root password.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span><strong>SSH into your server.</strong> Open Terminal (Mac) or PowerShell (Windows):</p>
+            <div class="cmd-block mt-1"><button class="copy-btn">Copy</button>ssh root@YOUR_IP_ADDRESS</div>
+            <p class="substep text-sm text-gray-600 mt-1">Type "yes" when asked about fingerprint. Enter the root password from Hetzner's email.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">6</span><strong>Install Docker and Docker Compose:</strong></p>
+            <div class="cmd-block mt-1"><button class="copy-btn">Copy</button>apt update && apt upgrade -y
+apt install -y docker.io docker-compose-v2
+systemctl enable docker
+systemctl start docker</div>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">7</span><strong>Create n8n directory and config:</strong></p>
+            <div class="cmd-block mt-1"><button class="copy-btn">Copy</button>mkdir -p /opt/n8n && cd /opt/n8n</div>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">8</span><strong>Create docker-compose.yml:</strong></p>
+            <div class="cmd-block mt-1"><button class="copy-btn">Copy</button>cat > docker-compose.yml << 'YAML'
+version: '3.8'
+services:
+  n8n:
+    image: n8nio/n8n
+    restart: always
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=admin
+      - N8N_BASIC_AUTH_PASSWORD=CHANGE_THIS_PASSWORD
+      - N8N_HOST=YOUR_IP_ADDRESS
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - GENERIC_TIMEZONE=America/New_York
+    volumes:
+      - n8n_data:/home/node/.n8n
+volumes:
+  n8n_data:
+YAML</div>
+            <p class="substep text-sm text-gray-600 mt-1"><strong>IMPORTANT:</strong> Replace <code>CHANGE_THIS_PASSWORD</code> with a real password. Replace <code>YOUR_IP_ADDRESS</code> with your Hetzner IP. Replace the timezone with yours.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">9</span><strong>Start n8n:</strong></p>
+            <div class="cmd-block mt-1"><button class="copy-btn">Copy</button>docker compose up -d</div>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">10</span><strong>Verify it works.</strong> Open your browser: <code>http://YOUR_IP_ADDRESS:5678</code>. You should see the n8n login screen. Log in with the username/password you set above.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">11</span>Once logged in, click around the interface. Create a blank workflow. Drag a node. Delete it. Just get familiar with the UI. You'll build real workflows on Days 3-4.</p>
+          </div>
+          <div class="step-box warn">
+            <p class="text-sm text-red-800"><strong>Security note:</strong> Right now n8n is running on plain HTTP. For production, you should set up HTTPS with a domain name and Let's Encrypt. This is fine for learning/testing this week. You'll harden it before going live with clients.</p>
+          </div>
+
+          <h3 class="font-bold mt-8 mb-3">2M.2 Create Vapi Account</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>Go to <a href="https://vapi.ai" class="text-blue-600 underline">vapi.ai</a> → click "Get Started" or "Sign Up".</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Sign up with your agency email (mike@youragency.com).</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>Once in the dashboard, go to "Settings" or "Billing" → add a payment method (credit card). Vapi gives you free trial credits to start.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>Go to "Account" → copy your <strong>API Key</strong>. Paste it into a secure note or password manager. You'll need this when connecting Vapi to n8n.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span>Explore the dashboard: click "Assistants" to see where you'll create voice agents. Click "Phone Numbers" to see where you'll connect Twilio. Don't create anything yet — just look around.</p>
+          </div>
+
+          <h3 class="font-bold mt-8 mb-3">2M.3 Create Twilio Account &amp; Buy Phone Number</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>Go to <a href="https://www.twilio.com/try-twilio" class="text-blue-600 underline">twilio.com/try-twilio</a> → sign up with agency email.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Verify your personal phone number (Twilio sends a verification code).</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>Answer the onboarding questions: "Which product?" → Voice. "What are you building?" → "Contact center". "Language?" → doesn't matter, pick any.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>You'll get a free trial account with ~$15 in credit. Go to Console → left sidebar → "Phone Numbers" → "Buy a Number".</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span>Search with your local area code (e.g., 555). Check "Voice" capability. Click "Search".</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">6</span>Pick any number. Click "Buy" → confirm. Cost: $1.15/month.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">7</span><strong>Save these credentials</strong> (Console → Account Info on the main dashboard page):</p>
+            <p class="substep text-sm text-gray-600 mt-1"><strong>Account SID:</strong> starts with "AC..." — copy and save</p>
+            <p class="substep text-sm text-gray-600"><strong>Auth Token:</strong> click to reveal → copy and save</p>
+            <p class="substep text-sm text-gray-600"><strong>Phone Number:</strong> your new number, e.g., +15551234567</p>
+          </div>
+          <div class="step-box info">
+            <p class="text-sm text-blue-800"><strong>Twilio trial limitation:</strong> Trial accounts can only call/text verified numbers. To remove this, upgrade your account (Console → Billing → Upgrade) and add $20 credit. Do this before Day 5 so your demo works with any phone number.</p>
+          </div>
+
+          <h3 class="font-bold mt-8 mb-3">2M.4 Create Anthropic API Account</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>Go to <a href="https://console.anthropic.com" class="text-blue-600 underline">console.anthropic.com</a> → sign up with agency email.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Go to "Settings" → "API Keys" → click "Create Key". Name it "agency-production". Copy the key and save it securely. <strong>You cannot view this key again after creation.</strong></p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>Go to "Settings" → "Billing" → add a payment method → add $10 credit. This will last weeks for testing.</p>
+          </div>
+
+          <h3 class="font-bold mt-8 mb-3">2M.5 Create Supabase Project</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>Go to <a href="https://supabase.com/dashboard" class="text-blue-600 underline">supabase.com</a> → sign up with GitHub or agency email.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Click "New Project". Organization: create one with your agency name.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>Project name: <code>agency-crm</code>. Database password: generate a strong one and <strong>save it</strong>. Region: pick closest to you. Click "Create new project". Wait 1-2 minutes.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>Once created, go to Settings → API. <strong>Save these values:</strong></p>
+            <p class="substep text-sm text-gray-600 mt-1"><strong>Project URL:</strong> looks like <code>https://abcdefg.supabase.co</code></p>
+            <p class="substep text-sm text-gray-600"><strong>anon public key:</strong> a long string starting with "eyJ..."</p>
+            <p class="substep text-sm text-gray-600"><strong>service_role key:</strong> another long string (keep this secret — it bypasses row-level security)</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span>Go to "SQL Editor" (left sidebar) → click "New Query". Paste and run this to create your leads table:</p>
+            <div class="cmd-block mt-1"><button class="copy-btn">Copy</button>CREATE TABLE leads (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  created_at TIMESTAMPTZ DEFAULT now(),
+  client_id TEXT,
+  caller_name TEXT,
+  caller_phone TEXT,
+  caller_address TEXT,
+  service_type TEXT,
+  urgency TEXT DEFAULT 'normal',
+  appointment_time TIMESTAMPTZ,
+  status TEXT DEFAULT 'new',
+  notes TEXT,
+  source TEXT DEFAULT 'phone',
+  follow_up_sent BOOLEAN DEFAULT false,
+  review_requested BOOLEAN DEFAULT false
+);
+
+CREATE TABLE clients (
+  id TEXT PRIMARY KEY,
+  business_name TEXT NOT NULL,
+  owner_name TEXT,
+  owner_email TEXT,
+  owner_phone TEXT,
+  twilio_number TEXT,
+  vapi_assistant_id TEXT,
+  google_review_link TEXT,
+  service_area TEXT,
+  services TEXT[],
+  created_at TIMESTAMPTZ DEFAULT now(),
+  active BOOLEAN DEFAULT true
+);
+
+CREATE TABLE call_logs (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  created_at TIMESTAMPTZ DEFAULT now(),
+  client_id TEXT REFERENCES clients(id),
+  lead_id UUID REFERENCES leads(id),
+  vapi_call_id TEXT,
+  duration_seconds INTEGER,
+  recording_url TEXT,
+  transcript TEXT,
+  after_hours BOOLEAN DEFAULT false
+);</div>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">6</span>Click "Run". You should see "Success" for each table. Go to "Table Editor" (left sidebar) and verify all 3 tables appear: leads, clients, call_logs.</p>
+          </div>
+
+          <h3 class="font-bold mt-8 mb-3">2M.6 Create Cal.com Account</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>Go to <a href="https://cal.com/signup" class="text-blue-600 underline">cal.com/signup</a> → sign up with agency email.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Choose your username (e.g., <code>pittsautomation</code>). This creates your booking URL: <code>cal.com/pittsautomation</code>.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>Connect your Google Calendar (it'll ask during onboarding). This prevents double-bookings.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>Create Event Type #1: click "New Event Type"</p>
+            <p class="substep text-sm text-gray-600 mt-1">Title: "15-Minute Demo Call"</p>
+            <p class="substep text-sm text-gray-600">Duration: 15 minutes</p>
+            <p class="substep text-sm text-gray-600">Location: Google Meet (auto-generated) or Zoom if you have it</p>
+            <p class="substep text-sm text-gray-600">Availability: set your working hours (e.g., Mon-Fri 9 AM - 5 PM)</p>
+            <p class="substep text-sm text-gray-600">Description: "Quick demo of our AI phone agent for home service businesses."</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span>Copy the booking link (e.g., <code>cal.com/pittsautomation/15-min-demo</code>). <strong>This is the link you'll use in cold emails and on your Carrd page.</strong></p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">6</span>Go back to your Carrd landing page → edit the "Book a Free Demo" button → paste this Cal.com link as the URL → save and publish.</p>
+          </div>
+
+          <h3 class="font-bold mt-8 mb-3">2M.7 Create Resend Account</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>Go to <a href="https://resend.com/signup" class="text-blue-600 underline">resend.com</a> → sign up with agency email.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Go to "Domains" → "Add Domain" → enter your agency domain (e.g., pittsautomation.com).</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>Resend shows you DNS records to add. Go to Namecheap → your agency domain → Advanced DNS → add each record Resend shows you (usually 3 TXT records and 1 CNAME).</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>Back in Resend → click "Verify". Wait 5-15 minutes. Status should change to "Verified".</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span>Go to "API Keys" → "Create API Key" → name it "n8n-production" → copy and save the key.</p>
+          </div>
+
+          <h3 class="font-bold mt-8 mb-3">2M.8 Create Loom Account</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>Go to <a href="https://www.loom.com/signup" class="text-blue-600 underline">loom.com</a> → sign up free with agency email.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Download the desktop app (or use the Chrome extension). Install it.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>Record a 10-second test video: click record → say "testing" → stop. Verify the video appears in your Loom library and the share link works.</p>
+          </div>
+
+          <div class="step-box tip mt-6">
+            <p class="text-sm text-green-800"><strong>Mike Day 2 Done.</strong> You now have: a running VPS with n8n, Vapi account, Twilio phone number, Claude API key, Supabase database with tables, Cal.com scheduling, Resend email, and Loom. All credentials should be saved in a password manager or secure document. Share the relevant ones with your wife (Cal.com link, Loom access).</p>
+          </div>
+        </section>
+
+        <!-- ======================== DAY 2 — WIFE ======================== -->
+        <section id="day2-wife" class="mb-16">
+          <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-200">
+            <span class="day-badge wife">Wife</span>
+            <h2 class="text-2xl font-extrabold">Day 2 — Outreach Setup</h2>
+            <span class="text-sm text-gray-500">~3-4 hours</span>
+          </div>
+
+          <h3 class="font-bold mt-6 mb-3">2W.1 Set Up Smartlead</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>Go to <a href="https://smartlead.ai" class="text-blue-600 underline">smartlead.ai</a> → click "Start Free Trial" or "Sign Up".</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Sign up with your agency email. Choose the Basic plan ($39/month). Enter payment info.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span><strong>Add your sending email accounts.</strong> Go to "Email Accounts" → "Add Account". You need to create mailboxes on your 3 sending domains first. Two options:</p>
+            <p class="substep text-sm text-gray-600 mt-1"><strong>Option A (cheapest):</strong> Go to <a href="https://www.zoho.com/mail/" class="text-blue-600 underline">Zoho Mail</a> (free for 1 user). Create an account for each sending domain: mike@pittsauto-mail.com, mike@pittsautomation-team.com, mike@pitts-solutions.com. This requires setting up MX records on each domain.</p>
+            <p class="substep text-sm text-gray-600"><strong>Option B (easier):</strong> Add each sending domain to your Google Workspace as an alias domain. Go to Google Admin → Domains → Add domain → add each sending domain → create user aliases. Cost: $0 extra (they use your existing Workspace).</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span><strong>For each sending domain, set up DNS records.</strong> Go to Namecheap → each sending domain → Advanced DNS. Add:</p>
+            <p class="substep text-sm text-gray-600 mt-1"><strong>SPF Record:</strong> Type: TXT, Host: @, Value: <code>v=spf1 include:zoho.com ~all</code> (or Google's SPF if using Google)</p>
+            <p class="substep text-sm text-gray-600"><strong>DKIM Record:</strong> Provided by Zoho/Google during setup. Type: TXT, Host: varies, Value: a long key</p>
+            <p class="substep text-sm text-gray-600"><strong>DMARC Record:</strong> Type: TXT, Host: _dmarc, Value: <code>v=DMARC1; p=none; rua=mailto:mike@youragency.com</code></p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span>Back in Smartlead → "Email Accounts" → "Add Account" → enter each sending email's SMTP/IMAP credentials. Smartlead walks you through it with a connection wizard.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">6</span><strong>Turn on Warmup for all 3 accounts.</strong> Go to each account → enable "Email Warmup". Set to: ramp-up mode, 3 emails per day increasing by 1 per day, max 40/day. <strong>This takes 14 days before you can start sending real campaigns.</strong></p>
+          </div>
+          <div class="step-box warn">
+            <p class="text-sm text-red-800"><strong>Critical:</strong> Do NOT send any cold emails until warmup has run for at least 14 days. Sending from a cold domain = instant spam folder. Be patient. Use this time to build lead lists and practice scripts.</p>
+          </div>
+
+          <h3 class="font-bold mt-8 mb-3">2W.2 Create Apollo.io Account &amp; Build Lead List</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>Go to <a href="https://app.apollo.io/#/sign-up" class="text-blue-600 underline">apollo.io</a> → sign up free with your agency email.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Once in the dashboard, click "Search" → "People" (top nav).</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>Set these filters:</p>
+            <p class="substep text-sm text-gray-600 mt-1"><strong>Job Titles:</strong> Owner, President, General Manager, Founder, CEO</p>
+            <p class="substep text-sm text-gray-600"><strong>Industry:</strong> click "Industry" filter → search for "HVAC", "Plumbing, Heating, and Air Conditioning", "Construction"</p>
+            <p class="substep text-sm text-gray-600"><strong># Employees:</strong> 1-50</p>
+            <p class="substep text-sm text-gray-600"><strong>Company Location:</strong> your city, your metro area, or your state</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>Review the results. You should see names like "John Smith, Owner at ABC Plumbing". If the results look right, click "Save Search" so you can return to it.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span>Select up to 25 people per page → click "Export" → CSV. Apollo free tier gives you ~1,200 credits/year. Export 200 leads to start.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">6</span>Open the CSV. It has: First Name, Last Name, Email, Company Name, Title, Phone, City, State, Website. <strong>Keep this file — it's your lead list.</strong></p>
+          </div>
+
+          <h3 class="font-bold mt-8 mb-3">2W.3 Google Maps Lead Scraping</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>Open Google Maps. Search: <code>HVAC companies near [your city]</code>.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>For each result, open in a new tab. Record in a spreadsheet (Google Sheets works):</p>
+            <p class="substep text-sm text-gray-600 mt-1">Column A: Business Name</p>
+            <p class="substep text-sm text-gray-600">Column B: Phone Number (from Google listing)</p>
+            <p class="substep text-sm text-gray-600">Column C: Website URL</p>
+            <p class="substep text-sm text-gray-600">Column D: Google Rating (e.g., 4.5)</p>
+            <p class="substep text-sm text-gray-600">Column E: Number of Reviews</p>
+            <p class="substep text-sm text-gray-600">Column F: City</p>
+            <p class="substep text-sm text-gray-600">Column G: Notes (e.g., "website looks outdated", "only has a phone number, no online booking")</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>Repeat search for: <code>plumbers near [your city]</code>, <code>electricians near [your city]</code>.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>Target: 50 companies from Google Maps. These are your phone call list for Week 3.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span><strong>Bonus intelligence:</strong> For each company, read their Google reviews. Search reviews for keywords: "couldn't reach", "didn't answer", "went to voicemail", "no callback", "slow response". Screenshot any you find — these are gold for personalized outreach.</p>
+          </div>
+
+          <h3 class="font-bold mt-8 mb-3">2W.4 Join Facebook Groups</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>Open Facebook. Search for these types of groups and request to join 5-10:</p>
+            <p class="substep text-sm text-gray-600 mt-1">"[Your City] Small Business Owners"</p>
+            <p class="substep text-sm text-gray-600">"[Your State] Contractors"</p>
+            <p class="substep text-sm text-gray-600">"HVAC Contractors" (national groups)</p>
+            <p class="substep text-sm text-gray-600">"Plumbing Business Owners"</p>
+            <p class="substep text-sm text-gray-600">"Home Service Business Growth"</p>
+            <p class="substep text-sm text-gray-600">"[Your City] Networking" or "[Your City] Business Network"</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Answer the join questions honestly. Don't mention your business — just say you're a local business owner.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span><strong>Do NOT post anything yet.</strong> Just observe for a few days. See what people talk about, complain about, and ask for help with. You'll post strategically starting Week 3.</p>
+          </div>
+
+          <div class="step-box tip mt-6">
+            <p class="text-sm text-green-800"><strong>Wife Day 2 Done.</strong> You now have: Smartlead account with 3 sending domains warming up, 200 leads from Apollo, 50 leads from Google Maps, and Facebook groups joined. The warmup runs automatically for the next 14 days while you and Mike build the demo.</p>
+          </div>
+        </section>
+
+        <!-- ======================== DAY 3 ======================== -->
+        <section id="day3" class="mb-16">
+          <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-200">
+            <span class="day-badge mike">Mike</span>
+            <h2 class="text-2xl font-extrabold">Day 3 — Learn n8n (Hands-On)</h2>
+            <span class="text-sm text-gray-500">~5 hours</span>
+          </div>
+
+          <h3 class="font-bold mt-6 mb-3">3.1 n8n Crash Course — Watch &amp; Follow Along</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>Go to YouTube → search "n8n getting started tutorial 2025" or "n8n beginner tutorial". Watch the official n8n channel's intro video (~20 min). <strong>Follow along in your own n8n instance</strong> — don't just watch passively.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Key concepts to understand from this video:</p>
+            <p class="substep text-sm text-gray-600 mt-1"><strong>Trigger nodes:</strong> These start a workflow (webhook, schedule, manual)</p>
+            <p class="substep text-sm text-gray-600"><strong>Action nodes:</strong> These do things (HTTP Request, send email, database query)</p>
+            <p class="substep text-sm text-gray-600"><strong>Connections:</strong> Drag from one node's output to another's input</p>
+            <p class="substep text-sm text-gray-600"><strong>Expressions:</strong> How to reference data from previous nodes (e.g., <code>{{ $json.caller_name }}</code>)</p>
+            <p class="substep text-sm text-gray-600"><strong>Credentials:</strong> How to store API keys securely in n8n</p>
+          </div>
+
+          <h3 class="font-bold mt-8 mb-3">3.2 Build Your First Practice Workflow</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>In your n8n instance → click "New Workflow" → name it "Test - Webhook to Email".</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span><strong>Add a Webhook node:</strong></p>
+            <p class="substep text-sm text-gray-600 mt-1">Click "+" → search "Webhook" → add it</p>
+            <p class="substep text-sm text-gray-600">Method: POST</p>
+            <p class="substep text-sm text-gray-600">Path: <code>test-hook</code></p>
+            <p class="substep text-sm text-gray-600">Copy the "Test URL" shown (e.g., <code>http://YOUR_IP:5678/webhook-test/test-hook</code>)</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span><strong>Add a Set node</strong> (to transform data):</p>
+            <p class="substep text-sm text-gray-600 mt-1">Click "+" after the Webhook → search "Edit Fields (Set)" → add it</p>
+            <p class="substep text-sm text-gray-600">Add a field: Name = "message", Value = <code>New webhook received from {{ $json.body.name }}</code></p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span><strong>Add a Send Email node:</strong></p>
+            <p class="substep text-sm text-gray-600 mt-1">Click "+" after Set → search "Send Email" or "Resend" → add Resend node</p>
+            <p class="substep text-sm text-gray-600">Create credentials: paste your Resend API key</p>
+            <p class="substep text-sm text-gray-600">From: <code>notifications@youragency.com</code></p>
+            <p class="substep text-sm text-gray-600">To: your personal email</p>
+            <p class="substep text-sm text-gray-600">Subject: <code>Test notification</code></p>
+            <p class="substep text-sm text-gray-600">Body: <code>{{ $json.message }}</code></p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span><strong>Test it:</strong> Click "Listen for Test Event" on the Webhook node. Then open a new browser tab and go to:</p>
+            <div class="cmd-block mt-1">Open terminal and run:
+curl -X POST http://YOUR_IP:5678/webhook-test/test-hook \
+  -H "Content-Type: application/json" \
+  -d '{"name": "Mike", "phone": "555-1234"}'</div>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">6</span>Check: Did the workflow execute? Did you receive the email? If yes, you understand the basics of n8n. If not, check node error messages and fix.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">7</span>Save the workflow. Toggle it to "Active" (top right).</p>
+          </div>
+
+          <h3 class="font-bold mt-8 mb-3">3.3 Practice: Webhook → Supabase</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>Create a new workflow: "Test - Webhook to Supabase".</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Add Webhook node (same as before, path: <code>test-supabase</code>).</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>Add Supabase node: Click "+" → search "Supabase" → "Insert Row".</p>
+            <p class="substep text-sm text-gray-600 mt-1">Create credentials: Supabase URL + service_role key (from Day 2 step 2M.5)</p>
+            <p class="substep text-sm text-gray-600">Table: <code>leads</code></p>
+            <p class="substep text-sm text-gray-600">Map fields: caller_name = <code>{{ $json.body.name }}</code>, caller_phone = <code>{{ $json.body.phone }}</code>, service_type = <code>{{ $json.body.service }}</code></p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>Test with curl:</p>
+            <div class="cmd-block mt-1"><button class="copy-btn">Copy</button>curl -X POST http://YOUR_IP:5678/webhook-test/test-supabase \
+  -H "Content-Type: application/json" \
+  -d '{"name": "Jane Doe", "phone": "555-9876", "service": "AC Repair"}'</div>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span>Go to Supabase → Table Editor → leads table. You should see "Jane Doe" as a new row. If yes, you've connected n8n to your database.</p>
+          </div>
+
+          <div class="step-box tip mt-6">
+            <p class="text-sm text-green-800"><strong>Day 3 Done.</strong> You can now: trigger workflows via webhooks, transform data, send emails, and write to your database. These are the 4 building blocks of everything you'll build for clients. Tomorrow: Vapi.</p>
+          </div>
+        </section>
+
+        <!-- ======================== DAY 4 ======================== -->
+        <section id="day4" class="mb-16">
+          <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-200">
+            <span class="day-badge mike">Mike</span>
+            <h2 class="text-2xl font-extrabold">Day 4 — Learn Vapi &amp; Connect to n8n</h2>
+            <span class="text-sm text-gray-500">~5 hours</span>
+          </div>
+
+          <h3 class="font-bold mt-6 mb-3">4.1 Vapi Fundamentals</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>Go to <a href="https://docs.vapi.ai/quickstart" class="text-blue-600 underline">docs.vapi.ai/quickstart</a>. Read the entire quickstart page (~15 min).</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Key concepts you need to understand:</p>
+            <p class="substep text-sm text-gray-600 mt-1"><strong>Assistant:</strong> The AI voice agent itself — its personality, script, and behavior</p>
+            <p class="substep text-sm text-gray-600"><strong>Phone Number:</strong> Connects a Twilio number to an assistant</p>
+            <p class="substep text-sm text-gray-600"><strong>Tools/Functions:</strong> Actions the assistant can take (book appointment, transfer call)</p>
+            <p class="substep text-sm text-gray-600"><strong>Webhook (Server URL):</strong> Where Vapi sends data when events happen (call started, call ended, function called)</p>
+            <p class="substep text-sm text-gray-600"><strong>Transcriber:</strong> Converts speech to text (Deepgram is the default, works great)</p>
+            <p class="substep text-sm text-gray-600"><strong>Model:</strong> The LLM that powers the conversation (Claude, GPT-4, etc.)</p>
+            <p class="substep text-sm text-gray-600"><strong>Voice:</strong> The text-to-speech voice (ElevenLabs, PlayHT, etc.)</p>
+          </div>
+
+          <h3 class="font-bold mt-8 mb-3">4.2 Create Your First Vapi Assistant</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>In Vapi dashboard → "Assistants" → "Create Assistant".</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Choose "Blank" template. Name it: "Test HVAC Agent".</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>Configure the <strong>Model</strong> section:</p>
+            <p class="substep text-sm text-gray-600 mt-1">Provider: Anthropic (or OpenAI)</p>
+            <p class="substep text-sm text-gray-600">Model: Claude Sonnet (or GPT-4o-mini for cheaper testing)</p>
+            <p class="substep text-sm text-gray-600">Add your Anthropic API key in the credentials section</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>Configure the <strong>System Prompt</strong> (this defines who the AI is). Paste this:</p>
+            <div class="cmd-block mt-1"><button class="copy-btn">Copy</button>You are a friendly, professional scheduling assistant for Comfort Pro HVAC, a heating and air conditioning company. Your name is Alex.
+
+Your job:
+1. Greet the caller warmly
+2. Ask how you can help them today
+3. Collect their information: full name, phone number, address, and what service they need
+4. Determine urgency: Is this an emergency (no heat in winter, no AC in summer, gas smell, water leak) or can it wait?
+5. If urgent: Tell them a technician will call back within 15 minutes
+6. If not urgent: Offer to schedule an appointment
+7. Confirm all details back to the caller
+8. Thank them and end the call
+
+Services Comfort Pro offers: AC repair, AC installation, heating repair, furnace installation, maintenance tune-ups, duct cleaning, thermostat installation.
+
+Business hours: Monday-Friday 8 AM to 6 PM, Saturday 9 AM to 2 PM. Emergency service available 24/7.
+
+Service area: Metro area and surrounding 30-mile radius.
+
+Rules:
+- Be conversational and warm, not robotic
+- If they ask about pricing, say "Pricing depends on the specific situation. Our technician can give you an exact quote when they assess the job. We never charge hidden fees."
+- If they ask something you don't know, say "Let me take down your info and have our team get back to you with that answer right away."
+- Never say you are an AI. If asked, say "I'm the scheduling assistant for Comfort Pro."
+- Keep responses brief — 1-2 sentences max. This is a phone call, not a lecture.</div>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span>Configure <strong>Voice</strong>:</p>
+            <p class="substep text-sm text-gray-600 mt-1">Provider: choose ElevenLabs or PlayHT</p>
+            <p class="substep text-sm text-gray-600">Voice: pick a natural-sounding voice. For HVAC, a friendly mid-range voice works well. Test several — click the play button to hear samples.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">6</span>Configure <strong>First Message</strong> (what the AI says when it picks up):</p>
+            <div class="cmd-block mt-1">Thanks for calling Comfort Pro HVAC, this is Alex. How can I help you today?</div>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">7</span>Click "Save".</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">8</span><strong>Test it using the Vapi web dialer.</strong> In the assistant view, there should be a "Test" or phone icon. Click it. Have a conversation with your own AI agent. Pretend to be a homeowner: "Yeah hi, my AC stopped working and it's 95 degrees in my house." See how it responds.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">9</span>Adjust the system prompt based on how the conversation went. Common fixes: "speak more briefly", "don't ask for info you already have", "confirm the appointment time more clearly". Re-test after each change.</p>
+          </div>
+
+          <h3 class="font-bold mt-8 mb-3">4.3 Connect Twilio Phone Number to Vapi</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>In Vapi dashboard → "Phone Numbers" → "Import from Twilio".</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Enter your Twilio Account SID and Auth Token (from Day 2).</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>Your Twilio phone number should appear. Select it.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>Assign your "Test HVAC Agent" assistant to this phone number.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span><strong>Call the phone number from your cell phone.</strong> You should hear your AI agent answer with "Thanks for calling Comfort Pro HVAC, this is Alex..." Have a full test conversation.</p>
+          </div>
+          <div class="step-box warn">
+            <p class="text-sm text-red-800"><strong>If the call doesn't connect:</strong> Check Twilio console for error logs (Console → Monitor → Logs). Common issue: Twilio trial account not upgraded — you can only call verified numbers on trial. Upgrade to a paid account ($20 top-up) to call any number.</p>
+          </div>
+
+          <h3 class="font-bold mt-8 mb-3">4.4 Set Up Vapi Webhook → n8n</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>In n8n → create a new workflow: "Vapi Call Handler".</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Add a Webhook node: method POST, path: <code>vapi-webhook</code>. Copy the <strong>Production URL</strong> (not test URL). It looks like: <code>http://YOUR_IP:5678/webhook/vapi-webhook</code></p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>Activate the workflow (toggle to Active).</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>In Vapi dashboard → your assistant → "Advanced" or "Server URL" → paste the n8n webhook URL.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span>Call your Twilio number again. After the call ends, check n8n → go to your workflow → "Executions" tab. You should see data from Vapi including the call transcript, caller phone number, and any data the AI collected.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">6</span>Examine the data structure. Click on the webhook execution and look at the JSON. <strong>Write down the field paths</strong> for: caller phone number, call duration, transcript, and any collected data. You'll reference these when building the full workflow tomorrow.</p>
+          </div>
+
+          <div class="step-box tip mt-6">
+            <p class="text-sm text-green-800"><strong>Day 4 Done.</strong> You can now call a phone number and have an AI answer, conduct a conversation, and send the call data to n8n. This is the core product. Days 5-6 build it into a complete system.</p>
+          </div>
+        </section>
+
+        <!-- ======================== DAY 5 ======================== -->
+        <section id="day5" class="mb-16">
+          <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-200">
+            <span class="day-badge mike">Mike</span>
+            <h2 class="text-2xl font-extrabold">Day 5 — Build the Full Demo Voice Agent</h2>
+            <span class="text-sm text-gray-500">~5-6 hours</span>
+          </div>
+
+          <h3 class="font-bold mt-6 mb-3">5.1 Refine the Vapi Assistant Script</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>Based on your Day 4 testing, update the system prompt. Common improvements:</p>
+            <p class="substep text-sm text-gray-600 mt-1">Add: "After collecting the caller's name, always use it for the rest of the conversation."</p>
+            <p class="substep text-sm text-gray-600">Add: "If the caller is upset or frustrated, acknowledge their frustration first before asking questions."</p>
+            <p class="substep text-sm text-gray-600">Add: "Always read back the phone number digit by digit to confirm."</p>
+            <p class="substep text-sm text-gray-600">Add: "End with: 'Is there anything else I can help you with?'"</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Test 5 different scenarios by calling the number:</p>
+            <p class="substep text-sm text-gray-600 mt-1">Scenario 1: "My AC is broken, it's an emergency" (urgent — should capture info quickly and promise callback)</p>
+            <p class="substep text-sm text-gray-600">Scenario 2: "I'd like to schedule a maintenance tune-up" (not urgent — should offer to book appointment)</p>
+            <p class="substep text-sm text-gray-600">Scenario 3: "How much does it cost to install a new furnace?" (pricing question — should handle gracefully)</p>
+            <p class="substep text-sm text-gray-600">Scenario 4: "Can I speak to a real person?" (transfer request — should handle with empathy)</p>
+            <p class="substep text-sm text-gray-600">Scenario 5: Incoherent / off-topic caller (should take a message and end politely)</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>After each test, review the transcript in Vapi. Adjust the system prompt. Repeat until all 5 scenarios are handled well.</p>
+          </div>
+
+          <h3 class="font-bold mt-8 mb-3">5.2 Add Function Calling (Structured Data Extraction)</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>In Vapi → your assistant → "Tools" or "Functions" section.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Add a new function called <code>capture_lead</code>. This tells the AI to extract structured data from the conversation and send it to your webhook.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>Define the function parameters:</p>
+            <div class="cmd-block mt-1"><button class="copy-btn">Copy</button>{
+  "name": "capture_lead",
+  "description": "Save the caller's information after collecting all required details",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "caller_name": {
+        "type": "string",
+        "description": "The caller's full name"
+      },
+      "caller_phone": {
+        "type": "string",
+        "description": "The caller's phone number"
+      },
+      "caller_address": {
+        "type": "string",
+        "description": "The caller's street address and city"
+      },
+      "service_type": {
+        "type": "string",
+        "description": "The service they need (e.g., AC repair, heating, installation)"
+      },
+      "urgency": {
+        "type": "string",
+        "enum": ["emergency", "normal"],
+        "description": "Whether this is an urgent/emergency request"
+      },
+      "notes": {
+        "type": "string",
+        "description": "Any additional notes about the request"
+      }
+    },
+    "required": ["caller_name", "caller_phone", "service_type", "urgency"]
+  }
+}</div>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>Set the function's server URL to your n8n webhook: <code>http://YOUR_IP:5678/webhook/vapi-webhook</code></p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span>Update the system prompt to include: "After you have collected all required information (name, phone, address, service needed, and urgency), call the capture_lead function to save the information."</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">6</span>Test: call the number, provide all your info. Check n8n executions — you should now see structured JSON with the caller's name, phone, service, etc. as clean fields, not buried in a transcript.</p>
+          </div>
+        </section>
+
+        <!-- ======================== DAY 6 ======================== -->
+        <section id="day6" class="mb-16">
+          <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-200">
+            <span class="day-badge mike">Mike</span>
+            <h2 class="text-2xl font-extrabold">Day 6 — Build n8n Post-Call Workflows</h2>
+            <span class="text-sm text-gray-500">~5 hours</span>
+          </div>
+
+          <h3 class="font-bold mt-6 mb-3">6.1 Build the Main Call Handler Workflow</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700">In n8n, open your "Vapi Call Handler" workflow. Build this flow step by step:</p>
+            <p class="text-sm text-gray-700 mt-3"><span class="step-num">1</span><strong>Webhook node</strong> (already exists) — receives data from Vapi.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span><strong>Switch node</strong> — add after webhook. Route based on Vapi event type:</p>
+            <p class="substep text-sm text-gray-600 mt-1">Condition 1: <code>{{ $json.body.message.type }}</code> equals "function-call" → route to lead capture flow</p>
+            <p class="substep text-sm text-gray-600">Condition 2: <code>{{ $json.body.message.type }}</code> equals "end-of-call-report" → route to call logging flow</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span><strong>For the function-call branch (lead capture):</strong></p>
+            <p class="substep text-sm text-gray-600 mt-1">a. Add "Edit Fields" node — extract: caller_name, caller_phone, caller_address, service_type, urgency from the function call arguments</p>
+            <p class="substep text-sm text-gray-600">b. Add "Supabase" node — Insert row into "leads" table with the extracted fields. Set client_id = "demo" for now.</p>
+            <p class="substep text-sm text-gray-600">c. Add "Twilio" node — Send SMS to the caller:</p>
+            <div class="cmd-block mt-1 ml-8"><button class="copy-btn">Copy</button>Hi {{ $json.caller_name }}, thanks for calling Comfort Pro HVAC! We've received your request for {{ $json.service_type }}. A team member will contact you shortly. Reply STOP to opt out.</div>
+            <p class="substep text-sm text-gray-600 mt-2">d. Add "Resend" node — Send email notification to the business owner:</p>
+            <div class="cmd-block mt-1 ml-8"><button class="copy-btn">Copy</button>Subject: New Lead: {{ $json.caller_name }} — {{ $json.service_type }}
+
+New lead captured by your AI phone agent:
+
+Name: {{ $json.caller_name }}
+Phone: {{ $json.caller_phone }}
+Address: {{ $json.caller_address }}
+Service: {{ $json.service_type }}
+Urgency: {{ $json.urgency }}
+Notes: {{ $json.notes }}
+
+{{ $json.urgency === 'emergency' ? '⚠️ URGENT — Call back within 15 minutes' : 'Normal priority — follow up within 24 hours' }}</div>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span><strong>For the end-of-call-report branch (call logging):</strong></p>
+            <p class="substep text-sm text-gray-600 mt-1">a. Add "Supabase" node — Insert row into "call_logs" table: vapi_call_id, duration_seconds, transcript, recording_url</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span>Save the workflow. Make sure it's Active.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">6</span><strong>Full test:</strong> Call the Twilio number. Go through an entire conversation. Provide name, phone, address, service. After hanging up, verify:</p>
+            <p class="substep text-sm text-gray-600 mt-1">✓ Lead appears in Supabase "leads" table</p>
+            <p class="substep text-sm text-gray-600">✓ You received a confirmation SMS on your cell</p>
+            <p class="substep text-sm text-gray-600">✓ You received the email notification</p>
+            <p class="substep text-sm text-gray-600">✓ Call log appears in Supabase "call_logs" table</p>
+          </div>
+          <div class="step-box info">
+            <p class="text-sm text-blue-800"><strong>Twilio SMS setup:</strong> In n8n, add Twilio credentials (Account SID + Auth Token). The Twilio node needs: From number (your Twilio number), To number (the caller's number from the webhook data), and Body (the message text).</p>
+          </div>
+        </section>
+
+        <!-- ======================== DAY 7 ======================== -->
+        <section id="day7" class="mb-16">
+          <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-200">
+            <span class="day-badge both">Both</span>
+            <h2 class="text-2xl font-extrabold">Day 7 — Test, Fix, Record Demo</h2>
+            <span class="text-sm text-gray-500">~4-5 hours</span>
+          </div>
+
+          <h3 class="font-bold mt-6 mb-3">7.1 Wife Tests as Different Callers (1-2 hours)</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>Wife: call the demo number and test these scenarios. Mike: watch the n8n executions and Supabase in real-time.</p>
+            <p class="substep text-sm text-gray-600 mt-1"><strong>Test 1:</strong> Polite customer — "Hi, I need my AC looked at, it's making a weird noise." Provide all info when asked.</p>
+            <p class="substep text-sm text-gray-600"><strong>Test 2:</strong> Panicked customer — "Oh my god, my furnace is making a banging sound and I smell gas!" Should be flagged as emergency.</p>
+            <p class="substep text-sm text-gray-600"><strong>Test 3:</strong> Vague customer — "Uh, I don't really know what's wrong, it's just not working." AI should ask clarifying questions.</p>
+            <p class="substep text-sm text-gray-600"><strong>Test 4:</strong> Price shopper — "How much for a new AC unit?" Should handle without committing to a price.</p>
+            <p class="substep text-sm text-gray-600"><strong>Test 5:</strong> Wrong number — "Is this the pizza place?" Should redirect politely.</p>
+            <p class="substep text-sm text-gray-600"><strong>Test 6:</strong> Angry customer — "I called three times and nobody answered! I'm switching companies!" Should be empathetic.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>After each call, both of you review: Did the AI handle it well? Did the SMS go out? Did the email arrive? Did the data save correctly? Note every issue.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>Mike: fix every issue found. Re-test until all 6 scenarios work smoothly.</p>
+          </div>
+
+          <h3 class="font-bold mt-8 mb-3">7.2 Record the Loom Demo (1-2 hours)</h3>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>Open Loom. Set to record: screen + camera (your face in the corner builds trust).</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Have these windows ready before recording:</p>
+            <p class="substep text-sm text-gray-600 mt-1">Window 1: Your phone (or a second tab with a softphone) ready to call the demo number</p>
+            <p class="substep text-sm text-gray-600">Window 2: Supabase dashboard with the leads table open</p>
+            <p class="substep text-sm text-gray-600">Window 3: Your email inbox</p>
+            <p class="substep text-sm text-gray-600">Window 4: Your phone's SMS app (or a screenshot ready)</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span><strong>Record this 2-3 minute flow:</strong></p>
+            <p class="substep text-sm text-gray-600 mt-1">[0:00] "Hey, I want to show you something. I'm going to call this phone number — this is an AI agent we set up for an HVAC company."</p>
+            <p class="substep text-sm text-gray-600">[0:15] Place the call. Put on speaker. Have a natural 30-second conversation. Give a name and phone number.</p>
+            <p class="substep text-sm text-gray-600">[0:45] Hang up. "Now watch what happens in real-time..."</p>
+            <p class="substep text-sm text-gray-600">[1:00] Show the lead appearing in Supabase. "The caller's info is already in the system."</p>
+            <p class="substep text-sm text-gray-600">[1:15] Show the SMS confirmation. "The customer just got a text confirmation."</p>
+            <p class="substep text-sm text-gray-600">[1:30] Show the email notification. "And the business owner gets notified instantly."</p>
+            <p class="substep text-sm text-gray-600">[1:45] "This runs 24 hours a day, 7 days a week. No missed calls, no lost jobs. Every caller gets answered in under one second."</p>
+            <p class="substep text-sm text-gray-600">[2:00] "If you'd like to see this set up for your business, book a quick call: [say your Cal.com link]."</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>Review the recording. If anything was clunky, re-record. You want this to look smooth and impressive.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span>Copy the Loom share link. <strong>This link goes in every cold email and every reply to interested prospects.</strong></p>
+          </div>
+
+          <div class="step-box tip mt-6">
+            <p class="text-sm text-green-800"><strong>Week 1 Done.</strong> You have a working AI phone agent, a complete post-call automation system, and a polished demo video. The foundation is built. Week 2 is about adding follow-up and review automation, plus prepping outreach for launch.</p>
+          </div>
+        </section>
+
+        <!-- ======================== DAYS 8-14 (condensed) ======================== -->
+        <section id="day8" class="mb-16">
+          <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-200">
+            <span class="day-badge mike">Mike</span>
+            <h2 class="text-2xl font-extrabold">Day 8 — Build Follow-Up SMS Automation</h2>
+            <span class="text-sm text-gray-500">~4 hours</span>
+          </div>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>In n8n → new workflow: "Lead Follow-Up Sequence".</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Add a <strong>Schedule Trigger</strong> node → runs every 30 minutes.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>Add <strong>Supabase</strong> node → query leads table: <code>SELECT * FROM leads WHERE status = 'new' AND follow_up_sent = false AND created_at < now() - interval '2 hours'</code></p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>Add a <strong>Loop Over Items</strong> node (to handle multiple leads).</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span>Inside the loop, add a <strong>Twilio Send SMS</strong> node:</p>
+            <div class="cmd-block mt-1 ml-4"><button class="copy-btn">Copy</button>Hi {{ $json.caller_name }}, just following up on your {{ $json.service_type }} request with Comfort Pro HVAC. Would you like to schedule a time for us to come out? Reply YES and we'll get you on the calendar.</div>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">6</span>Add a <strong>Supabase Update</strong> node → set <code>follow_up_sent = true</code> for this lead.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">7</span>Save and activate. Test by manually inserting a test lead in Supabase with a <code>created_at</code> timestamp 3 hours ago. Wait for the schedule to trigger (or manually execute). Verify you receive the follow-up SMS.</p>
+          </div>
+        </section>
+
+        <section id="day9" class="mb-16">
+          <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-200">
+            <span class="day-badge mike">Mike</span>
+            <h2 class="text-2xl font-extrabold">Day 9 — Build Review Request Automation</h2>
+            <span class="text-sm text-gray-500">~3 hours</span>
+          </div>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>New n8n workflow: "Review Request Sequence".</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span><strong>Schedule Trigger</strong> → runs daily at 6 PM.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span><strong>Supabase query</strong> → find leads where status = 'completed' AND review_requested = false AND appointment_time < now() - interval '4 hours'.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span><strong>Loop</strong> → for each lead, send SMS:</p>
+            <div class="cmd-block mt-1 ml-4"><button class="copy-btn">Copy</button>Hi {{ $json.caller_name }}, thanks for choosing Comfort Pro HVAC! If you had a good experience, we'd really appreciate a quick Google review — it helps us a lot: {{ $json.google_review_link }}
+
+Thank you! 🙏</div>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span><strong>Supabase Update</strong> → set review_requested = true.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">6</span>For the Google review link: go to Google, search the demo business name → click "Write a review" → copy that URL. For real clients, you'll get their actual Google Business review link during onboarding.</p>
+          </div>
+        </section>
+
+        <section id="day10" class="mb-16">
+          <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-200">
+            <span class="day-badge both">Both</span>
+            <h2 class="text-2xl font-extrabold">Day 10 — Full End-to-End Test</h2>
+            <span class="text-sm text-gray-500">~3 hours</span>
+          </div>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>Reset: delete all test data in Supabase (leads, call_logs). Fresh start.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Wife calls the demo number. Has a full conversation. Provides real-sounding info.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>Verify immediately: lead in Supabase ✓, SMS confirmation to caller ✓, email to owner ✓, call log saved ✓.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>Wait 2+ hours (or manually trigger the follow-up workflow). Verify follow-up SMS arrives ✓.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span>Manually update the lead status to "completed" and set an appointment_time in the past. Wait for the review workflow to trigger (or run manually). Verify review request SMS arrives ✓.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">6</span>If everything works: <strong>record an updated Loom demo</strong> showing the full 3-service flow (voice agent → follow-up → review request). This is your premium demo video.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">7</span>If anything is broken: fix it, re-test, repeat until clean.</p>
+          </div>
+        </section>
+
+        <section id="day11" class="mb-16">
+          <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-200">
+            <span class="day-badge mike">Mike</span>
+            <h2 class="text-2xl font-extrabold">Day 11 — Create Cloneable Templates</h2>
+            <span class="text-sm text-gray-500">~4 hours</span>
+          </div>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span><strong>Vapi:</strong> Go to your working assistant. Click "Duplicate" or export the JSON config. Save this as "TEMPLATE - HVAC Agent". When you get a new client, you'll duplicate this and change: business name, services, hours, first message.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span><strong>n8n:</strong> For each workflow (Call Handler, Follow-Up, Review Request), export as JSON (click "..." → "Download"). Save these files. For new clients, you import the JSON → change the Twilio number, client_id, email addresses.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span><strong>Create a client onboarding checklist</strong> in Google Docs. List everything you need from a new client and every step to set them up:</p>
+            <p class="substep text-sm text-gray-600 mt-1">□ Get onboarding form completed (business name, services, hours, service area, owner phone/email, Google review link)</p>
+            <p class="substep text-sm text-gray-600">□ Buy Twilio number with their area code</p>
+            <p class="substep text-sm text-gray-600">□ Duplicate Vapi assistant template → customize script</p>
+            <p class="substep text-sm text-gray-600">□ Connect new Twilio number to new Vapi assistant</p>
+            <p class="substep text-sm text-gray-600">□ Import n8n workflow templates → update credentials and IDs</p>
+            <p class="substep text-sm text-gray-600">□ Add client to Supabase "clients" table</p>
+            <p class="substep text-sm text-gray-600">□ Test: make a call, verify entire flow</p>
+            <p class="substep text-sm text-gray-600">□ Set up call forwarding on client's existing number</p>
+            <p class="substep text-sm text-gray-600">□ Go live</p>
+            <p class="substep text-sm text-gray-600">□ Send "You're Live!" email to client</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span><strong>Build a monitoring workflow</strong> in n8n: Schedule trigger every 6 hours → make a test API call to each active Vapi assistant → if any fail, send yourself an SMS alert.</p>
+          </div>
+        </section>
+
+        <section id="day12" class="mb-16">
+          <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-200">
+            <span class="day-badge wife">Wife</span>
+            <h2 class="text-2xl font-extrabold">Day 12 — Final Outreach Prep</h2>
+            <span class="text-sm text-gray-500">~4 hours</span>
+          </div>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span><strong>Check Smartlead warmup health.</strong> Log in → Email Accounts → check each account's warmup stats. You want: open rate 40%+, spam rate under 2%. If any account is underperforming, check the DNS records for that domain.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span><strong>Create your first campaign in Smartlead:</strong></p>
+            <p class="substep text-sm text-gray-600 mt-1">Campaigns → New Campaign → name: "HVAC [City] Batch 1"</p>
+            <p class="substep text-sm text-gray-600">Upload your first 200 leads as a CSV (from Apollo export)</p>
+            <p class="substep text-sm text-gray-600">Map columns: First Name, Last Name, Email, Company Name</p>
+            <p class="substep text-sm text-gray-600">Add your 3 email accounts to this campaign (it rotates between them)</p>
+            <p class="substep text-sm text-gray-600">Set sending schedule: Mon-Fri, 8 AM - 11 AM and 1 PM - 4 PM (your prospects' timezone)</p>
+            <p class="substep text-sm text-gray-600">Max emails per day per account: 35-40</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span><strong>Add your 3-email sequence</strong> (from the Scripts section of the main plan):</p>
+            <p class="substep text-sm text-gray-600 mt-1">Step 1: The Opener → send Day 1</p>
+            <p class="substep text-sm text-gray-600">Step 2: The Follow-Up → send Day 3 (if no reply)</p>
+            <p class="substep text-sm text-gray-600">Step 3: The Breakup → send Day 7 (if no reply)</p>
+            <p class="substep text-sm text-gray-600">Use merge tags: {{first_name}}, {{company_name}}</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span><strong>Set campaign to start on Day 15</strong> (Monday of Week 3). Do NOT start it yet — wait until warmup is complete (14+ days).</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span><strong>Prepare your phone call tracker</strong> in Google Sheets:</p>
+            <p class="substep text-sm text-gray-600 mt-1">Columns: Date | Company | Contact Name | Phone | Called? | Result (VM/Spoke/No Answer) | Email Sent? | Demo Booked? | Notes | Follow-Up Date</p>
+            <p class="substep text-sm text-gray-600">Populate it with your 50 Google Maps leads</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">6</span><strong>Practice the voicemail script</strong> out loud 10 times until it sounds natural, not scripted. Time yourself — it should be under 25 seconds.</p>
+          </div>
+        </section>
+
+        <section id="day13" class="mb-16">
+          <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-200">
+            <span class="day-badge both">Both</span>
+            <h2 class="text-2xl font-extrabold">Day 13 — Sales Rehearsal</h2>
+            <span class="text-sm text-gray-500">~3 hours</span>
+          </div>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span><strong>Role-play the demo call 3 times.</strong> Wife plays the HVAC owner, Mike pitches. Then swap. Then do it together as you would on a real call.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span><strong>Practice handling every objection</strong> from the FAQ section. Have Wife throw them at Mike randomly during the role-play. Practice until responses feel natural.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span><strong>Create a one-page PDF proposal</strong> using Google Docs or Canva. Contents:</p>
+            <p class="substep text-sm text-gray-600 mt-1">Page header: Your agency logo/name</p>
+            <p class="substep text-sm text-gray-600">Section 1: "The Problem" — contractors miss 30-40% of calls, costing $45K-$120K/year</p>
+            <p class="substep text-sm text-gray-600">Section 2: "The Solution" — AI phone agent that answers 24/7</p>
+            <p class="substep text-sm text-gray-600">Section 3: "What You Get" — bullet list of deliverables</p>
+            <p class="substep text-sm text-gray-600">Section 4: "Pricing" — 3 tiers (AI Phone Agent only / Phone + Follow-Up / Full Bundle)</p>
+            <p class="substep text-sm text-gray-600">Section 5: "Next Steps" — "Book your demo: [Cal.com link]"</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>Export as PDF. Upload to Google Drive. Get a shareable link. This PDF attaches to cold email replies and follow-ups.</p>
+          </div>
+        </section>
+
+        <section id="day14" class="mb-16">
+          <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-200">
+            <span class="day-badge both">Both</span>
+            <h2 class="text-2xl font-extrabold">Day 14 — Rest &amp; Final Review</h2>
+            <span class="text-sm text-gray-500">~1-2 hours</span>
+          </div>
+          <div class="step-box">
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>Take the morning off. Seriously. You've been grinding for 2 weeks.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>In the afternoon, do a final checklist review:</p>
+            <p class="substep text-sm text-gray-600 mt-1">✓ n8n running and all workflows active?</p>
+            <p class="substep text-sm text-gray-600">✓ Demo voice agent working when you call it?</p>
+            <p class="substep text-sm text-gray-600">✓ SMS and email notifications firing?</p>
+            <p class="substep text-sm text-gray-600">✓ Smartlead warmup healthy on all 3 accounts?</p>
+            <p class="substep text-sm text-gray-600">✓ Campaign loaded and set to start tomorrow?</p>
+            <p class="substep text-sm text-gray-600">✓ Phone call list ready with 50 companies?</p>
+            <p class="substep text-sm text-gray-600">✓ Loom demo link ready to share?</p>
+            <p class="substep text-sm text-gray-600">✓ Cal.com booking page working?</p>
+            <p class="substep text-sm text-gray-600">✓ PDF proposal ready?</p>
+            <p class="substep text-sm text-gray-600">✓ Carrd website live with Cal.com link?</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>Fix anything that's missing. Then close the laptops. Get a good night's sleep. Tomorrow you go live.</p>
+          </div>
+        </section>
+
+        <section id="day15" class="mb-16">
+          <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-200">
+            <span class="day-badge both">Both</span>
+            <h2 class="text-2xl font-extrabold">Day 15 — GO LIVE</h2>
+            <span class="text-sm text-gray-500">Full day</span>
+          </div>
+          <div class="step-box" style="border-left-color: #059669; background: #ecfdf5;">
+            <p class="text-sm text-green-800 font-bold">This is the day everything starts. Follow the daily schedule from the main plan. Here's the morning:</p>
+            <p class="text-sm text-green-800 mt-3"><span class="step-num" style="background:#059669">1</span>8:00 AM — Wife: log into Smartlead. Activate the campaign. Emails start flowing.</p>
+            <p class="text-sm text-green-800 mt-2"><span class="step-num" style="background:#059669">2</span>8:30 AM — Mike: check n8n, Vapi, and Supabase. Everything green? Good.</p>
+            <p class="text-sm text-green-800 mt-2"><span class="step-num" style="background:#059669">3</span>9:00 AM — Wife: open your phone call tracker. Pick up the phone. Call company #1 on your Google Maps list. Leave the voicemail. Send the email. Log the result. Move to #2. Repeat 10 times.</p>
+            <p class="text-sm text-green-800 mt-2"><span class="step-num" style="background:#059669">4</span>11:00 AM — Wife: check Smartlead for any replies. Respond to every reply within 1 hour.</p>
+            <p class="text-sm text-green-800 mt-2"><span class="step-num" style="background:#059669">5</span>12:00 PM — Lunch together. Compare notes. How did the calls go? Any replies yet?</p>
+            <p class="text-sm text-green-800 mt-2"><span class="step-num" style="background:#059669">6</span>1:00 PM — Continue. Mike: customize a Loom for any hot leads. Wife: follow up on any positive replies.</p>
+            <p class="text-sm text-green-800 mt-2"><span class="step-num" style="background:#059669">7</span>4:00 PM — Wife: write your first LinkedIn post (use the template from the main plan). Post it.</p>
+            <p class="text-sm text-green-800 mt-2"><span class="step-num" style="background:#059669">8</span>5:00 PM — Review the day. How many emails sent? How many calls made? Any replies? Any demos booked? Log everything.</p>
+            <p class="text-sm text-green-800 mt-3 font-bold">Repeat this daily schedule every weekday from now on. This IS the business.</p>
+          </div>
+        </section>
+
+        <div class="mt-12 bg-gradient-to-r from-blue-600 to-purple-700 rounded-2xl p-8 text-white text-center">
+          <h2 class="text-2xl font-extrabold mb-3">Every Click Documented. No Excuses Left.</h2>
+          <p class="text-blue-100 mb-6">You now have literal click-by-click instructions for every step. The only variable is whether you do it.</p>
+          <a href="agency-plan.html" class="inline-flex items-center bg-white text-blue-700 font-semibold px-6 py-3 rounded-xl shadow">&larr; Back to Main Plan</a>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var pb = document.getElementById('progress-bar');
+  if (pb) window.addEventListener('scroll', function() {
+    var s = window.scrollY, d = document.documentElement.scrollHeight - window.innerHeight;
+    pb.style.width = (d > 0 ? (s/d)*100 : 0) + '%';
+  }, {passive:true});
+  document.querySelectorAll('.copy-btn').forEach(function(b) {
+    b.addEventListener('click', function() {
+      var bl = b.closest('.cmd-block');
+      var c = bl.querySelector('code') || bl;
+      navigator.clipboard.writeText((c.textContent||c.innerText).trim()).then(function() {
+        b.textContent='Copied!'; b.classList.add('copied');
+        setTimeout(function(){b.textContent='Copy';b.classList.remove('copied');},2000);
+      });
+    });
+  });
+  var links = document.querySelectorAll('.toc-link');
+  if (links.length) {
+    var secs = [];
+    links.forEach(function(l) { var h=l.getAttribute('href'); if(h&&h.startsWith('#')){var s=document.querySelector(h);if(s)secs.push(s);} });
+    if (secs.length) {
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) { if(e.isIntersecting){links.forEach(function(l){l.classList.remove('active');});var a=document.querySelector('.toc-link[href="#'+e.target.id+'"]');if(a)a.classList.add('active');} });
+      }, {rootMargin:'-70px 0px -60% 0px',threshold:0});
+      secs.forEach(function(s){obs.observe(s);});
+    }
+  }
+});
+</script>
+</body>
+</html>
