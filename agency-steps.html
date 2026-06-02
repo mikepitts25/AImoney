@@ -52,7 +52,7 @@
         <nav class="space-y-0.5 text-sm">
           <a href="#day1" class="toc-link block py-1 text-gray-600 hover:text-blue-600">Day 1: Business Setup</a>
           <a href="#day2-mike" class="toc-link block py-1 text-gray-600 hover:text-blue-600">Day 2: Tech Accounts (Mike)</a>
-          <a href="#day2-wife" class="toc-link block py-1 text-gray-600 hover:text-blue-600">Day 2: Outreach Setup (Wife)</a>
+          <a href="#day2-wife" class="toc-link block py-1 text-gray-600 hover:text-blue-600">Day 2: Outreach Setup (Paola)</a>
           <a href="#day3" class="toc-link block py-1 text-gray-600 hover:text-blue-600">Day 3: Learn n8n</a>
           <a href="#day4" class="toc-link block py-1 text-gray-600 hover:text-blue-600">Day 4: Learn Vapi</a>
           <a href="#day5" class="toc-link block py-1 text-gray-600 hover:text-blue-600">Day 5: Build Demo Agent</a>
@@ -126,7 +126,7 @@ Host: @  |  Type: MX  |  Value: ALT2.ASPMX.L.GOOGLE.COM.  |  Priority: 5
 Host: @  |  Type: MX  |  Value: ALT3.ASPMX.L.GOOGLE.COM.  |  Priority: 10
 Host: @  |  Type: MX  |  Value: ALT4.ASPMX.L.GOOGLE.COM.  |  Priority: 10</div>
             <p class="text-sm text-gray-700 mt-2"><span class="step-num">8</span>Wait 15-30 minutes. Then go to <a href="https://mail.google.com" class="text-blue-600 underline">mail.google.com</a>, sign in with <code>mike@youragency.com</code>. Send a test email to your personal email. Confirm it arrives.</p>
-            <p class="text-sm text-gray-700 mt-2"><span class="step-num">9</span>In Google Admin (admin.google.com) → Users → Add new user: create your wife's email (e.g., <code>sarah@pittsautomation.com</code>). This is $6/month extra.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">9</span>In Google Admin (admin.google.com) → Users → Add new user: create Paola's email (e.g., <code>paola@pittsautomation.com</code>). This is $6/month extra.</p>
           </div>
 
           <h3 class="font-bold mt-8 mb-3">1.4 Set Up Stripe</h3>
@@ -165,7 +165,7 @@ Host: @  |  Type: MX  |  Value: ALT4.ASPMX.L.GOOGLE.COM.  |  Priority: 10</div>
             <p class="substep text-sm text-gray-600">Company: type your agency name → click "Create a new company page" → fill in basics (this also creates your agency's LinkedIn page)</p>
             <p class="substep text-sm text-gray-600">Start date: this month</p>
             <p class="substep text-sm text-gray-600">Description: "We help home service businesses stop losing jobs to missed calls. Our AI phone agents answer 24/7, capture leads, and book appointments automatically."</p>
-            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>Repeat for Wife's LinkedIn profile.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>Repeat for Paola's LinkedIn profile.</p>
             <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span>Both of you: connect with each other, like each other's profile updates.</p>
           </div>
           <div class="step-box tip mt-4">
@@ -356,15 +356,15 @@ CREATE TABLE call_logs (
           </div>
 
           <div class="step-box tip mt-6">
-            <p class="text-sm text-green-800"><strong>Mike Day 2 Done.</strong> You now have: a running VPS with n8n, Vapi account, Twilio phone number, Claude API key, Supabase database with tables, Cal.com scheduling, Resend email, and Loom. All credentials should be saved in a password manager or secure document. Share the relevant ones with your wife (Cal.com link, Loom access).</p>
+            <p class="text-sm text-green-800"><strong>Mike Day 2 Done.</strong> You now have: a running VPS with n8n, Vapi account, Twilio phone number, Claude API key, Supabase database with tables, Cal.com scheduling, Resend email, and Loom. All credentials should be saved in a password manager or secure document. Share the relevant ones with Paola (Cal.com link, Loom access).</p>
           </div>
         </section>
 
-        <!-- ======================== DAY 2 — WIFE ======================== -->
+        <!-- ======================== DAY 2 — PAOLA ======================== -->
         <section id="day2-wife" class="mb-16">
           <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-200">
-            <span class="day-badge wife">Wife</span>
-            <h2 class="text-2xl font-extrabold">Day 2 — Outreach Setup</h2>
+            <span class="day-badge wife">Paola</span>
+            <h2 class="text-2xl font-extrabold">Day 2 — Paola's Outreach Setup</h2>
             <span class="text-sm text-gray-500">~3-4 hours</span>
           </div>
 
@@ -430,7 +430,7 @@ CREATE TABLE call_logs (
           </div>
 
           <div class="step-box tip mt-6">
-            <p class="text-sm text-green-800"><strong>Wife Day 2 Done.</strong> You now have: Smartlead account with 3 sending domains warming up, 200 leads from Apollo, 50 leads from Google Maps, and Facebook groups joined. The warmup runs automatically for the next 14 days while you and Mike build the demo.</p>
+            <p class="text-sm text-green-800"><strong>Paola Day 2 Done.</strong> You now have: Smartlead account with 3 sending domains warming up, 200 leads from Apollo, 50 leads from Google Maps, and Facebook groups joined. The warmup runs automatically for the next 14 days while you and Mike build the demo.</p>
           </div>
         </section>
 
@@ -716,9 +716,9 @@ Notes: {{ $json.notes }}
             <span class="text-sm text-gray-500">~4-5 hours</span>
           </div>
 
-          <h3 class="font-bold mt-6 mb-3">7.1 Wife Tests as Different Callers (1-2 hours)</h3>
+          <h3 class="font-bold mt-6 mb-3">7.1 Paola Tests as Different Callers (1-2 hours)</h3>
           <div class="step-box">
-            <p class="text-sm text-gray-700"><span class="step-num">1</span>Wife: call the demo number and test these scenarios. Mike: watch the n8n executions and Supabase in real-time.</p>
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>Paola: call the demo number and test these scenarios. Mike: watch the n8n executions and Supabase in real-time.</p>
             <p class="substep text-sm text-gray-600 mt-1"><strong>Test 1:</strong> Polite customer — "Hi, I need my AC looked at, it's making a weird noise." Provide all info when asked.</p>
             <p class="substep text-sm text-gray-600"><strong>Test 2:</strong> Panicked customer — "Oh my god, my furnace is making a banging sound and I smell gas!" Should be flagged as emergency.</p>
             <p class="substep text-sm text-gray-600"><strong>Test 3:</strong> Vague customer — "Uh, I don't really know what's wrong, it's just not working." AI should ask clarifying questions.</p>
@@ -801,7 +801,7 @@ Thank you! 🙏</div>
           </div>
           <div class="step-box">
             <p class="text-sm text-gray-700"><span class="step-num">1</span>Reset: delete all test data in Supabase (leads, call_logs). Fresh start.</p>
-            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Wife calls the demo number. Has a full conversation. Provides real-sounding info.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Paola calls the demo number. Has a full conversation. Provides real-sounding info.</p>
             <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>Verify immediately: lead in Supabase ✓, SMS confirmation to caller ✓, email to owner ✓, call log saved ✓.</p>
             <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>Wait 2+ hours (or manually trigger the follow-up workflow). Verify follow-up SMS arrives ✓.</p>
             <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span>Manually update the lead status to "completed" and set an appointment_time in the past. Wait for the review workflow to trigger (or run manually). Verify review request SMS arrives ✓.</p>
@@ -836,7 +836,7 @@ Thank you! 🙏</div>
 
         <section id="day12" class="mb-16">
           <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-200">
-            <span class="day-badge wife">Wife</span>
+            <span class="day-badge wife">Paola</span>
             <h2 class="text-2xl font-extrabold">Day 12 — Final Outreach Prep</h2>
             <span class="text-sm text-gray-500">~4 hours</span>
           </div>
@@ -869,8 +869,8 @@ Thank you! 🙏</div>
             <span class="text-sm text-gray-500">~3 hours</span>
           </div>
           <div class="step-box">
-            <p class="text-sm text-gray-700"><span class="step-num">1</span><strong>Role-play the demo call 3 times.</strong> Wife plays the HVAC owner, Mike pitches. Then swap. Then do it together as you would on a real call.</p>
-            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span><strong>Practice handling every objection</strong> from the FAQ section. Have Wife throw them at Mike randomly during the role-play. Practice until responses feel natural.</p>
+            <p class="text-sm text-gray-700"><span class="step-num">1</span><strong>Role-play the demo call 3 times.</strong> Paola plays the HVAC owner, Mike pitches. Then swap. Then do it together as you would on a real call.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span><strong>Practice handling every objection</strong> from the FAQ section. Have Paola throw them at Mike randomly during the role-play. Practice until responses feel natural.</p>
             <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span><strong>Create a one-page PDF proposal</strong> using Google Docs or Canva. Contents:</p>
             <p class="substep text-sm text-gray-600 mt-1">Page header: Your agency logo/name</p>
             <p class="substep text-sm text-gray-600">Section 1: "The Problem" — contractors miss 30-40% of calls, costing $45K-$120K/year</p>
@@ -913,13 +913,13 @@ Thank you! 🙏</div>
           </div>
           <div class="step-box" style="border-left-color: #059669; background: #ecfdf5;">
             <p class="text-sm text-green-800 font-bold">This is the day everything starts. Follow the daily schedule from the main plan. Here's the morning:</p>
-            <p class="text-sm text-green-800 mt-3"><span class="step-num" style="background:#059669">1</span>8:00 AM — Wife: log into Smartlead. Activate the campaign. Emails start flowing.</p>
+            <p class="text-sm text-green-800 mt-3"><span class="step-num" style="background:#059669">1</span>8:00 AM — Paola: log into Smartlead. Activate the campaign. Emails start flowing.</p>
             <p class="text-sm text-green-800 mt-2"><span class="step-num" style="background:#059669">2</span>8:30 AM — Mike: check n8n, Vapi, and Supabase. Everything green? Good.</p>
-            <p class="text-sm text-green-800 mt-2"><span class="step-num" style="background:#059669">3</span>9:00 AM — Wife: open your phone call tracker. Pick up the phone. Call company #1 on your Google Maps list. Leave the voicemail. Send the email. Log the result. Move to #2. Repeat 10 times.</p>
-            <p class="text-sm text-green-800 mt-2"><span class="step-num" style="background:#059669">4</span>11:00 AM — Wife: check Smartlead for any replies. Respond to every reply within 1 hour.</p>
+            <p class="text-sm text-green-800 mt-2"><span class="step-num" style="background:#059669">3</span>9:00 AM — Paola: open your phone call tracker. Pick up the phone. Call company #1 on your Google Maps list. Leave the voicemail. Send the email. Log the result. Move to #2. Repeat 10 times.</p>
+            <p class="text-sm text-green-800 mt-2"><span class="step-num" style="background:#059669">4</span>11:00 AM — Paola: check Smartlead for any replies. Respond to every reply within 1 hour.</p>
             <p class="text-sm text-green-800 mt-2"><span class="step-num" style="background:#059669">5</span>12:00 PM — Lunch together. Compare notes. How did the calls go? Any replies yet?</p>
-            <p class="text-sm text-green-800 mt-2"><span class="step-num" style="background:#059669">6</span>1:00 PM — Continue. Mike: customize a Loom for any hot leads. Wife: follow up on any positive replies.</p>
-            <p class="text-sm text-green-800 mt-2"><span class="step-num" style="background:#059669">7</span>4:00 PM — Wife: write your first LinkedIn post (use the template from the main plan). Post it.</p>
+            <p class="text-sm text-green-800 mt-2"><span class="step-num" style="background:#059669">6</span>1:00 PM — Continue. Mike: customize a Loom for any hot leads. Paola: follow up on any positive replies.</p>
+            <p class="text-sm text-green-800 mt-2"><span class="step-num" style="background:#059669">7</span>4:00 PM — Paola: write your first LinkedIn post (use the template from the main plan). Post it.</p>
             <p class="text-sm text-green-800 mt-2"><span class="step-num" style="background:#059669">8</span>5:00 PM — Review the day. How many emails sent? How many calls made? Any replies? Any demos booked? Log everything.</p>
             <p class="text-sm text-green-800 mt-3 font-bold">Repeat this daily schedule every weekday from now on. This IS the business.</p>
           </div>
