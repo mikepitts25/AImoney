@@ -68,6 +68,7 @@
           <a href="#stack" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Tech Stack</a>
           <a href="#accounts" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">All Accounts Needed</a>
           <a href="#roles" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Role Split</a>
+          <a href="#leadgen" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Lead Generation</a>
           <a href="#marketing" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Marketing Channels</a>
           <a href="#referrals" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Referral Strategy</a>
           <a href="#whitelabel" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">White-Label Platform</a>
@@ -422,6 +423,244 @@
           <div class="callout callout-action p-4 mt-6">
             <p class="font-semibold text-blue-800 text-sm mb-1">Overlap</p>
             <p class="text-sm text-blue-700">Both of you should be on demo calls. Mike handles "how does it work?" and Paola handles "here's what happens next / let's get you started." Classic closer + technical expert combo.</p>
+          </div>
+        </section>
+
+        <!-- ==================== LEAD GENERATION ENGINE ==================== -->
+        <section id="leadgen" class="mb-16">
+          <h2 class="text-2xl font-extrabold mb-4">Lead Generation Engine: Finding Contractors to Sell To</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">You can't sell if you don't have people to sell to. This section covers every tool, database, and method for building a pipeline of home service business owners — from free scraping to paid intent signals. <strong>Paola owns this process.</strong> Mike builds the tech; Paola fills the pipeline.</p>
+
+          <div class="callout callout-action p-4 mb-6">
+            <p class="font-semibold text-blue-800 text-sm mb-1">The Weekly Lead Target</p>
+            <p class="text-sm text-blue-700">Aim for <strong>200-300 new verified contacts per week</strong> across all sources. At 2-5% cold email reply rate and 10-20% demo booking rate from replies, that's 1-3 demos per week. You need ~4 demos to close 1 client. This math works — but only if the pipeline stays full.</p>
+          </div>
+
+          <!-- Lead Databases -->
+          <h3 class="text-lg font-bold mt-8 mb-3">1. Lead Databases — Your Starting Point</h3>
+          <p class="text-gray-700 text-sm mb-4">These platforms have millions of business contacts searchable by industry, company size, and owner title. Start here to build your initial prospect lists.</p>
+
+          <div class="overflow-x-auto mb-4">
+            <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Tool</th><th class="text-left px-3 py-2 font-semibold">Price</th><th class="text-left px-3 py-2 font-semibold">Best Filters for Contractors</th><th class="text-left px-3 py-2 font-semibold">Verdict</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr><td class="px-3 py-2 font-semibold"><a href="https://apollo.io" class="text-blue-600 underline">Apollo.io</a></td><td class="px-3 py-2">Free (limited), $59/mo Basic</td><td class="px-3 py-2">Industry → Construction/HVAC/Plumbing, Seniority → Owner/Founder, Employees → 1-50, Geography → your metros</td><td class="px-3 py-2 text-emerald-700 font-semibold">Start here. Best value.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold"><a href="https://seamless.ai" class="text-blue-600 underline">Seamless.AI</a></td><td class="px-3 py-2">Free (50 credits), ~$147/mo</td><td class="px-3 py-2">Real-time search, unlimited credits on paid plans</td><td class="px-3 py-2">Good backup. Data quality varies more than Apollo.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold"><a href="https://uplead.com" class="text-blue-600 underline">UpLead</a></td><td class="px-3 py-2">$99/mo (170 credits)</td><td class="px-3 py-2">SIC/NAICS code filters for specific trades, 95%+ accuracy guarantee</td><td class="px-3 py-2">Good if Apollo's data quality disappoints in your area.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold"><a href="https://lusha.com" class="text-blue-600 underline">Lusha</a></td><td class="px-3 py-2">Free (50/mo), $49/mo Pro</td><td class="px-3 py-2">Best for quick phone number lookups on individual contacts</td><td class="px-3 py-2">Use alongside Apollo for phone numbers it misses.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold"><a href="https://zoominfo.com" class="text-blue-600 underline">ZoomInfo</a></td><td class="px-3 py-2">~$15K-$25K/year</td><td class="px-3 py-2">Best data quality in the industry</td><td class="px-3 py-2 text-red-600">Skip. Way too expensive for a 2-person agency.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout callout-tool p-4 mb-6">
+            <p class="font-semibold text-emerald-800 text-sm mb-1">Apollo.io Quick Start (Paola — Day 12)</p>
+            <p class="text-sm text-emerald-700">Sign up free → People Search → Filters: <strong>Job Title</strong> = "Owner" OR "President" OR "Founder" → <strong>Industry</strong> = "HVAC" OR "Plumbing" OR "Electrical" → <strong>Employee Count</strong> = 1-50 → <strong>Location</strong> = [your target city/state]. Export to CSV. You'll get 500-2,000 results per metro area. Free tier gives you enough to start; upgrade to $59/mo when you need more.</p>
+          </div>
+
+          <!-- Google Maps Scraping -->
+          <h3 class="text-lg font-bold mt-8 mb-3">2. Google Maps Scraping — Highest ROI Source</h3>
+          <p class="text-gray-700 text-sm mb-4">Every contractor in America is on Google Maps. Search "HVAC contractor [city]" and scrape every result — name, phone, website, reviews, rating. This is your single best source for local leads because <strong>you get the business phone number AND can see their Google reviews</strong> (which tells you who's growing and who's struggling).</p>
+
+          <div class="overflow-x-auto mb-4">
+            <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Tool</th><th class="text-left px-3 py-2 font-semibold">Price</th><th class="text-left px-3 py-2 font-semibold">How It Works</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr><td class="px-3 py-2 font-semibold"><a href="https://outscraper.com" class="text-blue-600 underline">Outscraper</a></td><td class="px-3 py-2">~$3 per 1,000 results</td><td class="px-3 py-2">Cloud-based, no code. Paste search query → get CSV with name, phone, website, reviews, rating. Add email enrichment for extra cost.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold"><a href="https://apify.com/compass/crawler-google-places" class="text-blue-600 underline">Apify Maps Scraper</a></td><td class="px-3 py-2">~$4 per 1,000 places ($6 with email enrichment)</td><td class="px-3 py-2">8,000+ scrapers marketplace. Has a dedicated <strong>Contractor Lead Scraper</strong> actor with verified emails built in.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold"><a href="https://leadscrape.com" class="text-blue-600 underline">Lead Scrape</a></td><td class="px-3 py-2">$247/year flat</td><td class="px-3 py-2">Desktop app. Includes email extraction + verification + tech stack data. Best value at high volume.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold"><a href="https://d7leadfinder.com" class="text-blue-600 underline">D7 Lead Finder</a></td><td class="px-3 py-2">~$49/mo</td><td class="px-3 py-2">Pulls from Google Maps + Yelp + Yellow Pages combined. Good for small businesses.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold"><a href="https://phantombuster.com" class="text-blue-600 underline">PhantomBuster</a></td><td class="px-3 py-2">$69/mo Starter</td><td class="px-3 py-2">Google Maps scraper + LinkedIn automation in one tool. Good combo for Paola.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="bg-white rounded-xl border-2 border-blue-200 p-5 mb-6">
+            <h4 class="font-bold text-blue-700 text-sm mb-2">Paola's Weekly Google Maps Workflow</h4>
+            <ol class="list-decimal list-inside text-sm text-gray-700 space-y-1">
+              <li>Pick 3-5 cities/metros to target this week</li>
+              <li>Search Google Maps: "HVAC contractor [city]" / "plumber [city]" / "electrician [city]"</li>
+              <li>Run Outscraper or Apify on each search → export to CSV</li>
+              <li>Filter results: <strong>keep businesses with 10-200 reviews</strong> (established but not huge corporations) and <strong>3.5-4.8 star rating</strong> (growing, care about reputation)</li>
+              <li>Feed business names + websites through <strong>Clay.com</strong> waterfall enrichment to find owner email + direct phone</li>
+              <li>Import verified contacts into Instantly/Smartlead for cold email campaigns</li>
+              <li><strong>Pro tip:</strong> Read their Google reviews. If customers mention "couldn't reach them" or "no one answered" — that lead is GOLD. Reference it in your outreach.</li>
+            </ol>
+          </div>
+
+          <!-- Lead Enrichment -->
+          <h3 class="text-lg font-bold mt-8 mb-3">3. Lead Enrichment — Turning Business Names into Owner Emails</h3>
+          <p class="text-gray-700 text-sm mb-4">Google Maps gives you the business phone and website. Directories give you company names. But you need the <strong>owner's direct email and cell phone</strong> to reach decision-makers. Enrichment tools solve this.</p>
+
+          <div class="overflow-x-auto mb-4">
+            <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Tool</th><th class="text-left px-3 py-2 font-semibold">Price</th><th class="text-left px-3 py-2 font-semibold">How It Works</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr class="bg-blue-50"><td class="px-3 py-2 font-semibold"><a href="https://clay.com" class="text-blue-600 underline">Clay.com</a></td><td class="px-3 py-2">$185/mo Launch, $495/mo Growth</td><td class="px-3 py-2"><strong>Waterfall enrichment</strong> — queries 75+ data providers sequentially (Apollo, Hunter, Dropcontact, RocketReach, etc.) until it finds an email/phone. Failed lookups are free. ~$0.14-$0.22 per enriched lead.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold"><a href="https://persana.ai" class="text-blue-600 underline">Persana AI</a></td><td class="px-3 py-2">~$85/mo Starter</td><td class="px-3 py-2">AI-powered enrichment + intent signals. Lighter-weight Clay alternative. Good for smaller budgets.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold"><a href="https://dropcontact.com" class="text-blue-600 underline">Dropcontact</a></td><td class="px-3 py-2">€29/mo (1,000 contacts)</td><td class="px-3 py-2">No database — algorithmically generates and verifies emails from name + company domain. GDPR-compliant.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold"><a href="https://neverbounce.com" class="text-blue-600 underline">NeverBounce</a></td><td class="px-3 py-2">$0.003-$0.008/verification</td><td class="px-3 py-2">Email verification only. Run every list through this before sending to avoid bounces and protect your sender reputation.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout callout-warning p-4 mb-6">
+            <p class="font-semibold text-red-800 text-sm mb-1">Clay Budget Warning</p>
+            <p class="text-sm text-red-700">Enriching 1,000 contacts with full data (email + phone + company) burns 15,000-25,000 Clay credits. The $185/mo Launch plan gives 2,500 credits/mo — that's only ~100-165 full enrichments. Either budget for the $495/mo Growth plan, buy credit add-ons, or use Clay selectively on your highest-priority leads and use Apollo's built-in enrichment for the rest.</p>
+          </div>
+
+          <!-- Cold Email Infrastructure -->
+          <h3 class="text-lg font-bold mt-8 mb-3">4. Cold Email Infrastructure — Deliverability Is Everything</h3>
+          <p class="text-gray-700 text-sm mb-4">Your emails are worthless if they land in spam. Google and Yahoo enforced strict DMARC policies in 2024-2025. Here's the setup that actually works in 2026.</p>
+
+          <div class="overflow-x-auto mb-4">
+            <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Platform</th><th class="text-left px-3 py-2 font-semibold">Price</th><th class="text-left px-3 py-2 font-semibold">Key Advantage</th><th class="text-left px-3 py-2 font-semibold">Verdict</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr class="bg-blue-50"><td class="px-3 py-2 font-semibold"><a href="https://instantly.ai" class="text-blue-600 underline">Instantly</a></td><td class="px-3 py-2">$97/mo Hypergrowth</td><td class="px-3 py-2">Unlimited sending accounts, largest warmup network (4.2M+ accounts), auto-rotates IPs</td><td class="px-3 py-2 font-semibold text-emerald-700">Best for agencies. Unlimited accounts = scale across clients.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold"><a href="https://smartlead.ai" class="text-blue-600 underline">Smartlead</a></td><td class="px-3 py-2">$94/mo Pro</td><td class="px-3 py-2">Best granular control. SmartSenders auto-configures SPF/DKIM/DMARC.</td><td class="px-3 py-2">Strong option. Better if you're technical and want fine control.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold"><a href="https://lemlist.com" class="text-blue-600 underline">Lemlist</a></td><td class="px-3 py-2">$99/user/mo</td><td class="px-3 py-2">LinkedIn + email multi-channel in one tool</td><td class="px-3 py-2 text-red-600">Per-seat pricing kills agency economics. Skip.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="bg-white rounded-xl border-2 border-amber-200 p-5 mb-6">
+            <h4 class="font-bold text-amber-700 text-sm mb-2">Cold Email Setup Checklist (Mike — Day 2, Paola — Day 12)</h4>
+            <div class="space-y-2 text-sm text-gray-700">
+              <p class="check-item"><strong>Buy 3-5 sending domains</strong> — variations of your brand (e.g., pittsautomation.co, getpittsai.com, pittsagency.com). $10-12 each on Namecheap.</p>
+              <p class="check-item"><strong>Set up 2-3 mailboxes per domain</strong> — mike@pittsautomation.co, paola@pittsautomation.co, hello@pittsautomation.co</p>
+              <p class="check-item"><strong>Configure DNS for every domain:</strong> SPF record, DKIM key, DMARC policy (p=none to start), custom tracking domain</p>
+              <p class="check-item"><strong>Connect all mailboxes to Instantly/Smartlead</strong> and enable warmup immediately</p>
+              <p class="check-item"><strong>Warmup for 14-21 days</strong> before sending any live campaigns. Start at 2 emails/day, ramp to 30-50/day per mailbox over 3 weeks.</p>
+              <p class="check-item"><strong>Never exceed 50 emails/day per mailbox.</strong> With 10 mailboxes across 5 domains, that's 500 emails/day max capacity.</p>
+              <p class="check-item"><strong>Verify every list</strong> through NeverBounce before sending. Bounce rate above 3% = domain reputation damage.</p>
+            </div>
+          </div>
+
+          <!-- LinkedIn Lead Gen -->
+          <h3 class="text-lg font-bold mt-8 mb-3">5. LinkedIn — Find the Decision Makers</h3>
+          <p class="text-gray-700 text-sm mb-4">LinkedIn Sales Navigator lets you search specifically for contractor business owners. Pair it with an automation tool to send personalized connection requests at scale. <strong>Paola runs this channel.</strong></p>
+
+          <div class="grid sm:grid-cols-2 gap-4 mb-4">
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-sm mb-2">Sales Navigator Filters ($99/mo)</h4>
+              <ul class="text-xs text-gray-700 space-y-1">
+                <li>• <strong>Seniority:</strong> Owner, Partner, CXO</li>
+                <li>• <strong>Company Size:</strong> 1-10, 11-50 employees</li>
+                <li>• <strong>Industry:</strong> Construction, Building Equipment Contractors</li>
+                <li>• <strong>Geography:</strong> Target specific metros/states</li>
+                <li>• <strong>Company Type:</strong> Privately Held</li>
+                <li>• <strong>Bonus:</strong> "Posted in Last 30 Days" = active users who respond at higher rates</li>
+                <li>• <strong>Bonus:</strong> "Changed Jobs in Last 90 Days" = new owners with budget to spend</li>
+              </ul>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-sm mb-2">LinkedIn Automation Tools</h4>
+              <div class="space-y-2 text-xs text-gray-700">
+                <p><strong><a href="https://expandi.io" class="text-blue-600 underline">Expandi</a></strong> ($99/mo) — Safest. Dedicated IP, mimics human behavior. LinkedIn + email sequences combined.</p>
+                <p><strong><a href="https://dripify.io" class="text-blue-600 underline">Dripify</a></strong> ($59/mo Pro) — Cheaper. Auto connection requests, follow-ups, skill endorsements.</p>
+                <p><strong><a href="https://phantombuster.com" class="text-blue-600 underline">PhantomBuster</a></strong> ($69/mo) — Sales Navigator export + auto-connect + email finder in one.</p>
+                <p class="text-red-600 font-semibold mt-2">LinkedIn limits ~100 connection requests/week. Always personalize — mention their city, trade, or a recent Google review.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contractor-Specific Directories -->
+          <h3 class="text-lg font-bold mt-8 mb-3">6. Contractor Directories &amp; Licensing Boards — Free, Authoritative Data</h3>
+          <p class="text-gray-700 text-sm mb-4">Every licensed contractor is in a state database. Trade associations maintain member directories. These are free, authoritative sources that most agencies overlook.</p>
+
+          <div class="grid sm:grid-cols-2 gap-4 mb-4">
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-sm mb-2">State Licensing Boards (Free)</h4>
+              <ul class="text-xs text-gray-700 space-y-1">
+                <li>• <strong>California CSLB:</strong> <a href="https://cslb.ca.gov" class="text-blue-600 underline">cslb.ca.gov</a> — search by license type (C-20 HVAC, C-36 Plumbing, C-10 Electrical)</li>
+                <li>• <strong>Texas TDLR:</strong> <a href="https://tdlr.texas.gov" class="text-blue-600 underline">tdlr.texas.gov</a></li>
+                <li>• <strong>Florida DBPR:</strong> <a href="https://myfloridalicense.com" class="text-blue-600 underline">myfloridalicense.com</a></li>
+                <li>• Every state has an equivalent. Search "<strong>[state] contractor license lookup</strong>"</li>
+                <li>• Gives you: business name, owner name, license number, address, sometimes phone</li>
+              </ul>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-sm mb-2">Trade Associations</h4>
+              <ul class="text-xs text-gray-700 space-y-1">
+                <li>• <strong>ACCA</strong> (Air Conditioning Contractors): <a href="https://acca.org" class="text-blue-600 underline">acca.org</a> — member directory</li>
+                <li>• <strong>PHCC</strong> (Plumbing-Heating-Cooling): <a href="https://phccweb.org" class="text-blue-600 underline">phccweb.org</a> — member directory</li>
+                <li>• <strong>NATE</strong> — HVAC certification records</li>
+                <li>• Local chapters often have public member lists with owner names and websites</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto mb-4">
+            <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Directory / Source</th><th class="text-left px-3 py-2 font-semibold">What You Get</th><th class="text-left px-3 py-2 font-semibold">How to Scrape</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr><td class="px-3 py-2">Angi / HomeAdvisor</td><td class="px-3 py-2">Contractor listings with ratings, specialties, service areas</td><td class="px-3 py-2">Outscraper or Apify actors</td></tr>
+                <tr><td class="px-3 py-2">Thumbtack</td><td class="px-3 py-2">Active pros by trade and location</td><td class="px-3 py-2">Manual or Apify</td></tr>
+                <tr><td class="px-3 py-2">Yelp</td><td class="px-3 py-2">Reviews, phone, website, hours</td><td class="px-3 py-2">Outscraper Yelp actor</td></tr>
+                <tr><td class="px-3 py-2">BBB (Better Business Bureau)</td><td class="px-3 py-2">Accredited businesses with owner names</td><td class="px-3 py-2">Manual search by category</td></tr>
+                <tr><td class="px-3 py-2">Houzz</td><td class="px-3 py-2">Contractors with project portfolios</td><td class="px-3 py-2">Apify</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout callout-tool p-4 mb-6">
+            <p class="font-semibold text-emerald-800 text-sm mb-1">Pre-Built Contractor Lists (Skip the Scraping)</p>
+            <p class="text-sm text-emerald-700">If you want leads <em>now</em> without scraping: <strong><a href="https://coldlytics.com" class="text-blue-600 underline">Coldlytics</a></strong> builds custom, human-researched lists of HVAC/plumbing owners with verified emails on demand. <strong><a href="https://bookyourdata.com" class="text-blue-600 underline">BookYourData</a></strong> has 158K+ special trade contractor contacts with a 95% accuracy guarantee. Pay per list, get leads same day.</p>
+          </div>
+
+          <!-- Intent Signals -->
+          <h3 class="text-lg font-bold mt-8 mb-3">7. Intent Signals — Find Contractors Who Are READY to Buy</h3>
+          <p class="text-gray-700 text-sm mb-4">Cold leads convert at 2-5%. <strong>Intent-based leads convert at 10-25%</strong> because these contractors are actively feeling the pain your AI solves. Hunt these signals weekly.</p>
+
+          <div class="space-y-3 mb-6">
+            <div class="bg-white rounded-xl border-l-4 border-red-400 p-4">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-xs font-bold text-red-700 bg-red-50 px-2 py-0.5 rounded-full">HIGHEST INTENT</span>
+                <h4 class="font-bold text-sm">Hiring Receptionists / Dispatchers</h4>
+              </div>
+              <p class="text-xs text-gray-700">A contractor posting a job for a receptionist is literally spending $35K-$45K/year on the exact problem your $997/mo AI solves. Search Indeed, ZipRecruiter, and LinkedIn for: "HVAC receptionist," "plumbing answering service," "dispatcher," "customer service representative" + your target cities. Scrape with Apify Indeed Scraper or check manually weekly.</p>
+            </div>
+            <div class="bg-white rounded-xl border-l-4 border-amber-400 p-4">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-xs font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full">HIGH INTENT</span>
+                <h4 class="font-bold text-sm">Bad Reviews Mentioning "No Answer" / "Never Called Back"</h4>
+              </div>
+              <p class="text-xs text-gray-700">When scraping Google Maps, export reviews too. Filter for businesses with reviews containing "couldn't reach," "no one answered," "never called back," "left a voicemail." These contractors KNOW they have a problem. Reference the specific review in your outreach: "I noticed a customer mentioned they couldn't reach you after hours..."</p>
+            </div>
+            <div class="bg-white rounded-xl border-l-4 border-blue-400 p-4">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-xs font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded-full">GROWTH SIGNAL</span>
+                <h4 class="font-bold text-sm">Running Google Ads / Growing Review Count</h4>
+              </div>
+              <p class="text-xs text-gray-700">Contractors spending on ads are growth-oriented and have budget. Check with SpyFu or SEMrush. Businesses whose review count jumped 20+ in the last 3 months are growing fast and likely overwhelmed with calls. These are your ideal clients — growing but understaffed.</p>
+            </div>
+            <div class="bg-white rounded-xl border-l-4 border-emerald-400 p-4">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">NEW BUSINESS</span>
+                <h4 class="font-bold text-sm">New Business Filings &amp; Building Permits</h4>
+              </div>
+              <p class="text-xs text-gray-700">New LLC/Corp filings filtered by NAICS codes 238220 (plumbing/HVAC) and 238210 (electrical) from your Secretary of State website. New businesses need everything — they're the most receptive to AI solutions because they haven't built bad habits yet. County building permit databases show which contractors are actively winning jobs.</p>
+            </div>
+          </div>
+
+          <!-- Recommended Stack -->
+          <h3 class="text-lg font-bold mt-8 mb-3">Paola's Lead Gen Stack — What to Actually Buy</h3>
+          <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border border-blue-200 p-6">
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm">
+                <thead><tr><th class="text-left pb-2 font-semibold">Tool</th><th class="text-left pb-2 font-semibold">Purpose</th><th class="text-right pb-2 font-semibold">Cost</th></tr></thead>
+                <tbody class="divide-y divide-blue-100">
+                  <tr><td class="py-2">Apollo.io (free → $59)</td><td class="py-2">Lead database + initial enrichment</td><td class="py-2 text-right">$0-$59/mo</td></tr>
+                  <tr><td class="py-2">Outscraper</td><td class="py-2">Google Maps scraping</td><td class="py-2 text-right">~$15-30/mo</td></tr>
+                  <tr><td class="py-2">Instantly</td><td class="py-2">Cold email sending + warmup</td><td class="py-2 text-right">$97/mo</td></tr>
+                  <tr><td class="py-2">NeverBounce</td><td class="py-2">Email verification before sending</td><td class="py-2 text-right">~$10/mo</td></tr>
+                  <tr><td class="py-2">Sending domains (5x)</td><td class="py-2">Cold email infrastructure</td><td class="py-2 text-right">~$5/mo amortized</td></tr>
+                  <tr class="font-bold"><td class="pt-3">Total — Month 1</td><td class="pt-3"></td><td class="pt-3 text-right text-blue-700">~$127-$216/mo</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="text-xs text-gray-500 mt-3"><strong>Add later (Month 2-3):</strong> LinkedIn Sales Navigator ($99/mo) + Dripify ($59/mo) for multi-channel outreach. Clay.com ($185/mo) for waterfall enrichment when you need higher-quality data. Total at scale: ~$500-$600/mo in lead gen tools — one client's first month covers it all.</p>
           </div>
         </section>
 
