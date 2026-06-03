@@ -25,6 +25,11 @@
     .callout-action { border-color: #2563eb; background: #eff6ff; }
     .callout-warning { border-color: #ef4444; background: #fef2f2; }
     .callout-script { border-color: #8b5cf6; background: #f5f3ff; }
+    .callout-plain { border-color: #06b6d4; background: #ecfeff; }
+    .step-num { width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
+    .step-mike { background: #dbeafe; color: #1d4ed8; }
+    .step-paola { background: #fae8ff; color: #a21caf; }
+    .step-both { background: #d1fae5; color: #047857; }
     .prompt-block { position: relative; background: #1e293b; color: #e2e8f0; border-radius: 0.75rem; padding: 1.25rem; font-family: 'Courier New', monospace; font-size: 0.85rem; line-height: 1.6; white-space: pre-wrap; word-wrap: break-word; }
     .copy-btn { position: absolute; top: 0.5rem; right: 0.5rem; background: #334155; color: #94a3b8; border: none; padding: 0.3rem 0.6rem; border-radius: 0.375rem; cursor: pointer; font-size: 0.7rem; transition: all 0.2s; }
     .copy-btn:hover { background: #475569; color: #e2e8f0; }
@@ -62,6 +67,7 @@
       <aside class="sidebar hidden lg:block">
         <div class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Plan</div>
         <nav class="space-y-0.5 text-sm">
+          <a href="#quickstart" class="toc-link block py-1 text-blue-600 font-bold hover:text-blue-700 rounded">Quick Start Dashboard</a>
           <a href="#overview" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Overview</a>
           <a href="#situation" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Your Advantages</a>
           <a href="#business" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Colibri Code LLC</a>
@@ -122,6 +128,217 @@
             <span class="bg-purple-50 text-purple-700 px-3 py-1 rounded-full font-semibold">Based in Germany → US Clients</span>
           </div>
         </div>
+
+        <!-- ==================== QUICK START DASHBOARD ==================== -->
+        <section id="quickstart" class="mb-16">
+          <div class="bg-gradient-to-br from-blue-600 to-purple-700 rounded-2xl p-6 sm:p-8 text-white mb-8">
+            <h2 class="text-2xl font-extrabold mb-2">Quick Start Dashboard</h2>
+            <p class="text-blue-100 text-sm mb-1">Your entire launch in 20 numbered steps. Do them in order. Each step shows <strong>who</strong> does it, <strong>what</strong> to do, and <strong>where</strong> to find the details.</p>
+            <p class="text-blue-200 text-xs">Legend: <span class="inline-flex items-center gap-1 ml-1"><span class="step-num step-mike">M</span> Mike</span> <span class="inline-flex items-center gap-1 ml-2"><span class="step-num step-paola">P</span> Paola</span> <span class="inline-flex items-center gap-1 ml-2"><span class="step-num step-both">B</span> Both</span></p>
+          </div>
+
+          <div class="space-y-2">
+            <!-- WEEK 1 -->
+            <div class="text-xs font-bold text-blue-600 uppercase tracking-widest mt-4 mb-2">Week 1 — Get Set Up</div>
+
+            <div class="flex items-start gap-3 bg-white rounded-lg border border-gray-200 p-3 hover:shadow-sm transition-shadow">
+              <span class="step-num step-both">1</span>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-gray-900">Set up business basics</p>
+                <p class="text-xs text-gray-500">Buy your agency domain, set up Google Workspace email (mike@ and paola@), create Stripe account, set up virtual address on iPostal1. All under Colibri Code LLC.</p>
+                <a href="#business" class="text-xs text-blue-600 hover:underline">Details → Business Setup</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 bg-white rounded-lg border border-gray-200 p-3 hover:shadow-sm transition-shadow">
+              <span class="step-num step-mike">2</span>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-gray-900">Create all tech accounts</p>
+                <p class="text-xs text-gray-500">Sign up for: Hetzner (server), Vapi (AI voice), Twilio (phone), Anthropic (AI brain), Supabase (database), Cal.com (scheduling). Takes ~1 hour.</p>
+                <a href="#accounts" class="text-xs text-blue-600 hover:underline">Details → All Accounts Needed</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 bg-white rounded-lg border border-gray-200 p-3 hover:shadow-sm transition-shadow">
+              <span class="step-num step-paola">3</span>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-gray-900">Create outreach accounts + buy cold email domains</p>
+                <p class="text-xs text-gray-500">Sign up for Smartlead ($39/mo) and Apollo.io (free). Buy 3 extra domains on Namecheap ($10-15 each) for sending cold emails. Set them up in Smartlead to start warming.</p>
+                <a href="#accounts" class="text-xs text-blue-600 hover:underline">Details → Outreach Tools</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 bg-white rounded-lg border border-gray-200 p-3 hover:shadow-sm transition-shadow">
+              <span class="step-num step-mike">4</span>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-gray-900">Set up your server and install the automation engine</p>
+                <p class="text-xs text-gray-500">Create a Hetzner VPS ($5/mo), install n8n (the automation tool). This is the "brain" that connects all the other tools together. Follow the setup guide linked in Week 1.</p>
+                <a href="#week1" class="text-xs text-blue-600 hover:underline">Details → Week 1, Day 2</a> · <a href="#stack" class="text-xs text-blue-600 hover:underline">What this tool does → Tech Stack</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 bg-white rounded-lg border border-gray-200 p-3 hover:shadow-sm transition-shadow">
+              <span class="step-num step-mike">5</span>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-gray-900">Learn the tools (2 days)</p>
+                <p class="text-xs text-gray-500">Watch n8n and Vapi tutorials on YouTube. Build a test workflow. Make your first test call to the AI voice agent. Understand how a call flows: phone rings → AI answers → data saved → notification sent.</p>
+                <a href="#week1" class="text-xs text-blue-600 hover:underline">Details → Week 1, Days 3-4</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 bg-white rounded-lg border border-gray-200 p-3 hover:shadow-sm transition-shadow">
+              <span class="step-num step-mike">6</span>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-gray-900">Build your demo AI phone agent</p>
+                <p class="text-xs text-gray-500">Create a fake HVAC company ("Comfort Pro HVAC"). Build an AI voice agent that answers calls, asks the right questions, and books an appointment. This is what you'll show prospects.</p>
+                <a href="#week1" class="text-xs text-blue-600 hover:underline">Details → Week 1, Day 5</a> · <a href="#agent-scripts" class="text-xs text-blue-600 hover:underline">Script template → AI Agent Scripts</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 bg-white rounded-lg border border-gray-200 p-3 hover:shadow-sm transition-shadow">
+              <span class="step-num step-both">7</span>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-gray-900">Test everything + record a Loom demo video</p>
+                <p class="text-xs text-gray-500">Paola calls the demo number pretending to be a customer. Mike watches the backend. Fix any issues. Then record a 2-minute screen recording showing: the call, the instant notification, the booked appointment.</p>
+                <a href="#week1" class="text-xs text-blue-600 hover:underline">Details → Week 1, Days 6-7</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 bg-white rounded-lg border border-gray-200 p-3 hover:shadow-sm transition-shadow">
+              <span class="step-num step-paola">8</span>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-gray-900">Build your simple agency website</p>
+                <p class="text-xs text-gray-500">Create a one-page site on Carrd.co ($19/yr). Include: what you do, who it's for, your Loom demo video, a "Book a Demo" button linked to Cal.com. Done in 2-3 hours.</p>
+                <a href="#week1" class="text-xs text-blue-600 hover:underline">Details → Week 1, Day 5</a>
+              </div>
+            </div>
+
+            <!-- WEEK 2 -->
+            <div class="text-xs font-bold text-blue-600 uppercase tracking-widest mt-6 mb-2">Week 2 — Build the Full Product + Prep Outreach</div>
+
+            <div class="flex items-start gap-3 bg-white rounded-lg border border-gray-200 p-3 hover:shadow-sm transition-shadow">
+              <span class="step-num step-mike">9</span>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-gray-900">Build the follow-up automations</p>
+                <p class="text-xs text-gray-500">Create the automated text/email sequences: missed lead follow-up, appointment reminders, and Google review requests. These run automatically after every call — no manual work needed.</p>
+                <a href="#week2" class="text-xs text-blue-600 hover:underline">Details → Week 2, Days 8-9</a> · <a href="#tech-delivery" class="text-xs text-blue-600 hover:underline">Exactly what gets built → Technology Delivery</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 bg-white rounded-lg border border-gray-200 p-3 hover:shadow-sm transition-shadow">
+              <span class="step-num step-paola">10</span>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-gray-900">Build your prospect list (500+ leads)</p>
+                <p class="text-xs text-gray-500">Use Apollo.io to search: "HVAC Owner" + "Plumbing Owner" in your target cities (Miami, Houston, Dallas, Atlanta). Export names, emails, phone numbers. Organize by city and trade. This is your outreach fuel.</p>
+                <a href="#leadgen" class="text-xs text-blue-600 hover:underline">Details → Lead Generation Engine</a> · <a href="#niche" class="text-xs text-blue-600 hover:underline">Which cities → Priority Target Cities</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 bg-white rounded-lg border border-gray-200 p-3 hover:shadow-sm transition-shadow">
+              <span class="step-num step-paola">11</span>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-gray-900">Write your cold email sequence</p>
+                <p class="text-xs text-gray-500">3-email sequence: Email 1 (the opener), Email 2 (the follow-up), Email 3 (the breakup). Copy the exact templates from the Scripts section and customize with your agency name.</p>
+                <a href="#scripts" class="text-xs text-blue-600 hover:underline">Details → Scripts &amp; Templates</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 bg-white rounded-lg border border-gray-200 p-3 hover:shadow-sm transition-shadow">
+              <span class="step-num step-mike">12</span>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-gray-900">Register for SMS compliance (A2P 10DLC)</p>
+                <p class="text-xs text-gray-500">In Twilio, register your business for SMS sending. Without this, text messages to your clients' customers will get blocked. Takes 5 minutes to submit, 2-4 weeks to approve. Do it NOW — don't wait.</p>
+                <a href="#phone-setup" class="text-xs text-blue-600 hover:underline">Details → Phone &amp; SMS Compliance</a>
+              </div>
+            </div>
+
+            <!-- WEEKS 3-4 -->
+            <div class="text-xs font-bold text-purple-600 uppercase tracking-widest mt-6 mb-2">Weeks 3-4 — Start Selling</div>
+
+            <div class="flex items-start gap-3 bg-white rounded-lg border border-gray-200 p-3 hover:shadow-sm transition-shadow">
+              <span class="step-num step-paola">13</span>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-gray-900">Launch cold email campaigns</p>
+                <p class="text-xs text-gray-500">Load your 500+ leads into Smartlead. Start sending 50 emails/day. Every morning, check for replies. Respond to interested leads within 2 hours. Goal: book 2-4 demo calls this week.</p>
+                <a href="#week3" class="text-xs text-blue-600 hover:underline">Details → Week 3</a> · <a href="#leadgen" class="text-xs text-blue-600 hover:underline">Volume targets → Lead Generation</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 bg-white rounded-lg border border-gray-200 p-3 hover:shadow-sm transition-shadow">
+              <span class="step-num step-both">14</span>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-gray-900">Start daily cold calls (3-5pm Germany time)</p>
+                <p class="text-xs text-gray-500">Call 10-15 prospects per day during your afternoon window (9-11am US Eastern). Use the "Live Test" move: call their business first, get voicemail, then call the owner and tell them what just happened.</p>
+                <a href="#leadgen" class="text-xs text-blue-600 hover:underline">Details → Cold Calling channel</a> · <a href="#roles" class="text-xs text-blue-600 hover:underline">Schedule → Weekly Schedule</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 bg-white rounded-lg border border-gray-200 p-3 hover:shadow-sm transition-shadow">
+              <span class="step-num step-both">15</span>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-gray-900">Run demo calls and close your first client</p>
+                <p class="text-xs text-gray-500">On demo calls: Mike shows how the AI works (call the demo number live). Paola handles pricing and next steps. Offer a 7-day free trial to remove risk. Target: 1 signed client by end of Week 4.</p>
+                <a href="#week4" class="text-xs text-blue-600 hover:underline">Details → Week 4</a> · <a href="#competition" class="text-xs text-blue-600 hover:underline">Why they'll choose you → Competitive Positioning</a>
+              </div>
+            </div>
+
+            <!-- MONTH 2 -->
+            <div class="text-xs font-bold text-emerald-600 uppercase tracking-widest mt-6 mb-2">Month 2 — Deliver & Grow</div>
+
+            <div class="flex items-start gap-3 bg-white rounded-lg border border-gray-200 p-3 hover:shadow-sm transition-shadow">
+              <span class="step-num step-mike">16</span>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-gray-900">Onboard your first client (48-72 hours)</p>
+                <p class="text-xs text-gray-500">Follow the onboarding SOP: get their info, build their AI agent, test it, get their approval, flip the switch. They should be live within 2-3 days of signing. Monitor every call for the first week.</p>
+                <a href="#onboarding" class="text-xs text-blue-600 hover:underline">Details → Client Onboarding SOP</a> · <a href="#phone-setup" class="text-xs text-blue-600 hover:underline">Phone setup options → Phone Setup</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 bg-white rounded-lg border border-gray-200 p-3 hover:shadow-sm transition-shadow">
+              <span class="step-num step-both">17</span>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-gray-900">Get a testimonial + case study from Client #1</p>
+                <p class="text-xs text-gray-500">At their Day 30 review: show them results ("Your agent answered X calls, booked Y appointments"). Ask for a Google review and permission to use their results as a case study. This is your #1 sales weapon.</p>
+                <a href="#case-studies" class="text-xs text-blue-600 hover:underline">Details → Case Study Factory</a> · <a href="#week5-6" class="text-xs text-blue-600 hover:underline">Full process → Weeks 5-6</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 bg-white rounded-lg border border-gray-200 p-3 hover:shadow-sm transition-shadow">
+              <span class="step-num step-paola">18</span>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-gray-900">Scale outreach using proof</p>
+                <p class="text-xs text-gray-500">Update cold emails with real results: "We just helped a Houston HVAC company capture 47 calls they were missing." Increase volume to 100-150 emails/day. Add LinkedIn outreach. Join 10+ Facebook groups for contractors.</p>
+                <a href="#leadgen" class="text-xs text-blue-600 hover:underline">Details → All 7 channels</a> · <a href="#rituals" class="text-xs text-blue-600 hover:underline">Daily routine → Rituals</a>
+              </div>
+            </div>
+
+            <!-- MONTHS 3-6 -->
+            <div class="text-xs font-bold text-amber-600 uppercase tracking-widest mt-6 mb-2">Months 3-6 — Scale to $10K/mo</div>
+
+            <div class="flex items-start gap-3 bg-white rounded-lg border border-gray-200 p-3 hover:shadow-sm transition-shadow">
+              <span class="step-num step-both">19</span>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-gray-900">Reach 5 clients, add GoHighLevel, start upselling</p>
+                <p class="text-xs text-gray-500">At 5 clients: add GoHighLevel CRM ($97/mo) to streamline client management. Start offering add-ons to existing clients: bilingual agent, review automation, seasonal campaigns. Raise prices for new clients.</p>
+                <a href="#ghl" class="text-xs text-blue-600 hover:underline">GoHighLevel details</a> · <a href="#expansion" class="text-xs text-blue-600 hover:underline">Add-on packages → Expansion</a> · <a href="#milestones" class="text-xs text-blue-600 hover:underline">Full roadmap → Milestones</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 bg-white rounded-lg border border-gray-200 p-3 hover:shadow-sm transition-shadow">
+              <span class="step-num step-both">20</span>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-gray-900">Hit 10 clients = $10K+/month recurring</p>
+                <p class="text-xs text-gray-500">Expand to new cities and sub-niches. Hire your first Colombian VA ($800-1,200/mo) — Paola manages in Spanish. Consider paid ads. Build a proper website with case studies. You're now running a real business.</p>
+                <a href="#month4-6" class="text-xs text-blue-600 hover:underline">Growth plan → Months 4-6</a> · <a href="#economics" class="text-xs text-blue-600 hover:underline">Exact numbers → Real Cost Economics</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout callout-action p-4 mt-6">
+            <p class="font-semibold text-blue-800 text-sm mb-1">How to Use This Plan</p>
+            <p class="text-sm text-blue-700">The 20 steps above are your roadmap. For each step, click the "Details" link to jump to the full instructions. Everything below this dashboard is the deep reference material — you don't need to read it all upfront. Just follow the steps, and look up details when you need them.</p>
+          </div>
+        </section>
 
         <!-- ==================== OVERVIEW ==================== -->
         <section id="overview" class="mb-16">
@@ -437,6 +654,23 @@
           <div class="callout callout-cost p-4 mt-6">
             <p class="font-semibold text-amber-800 text-sm mb-1">Monthly Cost Breakdown (Before First Client)</p>
             <p class="text-sm text-amber-700">Hetzner VPS: $5 + Smartlead: $39 + Google Workspace: $6 + Domains: ~$5 (amortized) + Vapi/Twilio (demo usage): ~$10 + LLM API (demo usage): ~$10 = <strong>~$75/month.</strong> Add Carrd Pro ($19/yr) + Namecheap domains (~$30 one-time). <strong>First client's retainer covers 6+ months of costs.</strong></p>
+          </div>
+
+          <div class="callout callout-plain p-4 mt-6">
+            <p class="font-semibold text-cyan-800 text-sm mb-2">Plain English: What Each Tool Actually Does</p>
+            <div class="text-xs text-cyan-900 space-y-2">
+              <p><strong>Vapi</strong> = the "voice" of the AI phone agent. It's the service that actually answers the phone and talks to callers. Think of it as the mouth and ears.</p>
+              <p><strong>Twilio</strong> = the phone company. It gives you real phone numbers and sends/receives texts. Think of it as the phone line Vapi talks through.</p>
+              <p><strong>n8n</strong> = the "brain" that connects everything. When a call ends, n8n takes the info and automatically does things with it — saves the lead, sends a text, emails the client. It's like a digital assistant that follows rules you set up. No code needed — you drag and drop boxes on screen.</p>
+              <p><strong>Claude API / OpenAI</strong> = the intelligence behind the voice. This is what makes the AI agent actually understand what the caller is saying and respond smartly — not just play pre-recorded messages.</p>
+              <p><strong>Supabase</strong> = a spreadsheet on steroids. It stores all your data — every call, every lead, every client. You can pull reports from it. Free for your scale.</p>
+              <p><strong>Hetzner VPS</strong> = a rented computer that runs 24/7 in the cloud. It's where n8n lives. You'll never see it physically — you access it through your browser. $5/month.</p>
+              <p><strong>Smartlead</strong> = an email sending tool designed for outreach. It sends your cold emails, warms up your email addresses so they don't go to spam, and tracks who opens/replies.</p>
+              <p><strong>LLM</strong> = "Large Language Model" — the AI that understands language. Claude and GPT-4 are LLMs. When we say "LLM cost" we mean the cost of the AI thinking during calls.</p>
+              <p><strong>TTS / STT</strong> = "Text to Speech" / "Speech to Text." TTS is how the AI turns its written response into a voice. STT is how it understands what the caller said. Both happen inside Vapi automatically.</p>
+              <p><strong>Webhook</strong> = an automatic notification between tools. When a call ends in Vapi, it sends a webhook (a little data packet) to n8n saying "hey, a call just happened, here's the info." n8n then does something with it. You set this up once and it runs forever.</p>
+              <p><strong>API key</strong> = a password that lets one tool talk to another. When Mike sets up Vapi to use Claude, he copies an API key from Anthropic into Vapi. It's how tools authenticate with each other.</p>
+            </div>
           </div>
         </section>
 
@@ -1260,6 +1494,19 @@ Worth a 2-minute demo? I can show you exactly how it sounds.
             </div>
             <p class="text-xs text-gray-500 mt-2"><strong>Priority:</strong> Score 10+ = call immediately. Score 7-9 = cold email first priority. Score &lt;7 = batch into email sequences.</p>
           </div>
+
+          <div class="callout callout-plain p-4 mt-6">
+            <p class="font-semibold text-cyan-800 text-sm mb-2">Plain English: Paola's Sales Pipeline in Simple Terms</p>
+            <div class="text-xs text-cyan-900 space-y-2">
+              <p>Think of lead generation like a funnel. Here's what Paola does each day:</p>
+              <p><strong>Step 1 — Find people (30 min/day):</strong> Go on Apollo.io, search "HVAC owner in Houston." Export 20-30 names with emails. Add them to your Smartlead campaigns. This is the fuel that keeps the engine running.</p>
+              <p><strong>Step 2 — Email them (automated):</strong> Smartlead sends your 3-email sequence automatically. You wrote the emails once. Now they go out every day to new people while you sleep.</p>
+              <p><strong>Step 3 — Reply to interested ones (15 min/day):</strong> Check Smartlead each morning. When someone replies "I'm interested" or "Tell me more" — respond within 2 hours. Goal: book them for a 15-minute demo call.</p>
+              <p><strong>Step 4 — Call cold prospects (3-5pm CET):</strong> Call 10-15 people from your list. These are HVAC/plumbing owners. Simple pitch: "I tried calling your business and got voicemail — that's costing you $50K+ a year. Want to see how we fix that?"</p>
+              <p><strong>Step 5 — Run demo calls (with Mike):</strong> When someone's interested, you both jump on a 15-min video call. Mike shows the AI in action. Paola handles pricing and "let's get started."</p>
+              <p><strong>The math:</strong> 150 emails/day × 5% reply rate = ~7-8 interested replies/week. + 50 calls/week × 30% connect × 20% interested = 3 interested/week. = ~10 hot leads/week → ~3-4 demos → 1-2 new clients/month. Rinse and repeat.</p>
+            </div>
+          </div>
         </section>
 
         <!-- ==================== CLIENT ONBOARDING SOP ==================== -->
@@ -1340,6 +1587,30 @@ Worth a 2-minute demo? I can show you exactly how it sounds.
             <p class="font-semibold text-emerald-800 text-sm mb-1">Time Investment Per Client</p>
             <p class="text-sm text-emerald-700">First client: 6-8 hours total (you're learning). Clients 2-5: 4-5 hours (template exists). Clients 6+: 2-3 hours (everything is templated, you just swap details). Monthly maintenance: 1-2 hours/client (mostly automated reports + quarterly check-ins).</p>
           </div>
+
+          <div class="callout callout-plain p-4 mt-4">
+            <p class="font-semibold text-cyan-800 text-sm mb-2">Plain English: Who Does What During Onboarding</p>
+            <div class="text-xs text-cyan-900 space-y-2">
+              <p><strong>Paola's onboarding tasks</strong> (no tech skills needed):</p>
+              <ul class="space-y-1 ml-3">
+                <li>• Send the contract and invoice via PandaDoc/Stripe (click a button, fill in client name and amount)</li>
+                <li>• Send the welcome email (copy template, swap client name)</li>
+                <li>• Run the 15-min discovery call: ask what services they offer, their hours, their service area</li>
+                <li>• Make 5-10 test calls to the AI agent pretending to be different customers</li>
+                <li>• Run the client demo call: walk them through what their customers will experience</li>
+                <li>• Send the "You're Live!" email and schedule the Day 30 check-in</li>
+              </ul>
+              <p class="mt-2"><strong>Mike's onboarding tasks</strong> (technical):</p>
+              <ul class="space-y-1 ml-3">
+                <li>• Buy the Twilio phone number and set up forwarding</li>
+                <li>• Build the AI agent script in Vapi (copy template, swap business details)</li>
+                <li>• Connect the n8n workflows (copy template, change phone number + client info)</li>
+                <li>• Fix any issues found during Paola's test calls</li>
+                <li>• Set up monitoring alerts</li>
+              </ul>
+              <p class="mt-2"><strong>Total time:</strong> Paola ~2 hours, Mike ~3 hours. You can onboard a client in a single afternoon if you work together during the 3-5pm CET window.</p>
+            </div>
+          </div>
         </section>
 
         <!-- ==================== TECHNOLOGY DELIVERY ==================== -->
@@ -1404,6 +1675,20 @@ Worth a 2-minute demo? I can show you exactly how it sounds.
             <p class="font-semibold text-amber-800 text-sm mb-1">The Margin Math</p>
             <p class="text-sm text-amber-700">Client pays $1,000/mo. Your cost: ~$50/mo. <strong>Gross margin: 95%.</strong> Even the Starter tier at $500/mo with $50 cost = 90% margin. This is why productized AI services print money.</p>
           </div>
+
+          <div class="callout callout-plain p-4 mt-6">
+            <p class="font-semibold text-cyan-800 text-sm mb-2">Plain English: How a Client's Call Actually Flows</p>
+            <div class="text-xs text-cyan-900 space-y-2">
+              <p>Here's what happens when someone calls your client's business, start to finish:</p>
+              <p><strong>1. Phone rings</strong> → The client's phone forwards to your Twilio number (because they're on a job and can't answer).</p>
+              <p><strong>2. AI picks up</strong> → Vapi answers in under 1 second. Sounds like a real receptionist: "Hi, thanks for calling [Business]. How can I help you today?"</p>
+              <p><strong>3. Conversation happens</strong> → The caller says "My AC broke" and the AI asks smart questions: what's the issue, your address, when works for a technician. The Claude/OpenAI brain behind Vapi understands the caller and responds naturally.</p>
+              <p><strong>4. Appointment booked</strong> → The AI checks available times and books the caller into the next open slot.</p>
+              <p><strong>5. Instant notifications</strong> → n8n fires automatically: saves the caller's info to Supabase, texts the caller a confirmation ("Your appointment is confirmed for Tuesday at 2pm"), and texts/emails the business owner ("New appointment booked: John Smith, broken AC, Tuesday 2pm").</p>
+              <p><strong>6. Nobody did anything manually.</strong> The entire flow — answer, converse, book, confirm, notify — happened in 2-3 minutes with zero human involvement. That's what you're selling.</p>
+              <p><strong>What Paola tells prospects:</strong> "Imagine a really smart receptionist who never takes a break, answers in 1 second, always captures the right info, and sends you a text the moment a new job is booked. That's what we set up for you."</p>
+            </div>
+          </div>
         </section>
 
         <!-- ==================== PHONE SETUP & COMPLIANCE ==================== -->
@@ -1467,6 +1752,16 @@ Worth a 2-minute demo? I can show you exactly how it sounds.
               <p class="text-xs text-red-700"><strong>Action:</strong> Register your Twilio brand + campaign in Week 1. It takes time to approve and you can't send SMS without it. Do NOT skip this.</p>
             </div>
           </div>
+
+          <div class="callout callout-plain p-4 mt-6">
+            <p class="font-semibold text-cyan-800 text-sm mb-2">Plain English: Phone Setup Explained</p>
+            <div class="text-xs text-cyan-900 space-y-2">
+              <p><strong>Call forwarding</strong> = the client keeps their phone number. They just set their phone to forward missed calls to your AI number. Like saying "if I don't answer, send the call here." Takes 5 minutes to set up. This is what you do for every new client.</p>
+              <p><strong>Number porting</strong> = moving the client's actual phone number to Twilio so you control it directly. The calls go straight to AI — no forwarding delay. But it takes 1-3 weeks and the client has to sign paperwork. Only do this for committed long-term clients.</p>
+              <p><strong>A2P 10DLC</strong> = the government and phone carriers require businesses to register before sending text messages. Without registration, your texts get blocked. It's like getting a license plate for your SMS. Register Colibri Code LLC once, and you can send texts for all clients.</p>
+              <p><strong>What Paola needs to know:</strong> When you're onboarding a client, just tell them: "We'll set up a new number in your area code. You forward your missed calls to it — takes 5 minutes on your phone. Nothing else changes for you."</p>
+            </div>
+          </div>
         </section>
 
         <!-- ==================== GOHIGHLEVEL OPTION ==================== -->
@@ -1523,6 +1818,18 @@ Worth a 2-minute demo? I can show you exactly how it sounds.
           <div class="callout callout-action p-4 mt-6">
             <p class="font-semibold text-blue-800 text-sm mb-1">When to Add GHL</p>
             <p class="text-sm text-blue-700"><strong>Not Day 1.</strong> Start with the lean stack (n8n + Vapi + Twilio). Add GHL when you have 3-5 clients and the $97/mo is easily justified. The SaaS Pro ($497/mo) makes sense at 10+ clients when you want to white-label. GHL <em>supplements</em> your AI voice agent — it doesn't replace Vapi/n8n for the actual AI calling.</p>
+          </div>
+
+          <div class="callout callout-plain p-4 mt-6">
+            <p class="font-semibold text-cyan-800 text-sm mb-2">Plain English: GoHighLevel Explained</p>
+            <div class="text-xs text-cyan-900 space-y-2">
+              <p><strong>GoHighLevel (GHL)</strong> = an all-in-one platform that replaces many of your starter tools. Think of it as a Swiss Army knife for agencies. It does CRM, email, SMS, scheduling, invoicing, and website building — all in one place.</p>
+              <p><strong>Sub-accounts</strong> = each client gets their own separate space inside your GHL. Like giving each client their own folder. They can't see each other's data.</p>
+              <p><strong>Snapshots</strong> = templates you create once. "Here's everything an HVAC client needs — emails, texts, automations, pipeline." When a new HVAC client signs up, you load the snapshot and just change their name. Turns a 4-hour setup into 30 minutes.</p>
+              <p><strong>White-label / SaaS Pro</strong> = you put YOUR brand on GHL. Instead of "GoHighLevel," clients see "Colibri AI" (or whatever you name it). They think it's YOUR software. This is a later-stage play for 10+ clients.</p>
+              <p><strong>Missed Call Text-Back</strong> = if a call to the client's number goes unanswered, GHL automatically texts the caller: "Hey, we missed your call. How can we help?" This feature alone is worth selling for $200/mo. Takes 5 minutes to turn on.</p>
+              <p><strong>What Paola needs to know:</strong> GHL is your future command center for managing all clients from one dashboard. You don't need it yet — but when you have 3-5 clients and juggling separate tools gets annoying, GHL makes everything cleaner. Paola will manage the CRM, pipelines, and client communication inside GHL.</p>
+            </div>
           </div>
         </section>
 
