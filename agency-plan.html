@@ -2015,7 +2015,7 @@ Worth a 2-minute demo? I can show you exactly how it sounds.
         <!-- ==================== EXPANSION PACKAGES ==================== -->
         <section id="expansion" class="mb-16">
           <h2 class="text-2xl font-extrabold mb-4">Expansion Packages: Upsell After Month 2</h2>
-          <p class="text-gray-700 leading-relaxed mb-6">Once a client trusts you (month 2+), these add-ons increase your average revenue per client from $1,000 to $1,500-$2,500/mo. Each takes minimal extra work because you've already built the foundation.</p>
+          <p class="text-gray-700 leading-relaxed mb-6">Once a client trusts you (month 2+), these add-ons increase your average revenue per client from $1,000 to $1,800-$2,800/mo. Each takes minimal extra work because you've already built the foundation. Sell them gradually — see the recommended sequence at the bottom.</p>
 
           <div class="grid sm:grid-cols-2 gap-4">
             <div class="bg-white rounded-xl border border-gray-200 p-5">
@@ -2089,11 +2089,61 @@ Worth a 2-minute demo? I can show you exactly how it sounds.
               <p class="text-xs text-gray-600">AI chatbot on their website that answers questions, captures leads, and books appointments — same brain as the phone agent. Embed with a single &lt;script&gt; tag.</p>
               <p class="text-xs text-gray-500 mt-2"><strong>Your cost:</strong> ~$5/mo (LLM tokens). <strong>Build time:</strong> 1 hour (Voiceflow or custom widget + Claude API).</p>
             </div>
+
+            <div class="bg-white rounded-xl border-2 border-emerald-300 p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h4 class="font-bold text-sm">I: Quote &amp; Estimate Follow-Up</h4>
+                <span class="text-xs font-bold text-emerald-600">+$200-300/mo</span>
+              </div>
+              <p class="text-xs text-gray-600">Contractors send estimates and rarely follow up — losing 40-60% of quotes to silence. AI automatically texts/calls 24-48 hours after a quote: "Hi [name], any questions about the estimate we sent? Happy to get you scheduled." Recovers thousands per month in jobs the client was already going to lose.</p>
+              <p class="text-xs text-gray-500 mt-2"><strong>Your cost:</strong> ~$8/mo. <strong>Build time:</strong> 45 min n8n workflow (trigger when quote sent → wait → follow-up sequence). <strong>This is the highest-ROI add-on — lead with it.</strong></p>
+            </div>
+
+            <div class="bg-white rounded-xl border-2 border-emerald-300 p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h4 class="font-bold text-sm">J: Maintenance Plan Sales</h4>
+                <span class="text-xs font-bold text-emerald-600">+$300-500/mo</span>
+              </div>
+              <p class="text-xs text-gray-600">AI proactively calls past customers to sell recurring service plans: "Your AC was installed 2 years ago — want to schedule a tune-up before summer?" Creates recurring revenue for the <em>client</em> (annual maintenance contracts), which makes them stickier and proves your value in hard dollars.</p>
+              <p class="text-xs text-gray-500 mt-2"><strong>Your cost:</strong> ~$30/mo (outbound call minutes). <strong>Build time:</strong> 1.5 hrs (Vapi outbound campaign + client's customer list). <strong>Pitch:</strong> "We don't just answer your phone — we help you build recurring revenue."</p>
+            </div>
+
+            <div class="bg-white rounded-xl border-2 border-blue-300 p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h4 class="font-bold text-sm">K: Google Ads Management</h4>
+                <span class="text-xs font-bold text-emerald-600">+$300-500/mo</span>
+              </div>
+              <p class="text-xs text-gray-600">Run "HVAC repair near me" / "emergency plumber [city]" ads that send high-intent leads straight to the AI agent you already built. You generate the leads AND capture them — full circle. Client pays you the management fee on top of their ad spend (which they pay Google directly).</p>
+              <p class="text-xs text-gray-500 mt-2"><strong>Your cost:</strong> ~$10/mo (your time + tools). <strong>Build time:</strong> 2-3 hrs initial setup, ~1 hr/mo management. <strong>Note:</strong> Only sell once you've nailed delivery — this requires ongoing attention. Client's ad budget ($500-2,000/mo) is separate and paid to Google.</p>
+            </div>
+
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h4 class="font-bold text-sm">L: AI Hiring Screener</h4>
+                <span class="text-xs font-bold text-emerald-600">+$200-300/mo</span>
+              </div>
+              <p class="text-xs text-gray-600">Contractors are desperate for techs and helpers. AI answers applicant calls, asks screening questions (experience, license, availability, can they pass a drug test), and forwards only qualified candidates to the owner. A totally different value prop that opens a second buying conversation with the same client.</p>
+              <p class="text-xs text-gray-500 mt-2"><strong>Your cost:</strong> ~$5/mo. <strong>Build time:</strong> 1 hr (separate Vapi agent + screening script). <strong>Pitch:</strong> "Same way we never let a customer call go unanswered — we'll never let a good applicant slip away either."</p>
+            </div>
+
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h4 class="font-bold text-sm">M: Text-to-Pay Invoicing</h4>
+                <span class="text-xs font-bold text-emerald-600">+$100-150/mo</span>
+              </div>
+              <p class="text-xs text-gray-600">After a job is marked complete, AI automatically texts the customer a payment link (Stripe). Cuts the "check is in the mail" delay and gets your client paid days or weeks faster. Faster cash flow is something every contractor feels immediately.</p>
+              <p class="text-xs text-gray-500 mt-2"><strong>Your cost:</strong> ~$3/mo in SMS. <strong>Build time:</strong> 30 min n8n workflow (job complete trigger → Stripe payment link → SMS).</p>
+            </div>
           </div>
 
           <div class="callout callout-cost p-4 mt-6">
             <p class="font-semibold text-amber-800 text-sm mb-1">Upsell Math</p>
-            <p class="text-sm text-amber-700">If 50% of your clients add 2 expansion packages averaging +$300/mo, your average revenue per client goes from $1,000 → $1,300. At 15 clients: $19,500/mo instead of $15,000. That extra $4,500/mo costs you almost nothing to deliver because it's all automated.</p>
+            <p class="text-sm text-amber-700">With 13 add-ons available, most clients adopt 2-4 over their first year. If your average client adds $800/mo in expansions, average revenue per client jumps from $1,000 → $1,800. At 15 clients: $27,000/mo instead of $15,000. That extra $12,000/mo costs you well under $500/mo to deliver because it's all automated on infrastructure you've already built.</p>
+          </div>
+
+          <div class="callout callout-action p-4 mt-4">
+            <p class="font-semibold text-blue-800 text-sm mb-1">Selling Sequence (Don't Pitch Everything at Once)</p>
+            <p class="text-sm text-blue-700"><strong>Month 1:</strong> Just deliver the core AI phone agent flawlessly. <strong>Month 2 (after they see results):</strong> Lead with <strong>Quote Follow-Up (I)</strong> — it's the easiest "yes" because it recovers money they're actively losing. <strong>Month 3+:</strong> Layer in Review Automation (C), Bilingual (D), or Maintenance Plan Sales (J). <strong>Once trust is high:</strong> Google Ads (K) and Hiring Screener (L) — the bigger, stickier commitments. Each add-on makes the client harder to lose.</p>
           </div>
         </section>
 
