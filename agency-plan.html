@@ -257,8 +257,8 @@
               </div>
               <h3 class="font-bold text-sm text-gray-900">Sales &amp; Clients</h3>
             </div>
-            <p class="text-xs text-gray-500 mb-3">Lead gen, acquisition pipeline, onboarding, scripts &amp; templates</p>
-            <div class="text-xs text-blue-600 font-semibold">4 sections &rarr;</div>
+            <p class="text-xs text-gray-500 mb-3">Lead gen, pipeline, cold email setup, Missed Call Audit, referral partners, scripts</p>
+            <div class="text-xs text-blue-600 font-semibold">7 sections &rarr;</div>
           </div>
 
           <div class="dash-card" onclick="showView('tech')">
@@ -268,8 +268,8 @@
               </div>
               <h3 class="font-bold text-sm text-gray-900">Tech Deep Dives</h3>
             </div>
-            <p class="text-xs text-gray-500 mb-3">Voice AI setup, phone/SMS, CRM, agent scripts, tool comparisons</p>
-            <div class="text-xs text-blue-600 font-semibold">5 sections &rarr;</div>
+            <p class="text-xs text-gray-500 mb-3">Voice AI setup, phone/SMS, CRM, agent scripts, tool comparisons, platform showdown</p>
+            <div class="text-xs text-blue-600 font-semibold">6 sections &rarr;</div>
           </div>
 
           <div class="dash-card" onclick="showView('growth')">
@@ -279,8 +279,8 @@
               </div>
               <h3 class="font-bold text-sm text-gray-900">Growth &amp; Money</h3>
             </div>
-            <p class="text-xs text-gray-500 mb-3">P&amp;L economics, expansion packages, retention, competitive edge</p>
-            <div class="text-xs text-blue-600 font-semibold">6 sections &rarr;</div>
+            <p class="text-xs text-gray-500 mb-3">P&amp;L economics, expansion packages, retention, seasonal calendar, client success playbook</p>
+            <div class="text-xs text-blue-600 font-semibold">8 sections &rarr;</div>
           </div>
 
           <div class="dash-card" onclick="showView('reference')">
@@ -1899,6 +1899,253 @@ Colibri Code"</code></div>
           </div>
         </section>
 
+        <!-- ==================== COLD EMAIL INFRASTRUCTURE ==================== -->
+        <section id="email-infra" class="mb-16 view-section hidden" data-view="sales">
+          <h2 class="text-2xl font-extrabold mb-4">Cold Email Infrastructure Blueprint</h2>
+          <p class="text-gray-700 leading-relaxed mb-6">Cold email still works in 2026 but inbox placement is harder than ever. Google and Microsoft are ruthless about filtering. If you skip the infrastructure, your emails go straight to spam. Follow this exactly.</p>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">The Domain Setup (Do This Week 1)</h3>
+          <div class="bg-white rounded-xl border border-gray-200 p-5 mb-4">
+            <div class="space-y-3 text-sm text-gray-700">
+              <p><strong>Rule #1:</strong> NEVER send cold email from your main domain (colibricode.com). If it gets flagged, your entire business email is burned.</p>
+              <p><strong>Buy 3-5 secondary domains</strong> from Namecheap (~$10-12 each). They should look legitimate and related to your agency:</p>
+              <ul class="space-y-1 ml-4 text-xs">
+                <li>&#x2022; colibricode<strong>ai</strong>.com / colibricodeagency.com / getcolibricode.com</li>
+                <li>&#x2022; Or use variations: trycolibri.com / colibriautomation.com</li>
+                <li>&#x2022; Avoid weird TLDs (.xyz, .io for cold email). Stick with .com</li>
+              </ul>
+              <p class="mt-3"><strong>For each domain, set up:</strong></p>
+              <ul class="space-y-1 ml-4 text-xs">
+                <li>&#x2022; <strong>Google Workspace</strong> ($6/user/mo) — Create paola@ and mike@ on each domain</li>
+                <li>&#x2022; <strong>SPF record</strong> — v=spf1 include:_spf.google.com ~all</li>
+                <li>&#x2022; <strong>DKIM</strong> — Generated in Google Workspace admin</li>
+                <li>&#x2022; <strong>DMARC</strong> — v=DMARC1; p=none; rua=mailto:dmarc@yourdomain.com</li>
+                <li>&#x2022; <strong>Custom tracking domain</strong> in Smartlead (so click tracking doesn't flag you)</li>
+              </ul>
+              <p class="mt-3"><strong>Total cost:</strong> 5 domains = ~$55/year + 10 Google Workspace accounts = $60/mo. This is your most important investment.</p>
+            </div>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">The Warmup Timeline (Don't Rush This)</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Day</th><th class="text-left px-3 py-2 font-semibold">What to Do</th><th class="text-left px-3 py-2 font-semibold">Sending Limit</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr><td class="px-3 py-2 font-semibold">Day 1</td><td class="px-3 py-2">Create accounts, connect to Smartlead warmup</td><td class="px-3 py-2">0 cold emails (warmup only)</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Days 2-14</td><td class="px-3 py-2">Smartlead sends/receives warmup emails automatically. Send a few personal emails from each account to build history.</td><td class="px-3 py-2">0 cold emails (warmup only)</td></tr>
+                <tr class="bg-amber-50"><td class="px-3 py-2 font-semibold">Day 14</td><td class="px-3 py-2">Start slow: 5 cold emails per inbox per day</td><td class="px-3 py-2">5/inbox = 50 total (10 inboxes)</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Day 21</td><td class="px-3 py-2">Increase to 10/inbox/day if deliverability is good (&gt;95% inbox rate)</td><td class="px-3 py-2">10/inbox = 100/day</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Day 28+</td><td class="px-3 py-2">Scale to 15-20/inbox/day max. Never exceed 20.</td><td class="px-3 py-2">15-20/inbox = 150-200/day</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout callout-warning p-4 mt-4">
+            <p class="font-semibold text-red-800 text-sm mb-1">Common Mistake That Kills Deliverability</p>
+            <p class="text-sm text-red-700">If you send 50+ emails from a single inbox, or blast 500 emails on day one, your domain gets blacklisted immediately. There is NO recovery. You'd need to buy new domains and start over. Patience here = everything.</p>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">Smartlead vs Instantly: Which One?</h3>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="bg-white rounded-xl border-2 border-blue-200 p-5">
+              <h4 class="font-bold text-sm text-blue-700 mb-2">Smartlead ($39/mo) — Start Here</h4>
+              <ul class="text-xs text-gray-700 space-y-1">
+                <li>&#x2022; Unlimited email accounts + warmup</li>
+                <li>&#x2022; Auto-rotation across inboxes</li>
+                <li>&#x2022; Good deliverability analytics</li>
+                <li>&#x2022; Cheaper to start</li>
+                <li>&#x2022; Slightly clunkier UI</li>
+              </ul>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-sm text-gray-700 mb-2">Instantly ($97/mo) — Upgrade Later</h4>
+              <ul class="text-xs text-gray-700 space-y-1">
+                <li>&#x2022; Cleaner UI, easier to use</li>
+                <li>&#x2022; Built-in B2B lead database</li>
+                <li>&#x2022; Better analytics and A/B testing</li>
+                <li>&#x2022; Higher sending limits</li>
+                <li>&#x2022; More expensive, overkill to start</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">Finding Contractor Emails (The Data Pipeline)</h3>
+          <div class="bg-white rounded-xl border border-gray-200 p-5">
+            <div class="space-y-3 text-sm text-gray-700">
+              <p><strong>Step 1: Scrape Google Maps</strong> — Use Outscraper or Apify to pull every HVAC/plumber/electrician in your target city. You get: business name, phone, website, address, Google rating, review count.</p>
+              <p><strong>Step 2: Find owner emails</strong> — Upload the list to Apollo.io (free tier: 1,200 credits/mo). Apollo matches businesses to owner/decision-maker emails. Expect ~40-60% match rate.</p>
+              <p><strong>Step 3: Fill gaps with enrichment</strong> — For businesses Apollo misses, use:</p>
+              <ul class="space-y-1 ml-4 text-xs">
+                <li>&#x2022; <strong>Hunter.io</strong> (free tier: 25 searches/mo) — Find emails from the business website</li>
+                <li>&#x2022; <strong>Snov.io</strong> ($39/mo if needed) — Email finder + verifier</li>
+                <li>&#x2022; <strong>Manual check:</strong> Visit the business website. 30% of contractor sites have the owner's email on the Contact page.</li>
+              </ul>
+              <p><strong>Step 4: Verify everything</strong> — Run all emails through a verifier (NeverBounce, $0.003/email or Smartlead's built-in). Never send to unverified emails — bounces destroy your sender reputation.</p>
+              <p class="mt-3"><strong>Target:</strong> 200-500 verified contractor emails per city. Focus on businesses with 10-100 Google reviews (big enough to have call volume, small enough to not have enterprise solutions).</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== MISSED CALL AUDIT ==================== -->
+        <section id="missed-call-audit" class="mb-16 view-section hidden" data-view="sales">
+          <h2 class="text-2xl font-extrabold mb-4">The Missed Call Audit: Your Secret Weapon</h2>
+          <p class="text-gray-700 leading-relaxed mb-6">This single tactic has the highest conversion rate of any prospecting method. It's free, takes 10 minutes per prospect, and makes you look like a genius. Here's exactly how to do it.</p>
+
+          <div class="bg-white rounded-xl border-2 border-amber-200 p-6 mb-6">
+            <h3 class="font-bold text-lg text-amber-800 mb-3">The Method (Step by Step)</h3>
+            <div class="space-y-3 text-sm text-gray-700">
+              <div class="flex gap-3">
+                <div class="step-num step-both">1</div>
+                <div><strong>Pick a contractor from your prospect list.</strong> Ideally one who you've already sent a cold email to (or plan to). Someone with 20-100 Google reviews — established but not huge.</div>
+              </div>
+              <div class="flex gap-3">
+                <div class="step-num step-mike">2</div>
+                <div><strong>Call their business number</strong> during business hours (Mon-Fri, 10am-2pm their timezone). Use your personal phone. Note what happens: Does it ring? How many times? Does someone answer? Voicemail? IVR menu?</div>
+              </div>
+              <div class="flex gap-3">
+                <div class="step-num step-mike">3</div>
+                <div><strong>Call again after hours</strong> (6pm+ their timezone, or Sunday). Same thing — note what happens. This is where most contractors fail completely.</div>
+              </div>
+              <div class="flex gap-3">
+                <div class="step-num step-paola">4</div>
+                <div><strong>Check their Google reviews</strong> for complaints about responsiveness. Search reviews for: "couldn't reach," "never called back," "left a message," "went to voicemail," "no answer." Screenshot these.</div>
+              </div>
+              <div class="flex gap-3">
+                <div class="step-num step-mike">5</div>
+                <div><strong>Record a 2-minute Loom video</strong> showing: (1) You calling their number live and it going to voicemail, (2) The Google reviews mentioning responsiveness, (3) A 30-second demo of YOUR AI agent answering a similar call perfectly. End with: "I built this for [THEIR TRADE]. Want to see it working for [THEIR COMPANY NAME]?"</div>
+              </div>
+              <div class="flex gap-3">
+                <div class="step-num step-paola">6</div>
+                <div><strong>Send the Loom link</strong> via email, text, or both. Subject line: "I just called [COMPANY NAME] — here's what happened."</div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">Why This Works So Well</h3>
+          <div class="space-y-3">
+            <div class="bg-white rounded-xl border-l-4 border-emerald-500 p-4">
+              <p class="text-sm text-gray-700"><strong class="text-emerald-700">It's not theoretical.</strong> You're not saying "you might miss calls." You're showing them VIDEO PROOF that they missed YOUR call. It's undeniable.</p>
+            </div>
+            <div class="bg-white rounded-xl border-l-4 border-blue-500 p-4">
+              <p class="text-sm text-gray-700"><strong class="text-blue-700">It creates urgency.</strong> When they see their own Google reviews complaining about responsiveness, they realize customers ARE leaving. Right now.</p>
+            </div>
+            <div class="bg-white rounded-xl border-l-4 border-purple-500 p-4">
+              <p class="text-sm text-gray-700"><strong class="text-purple-700">The demo sells itself.</strong> The contrast between "voicemail... voicemail... voicemail..." and then a smooth AI agent answering instantly is visceral. It's the before/after that closes deals.</p>
+            </div>
+            <div class="bg-white rounded-xl border-l-4 border-amber-500 p-4">
+              <p class="text-sm text-gray-700"><strong class="text-amber-700">Expected response rate: 25-40%</strong> (vs 3-8% for cold email alone). This is the single highest-converting prospecting tactic in the AI agency space.</p>
+            </div>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">The Loom Video Script</h3>
+          <div class="prompt-block"><button class="copy-btn">Copy</button><code>LOOM VIDEO SCRIPT (2 minutes)
+
+[Screen recording — show your phone dialing their number]
+
+"Hey [FIRST NAME], this is [YOUR NAME] from Colibri Code.
+
+I actually just called [COMPANY NAME] — watch what happens...
+
+[Let it ring, show it going to voicemail]
+
+That's what your customers experience when you're busy on a job. And look —
+I found these in your Google reviews:
+
+[Show screenshots of reviews mentioning responsiveness]
+
+[Customer A]: 'Called twice, no answer. Went with someone else.'
+[Customer B]: 'Left a message. Nobody called back.'
+
+Now watch what happens when the same call hits an AI agent I built
+for [THEIR TRADE]:
+
+[Call your demo number — show AI answering instantly, booking an appointment]
+
+That just answered in under one second, got the customer's info, and booked
+the appointment. Your customer gets a confirmation text. You get a notification
+with all the details.
+
+If you want to see this working for [COMPANY NAME] specifically,
+I can set up a live demo in 15 minutes. Here's my calendar:
+[CAL.COM LINK]
+
+Have a great day."</code></div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">Scaling the Audit: Do 5 Per Day</h3>
+          <div class="callout callout-action p-4">
+            <p class="font-semibold text-blue-800 text-sm mb-1">The Daily Prospecting Routine (Paola + Mike)</p>
+            <p class="text-sm text-blue-700 mb-2">Spend 1 hour per day on audit outreach. The workflow:</p>
+            <ul class="text-xs text-blue-700 space-y-1 ml-2">
+              <li>&#x2022; <strong>Paola (30 min):</strong> Pick 5 prospects from the list. Call each business number. Note results. Check Google reviews for complaints. Prepare the data.</li>
+              <li>&#x2022; <strong>Mike (30 min):</strong> Record 5 Loom videos (gets faster with practice — 3-4 min each after a few). Paola sends them out with a personalized note.</li>
+              <li>&#x2022; <strong>Weekly output:</strong> 25 personalized audit videos. At 30% response rate = 7-8 conversations. At 30% demo booking = 2-3 demos. At 30% close = 1 new client per week.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ==================== REFERRAL PARTNERS ==================== -->
+        <section id="referral-partners" class="mb-16 view-section hidden" data-view="sales">
+          <h2 class="text-2xl font-extrabold mb-4">Referral Partner Playbook: Your Free Sales Team</h2>
+          <p class="text-gray-700 leading-relaxed mb-6">The fastest path to consistent clients isn't cold email — it's referral partnerships with people who already serve your target market. One good partner can send you 2-3 clients per month with zero outreach effort.</p>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">Ideal Referral Partners (Ranked by Value)</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Partner Type</th><th class="text-left px-3 py-2 font-semibold">Why They're Perfect</th><th class="text-left px-3 py-2 font-semibold">How to Find Them</th><th class="text-left px-3 py-2 font-semibold">Referral Fee</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr class="bg-blue-50"><td class="px-3 py-2 font-bold text-blue-700">Web designers/SEO agencies</td><td class="px-3 py-2">They already build contractor websites. AI phone agent is a natural add-on they can't build themselves.</td><td class="px-3 py-2">Google "[city] contractor web design" — email the top 20</td><td class="px-3 py-2 font-semibold">15-20% of monthly retainer (forever)</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Google Ads / LSA managers</td><td class="px-3 py-2">They drive calls to contractors but the contractor misses 30% of those calls. You fix the leak in their funnel.</td><td class="px-3 py-2">Search LinkedIn for "[city] contractor marketing"</td><td class="px-3 py-2">15-20% or flat $100/referral</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Bookkeepers / accountants</td><td class="px-3 py-2">They see the contractor's P&L. They know who's losing revenue from operations issues.</td><td class="px-3 py-2">Local BNI groups, Chamber of Commerce</td><td class="px-3 py-2">$250 per client signed</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Commercial insurance agents</td><td class="px-3 py-2">Every contractor needs insurance. Agents have lists of 50-200 contractor clients.</td><td class="px-3 py-2">LinkedIn + local networking events</td><td class="px-3 py-2">$250 per client signed</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">HVAC/plumbing supply houses</td><td class="px-3 py-2">Contractors visit supply houses daily. A poster or business cards at the counter = free exposure.</td><td class="px-3 py-2">Walk in and talk to the manager</td><td class="px-3 py-2">$100 per referral or free service for the supply house</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Trade association chapters</td><td class="px-3 py-2">ACCA (HVAC), PHCC (plumbing), NECA (electrical). Member directories are gold.</td><td class="px-3 py-2">Find local chapters, attend meetings, offer to present</td><td class="px-3 py-2">Offer member discount instead of referral fee</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">The Partnership Pitch (Email Template)</h3>
+          <div class="prompt-block"><button class="copy-btn">Copy</button><code>Subject: Partnership idea — your contractor clients are losing calls
+
+Hi [NAME],
+
+I noticed you do [web design / marketing / SEO] for contractors in [CITY].
+We might be a perfect referral fit.
+
+We build AI phone agents for home service businesses — it answers their calls
+24/7, books appointments, and sends confirmations. Average contractor loses
+$45K-$120K/year from missed calls. We fix that for $500-1,000/month.
+
+Here's why this benefits YOU:
+- Your clients stop wasting the leads you're generating for them
+- You earn 15-20% of every monthly retainer (for life)
+- A $1,000/mo client = $200/mo passive income for you, per referral
+
+I'd love to set up a quick call to show you the demo and discuss
+a partnership. Here's my calendar: [CAL.COM LINK]
+
+— Paola, Colibri Code
+[PHONE] | colibricode.com</code></div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">Managing Partner Relationships</h3>
+          <div class="space-y-3">
+            <div class="bg-white rounded-xl border border-gray-200 p-4">
+              <h4 class="font-bold text-sm text-gray-900 mb-1">Track everything in a spreadsheet</h4>
+              <p class="text-xs text-gray-700">Partner name, date contacted, response, referrals sent, referrals closed, total commissions paid. Review monthly.</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-4">
+              <h4 class="font-bold text-sm text-gray-900 mb-1">Pay commissions on time, every time</h4>
+              <p class="text-xs text-gray-700">Pay referral commissions within 7 days of the client's first payment. Nothing kills a partnership faster than late commission checks. Set up automatic Stripe payouts if possible.</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-4">
+              <h4 class="font-bold text-sm text-gray-900 mb-1">Give partners a co-branded landing page</h4>
+              <p class="text-xs text-gray-700">Build a simple Carrd page: "Referred by [Partner Name]? Get 10% off your first month." Unique URL per partner so you can track who sends what. Takes 15 minutes per partner.</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-4">
+              <h4 class="font-bold text-sm text-gray-900 mb-1">Monthly partner update</h4>
+              <p class="text-xs text-gray-700">Send a brief email: "Hey [Name], this month your referrals are doing great — [Client A]'s agent handled 120 calls. Here's your commission: $[X]. Any other contractors who might benefit?"</p>
+            </div>
+          </div>
+        </section>
+
         <!-- ==================== CLIENT ONBOARDING SOP ==================== -->
         <section id="onboarding" class="mb-16 view-section hidden" data-view="sales">
           <h2 class="text-2xl font-extrabold mb-4">Client Onboarding SOP (Step-by-Step)</h2>
@@ -2863,6 +3110,67 @@ UPSELL PROMPT (after booking standard service):
           </div>
         </section>
 
+        <!-- ==================== VOICE AI PLATFORM SHOWDOWN ==================== -->
+        <section id="voice-platforms" class="mb-16 view-section hidden" data-view="tech">
+          <h2 class="text-2xl font-extrabold mb-4">Voice AI Platform Showdown: Vapi vs Everyone</h2>
+          <p class="text-gray-700 leading-relaxed mb-6">This is the most important technical decision you'll make. The wrong platform means bad call quality, angry customers, and churned clients. Here's every option with honest pros and cons.</p>
+
+          <div class="overflow-x-auto mb-6">
+            <table class="w-full text-xs border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-2 py-2 font-semibold">Platform</th><th class="text-left px-2 py-2 font-semibold">Cost/Min</th><th class="text-left px-2 py-2 font-semibold">Voice Quality</th><th class="text-left px-2 py-2 font-semibold">Latency</th><th class="text-left px-2 py-2 font-semibold">Best For</th><th class="text-left px-2 py-2 font-semibold">Gotchas</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr class="bg-blue-50"><td class="px-2 py-2 font-bold text-blue-700">Vapi.ai</td><td class="px-2 py-2">$0.05-0.11/min</td><td class="px-2 py-2">9/10</td><td class="px-2 py-2">~800ms</td><td class="px-2 py-2">Agencies, custom builds</td><td class="px-2 py-2">Steeper learning curve, API-first</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Retell AI</td><td class="px-2 py-2">$0.07-0.15/min</td><td class="px-2 py-2">8.5/10</td><td class="px-2 py-2">~600ms</td><td class="px-2 py-2">Quick prototypes, demos</td><td class="px-2 py-2">Less customizable, smaller community</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Bland AI</td><td class="px-2 py-2">$0.07-0.12/min</td><td class="px-2 py-2">8/10</td><td class="px-2 py-2">~700ms</td><td class="px-2 py-2">Simple inbound/outbound</td><td class="px-2 py-2">Enterprise-focused, less agency tooling</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Synthflow</td><td class="px-2 py-2">$0.08-0.14/min</td><td class="px-2 py-2">7.5/10</td><td class="px-2 py-2">~900ms</td><td class="px-2 py-2">No-code users, quick setup</td><td class="px-2 py-2">Limited LLM choice, less flexible</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Air AI</td><td class="px-2 py-2">$0.11-0.25/min</td><td class="px-2 py-2">7/10</td><td class="px-2 py-2">~1.2s</td><td class="px-2 py-2">Outbound sales calls</td><td class="px-2 py-2">Expensive, black-box pricing, less reliable</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">GHL Conversational AI</td><td class="px-2 py-2">Included in plan</td><td class="px-2 py-2">6/10</td><td class="px-2 py-2">~1.5s</td><td class="px-2 py-2">GHL-only shops</td><td class="px-2 py-2">Limited, can't compete with dedicated platforms</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout callout-action p-4 mb-6">
+            <p class="font-semibold text-blue-800 text-sm mb-1">Our Pick: Vapi — Here's Why</p>
+            <p class="text-sm text-blue-700">Vapi is the best choice for an agency model because: (1) You bring your own LLM (Claude/GPT-4), so you control quality and cost. (2) It integrates with n8n via webhooks — your entire workflow stays in your hands. (3) The per-minute pricing means you only pay for actual usage, not per-agent seats. (4) Bilingual support works out of the box — just set the language model to handle Spanish. (5) It's what the majority of successful AI agencies run on (large community = better troubleshooting). The alternatives are either more expensive, less flexible, or less proven.</p>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">Real Cost Math: What a Client's Calls Actually Cost You</h3>
+          <div class="bg-white rounded-xl border border-gray-200 p-5">
+            <div class="space-y-2 text-sm text-gray-700">
+              <p><strong>Average call length in home services:</strong> 2.5 minutes</p>
+              <p><strong>Average calls per client per month:</strong> 80-200 (depending on business size)</p>
+              <div class="overflow-x-auto mt-3">
+                <table class="w-full text-xs border border-gray-200 rounded-lg overflow-hidden">
+                  <thead class="bg-gray-50"><tr><th class="px-3 py-2 text-left">Scenario</th><th class="px-3 py-2 text-right">Calls/Mo</th><th class="px-3 py-2 text-right">Minutes</th><th class="px-3 py-2 text-right">Vapi Cost</th><th class="px-3 py-2 text-right">Twilio Cost</th><th class="px-3 py-2 text-right">LLM Cost</th><th class="px-3 py-2 text-right font-bold">Total Cost</th><th class="px-3 py-2 text-right font-bold">You Charge</th></tr></thead>
+                  <tbody class="divide-y divide-gray-100">
+                    <tr><td class="px-3 py-2">Small plumber</td><td class="px-3 py-2 text-right">80</td><td class="px-3 py-2 text-right">200</td><td class="px-3 py-2 text-right">$14</td><td class="px-3 py-2 text-right">$4</td><td class="px-3 py-2 text-right">$8</td><td class="px-3 py-2 text-right font-bold">$26</td><td class="px-3 py-2 text-right font-bold text-emerald-600">$500</td></tr>
+                    <tr><td class="px-3 py-2">Mid HVAC</td><td class="px-3 py-2 text-right">150</td><td class="px-3 py-2 text-right">375</td><td class="px-3 py-2 text-right">$26</td><td class="px-3 py-2 text-right">$7</td><td class="px-3 py-2 text-right">$15</td><td class="px-3 py-2 text-right font-bold">$48</td><td class="px-3 py-2 text-right font-bold text-emerald-600">$1,000</td></tr>
+                    <tr><td class="px-3 py-2">Large contractor</td><td class="px-3 py-2 text-right">300</td><td class="px-3 py-2 text-right">750</td><td class="px-3 py-2 text-right">$52</td><td class="px-3 py-2 text-right">$14</td><td class="px-3 py-2 text-right">$30</td><td class="px-3 py-2 text-right font-bold">$96</td><td class="px-3 py-2 text-right font-bold text-emerald-600">$1,500</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="text-xs text-gray-500 mt-2">Assumes Vapi at $0.07/min avg, Twilio at $0.0085/min + $1/number, Claude Haiku for most calls with Sonnet fallback for complex queries.</p>
+            </div>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">GHL SaaS Pro: Worth It or Not?</h3>
+          <div class="bg-white rounded-xl border border-gray-200 p-5">
+            <div class="space-y-2 text-sm text-gray-700">
+              <p><strong>The pitch:</strong> GoHighLevel SaaS Pro ($497/mo) lets you white-label GHL as your own CRM and charge clients for it. You become a "SaaS company" overnight.</p>
+              <p><strong>The reality check:</strong></p>
+              <ul class="space-y-1 ml-4 text-sm">
+                <li>&#x2022; At $497/mo, you need 5+ clients on GHL sub-accounts at $97/mo just to break even</li>
+                <li>&#x2022; GHL's AI features (Conversational AI, workflow AI) are improving but still behind Vapi for voice quality</li>
+                <li>&#x2022; The CRM features are genuinely useful — pipeline management, appointment scheduling, text campaigns</li>
+                <li>&#x2022; Many agencies start with $97/mo plan (3 sub-accounts) and upgrade to $297 (unlimited) at 4+ clients</li>
+              </ul>
+              <div class="mt-3 bg-amber-50 rounded-lg p-3">
+                <p class="text-xs text-amber-800"><strong>Our recommendation:</strong> Start with no GHL. Use n8n + Supabase + Cal.com for the first 3-5 clients. It's free and you control everything. Once you have 5+ clients asking for a "dashboard" or "CRM portal," get GHL at $297/mo. The $497 SaaS Pro only makes sense when you have 10+ clients and want to charge a platform fee. Don't let the GHL YouTube ecosystem pressure you into spending $497/mo before you have clients paying you.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <!-- ==================== LEGAL & CONTRACTS ==================== -->
         <section id="legal" class="mb-16 view-section hidden" data-view="reference">
           <h2 class="text-2xl font-extrabold mb-4">Legal Essentials & Contract Template</h2>
@@ -2959,6 +3267,128 @@ UPSELL PROMPT (after booking standard service):
           <div class="callout callout-action p-4 mt-6">
             <p class="font-semibold text-blue-800 text-sm mb-1">Goal: 1 Case Study per Client</p>
             <p class="text-sm text-blue-700">At the Day 30 check-in, ask every client: "Would you mind if I shared your results (anonymized or with your name) to help other contractors see what's possible?" Most say yes — especially if you offer a $50 discount on next month.</p>
+          </div>
+        </section>
+
+        <!-- ==================== SEASONAL CALENDAR ==================== -->
+        <section id="seasonal" class="mb-16 view-section hidden" data-view="growth">
+          <h2 class="text-2xl font-extrabold mb-4">Seasonal Marketing Calendar: When to Sell What</h2>
+          <p class="text-gray-700 leading-relaxed mb-6">Home service businesses are extremely seasonal. Time your outreach and upsells to their busiest periods for maximum conversion. A contractor panicking about missed calls in July is 10x easier to close than one in November.</p>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-2 py-2 font-semibold">Month</th><th class="text-left px-2 py-2 font-semibold">HVAC</th><th class="text-left px-2 py-2 font-semibold">Plumbing</th><th class="text-left px-2 py-2 font-semibold">Electrical</th><th class="text-left px-2 py-2 font-semibold">Landscaping</th><th class="text-left px-2 py-2 font-semibold">Your Sales Focus</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr><td class="px-2 py-2 font-semibold">Jan-Feb</td><td class="px-2 py-2 text-amber-600 font-semibold">Heating rush</td><td class="px-2 py-2 text-amber-600">Frozen pipes</td><td class="px-2 py-2 text-gray-400">Slow</td><td class="px-2 py-2 text-gray-400">Dead</td><td class="px-2 py-2 text-blue-700 font-semibold">Sell to HVAC + plumbing — they're drowning in calls. Pitch: "Your busiest season is here and you're missing calls."</td></tr>
+                <tr class="bg-amber-50"><td class="px-2 py-2 font-semibold">Mar-Apr</td><td class="px-2 py-2 text-amber-600">AC tune-ups start</td><td class="px-2 py-2">Steady</td><td class="px-2 py-2">Spring projects</td><td class="px-2 py-2 text-amber-600 font-semibold">Ramp up</td><td class="px-2 py-2 text-blue-700 font-semibold">Sell Database Reactivation (B): "Remind your customers to schedule spring maintenance."</td></tr>
+                <tr class="bg-red-50"><td class="px-2 py-2 font-semibold">May-Jun</td><td class="px-2 py-2 text-red-600 font-bold">PEAK: AC season</td><td class="px-2 py-2 text-amber-600">Outdoor plumbing</td><td class="px-2 py-2 text-amber-600">Pool/patio</td><td class="px-2 py-2 text-red-600 font-bold">PEAK</td><td class="px-2 py-2 text-blue-700 font-semibold">PRIME SELLING. HVAC companies are missing 30-40% of calls. Easiest close of the year.</td></tr>
+                <tr class="bg-red-50"><td class="px-2 py-2 font-semibold">Jul-Aug</td><td class="px-2 py-2 text-red-600 font-bold">PEAK: AC emergency</td><td class="px-2 py-2">Steady</td><td class="px-2 py-2">Steady</td><td class="px-2 py-2 text-amber-600">Busy</td><td class="px-2 py-2 text-blue-700 font-semibold">Keep selling HVAC. Pitch Emergency Routing (F): "Your tech is on a call when a heat emergency comes in — AI triages it."</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Sep-Oct</td><td class="px-2 py-2 text-amber-600">Heating tune-ups</td><td class="px-2 py-2">Steady</td><td class="px-2 py-2 text-amber-600">Fall projects</td><td class="px-2 py-2 text-amber-600">Fall cleanup</td><td class="px-2 py-2 text-blue-700 font-semibold">Sell Maintenance Plan Sales (J): "Upsell heating tune-ups to your AC customers before winter."</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Nov-Dec</td><td class="px-2 py-2 text-amber-600 font-semibold">Heating rush</td><td class="px-2 py-2 text-amber-600">Holiday emergencies</td><td class="px-2 py-2 text-amber-600">Holiday lighting</td><td class="px-2 py-2 text-gray-400">Dead</td><td class="px-2 py-2 text-blue-700 font-semibold">Sell to HVAC (heating peak). Pitch for January starts: "Let's get set up so you're ready for the heating season."</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout callout-action p-4 mt-4">
+            <p class="font-semibold text-blue-800 text-sm mb-1">The Golden Rule</p>
+            <p class="text-sm text-blue-700">Start your outreach 4-6 weeks BEFORE peak season. An HVAC company will buy in April for the May-August rush. They won't buy in January because they're not thinking about AC yet. Time it right and your close rate doubles.</p>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">Seasonal Upsell Triggers (Set Reminders)</h3>
+          <div class="space-y-2">
+            <div class="bg-white rounded-xl border border-gray-200 p-4 flex items-start gap-3">
+              <span class="text-xs font-bold text-white bg-blue-600 px-2 py-1 rounded">FEB</span>
+              <p class="text-sm text-gray-700">Email all HVAC clients: "Spring is coming. Want to run a database reactivation campaign to book AC tune-ups? We can blast your customer list this week." (+$250-500 per campaign)</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-4 flex items-start gap-3">
+              <span class="text-xs font-bold text-white bg-amber-600 px-2 py-1 rounded">APR</span>
+              <p class="text-sm text-gray-700">Pitch all clients: "Summer is your busiest season. Let's add appointment reminders to cut no-shows by 40%. I can have it live this week." (+$150/mo)</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-4 flex items-start gap-3">
+              <span class="text-xs font-bold text-white bg-red-600 px-2 py-1 rounded">JUN</span>
+              <p class="text-sm text-gray-700">New prospect push: "We analyzed your missed calls from last month — you lost an estimated $[X]. Let us fix that before the rest of summer."</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-4 flex items-start gap-3">
+              <span class="text-xs font-bold text-white bg-purple-600 px-2 py-1 rounded">SEP</span>
+              <p class="text-sm text-gray-700">Email all HVAC clients: "Heating season starts in 6 weeks. Let's update your AI agent's scripts from AC to heating. Also — want to run a 'Schedule Your Furnace Tune-Up' campaign to your customer list?"</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-4 flex items-start gap-3">
+              <span class="text-xs font-bold text-white bg-emerald-600 px-2 py-1 rounded">NOV</span>
+              <p class="text-sm text-gray-700">Pitch Warranty Reminders (Q) to all clients: "The holidays are coming. Let's remind your customers about expiring warranties before year-end. Great revenue with zero ad spend."</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== CLIENT SUCCESS PLAYBOOK ==================== -->
+        <section id="client-success" class="mb-16 view-section hidden" data-view="growth">
+          <h2 class="text-2xl font-extrabold mb-4">Client Success Playbook: The First 90 Days</h2>
+          <p class="text-gray-700 leading-relaxed mb-6">What happens AFTER onboarding determines whether a client stays for 2 months or 2 years. This is the playbook for making every client a raving fan who refers you to other contractors.</p>
+
+          <div class="overflow-x-auto mb-6">
+            <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">When</th><th class="text-left px-3 py-2 font-semibold">Action</th><th class="text-left px-3 py-2 font-semibold">Who</th><th class="text-left px-3 py-2 font-semibold">Why</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr class="bg-blue-50"><td class="px-3 py-2 font-semibold" colspan="4">Week 1: The Honeymoon</td></tr>
+                <tr><td class="px-3 py-2">Day 1</td><td class="px-3 py-2">Agent goes live. Send a welcome text: "Your AI agent is live! Call [number] to hear it in action."</td><td class="px-3 py-2">Mike builds, Paola sends</td><td class="px-3 py-2">Excitement, immediate value proof</td></tr>
+                <tr><td class="px-3 py-2">Day 2</td><td class="px-3 py-2">Check call logs. If there were calls, text the client: "Your agent handled 3 calls yesterday! Here's a summary."</td><td class="px-3 py-2">Mike monitors, Paola texts</td><td class="px-3 py-2">Early wins build confidence</td></tr>
+                <tr><td class="px-3 py-2">Day 3-4</td><td class="px-3 py-2">Listen to 5-10 calls. Note any issues. Fix agent script if needed.</td><td class="px-3 py-2">Mike</td><td class="px-3 py-2">Catch problems before client notices</td></tr>
+                <tr><td class="px-3 py-2">Day 7</td><td class="px-3 py-2">Week 1 call: "Hey [Name], how's the first week going? I looked at your numbers — your agent handled [X] calls and booked [Y] appointments. Any feedback?"</td><td class="px-3 py-2">Paola calls</td><td class="px-3 py-2">Shows you care, catches concerns early</td></tr>
+
+                <tr class="bg-emerald-50"><td class="px-3 py-2 font-semibold" colspan="4">Weeks 2-4: Prove Value</td></tr>
+                <tr><td class="px-3 py-2">Day 14</td><td class="px-3 py-2">Send first mini-report: calls answered, appointments booked, estimated revenue captured. Keep it simple — 3 numbers.</td><td class="px-3 py-2">Automated (n8n)</td><td class="px-3 py-2">Data = stickiness</td></tr>
+                <tr><td class="px-3 py-2">Day 21</td><td class="px-3 py-2">Review call quality again. Update scripts for common questions you're hearing.</td><td class="px-3 py-2">Mike</td><td class="px-3 py-2">Continuous improvement</td></tr>
+                <tr><td class="px-3 py-2">Day 30</td><td class="px-3 py-2">Month 1 call: "Here's your full first-month report. Your agent caught [X] calls after hours that would've been lost. That's an estimated $[Y] in saved revenue." Then pitch ONE add-on: Review Automation or Quote Follow-Up.</td><td class="px-3 py-2">Both on call</td><td class="px-3 py-2">First upsell moment</td></tr>
+
+                <tr class="bg-amber-50"><td class="px-3 py-2 font-semibold" colspan="4">Month 2: Deepen</td></tr>
+                <tr><td class="px-3 py-2">Day 45</td><td class="px-3 py-2">Send a "customer win" text: Screenshot a great call where the AI saved a job. "Look at this one — $8,000 AC replacement that would've been a missed call at 7pm."</td><td class="px-3 py-2">Paola</td><td class="px-3 py-2">Reinforce value with specific examples</td></tr>
+                <tr><td class="px-3 py-2">Day 60</td><td class="px-3 py-2">Month 2 report + testimonial ask: "Your results have been amazing. Would you mind leaving us a quick Google review or doing a 2-minute video testimonial? I'd really appreciate it."</td><td class="px-3 py-2">Paola</td><td class="px-3 py-2">Social proof for your next 10 clients</td></tr>
+
+                <tr class="bg-purple-50"><td class="px-3 py-2 font-semibold" colspan="4">Month 3: Expand + Refer</td></tr>
+                <tr><td class="px-3 py-2">Day 75</td><td class="px-3 py-2">Pitch 1-2 more add-ons aligned with their season. If HVAC in spring: Database Reactivation + Maintenance Plan Sales.</td><td class="px-3 py-2">Paola on call</td><td class="px-3 py-2">Grow revenue per client</td></tr>
+                <tr><td class="px-3 py-2">Day 90</td><td class="px-3 py-2">Quarterly review call + referral ask: "We've saved you $[X] in missed revenue over 3 months. Do you know any other [HVAC/plumbing] owners who could use this? I'll give you $250 off next month for any intro that becomes a client."</td><td class="px-3 py-2">Both</td><td class="px-3 py-2">Referrals = lowest cost acquisition</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">The Referral Program</h3>
+          <div class="bg-white rounded-xl border-2 border-emerald-200 p-5">
+            <div class="space-y-2 text-sm text-gray-700">
+              <p><strong>Structure:</strong> $250 credit on their next invoice for every referral that becomes a paying client. No limit.</p>
+              <p><strong>When to ask:</strong> Only after Month 2 (they need to be happy first). Ask during the monthly report call when the numbers look good.</p>
+              <p><strong>How to ask:</strong> "You know how we caught [X] calls for you last month? I'd love to do the same for other contractors. Do you know anyone who's still losing calls to voicemail? I'll knock $250 off your next month for any intro."</p>
+              <p><strong>Expected results:</strong> Happy clients refer 1-2 people per quarter. At 10 clients, that's 3-5 warm referrals per quarter — the easiest closes you'll ever make.</p>
+            </div>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">The Monthly Client Report (Automated)</h3>
+          <div class="bg-white rounded-xl border border-gray-200 p-5">
+            <p class="text-sm text-gray-700 mb-3">Build this as an n8n workflow that runs on the 1st of every month. Send via email and text.</p>
+            <div class="prompt-block"><button class="copy-btn">Copy</button><code>MONTHLY REPORT TEMPLATE
+
+Subject: [COMPANY NAME] — AI Agent Performance: [MONTH]
+
+Hey [FIRST NAME],
+
+Here's how your AI agent performed in [MONTH]:
+
+CALLS & LEADS
+  Calls answered:        [X]
+  After-hours calls:     [Y] (these would've been voicemails)
+  Appointments booked:   [Z]
+  Leads captured:        [W]
+
+ESTIMATED IMPACT
+  Revenue protected:     $[AMOUNT] (based on [Z] appointments x your avg job value)
+  Missed calls saved:    [Y] calls that went to AI instead of voicemail
+
+TOP INSIGHT
+  [One specific finding — e.g., "43% of your calls come between 5-8pm
+   when your office is closed. Your AI agent is capturing all of them."]
+
+Want to discuss your results or explore additional features?
+Reply to this email or call me anytime.
+
+— Paola, Colibri Code</code></div>
           </div>
         </section>
 
@@ -3307,6 +3737,31 @@ Talk soon,
             </div>
           </div>
 
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-gray-900 mb-2">"I already have a receptionist."</h4>
+              <p class="text-sm text-gray-700">"That's great — and I'd never replace a good receptionist. But what happens when she's on lunch? On another call? After 5pm? On weekends? Our AI handles the 30-40% of calls your receptionist can't get to. Think of it as backup that never takes a day off. Most of our clients keep their receptionist AND add the AI."</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-gray-900 mb-2">"I don't trust AI / technology."</h4>
+              <p class="text-sm text-gray-700">"I totally get that. Here's the thing — this isn't ChatGPT on a phone. It's a purpose-built agent trained specifically for [HVAC/plumbing]. It knows what a 'no cool' call means. It knows your service area. And if anything ever seems off, calls can instantly forward to your cell phone as a safety net. Zero risk. Want to hear it handle a call right now?"</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-gray-900 mb-2">"I'm too busy to set this up."</h4>
+              <p class="text-sm text-gray-700">"That's literally why you need this — you're so busy you can't answer calls, which means you're losing jobs. Here's the good news: YOU do nothing. We handle 100% of the setup. I just need 5 minutes of your time to fill out a short form — your business hours, services, service area. We do the rest. Your agent is live in 48 hours."</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-gray-900 mb-2">"Can I do this myself?"</h4>
+              <p class="text-sm text-gray-700">"You could, the same way you could do your own taxes or build your own website. The tools exist. But our clients hire us because they're plumbers, not AI engineers. We handle the tech, the maintenance, the monitoring, and the optimization. You focus on running jobs. When was the last time you had free hours to learn a new tech platform?"</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-gray-900 mb-2">"My buddy tried AI phone stuff and it was terrible."</h4>
+              <p class="text-sm text-gray-700">"AI has gotten dramatically better in the last 12 months. The early stuff WAS bad — robotic voices, couldn't handle real conversations. What we use now is a different universe. Rather than take my word for it, call this number right now: [DEMO NUMBER]. Pretend you're a customer with a broken AC. Then tell me if it sounds terrible."</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-gray-900 mb-2">"What happens when my slow season hits and I don't need it?"</h4>
+              <p class="text-sm text-gray-700">"Two things: First, slow season is actually when you need EVERY call — you can't afford to miss any when they're scarce. Second, we're month-to-month. No contracts. If you ever want to pause, just let us know with 30 days notice. But honestly? Our clients who've been through a slow season say the AI paid for itself even more because it caught the calls they desperately needed."</p>
+            </div>
+
           <h3 class="text-lg font-bold mt-10 mb-3">Internal FAQ (For You Two)</h3>
           <div class="space-y-4">
             <div class="bg-gray-50 rounded-xl border border-gray-200 p-5">
@@ -3350,9 +3805,9 @@ Talk soon,
     setup: ['business','niche','services','stack','accounts','roles'],
     build: ['week1','week2','week3','week4'],
     launch: ['week5-6','week7-8','month3','month4-6'],
-    sales: ['leadgen','pipeline','onboarding','scripts'],
-    tech: ['tech-delivery','phone-setup','ghl','agent-scripts','tools-compare'],
-    growth: ['economics','expansion','retention','competition','milestones','case-studies'],
+    sales: ['leadgen','pipeline','email-infra','missed-call-audit','referral-partners','onboarding','scripts'],
+    tech: ['tech-delivery','phone-setup','ghl','agent-scripts','tools-compare','voice-platforms'],
+    growth: ['economics','expansion','retention','competition','milestones','case-studies','seasonal','client-success'],
     reference: ['legal','rituals','financials','faq']
   };
 
