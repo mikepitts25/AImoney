@@ -8,116 +8,214 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💡</text></svg>">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* View-based layout overrides */
+    #sidebar { transition: transform 0.3s cubic-bezier(.4,0,.2,1); }
+    #sidebar::-webkit-scrollbar { width: 3px; }
+    #sidebar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; }
+
+    .nav-item {
+      display: flex; align-items: center; gap: 0.625rem;
+      padding: 0.5rem 0.75rem; border-radius: 0.5rem;
+      font-size: 0.8125rem; font-weight: 500; color: #64748b;
+      transition: all 0.15s; cursor: pointer; width: 100%;
+      border: none; background: none; text-align: left;
+    }
+    .nav-item:hover { background: #f1f5f9; color: #334155; }
+    .nav-item.active { background: #eff6ff; color: #2563eb; font-weight: 600; }
+    .nav-item .nav-icon { width: 20px; height: 20px; flex-shrink: 0; opacity: 0.6; }
+    .nav-item.active .nav-icon { opacity: 1; }
+
+    .dash-card {
+      background: white; border: 1px solid #e2e8f0; border-radius: 1rem;
+      padding: 1.25rem; cursor: pointer; transition: all 0.2s;
+    }
+    .dash-card:hover { border-color: #93c5fd; box-shadow: 0 4px 12px rgba(37,99,235,0.1); transform: translateY(-2px); }
+
+    .section-subnav { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .section-subnav a {
+      padding: 0.375rem 0.75rem; border-radius: 9999px;
+      font-size: 0.75rem; font-weight: 500; color: #64748b;
+      background: #f1f5f9; text-decoration: none; transition: all 0.15s;
+      white-space: nowrap;
+    }
+    .section-subnav a:hover { background: #dbeafe; color: #2563eb; }
+
+    .view-section { animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+    .view-nav-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 1.5rem; border-radius: 0.75rem; font-weight: 600;
+      font-size: 0.875rem; transition: all 0.15s; border: 1px solid #e2e8f0;
+      background: white; color: #334155; cursor: pointer;
+    }
+    .view-nav-btn:hover { border-color: #93c5fd; color: #2563eb; }
+    .view-nav-btn.primary { background: #2563eb; color: white; border-color: #2563eb; }
+    .view-nav-btn.primary:hover { background: #1d4ed8; }
+
+    .legend-dot { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+
+    @media print {
+      #sidebar, #topbar, #sidebar-overlay, .view-nav, .section-subnav, #dashboard { display: none !important; }
+      .view-section { display: block !important; }
+    }
+  </style>
 </head>
 <body class="bg-white text-gray-900 antialiased">
-  <div id="progress-bar" class="progress-bar" style="width:0%"></div>
 
-  <!-- Guide Nav -->
-  <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14">
-      <a href="index.html" class="text-lg font-bold gradient-text">AI Income Blueprint</a>
-      <button id="mobile-toc-toggle" class="lg:hidden text-sm text-blue-600 font-semibold flex items-center gap-1">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/></svg>
-        Contents
+  <!-- Mobile sidebar overlay -->
+  <div id="sidebar-overlay" class="fixed inset-0 bg-black/40 z-40 hidden lg:hidden" onclick="toggleMobile()"></div>
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="fixed top-0 left-0 bottom-0 w-60 bg-white border-r border-gray-200 z-50 -translate-x-full lg:translate-x-0 flex flex-col">
+    <div class="p-4 border-b border-gray-100 flex-shrink-0">
+      <a href="index.html" class="font-bold text-base gradient-text">AI Income Blueprint</a>
+      <div class="text-xs text-gray-400 mt-0.5">Complete Guide &middot; 27 Chapters</div>
+    </div>
+    <nav class="flex-1 overflow-y-auto p-3 space-y-0.5">
+      <button onclick="showView('dashboard')" class="nav-item active" data-nav="dashboard">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+        Dashboard
       </button>
+
+      <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-5 mb-1 px-3">Chapters</div>
+      <button onclick="showView('part1')" class="nav-item" data-nav="part1">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        1. Foundations
+      </button>
+      <button onclick="showView('part2')" class="nav-item" data-nav="part2">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+        2. AI Writing
+      </button>
+      <button onclick="showView('part3')" class="nav-item" data-nav="part3">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        3. Digital Art
+      </button>
+      <button onclick="showView('part4')" class="nav-item" data-nav="part4">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        4. SaaS &amp; Products
+      </button>
+      <button onclick="showView('part5')" class="nav-item" data-nav="part5">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        5. Agency &amp; Beyond
+      </button>
+    </nav>
+    <div class="flex-shrink-0 p-3 border-t border-gray-100">
+      <a href="index.html" class="text-xs text-gray-400 hover:text-blue-600 transition">&larr; Back to Home</a>
     </div>
-    <!-- Mobile TOC dropdown -->
-    <div id="mobile-toc-menu" class="hidden lg:hidden bg-white border-b border-gray-100 px-4 py-3 max-h-64 overflow-y-auto text-sm">
-      <a href="#ch1" class="block py-1 text-gray-600 hover:text-blue-600">1. The AI Income Landscape</a>
-      <a href="#ch2" class="block py-1 text-gray-600 hover:text-blue-600">2. Setting Up Your AI Toolkit</a>
-      <a href="#ch3" class="block py-1 text-gray-600 hover:text-blue-600">3. Prompt Engineering Masterclass</a>
-      <a href="#ch4" class="block py-1 text-gray-600 hover:text-blue-600">4. Building Your Digital Workspace</a>
-      <a href="#ch5" class="block py-1 text-gray-600 hover:text-blue-600">5. The Income-First Mindset</a>
-      <a href="#ch6" class="block py-1 text-gray-600 hover:text-blue-600">6. Choosing Your Writing Niche</a>
-      <a href="#ch7" class="block py-1 text-gray-600 hover:text-blue-600">7. Building a Portfolio Fast</a>
-      <a href="#ch8" class="block py-1 text-gray-600 hover:text-blue-600">8. AI-Assisted Writing Workflow</a>
-      <a href="#ch9" class="block py-1 text-gray-600 hover:text-blue-600">9. Finding &amp; Pitching Clients</a>
-      <a href="#ch10" class="block py-1 text-gray-600 hover:text-blue-600">10. Scaling to $5K/Month</a>
-      <a href="#ch11" class="block py-1 text-gray-600 hover:text-blue-600">11. AI Image Generation</a>
-      <a href="#ch12" class="block py-1 text-gray-600 hover:text-blue-600">12. Print-on-Demand Setup</a>
-      <a href="#ch13" class="block py-1 text-gray-600 hover:text-blue-600">13. Design Workflows That Sell</a>
-      <a href="#ch14" class="block py-1 text-gray-600 hover:text-blue-600">14. Marketplace Optimization</a>
-      <a href="#ch15" class="block py-1 text-gray-600 hover:text-blue-600">15. Scaling Your Design Biz</a>
-      <a href="#ch16" class="block py-1 text-gray-600 hover:text-blue-600">16. Finding Micro-SaaS Ideas</a>
-      <a href="#ch17" class="block py-1 text-gray-600 hover:text-blue-600">17. Building with AI Assistants</a>
-      <a href="#ch18" class="block py-1 text-gray-600 hover:text-blue-600">18. Launch &amp; First Users</a>
-      <a href="#ch19" class="block py-1 text-gray-600 hover:text-blue-600">19. Info Product Ideation</a>
-      <a href="#ch20" class="block py-1 text-gray-600 hover:text-blue-600">20. AI-Powered Content Creation</a>
-      <a href="#ch21" class="block py-1 text-gray-600 hover:text-blue-600">21. Sales Funnels &amp; Marketing</a>
-      <a href="#ch22" class="block py-1 text-gray-600 hover:text-blue-600">22. Passive Income Systems</a>
-      <a href="#ch23" class="block py-1 text-gray-600 hover:text-blue-600">23. AI Automation Agency</a>
-      <a href="#ch24" class="block py-1 text-gray-600 hover:text-blue-600">24. Client Acquisition</a>
-      <a href="#ch25" class="block py-1 text-gray-600 hover:text-blue-600">25. Pricing &amp; Packaging</a>
-      <a href="#ch26" class="block py-1 text-gray-600 hover:text-blue-600">26. Building Your Brand</a>
-      <a href="#ch27" class="block py-1 text-gray-600 hover:text-blue-600">27. Your 90-Day Action Plan</a>
-    </div>
-  </nav>
+  </aside>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <div class="lg:grid lg:grid-cols-[260px_1fr] lg:gap-10">
+  <!-- Main wrapper -->
+  <div class="lg:ml-60 min-h-screen flex flex-col">
 
-      <!-- Desktop Sidebar TOC -->
-      <aside class="guide-sidebar hidden lg:block">
-        <div class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Contents</div>
-        <nav class="space-y-0.5 text-sm">
-          <div class="text-xs font-bold text-blue-600 uppercase tracking-wide mt-4 mb-2">Part 1: Foundations</div>
-          <a href="#ch1" class="toc-link block py-1.5 text-gray-600 hover:text-blue-600 rounded">1. The AI Income Landscape</a>
-          <a href="#ch2" class="toc-link block py-1.5 text-gray-600 hover:text-blue-600 rounded">2. Your AI Toolkit</a>
-          <a href="#ch3" class="toc-link block py-1.5 text-gray-600 hover:text-blue-600 rounded">3. Prompt Engineering</a>
-          <a href="#ch4" class="toc-link block py-1.5 text-gray-600 hover:text-blue-600 rounded">4. Digital Workspace</a>
-          <a href="#ch5" class="toc-link block py-1.5 text-gray-600 hover:text-blue-600 rounded">5. Income-First Mindset</a>
-          <div class="text-xs font-bold text-purple-600 uppercase tracking-wide mt-4 mb-2">Part 2: AI Writing</div>
-          <a href="#ch6" class="toc-link block py-1.5 text-gray-600 hover:text-blue-600 rounded">6. Choosing Your Niche</a>
-          <a href="#ch7" class="toc-link block py-1.5 text-gray-600 hover:text-blue-600 rounded">7. Portfolio in a Weekend</a>
-          <a href="#ch8" class="toc-link block py-1.5 text-gray-600 hover:text-blue-600 rounded">8. Writing Workflow</a>
-          <a href="#ch9" class="toc-link block py-1.5 text-gray-600 hover:text-blue-600 rounded">9. Finding Clients</a>
-          <a href="#ch10" class="toc-link block py-1.5 text-gray-600 hover:text-blue-600 rounded">10. Scaling to $5K/Mo</a>
-          <div class="text-xs font-bold text-green-600 uppercase tracking-wide mt-4 mb-2">Part 3: Digital Art</div>
-          <a href="#ch11" class="toc-link block py-1.5 text-gray-600 hover:text-blue-600 rounded">11. Image Generation</a>
-          <a href="#ch12" class="toc-link block py-1.5 text-gray-600 hover:text-blue-600 rounded">12. Print-on-Demand</a>
-          <a href="#ch13" class="toc-link block py-1.5 text-gray-600 hover:text-blue-600 rounded">13. Designs That Sell</a>
-          <a href="#ch14" class="toc-link block py-1.5 text-gray-600 hover:text-blue-600 rounded">14. Marketplace SEO</a>
-          <a href="#ch15" class="toc-link block py-1.5 text-gray-600 hover:text-blue-600 rounded">15. Scaling Design Biz</a>
-          <div class="text-xs font-bold text-amber-600 uppercase tracking-wide mt-4 mb-2">Part 4: SaaS &amp; Products</div>
-          <a href="#ch16" class="toc-link block py-1.5 text-gray-600 hover:text-blue-600 rounded">16. Micro-SaaS Ideas</a>
-          <a href="#ch17" class="toc-link block py-1.5 text-gray-600 hover:text-blue-600 rounded">17. Building with AI</a>
-          <a href="#ch18" class="toc-link block py-1.5 text-gray-600 hover:text-blue-600 rounded">18. Launch Strategy</a>
-          <a href="#ch19" class="toc-link block py-1.5 text-gray-600 hover:text-blue-600 rounded">19. Info Product Ideas</a>
-          <a href="#ch20" class="toc-link block py-1.5 text-gray-600 hover:text-blue-600 rounded">20. Content Creation</a>
-          <a href="#ch21" class="toc-link block py-1.5 text-gray-600 hover:text-blue-600 rounded">21. Sales Funnels</a>
-          <a href="#ch22" class="toc-link block py-1.5 text-gray-600 hover:text-blue-600 rounded">22. Passive Income</a>
-          <div class="text-xs font-bold text-rose-600 uppercase tracking-wide mt-4 mb-2">Part 5: Agency &amp; Beyond</div>
-          <a href="#ch23" class="toc-link block py-1.5 text-gray-600 hover:text-blue-600 rounded">23. Automation Agency</a>
-          <a href="#ch24" class="toc-link block py-1.5 text-gray-600 hover:text-blue-600 rounded">24. Client Acquisition</a>
-          <a href="#ch25" class="toc-link block py-1.5 text-gray-600 hover:text-blue-600 rounded">25. Pricing Services</a>
-          <a href="#ch26" class="toc-link block py-1.5 text-gray-600 hover:text-blue-600 rounded">26. Personal Brand</a>
-          <a href="#ch27" class="toc-link block py-1.5 text-gray-600 hover:text-blue-600 rounded">27. 90-Day Action Plan</a>
-        </nav>
-      </aside>
+    <!-- Top bar -->
+    <nav id="topbar" class="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+      <div class="flex items-center justify-between h-14 px-4 sm:px-6">
+        <div class="flex items-center gap-3">
+          <button onclick="toggleMobile()" class="lg:hidden p-1.5 -ml-1 rounded-lg hover:bg-gray-100">
+            <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+          <div id="breadcrumb" class="text-sm font-medium text-gray-600">
+            <span class="text-gray-400">Guide</span>
+            <span class="text-gray-300 mx-1.5">/</span>
+            <span id="breadcrumb-current" class="text-gray-900">Dashboard</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-xs text-gray-400 hidden sm:inline">27 Chapters &middot; 5 Parts</span>
+          <button onclick="window.print()" class="p-1.5 rounded-lg hover:bg-gray-100 text-gray-400 hover:text-gray-600" title="Print">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+          </button>
+        </div>
+      </div>
+    </nav>
 
-      <!-- Main Guide Content -->
-      <main class="guide-content max-w-3xl">
+    <!-- Content area -->
+    <main class="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 py-8">
 
-        <!-- Guide Header -->
-        <div class="mb-16">
+      <!-- Dashboard -->
+      <div id="dashboard">
+        <div class="mb-8">
           <p class="text-sm text-blue-600 font-semibold uppercase tracking-wide mb-2">Complete Guide &middot; 2025 Edition</p>
-          <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">AI Income Blueprint</h1>
-          <p class="mt-4 text-xl text-gray-600">5 Proven Methods to Generate Real Income Using Artificial Intelligence</p>
-          <div class="mt-6 flex flex-wrap gap-3 text-xs">
+          <h1 class="text-3xl sm:text-4xl font-extrabold leading-tight">AI Income Blueprint</h1>
+          <p class="mt-3 text-lg text-gray-500">5 Proven Methods to Generate Real Income Using Artificial Intelligence</p>
+          <div class="mt-4 flex flex-wrap gap-2 text-xs">
             <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full font-semibold">27 Chapters</span>
             <span class="bg-purple-50 text-purple-700 px-3 py-1 rounded-full font-semibold">50+ Prompts</span>
             <span class="bg-green-50 text-green-700 px-3 py-1 rounded-full font-semibold">5 Income Methods</span>
           </div>
         </div>
 
-        <!-- ===================== PART 1: FOUNDATIONS ===================== -->
-        <div class="mb-8 pb-4 border-b-2 border-blue-100">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+          <div class="dash-card" onclick="showView('part1')">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600 text-sm font-bold">1</div>
+              <h3 class="font-bold text-sm text-gray-900">Foundations</h3>
+            </div>
+            <p class="text-xs text-gray-500 mb-3">AI landscape, toolkit setup, prompt engineering, workspace, mindset</p>
+            <div class="text-xs text-blue-600 font-semibold">Chapters 1-5 &rarr;</div>
+          </div>
+
+          <div class="dash-card" onclick="showView('part2')">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-8 h-8 rounded-lg bg-purple-100 flex items-center justify-center text-purple-600 text-sm font-bold">2</div>
+              <h3 class="font-bold text-sm text-gray-900">AI Freelance Writing</h3>
+            </div>
+            <p class="text-xs text-gray-500 mb-3">Niche selection, portfolio building, client acquisition, scaling to $5K/mo</p>
+            <div class="text-xs text-purple-600 font-semibold">Chapters 6-10 &rarr;</div>
+          </div>
+
+          <div class="dash-card" onclick="showView('part3')">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-8 h-8 rounded-lg bg-green-100 flex items-center justify-center text-green-600 text-sm font-bold">3</div>
+              <h3 class="font-bold text-sm text-gray-900">Digital Art &amp; Design</h3>
+            </div>
+            <p class="text-xs text-gray-500 mb-3">Image generation, print-on-demand, design workflows, marketplace optimization</p>
+            <div class="text-xs text-green-600 font-semibold">Chapters 11-15 &rarr;</div>
+          </div>
+
+          <div class="dash-card" onclick="showView('part4')">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center text-amber-600 text-sm font-bold">4</div>
+              <h3 class="font-bold text-sm text-gray-900">SaaS &amp; Info Products</h3>
+            </div>
+            <p class="text-xs text-gray-500 mb-3">Micro-SaaS ideation, building with AI, product creation, sales funnels, passive income</p>
+            <div class="text-xs text-amber-600 font-semibold">Chapters 16-22 &rarr;</div>
+          </div>
+
+          <div class="dash-card" onclick="showView('part5')">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-8 h-8 rounded-lg bg-rose-100 flex items-center justify-center text-rose-600 text-sm font-bold">5</div>
+              <h3 class="font-bold text-sm text-gray-900">Agency &amp; Beyond</h3>
+            </div>
+            <p class="text-xs text-gray-500 mb-3">Automation agency, client acquisition, pricing, personal brand, 90-day action plan</p>
+            <div class="text-xs text-rose-600 font-semibold">Chapters 23-27 &rarr;</div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 text-center">
+          <h2 class="text-xl font-extrabold mb-3">Ready to Start?</h2>
+          <p class="text-gray-600 text-sm mb-4">Begin with the foundations, then pick the income method that excites you most.</p>
+          <button onclick="showView('part1')" class="cta-glow inline-flex items-center bg-blue-600 text-white font-semibold px-6 py-2.5 rounded-xl shadow-lg shadow-blue-600/20 text-sm">
+            Start Chapter 1 &rarr;
+          </button>
+          <p class="text-xs text-gray-500 mt-4">&copy; 2025 AI Income Blueprint. All rights reserved.</p>
+        </div>
+      </div>
+
+      <!-- Section sub-nav -->
+      <div id="section-subnav" class="section-subnav hidden mb-6 pb-4 border-b border-gray-200"></div>
+
+      <!-- All chapter content -->
+<div class="mb-8 pb-4 border-b-2 border-blue-100 hidden view-section" data-view="part1">
           <span class="text-xs font-bold text-blue-600 uppercase tracking-widest">Part 1</span>
           <h2 class="text-2xl font-extrabold mt-1">Foundations</h2>
         </div>
 
         <!-- Chapter 1 -->
-        <section id="ch1" class="mb-16">
+        <section id="ch1" class="mb-16 view-section hidden" data-view="part1">
           <div class="chapter-header mb-6">
             <div class="chapter-number">1</div>
             <h2 class="text-2xl font-bold">The AI Income Landscape</h2>
@@ -138,7 +236,7 @@
         </section>
 
         <!-- Chapter 2 -->
-        <section id="ch2" class="mb-16">
+        <section id="ch2" class="mb-16 view-section hidden" data-view="part1">
           <div class="chapter-header mb-6">
             <div class="chapter-number">2</div>
             <h2 class="text-2xl font-bold">Setting Up Your AI Toolkit</h2>
@@ -164,7 +262,7 @@
         </section>
 
         <!-- Chapter 3 -->
-        <section id="ch3" class="mb-16">
+        <section id="ch3" class="mb-16 view-section hidden" data-view="part1">
           <div class="chapter-header mb-6">
             <div class="chapter-number">3</div>
             <h2 class="text-2xl font-bold">The Prompt Engineering Masterclass</h2>
@@ -192,7 +290,7 @@ Polish: After writing, review for clarity and add a compelling introduction hook
         </section>
 
         <!-- Chapter 4 -->
-        <section id="ch4" class="mb-16">
+        <section id="ch4" class="mb-16 view-section hidden" data-view="part1">
           <div class="chapter-header mb-6">
             <div class="chapter-number">4</div>
             <h2 class="text-2xl font-bold">Building Your Digital Workspace</h2>
@@ -218,7 +316,7 @@ Polish: After writing, review for clarity and add a compelling introduction hook
         </section>
 
         <!-- Chapter 5 -->
-        <section id="ch5" class="mb-16">
+        <section id="ch5" class="mb-16 view-section hidden" data-view="part1">
           <div class="chapter-header mb-6">
             <div class="chapter-number">5</div>
             <h2 class="text-2xl font-bold">The Income-First Mindset</h2>
@@ -240,13 +338,13 @@ Polish: After writing, review for clarity and add a compelling introduction hook
         </section>
 
         <!-- ===================== PART 2: AI FREELANCE WRITING ===================== -->
-        <div class="mb-8 pb-4 border-b-2 border-purple-100 mt-20">
+        <div class="mb-8 pb-4 border-b-2 border-purple-100 mt-20 hidden view-section" data-view="part2">
           <span class="text-xs font-bold text-purple-600 uppercase tracking-widest">Part 2</span>
           <h2 class="text-2xl font-extrabold mt-1">AI Freelance Writing</h2>
         </div>
 
         <!-- Chapter 6 -->
-        <section id="ch6" class="mb-16">
+        <section id="ch6" class="mb-16 view-section hidden" data-view="part2">
           <div class="chapter-header mb-6">
             <div class="chapter-number">6</div>
             <h2 class="text-2xl font-bold">Choosing Your Writing Niche</h2>
@@ -272,7 +370,7 @@ Polish: After writing, review for clarity and add a compelling introduction hook
         </section>
 
         <!-- Chapter 7 -->
-        <section id="ch7" class="mb-16">
+        <section id="ch7" class="mb-16 view-section hidden" data-view="part2">
           <div class="chapter-header mb-6">
             <div class="chapter-number">7</div>
             <h2 class="text-2xl font-bold">Building a Portfolio in a Weekend</h2>
@@ -301,7 +399,7 @@ Important: This should read like expert-level content, not generic AI output. Ad
         </section>
 
         <!-- Chapter 8 -->
-        <section id="ch8" class="mb-16">
+        <section id="ch8" class="mb-16 view-section hidden" data-view="part2">
           <div class="chapter-header mb-6">
             <div class="chapter-number">8</div>
             <h2 class="text-2xl font-bold">The AI-Assisted Writing Workflow</h2>
@@ -331,7 +429,7 @@ Write this section so it flows naturally from the previous section about [PREV T
         </section>
 
         <!-- Chapter 9 -->
-        <section id="ch9" class="mb-16">
+        <section id="ch9" class="mb-16 view-section hidden" data-view="part2">
           <div class="chapter-header mb-6">
             <div class="chapter-number">9</div>
             <h2 class="text-2xl font-bold">Finding &amp; Pitching Clients</h2>
@@ -370,7 +468,7 @@ Open to a quick 15-minute call this week?
         </section>
 
         <!-- Chapter 10 -->
-        <section id="ch10" class="mb-16">
+        <section id="ch10" class="mb-16 view-section hidden" data-view="part2">
           <div class="chapter-header mb-6">
             <div class="chapter-number">10</div>
             <h2 class="text-2xl font-bold">Scaling to $5K/Month</h2>
@@ -396,13 +494,13 @@ Open to a quick 15-minute call this week?
         </section>
 
         <!-- ===================== PART 3: DIGITAL ART & DESIGN ===================== -->
-        <div class="mb-8 pb-4 border-b-2 border-green-100 mt-20">
+        <div class="mb-8 pb-4 border-b-2 border-green-100 mt-20 hidden view-section" data-view="part3">
           <span class="text-xs font-bold text-green-600 uppercase tracking-widest">Part 3</span>
           <h2 class="text-2xl font-extrabold mt-1">AI-Generated Digital Art &amp; Design</h2>
         </div>
 
         <!-- Chapter 11 -->
-        <section id="ch11" class="mb-16">
+        <section id="ch11" class="mb-16 view-section hidden" data-view="part3">
           <div class="chapter-header mb-6">
             <div class="chapter-number">11</div>
             <h2 class="text-2xl font-bold">AI Image Generation Fundamentals</h2>
@@ -425,7 +523,7 @@ Open to a quick 15-minute call this week?
         </section>
 
         <!-- Chapter 12 -->
-        <section id="ch12" class="mb-16">
+        <section id="ch12" class="mb-16 view-section hidden" data-view="part3">
           <div class="chapter-header mb-6">
             <div class="chapter-number">12</div>
             <h2 class="text-2xl font-bold">Print-on-Demand Business Setup</h2>
@@ -454,7 +552,7 @@ Open to a quick 15-minute call this week?
         </section>
 
         <!-- Chapter 13 -->
-        <section id="ch13" class="mb-16">
+        <section id="ch13" class="mb-16 view-section hidden" data-view="part3">
           <div class="chapter-header mb-6">
             <div class="chapter-number">13</div>
             <h2 class="text-2xl font-bold">Design Workflows That Sell</h2>
@@ -480,7 +578,7 @@ Focus on designs that are simple, bold, and readable at a glance. Nothing too co
         </section>
 
         <!-- Chapter 14 -->
-        <section id="ch14" class="mb-16">
+        <section id="ch14" class="mb-16 view-section hidden" data-view="part3">
           <div class="chapter-header mb-6">
             <div class="chapter-number">14</div>
             <h2 class="text-2xl font-bold">Marketplace Optimization</h2>
@@ -504,7 +602,7 @@ Tone: Fun, friendly, and enthusiastic. Make the buyer visualize owning this prod
         </section>
 
         <!-- Chapter 15 -->
-        <section id="ch15" class="mb-16">
+        <section id="ch15" class="mb-16 view-section hidden" data-view="part3">
           <div class="chapter-header mb-6">
             <div class="chapter-number">15</div>
             <h2 class="text-2xl font-bold">Scaling Your Design Business</h2>
@@ -525,13 +623,13 @@ Tone: Fun, friendly, and enthusiastic. Make the buyer visualize owning this prod
         </section>
 
         <!-- ===================== PART 4: MICRO-SAAS & INFO PRODUCTS ===================== -->
-        <div class="mb-8 pb-4 border-b-2 border-amber-100 mt-20">
+        <div class="mb-8 pb-4 border-b-2 border-amber-100 mt-20 hidden view-section" data-view="part4">
           <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">Part 4</span>
           <h2 class="text-2xl font-extrabold mt-1">Micro-SaaS &amp; Digital Info Products</h2>
         </div>
 
         <!-- Chapter 16 -->
-        <section id="ch16" class="mb-16">
+        <section id="ch16" class="mb-16 view-section hidden" data-view="part4">
           <div class="chapter-header mb-6">
             <div class="chapter-number">16</div>
             <h2 class="text-2xl font-bold">Finding Micro-SaaS Ideas</h2>
@@ -560,7 +658,7 @@ Be honest — if this idea has obvious flaws, tell me what they are.</code></div
         </section>
 
         <!-- Chapter 17 -->
-        <section id="ch17" class="mb-16">
+        <section id="ch17" class="mb-16 view-section hidden" data-view="part4">
           <div class="chapter-header mb-6">
             <div class="chapter-number">17</div>
             <h2 class="text-2xl font-bold">Building with AI Code Assistants</h2>
@@ -593,7 +691,7 @@ Please help me build this step by step:
         </section>
 
         <!-- Chapter 18 -->
-        <section id="ch18" class="mb-16">
+        <section id="ch18" class="mb-16 view-section hidden" data-view="part4">
           <div class="chapter-header mb-6">
             <div class="chapter-number">18</div>
             <h2 class="text-2xl font-bold">Launch &amp; Get Your First Users</h2>
@@ -621,7 +719,7 @@ Tone: Authentic, excited but not hype-y, founder-telling-a-story vibe.</code></d
         </section>
 
         <!-- Chapter 19 -->
-        <section id="ch19" class="mb-16">
+        <section id="ch19" class="mb-16 view-section hidden" data-view="part4">
           <div class="chapter-header mb-6">
             <div class="chapter-number">19</div>
             <h2 class="text-2xl font-bold">Info Product Ideation &amp; Validation</h2>
@@ -646,7 +744,7 @@ Tone: Authentic, excited but not hype-y, founder-telling-a-story vibe.</code></d
         </section>
 
         <!-- Chapter 20 -->
-        <section id="ch20" class="mb-16">
+        <section id="ch20" class="mb-16 view-section hidden" data-view="part4">
           <div class="chapter-header mb-6">
             <div class="chapter-number">20</div>
             <h2 class="text-2xl font-bold">AI-Powered Content Creation</h2>
@@ -682,7 +780,7 @@ Requirements:
         </section>
 
         <!-- Chapter 21 -->
-        <section id="ch21" class="mb-16">
+        <section id="ch21" class="mb-16 view-section hidden" data-view="part4">
           <div class="chapter-header mb-6">
             <div class="chapter-number">21</div>
             <h2 class="text-2xl font-bold">Sales Funnels &amp; Marketing</h2>
@@ -711,7 +809,7 @@ Tone: Friendly, helpful, no hard sell until Email 5. Each email should be 150-25
         </section>
 
         <!-- Chapter 22 -->
-        <section id="ch22" class="mb-16">
+        <section id="ch22" class="mb-16 view-section hidden" data-view="part4">
           <div class="chapter-header mb-6">
             <div class="chapter-number">22</div>
             <h2 class="text-2xl font-bold">Passive Income Systems</h2>
@@ -732,13 +830,13 @@ Tone: Friendly, helpful, no hard sell until Email 5. Each email should be 150-25
         </section>
 
         <!-- ===================== PART 5: AUTOMATION AGENCY & NEXT STEPS ===================== -->
-        <div class="mb-8 pb-4 border-b-2 border-rose-100 mt-20">
+        <div class="mb-8 pb-4 border-b-2 border-rose-100 mt-20 hidden view-section" data-view="part5">
           <span class="text-xs font-bold text-rose-600 uppercase tracking-widest">Part 5</span>
           <h2 class="text-2xl font-extrabold mt-1">AI Automation Agency &amp; Next Steps</h2>
         </div>
 
         <!-- Chapter 23 -->
-        <section id="ch23" class="mb-16">
+        <section id="ch23" class="mb-16 view-section hidden" data-view="part5">
           <div class="chapter-header mb-6">
             <div class="chapter-number">23</div>
             <h2 class="text-2xl font-bold">Starting an AI Automation Agency</h2>
@@ -761,7 +859,7 @@ Tone: Friendly, helpful, no hard sell until Email 5. Each email should be 150-25
         </section>
 
         <!-- Chapter 24 -->
-        <section id="ch24" class="mb-16">
+        <section id="ch24" class="mb-16 view-section hidden" data-view="part5">
           <div class="chapter-header mb-6">
             <div class="chapter-number">24</div>
             <h2 class="text-2xl font-bold">Client Acquisition Playbook</h2>
@@ -795,7 +893,7 @@ AI Automation Consultant</code></div>
         </section>
 
         <!-- Chapter 25 -->
-        <section id="ch25" class="mb-16">
+        <section id="ch25" class="mb-16 view-section hidden" data-view="part5">
           <div class="chapter-header mb-6">
             <div class="chapter-number">25</div>
             <h2 class="text-2xl font-bold">Pricing &amp; Packaging Your Services</h2>
@@ -825,7 +923,7 @@ AI Automation Consultant</code></div>
         </section>
 
         <!-- Chapter 26 -->
-        <section id="ch26" class="mb-16">
+        <section id="ch26" class="mb-16 view-section hidden" data-view="part5">
           <div class="chapter-header mb-6">
             <div class="chapter-number">26</div>
             <h2 class="text-2xl font-bold">Building Your Personal Brand with AI</h2>
@@ -851,7 +949,7 @@ Tone: Authentic, knowledgeable, approachable. Not salesy. Include relevant hasht
         </section>
 
         <!-- Chapter 27 -->
-        <section id="ch27" class="mb-16">
+        <section id="ch27" class="mb-16 view-section hidden" data-view="part5">
           <div class="chapter-header mb-6">
             <div class="chapter-number">27</div>
             <h2 class="text-2xl font-bold">Your 90-Day Action Plan</h2>
@@ -896,21 +994,216 @@ Tone: Authentic, knowledgeable, approachable. Not salesy. Include relevant hasht
           </div>
         </section>
 
-        <!-- End of Guide CTA -->
-        <div class="mt-20 bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 sm:p-12 text-center">
-          <h2 class="text-2xl font-extrabold mb-3">You've Got the Blueprint</h2>
-          <p class="text-gray-600 mb-6">Now it's time to take action. Pick your first income method and start today.</p>
-          <a href="#ch1" class="cta-glow inline-flex items-center justify-center bg-blue-600 text-white font-semibold px-8 py-3 rounded-xl shadow-lg shadow-blue-600/20">
-            Back to Top
-            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
-          </a>
-          <p class="text-sm text-gray-500 mt-4">&copy; 2025 AI Income Blueprint. All rights reserved.</p>
-        </div>
+      <!-- View navigation -->
+      <div id="view-nav" class="hidden mt-12 mb-4 flex items-center justify-between">
+        <button id="prev-btn" class="view-nav-btn" onclick="navPrev()">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          <span id="prev-label">Previous</span>
+        </button>
+        <button id="next-btn" class="view-nav-btn primary" onclick="navNext()">
+          <span id="next-label">Next</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
 
-      </main>
-    </div>
+    </main>
   </div>
 
-<script src="js/main.js"></script>
+<script>
+(function() {
+  var views = {
+    part1: ['ch1','ch2','ch3','ch4','ch5'],
+    part2: ['ch6','ch7','ch8','ch9','ch10'],
+    part3: ['ch11','ch12','ch13','ch14','ch15'],
+    part4: ['ch16','ch17','ch18','ch19','ch20','ch21','ch22'],
+    part5: ['ch23','ch24','ch25','ch26','ch27']
+  };
+
+  var viewLabels = {
+    dashboard: 'Dashboard',
+    part1: 'Part 1: Foundations',
+    part2: 'Part 2: AI Writing',
+    part3: 'Part 3: Digital Art',
+    part4: 'Part 4: SaaS & Products',
+    part5: 'Part 5: Agency & Beyond'
+  };
+
+  var viewOrder = ['dashboard','part1','part2','part3','part4','part5'];
+  var currentView = 'dashboard';
+
+  function showView(key) {
+    document.querySelectorAll('.view-section').forEach(function(s) { s.classList.add('hidden'); });
+    document.getElementById('dashboard').classList.add('hidden');
+    document.getElementById('view-nav').classList.add('hidden');
+    document.getElementById('section-subnav').classList.add('hidden');
+
+    if (key === 'dashboard') {
+      document.getElementById('dashboard').classList.remove('hidden');
+    } else {
+      // Show part dividers that match this view
+      document.querySelectorAll('.view-section[data-view="' + key + '"]').forEach(function(el) {
+        el.classList.remove('hidden');
+      });
+      document.getElementById('view-nav').classList.remove('hidden');
+      updateViewNav(key);
+      buildSubnav(views[key]);
+    }
+
+    document.querySelectorAll('.nav-item').forEach(function(n) { n.classList.remove('active'); });
+    var activeBtn = document.querySelector('[data-nav="' + key + '"]');
+    if (activeBtn) activeBtn.classList.add('active');
+
+    var bc = document.getElementById('breadcrumb-current');
+    if (bc) bc.textContent = viewLabels[key] || key;
+
+    window.scrollTo({top: 0, behavior: 'instant'});
+    closeMobile();
+    try { localStorage.setItem('guideView', key); } catch(e) {}
+    currentView = key;
+  }
+
+  function buildSubnav(sectionIds) {
+    var nav = document.getElementById('section-subnav');
+    nav.innerHTML = '';
+    sectionIds.forEach(function(id) {
+      var sec = document.getElementById(id);
+      if (!sec) return;
+      var h2 = sec.querySelector('h2');
+      if (!h2) return;
+      var a = document.createElement('a');
+      a.href = '#' + id;
+      a.textContent = h2.textContent;
+      if (a.textContent.length > 30) a.textContent = a.textContent.substring(0,27) + '...';
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById(id).scrollIntoView({behavior: 'smooth', block: 'start'});
+      });
+      nav.appendChild(a);
+    });
+    if (nav.children.length > 1) nav.classList.remove('hidden');
+  }
+
+  function updateViewNav(key) {
+    var idx = viewOrder.indexOf(key);
+    var prevBtn = document.getElementById('prev-btn');
+    var nextBtn = document.getElementById('next-btn');
+    var prevLabel = document.getElementById('prev-label');
+    var nextLabel = document.getElementById('next-label');
+
+    if (idx <= 0) {
+      prevBtn.style.visibility = 'hidden';
+    } else {
+      prevBtn.style.visibility = 'visible';
+      prevLabel.textContent = viewLabels[viewOrder[idx - 1]] || 'Previous';
+    }
+    if (idx >= viewOrder.length - 1) {
+      nextBtn.style.visibility = 'hidden';
+    } else {
+      nextBtn.style.visibility = 'visible';
+      nextLabel.textContent = viewLabels[viewOrder[idx + 1]] || 'Next';
+    }
+  }
+
+  window.navPrev = function() {
+    var idx = viewOrder.indexOf(currentView);
+    if (idx > 0) showView(viewOrder[idx - 1]);
+  };
+
+  window.navNext = function() {
+    var idx = viewOrder.indexOf(currentView);
+    if (idx < viewOrder.length - 1) showView(viewOrder[idx + 1]);
+  };
+
+  window.toggleMobile = function() {
+    var sb = document.getElementById('sidebar');
+    var ov = document.getElementById('sidebar-overlay');
+    var isOpen = !sb.classList.contains('-translate-x-full');
+    if (isOpen) {
+      sb.classList.add('-translate-x-full');
+      ov.classList.add('hidden');
+    } else {
+      sb.classList.remove('-translate-x-full');
+      ov.classList.remove('hidden');
+    }
+  };
+
+  function closeMobile() {
+    var sb = document.getElementById('sidebar');
+    var ov = document.getElementById('sidebar-overlay');
+    if (window.innerWidth < 1024) {
+      sb.classList.add('-translate-x-full');
+      ov.classList.add('hidden');
+    }
+  }
+
+  // Copy buttons
+  document.querySelectorAll('.copy-btn').forEach(function(b) {
+    b.addEventListener('click', function() {
+      var bl = b.closest('.prompt-block');
+      var c = bl.querySelector('code') || bl;
+      navigator.clipboard.writeText((c.textContent||c.innerText).trim()).then(function() {
+        b.textContent='Copied!'; b.classList.add('copied');
+        setTimeout(function(){b.textContent='Copy';b.classList.remove('copied');},2000);
+      });
+    });
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', function(e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === 'ArrowLeft') { e.preventDefault(); navPrev(); }
+    if (e.key === 'ArrowRight') { e.preventDefault(); navNext(); }
+    if (e.key === 'Escape') { showView('dashboard'); }
+  });
+
+  window.showView = showView;
+
+  // Init
+  var saved;
+  try { saved = localStorage.getItem('guideView'); } catch(e) {}
+  if (saved && views[saved]) {
+    showView(saved);
+  } else {
+    showView('dashboard');
+  }
+
+  // Handle hash links
+  function handleHash() {
+    var hash = window.location.hash.replace('#', '');
+    if (!hash) return;
+    for (var v in views) {
+      if (views[v].indexOf(hash) !== -1) {
+        showView(v);
+        setTimeout(function() {
+          var el = document.getElementById(hash);
+          if (el) el.scrollIntoView({behavior: 'smooth', block: 'start'});
+        }, 100);
+        return;
+      }
+    }
+  }
+  window.addEventListener('hashchange', handleHash);
+  if (window.location.hash) handleHash();
+
+  // Intercept internal anchor clicks to switch views
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[href^="#"]');
+    if (!link) return;
+    var hash = link.getAttribute('href').replace('#', '');
+    if (!hash) return;
+    for (var v in views) {
+      if (views[v].indexOf(hash) !== -1) {
+        e.preventDefault();
+        showView(v);
+        setTimeout(function() {
+          var el = document.getElementById(hash);
+          if (el) el.scrollIntoView({behavior: 'smooth', block: 'start'});
+        }, 150);
+        return;
+      }
+    }
+  });
+})();
+</script>
 </body>
 </html>

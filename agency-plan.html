@@ -3,18 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Agency Launch Plan — 90-Day Playbook for 2 People</title>
+  <title>AI Agency Launch Plan — Colibri Code LLC</title>
   <meta name="robots" content="noindex, nofollow">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+    html { scroll-behavior: smooth; }
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 3px; }
-    .sidebar { position: sticky; top: 70px; max-height: calc(100vh - 90px); overflow-y: auto; }
-    .sidebar::-webkit-scrollbar { width: 3px; }
-    .sidebar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; }
-    .toc-link { border-left: 2px solid transparent; padding-left: 10px; transition: all 0.2s; }
-    .toc-link.active { color: #2563eb; border-left-color: #2563eb; font-weight: 600; background: rgba(37,99,235,0.05); }
+
+    /* Sidebar */
+    #sidebar { transition: transform 0.3s cubic-bezier(.4,0,.2,1); }
+    #sidebar::-webkit-scrollbar { width: 3px; }
+    #sidebar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; }
+
+    /* Nav items */
+    .nav-item {
+      display: flex; align-items: center; gap: 0.625rem;
+      padding: 0.5rem 0.75rem; border-radius: 0.5rem;
+      font-size: 0.8125rem; font-weight: 500; color: #64748b;
+      transition: all 0.15s; cursor: pointer; width: 100%;
+      border: none; background: none; text-align: left;
+    }
+    .nav-item:hover { background: #f1f5f9; color: #334155; }
+    .nav-item.active { background: #eff6ff; color: #2563eb; font-weight: 600; }
+    .nav-item .nav-icon { width: 20px; height: 20px; flex-shrink: 0; opacity: 0.6; }
+    .nav-item.active .nav-icon { opacity: 1; }
+
+    /* Content cards */
     .day-card { border-left: 4px solid; }
     .day-mike { border-color: #2563eb; }
     .day-wife { border-color: #d946ef; }
@@ -36,103 +51,267 @@
     .copy-btn.copied { background: #059669; color: white; }
     .check-item { position: relative; padding-left: 1.75rem; }
     .check-item::before { content: ''; position: absolute; left: 0; top: 0.3rem; width: 1.1rem; height: 1.1rem; border: 2px solid #cbd5e1; border-radius: 0.25rem; }
-    .legend-dot { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
-    .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #2563eb, #d946ef); z-index: 9999; transition: width 0.1s linear; }
+    .legend-dot { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+
+    /* Dashboard cards */
+    .dash-card {
+      background: white; border: 1px solid #e2e8f0; border-radius: 1rem;
+      padding: 1.25rem; cursor: pointer; transition: all 0.2s;
+    }
+    .dash-card:hover { border-color: #93c5fd; box-shadow: 0 4px 12px rgba(37,99,235,0.1); transform: translateY(-2px); }
+
+    /* Section sub-nav */
+    .section-subnav { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .section-subnav a {
+      padding: 0.375rem 0.75rem; border-radius: 9999px;
+      font-size: 0.75rem; font-weight: 500; color: #64748b;
+      background: #f1f5f9; text-decoration: none; transition: all 0.15s;
+      white-space: nowrap;
+    }
+    .section-subnav a:hover { background: #dbeafe; color: #2563eb; }
+
+    /* View transitions */
+    .view-section { animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* View navigation */
+    .view-nav-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 1.5rem; border-radius: 0.75rem; font-weight: 600;
+      font-size: 0.875rem; transition: all 0.15s; border: 1px solid #e2e8f0;
+      background: white; color: #334155; cursor: pointer;
+    }
+    .view-nav-btn:hover { border-color: #93c5fd; color: #2563eb; background: #f8fafc; }
+    .view-nav-btn.primary { background: #2563eb; color: white; border-color: #2563eb; }
+    .view-nav-btn.primary:hover { background: #1d4ed8; }
+
     @media print {
-      .sidebar, nav, .progress-bar { display: none !important; }
+      #sidebar, #topbar, #sidebar-overlay, .view-nav, .section-subnav, #dashboard { display: none !important; }
+      .view-section { display: block !important; }
       .day-card { break-inside: avoid; }
       body { font-size: 10pt; }
     }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-900 antialiased">
-  <div id="progress-bar" class="progress-bar" style="width:0%"></div>
 
-  <!-- Nav -->
-  <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14">
-      <div class="font-bold text-lg"><span class="text-blue-600">AI Agency</span> Launch Plan</div>
-      <div class="flex items-center gap-4 text-xs">
-        <span class="flex items-center gap-1.5"><span class="legend-dot bg-blue-600"></span> Mike</span>
-        <span class="flex items-center gap-1.5"><span class="legend-dot bg-fuchsia-500"></span> Paola</span>
-        <span class="flex items-center gap-1.5"><span class="legend-dot bg-emerald-500"></span> Both</span>
+  <!-- Mobile sidebar overlay -->
+  <div id="sidebar-overlay" class="fixed inset-0 bg-black/40 z-40 hidden lg:hidden" onclick="toggleMobile()"></div>
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="fixed top-0 left-0 bottom-0 w-60 bg-white border-r border-gray-200 z-50 -translate-x-full lg:translate-x-0 flex flex-col">
+    <div class="p-4 border-b border-gray-100 flex-shrink-0">
+      <div class="font-bold text-base text-gray-900">AI Agency Plan</div>
+      <div class="text-xs text-gray-400 mt-0.5">Colibri Code LLC</div>
+    </div>
+    <nav class="flex-1 overflow-y-auto p-3 space-y-0.5">
+      <button onclick="showView('dashboard')" class="nav-item active" data-nav="dashboard">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+        Dashboard
+      </button>
+
+      <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-5 mb-1 px-3">Plan</div>
+      <button onclick="showView('home')" class="nav-item" data-nav="home">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.518 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.518-4.674z"/></svg>
+        Getting Started
+      </button>
+      <button onclick="showView('setup')" class="nav-item" data-nav="setup">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+        Business Setup
+      </button>
+
+      <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-5 mb-1 px-3">Execute</div>
+      <button onclick="showView('build')" class="nav-item" data-nav="build">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3"/></svg>
+        Weeks 1-4: Build
+      </button>
+      <button onclick="showView('launch')" class="nav-item" data-nav="launch">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        Weeks 5+: Launch
+      </button>
+
+      <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-5 mb-1 px-3">Grow</div>
+      <button onclick="showView('sales')" class="nav-item" data-nav="sales">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>
+        Sales &amp; Clients
+      </button>
+      <button onclick="showView('tech')" class="nav-item" data-nav="tech">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        Tech Deep Dives
+      </button>
+      <button onclick="showView('growth')" class="nav-item" data-nav="growth">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+        Growth &amp; Money
+      </button>
+
+      <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-5 mb-1 px-3">Reference</div>
+      <button onclick="showView('reference')" class="nav-item" data-nav="reference">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        Resources
+      </button>
+    </nav>
+    <div class="flex-shrink-0 p-3 border-t border-gray-100 bg-gray-50/50">
+      <div class="flex items-center gap-3 text-[11px] text-gray-500 px-1">
+        <span class="flex items-center gap-1"><span class="legend-dot bg-blue-600"></span>Mike</span>
+        <span class="flex items-center gap-1"><span class="legend-dot bg-fuchsia-500"></span>Paola</span>
+        <span class="flex items-center gap-1"><span class="legend-dot bg-emerald-500"></span>Both</span>
       </div>
     </div>
-  </nav>
+  </aside>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <div class="lg:grid lg:grid-cols-[240px_1fr] lg:gap-10">
+  <!-- Main wrapper -->
+  <div class="lg:ml-60 min-h-screen flex flex-col">
 
-      <!-- Sidebar TOC -->
-      <aside class="sidebar hidden lg:block">
-        <div class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Plan</div>
-        <nav class="space-y-0.5 text-sm">
-          <a href="#explain" class="toc-link block py-1 text-blue-600 font-bold hover:text-blue-700 rounded">What Is This?</a>
-          <a href="#quickstart" class="toc-link block py-1 text-blue-600 font-bold hover:text-blue-700 rounded">Quick Start Dashboard</a>
-          <a href="#overview" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Overview</a>
-          <a href="#situation" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Your Advantages</a>
-          <a href="#business" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Colibri Code LLC</a>
-          <a href="#niche" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">The Niche</a>
-          <a href="#services" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Services &amp; Pricing</a>
-          <a href="#stack" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Tech Stack</a>
-          <a href="#accounts" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">All Accounts Needed</a>
-          <a href="#roles" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Role Split</a>
-          <div class="text-xs font-bold text-blue-600 uppercase tracking-wide mt-4 mb-1">Phase 1 — Setup</div>
-          <a href="#week1" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Week 1: Foundation</a>
-          <a href="#week2" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Week 2: Build Demo</a>
-          <div class="text-xs font-bold text-purple-600 uppercase tracking-wide mt-4 mb-1">Phase 2 — Outreach</div>
-          <a href="#week3" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Week 3: Start Outreach</a>
-          <a href="#week4" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Week 4: First Client</a>
-          <div class="text-xs font-bold text-emerald-600 uppercase tracking-wide mt-4 mb-1">Phase 3 — Deliver</div>
-          <a href="#week5-6" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Weeks 5-6: Build &amp; Ship</a>
-          <a href="#week7-8" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Weeks 7-8: Optimize</a>
-          <div class="text-xs font-bold text-amber-600 uppercase tracking-wide mt-4 mb-1">Phase 4 — Scale</div>
-          <a href="#month3" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Month 3: Scale to 5</a>
-          <a href="#month4-6" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Months 4-6: Growth</a>
-          <div class="text-xs font-bold text-rose-600 uppercase tracking-wide mt-4 mb-1">Growth Engine</div>
-          <a href="#leadgen" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Lead Generation</a>
-          <a href="#pipeline" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Client Acquisition Pipeline</a>
-          <a href="#onboarding" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Client Onboarding SOP</a>
-          <a href="#retention" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Retention &amp; Churn</a>
-          <a href="#expansion" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Expansion Packages</a>
-          <a href="#milestones" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Scaling Milestones</a>
-          <div class="text-xs font-bold text-cyan-600 uppercase tracking-wide mt-4 mb-1">Deep Dives</div>
-          <a href="#tech-delivery" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Technology Delivery</a>
-          <a href="#phone-setup" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Phone &amp; SMS Setup</a>
-          <a href="#ghl" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">GoHighLevel CRM</a>
-          <a href="#economics" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Real Cost Economics</a>
-          <a href="#competition" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Competitive Positioning</a>
-          <a href="#legal" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Legal &amp; Contracts</a>
-          <div class="text-xs font-bold text-gray-500 uppercase tracking-wide mt-4 mb-1">Reference</div>
-          <a href="#agent-scripts" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">AI Agent Scripts</a>
-          <a href="#tools-compare" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Tool Alternatives</a>
-          <a href="#case-studies" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Case Study Factory</a>
-          <a href="#rituals" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Daily &amp; Weekly Rituals</a>
-          <a href="#scripts" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Scripts &amp; Templates</a>
-          <a href="#financials" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">Financial Projections</a>
-          <a href="#faq" class="toc-link block py-1 text-gray-600 hover:text-blue-600 rounded">FAQ &amp; Objections</a>
-        </nav>
-      </aside>
+    <!-- Top bar -->
+    <nav id="topbar" class="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+      <div class="flex items-center justify-between h-14 px-4 sm:px-6">
+        <div class="flex items-center gap-3">
+          <button onclick="toggleMobile()" class="lg:hidden p-1.5 -ml-1 rounded-lg hover:bg-gray-100">
+            <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+          <div id="breadcrumb" class="text-sm font-medium text-gray-600">
+            <span class="text-gray-400">Plan</span>
+            <span class="text-gray-300 mx-1.5">/</span>
+            <span id="breadcrumb-current" class="text-gray-900">Dashboard</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="hidden sm:flex items-center gap-3 text-xs text-gray-500">
+            <span class="flex items-center gap-1"><span class="legend-dot bg-blue-600"></span>Mike</span>
+            <span class="flex items-center gap-1"><span class="legend-dot bg-fuchsia-500"></span>Paola</span>
+            <span class="flex items-center gap-1"><span class="legend-dot bg-emerald-500"></span>Both</span>
+          </div>
+          <button onclick="window.print()" class="p-1.5 rounded-lg hover:bg-gray-100 text-gray-400 hover:text-gray-600" title="Print">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+          </button>
+        </div>
+      </div>
+    </nav>
 
-      <!-- Main Content -->
-      <main class="max-w-3xl">
+    <!-- Content area -->
+    <main class="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 py-8">
 
-        <!-- Header -->
-        <div class="mb-12">
-          <p class="text-sm text-blue-600 font-semibold uppercase tracking-wide mb-2">Private Playbook &middot; Updated May 2026</p>
-          <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">AI Agency Launch Plan</h1>
-          <p class="mt-4 text-xl text-gray-600">A day-by-day, no-BS guide for Mike + Paola to build a $10K/month AI automation agency from scratch.</p>
-          <div class="mt-6 flex flex-wrap gap-3 text-xs">
+      <!-- Dashboard -->
+      <div id="dashboard">
+        <div class="mb-8">
+          <p class="text-sm text-blue-600 font-semibold uppercase tracking-wide mb-2">Private Playbook &middot; Updated June 2026</p>
+          <h1 class="text-3xl sm:text-4xl font-extrabold leading-tight">AI Agency Launch Plan</h1>
+          <p class="mt-3 text-lg text-gray-500">A day-by-day, no-BS guide for Mike + Paola to build a $10K/month AI automation agency.</p>
+          <div class="mt-4 flex flex-wrap gap-2 text-xs">
             <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full font-semibold">Home Services Niche</span>
-            <span class="bg-fuchsia-50 text-fuchsia-700 px-3 py-1 rounded-full font-semibold">2-Person Team — Part-Time</span>
+            <span class="bg-fuchsia-50 text-fuchsia-700 px-3 py-1 rounded-full font-semibold">2-Person Team</span>
             <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full font-semibold">Colibri Code LLC</span>
             <span class="bg-amber-50 text-amber-700 px-3 py-1 rounded-full font-semibold">Bilingual EN/ES</span>
-            <span class="bg-purple-50 text-purple-700 px-3 py-1 rounded-full font-semibold">Based in Germany → US Clients</span>
           </div>
         </div>
 
-        <!-- ==================== EXPLAIN IT SIMPLY ==================== -->
-        <section id="explain" class="mb-16">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+          <div class="dash-card" onclick="showView('home')">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center text-amber-600">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.518 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.518-4.674z"/></svg>
+              </div>
+              <h3 class="font-bold text-sm text-gray-900">Getting Started</h3>
+            </div>
+            <p class="text-xs text-gray-500 mb-3">What this is, quick start checklist, overview, your advantages</p>
+            <div class="text-xs text-blue-600 font-semibold">4 sections &rarr;</div>
+          </div>
+
+          <div class="dash-card" onclick="showView('setup')">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+              </div>
+              <h3 class="font-bold text-sm text-gray-900">Business Setup</h3>
+            </div>
+            <p class="text-xs text-gray-500 mb-3">LLC, niche, pricing, tech stack, accounts, role split</p>
+            <div class="text-xs text-blue-600 font-semibold">6 sections &rarr;</div>
+          </div>
+
+          <div class="dash-card" onclick="showView('build')">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-8 h-8 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3"/></svg>
+              </div>
+              <h3 class="font-bold text-sm text-gray-900">Weeks 1-4: Build</h3>
+            </div>
+            <p class="text-xs text-gray-500 mb-3">Day-by-day setup, demo building, first outreach, first client</p>
+            <div class="text-xs text-blue-600 font-semibold">4 sections &rarr;</div>
+          </div>
+
+          <div class="dash-card" onclick="showView('launch')">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-600">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              </div>
+              <h3 class="font-bold text-sm text-gray-900">Weeks 5+: Launch</h3>
+            </div>
+            <p class="text-xs text-gray-500 mb-3">Deliver to clients, optimize, scale to 5-10 clients</p>
+            <div class="text-xs text-blue-600 font-semibold">4 sections &rarr;</div>
+          </div>
+
+          <div class="dash-card" onclick="showView('sales')">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-8 h-8 rounded-lg bg-rose-100 flex items-center justify-center text-rose-600">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>
+              </div>
+              <h3 class="font-bold text-sm text-gray-900">Sales &amp; Clients</h3>
+            </div>
+            <p class="text-xs text-gray-500 mb-3">Lead gen, acquisition pipeline, onboarding, scripts &amp; templates</p>
+            <div class="text-xs text-blue-600 font-semibold">4 sections &rarr;</div>
+          </div>
+
+          <div class="dash-card" onclick="showView('tech')">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-8 h-8 rounded-lg bg-cyan-100 flex items-center justify-center text-cyan-600">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </div>
+              <h3 class="font-bold text-sm text-gray-900">Tech Deep Dives</h3>
+            </div>
+            <p class="text-xs text-gray-500 mb-3">Voice AI setup, phone/SMS, CRM, agent scripts, tool comparisons</p>
+            <div class="text-xs text-blue-600 font-semibold">5 sections &rarr;</div>
+          </div>
+
+          <div class="dash-card" onclick="showView('growth')">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-8 h-8 rounded-lg bg-green-100 flex items-center justify-center text-green-600">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+              </div>
+              <h3 class="font-bold text-sm text-gray-900">Growth &amp; Money</h3>
+            </div>
+            <p class="text-xs text-gray-500 mb-3">P&amp;L economics, expansion packages, retention, competitive edge</p>
+            <div class="text-xs text-blue-600 font-semibold">6 sections &rarr;</div>
+          </div>
+
+          <div class="dash-card" onclick="showView('reference')">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-600">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+              </div>
+              <h3 class="font-bold text-sm text-gray-900">Resources</h3>
+            </div>
+            <p class="text-xs text-gray-500 mb-3">Legal, daily rituals, financial projections, FAQ</p>
+            <div class="text-xs text-blue-600 font-semibold">4 sections &rarr;</div>
+          </div>
+        </div>
+
+        <!-- Motivation CTA -->
+        <div class="bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 rounded-2xl p-8 sm:p-10 text-white text-center">
+          <h2 class="text-2xl font-extrabold mb-3">The Only Thing Left Is to Start</h2>
+          <p class="text-blue-100 leading-relaxed mb-5 max-w-lg mx-auto">You have the niche. You have the tools. You have every script, template, and daily action mapped out. The difference between a plan and a business is one thing: Day 1.</p>
+          <div class="flex justify-center gap-3 flex-wrap">
+            <button onclick="showView('home')" class="inline-flex items-center bg-white text-blue-700 font-semibold px-5 py-2.5 rounded-xl shadow text-sm">Read the Intro &rarr;</button>
+            <button onclick="showView('build')" class="inline-flex items-center bg-blue-500 text-white font-semibold px-5 py-2.5 rounded-xl text-sm">Jump to Week 1 &rarr;</button>
+          </div>
+          <p class="text-xs text-blue-200 mt-5">Built for Mike + Paola &middot; Colibri Code LLC &middot; Go build something real.</p>
+        </div>
+      </div>
+
+      <!-- Section sub-nav (populated by JS) -->
+      <div id="section-subnav" class="section-subnav hidden mb-6 pb-4 border-b border-gray-200"></div>
+
+      <!-- All section content -->
+<section id="explain" class="mb-16 view-section hidden" data-view="home">
           <div class="bg-white rounded-2xl border-2 border-blue-200 p-6 sm:p-8">
             <h2 class="text-2xl font-extrabold mb-4">What Is This? (The 2-Minute Explanation)</h2>
 
@@ -188,7 +367,7 @@
         </section>
 
         <!-- ==================== QUICK START DASHBOARD ==================== -->
-        <section id="quickstart" class="mb-16">
+        <section id="quickstart" class="mb-16 view-section hidden" data-view="home">
           <div class="bg-gradient-to-br from-blue-600 to-purple-700 rounded-2xl p-6 sm:p-8 text-white mb-8">
             <h2 class="text-2xl font-extrabold mb-2">Quick Start Dashboard</h2>
             <p class="text-blue-100 text-sm mb-1">Your entire launch in 20 numbered steps. Do them in order. Each step shows <strong>who</strong> does it, <strong>what</strong> to do, and <strong>where</strong> to find the details.</p>
@@ -399,7 +578,7 @@
         </section>
 
         <!-- ==================== OVERVIEW ==================== -->
-        <section id="overview" class="mb-16">
+        <section id="overview" class="mb-16 view-section hidden" data-view="home">
           <h2 class="text-2xl font-extrabold mb-4">Overview: What You're Building</h2>
           <p class="text-gray-700 leading-relaxed mb-4">You're going to sell AI phone agents and automation to home service businesses (HVAC, plumbing, electrical, landscaping). These businesses lose <strong>$45,000-$120,000 per year</strong> from missed calls. You fix that problem with an AI voice agent that answers 24/7, captures leads, and books appointments.</p>
           <p class="text-gray-700 leading-relaxed mb-4">This is not a passive income play. It's a real service business with real clients who pay you $500-$2,000/month because you save them real money. The margins are 80-90% because the tools cost almost nothing per client.</p>
@@ -435,7 +614,7 @@
         </section>
 
         <!-- ==================== YOUR SITUATION ==================== -->
-        <section id="situation" class="mb-16">
+        <section id="situation" class="mb-16 view-section hidden" data-view="home">
           <h2 class="text-2xl font-extrabold mb-4">Your Unique Advantages (Use Them)</h2>
           <p class="text-gray-700 leading-relaxed mb-4">You're not a generic AI agency. You have four competitive moats that 99% of competitors don't have. Lean into every one of them.</p>
 
@@ -492,7 +671,7 @@
         </section>
 
         <!-- ==================== BUSINESS SETUP ==================== -->
-        <section id="business" class="mb-16">
+        <section id="business" class="mb-16 view-section hidden" data-view="setup">
           <h2 class="text-2xl font-extrabold mb-4">Business Setup: Colibri Code LLC</h2>
           <p class="text-gray-700 leading-relaxed mb-4">You already have <strong>Colibri Code LLC</strong> registered in the US. Here's what you need to complete the business infrastructure for the agency arm.</p>
 
@@ -535,7 +714,7 @@
         </section>
 
         <!-- ==================== THE NICHE ==================== -->
-        <section id="niche" class="mb-16">
+        <section id="niche" class="mb-16 view-section hidden" data-view="setup">
           <h2 class="text-2xl font-extrabold mb-4">The Niche: Home Services</h2>
           <p class="text-gray-700 leading-relaxed mb-4">Out of every niche researched, home services wins for a small team. Here's the cold data:</p>
           <ul class="space-y-2 text-gray-700 mb-6">
@@ -583,7 +762,7 @@
         </section>
 
         <!-- ==================== SERVICES & PRICING ==================== -->
-        <section id="services" class="mb-16">
+        <section id="services" class="mb-16 view-section hidden" data-view="setup">
           <h2 class="text-2xl font-extrabold mb-4">Services &amp; Pricing: What You Sell</h2>
           <p class="text-gray-700 leading-relaxed mb-4">You sell <strong>three productized services</strong>. Fixed scope, fixed price. No custom quotes, no scope creep.</p>
 
@@ -680,7 +859,7 @@
         </section>
 
         <!-- ==================== TECH STACK ==================== -->
-        <section id="stack" class="mb-16">
+        <section id="stack" class="mb-16 view-section hidden" data-view="setup">
           <h2 class="text-2xl font-extrabold mb-4">Tech Stack: Every Tool You Need</h2>
           <p class="text-gray-700 leading-relaxed mb-4">This is every tool you'll use, what it costs, and what it does. Total starting cost: ~$150-$200/month.</p>
 
@@ -733,7 +912,7 @@
         </section>
 
         <!-- ==================== ALL ACCOUNTS ==================== -->
-        <section id="accounts" class="mb-16">
+        <section id="accounts" class="mb-16 view-section hidden" data-view="setup">
           <h2 class="text-2xl font-extrabold mb-4">Every Account You Need to Create</h2>
           <p class="text-gray-700 leading-relaxed mb-4">Create these in order. Each takes 5-10 minutes. Do all of them on Day 1-2.</p>
 
@@ -781,7 +960,7 @@
         </section>
 
         <!-- ==================== ROLE SPLIT ==================== -->
-        <section id="roles" class="mb-16">
+        <section id="roles" class="mb-16 view-section hidden" data-view="setup">
           <h2 class="text-2xl font-extrabold mb-4">Role Split: Who Does What</h2>
           <p class="text-gray-700 leading-relaxed mb-4">Part-time means 20-25 hours/week each. Play to each person's strengths. Every task maps to a specific time block optimized for the Germany → US timezone gap.</p>
 
@@ -875,7 +1054,7 @@
         </section>
 
         <!-- ==================== PHASE 1: WEEK 1 ==================== -->
-        <section id="week1" class="mb-16">
+        <section id="week1" class="mb-16 view-section hidden" data-view="build">
           <div class="mb-6 pb-3 border-b-2 border-blue-200">
             <span class="text-xs font-bold text-blue-600 uppercase tracking-widest">Phase 1 — Setup</span>
             <h2 class="text-2xl font-extrabold mt-1">Week 1: Foundation</h2>
@@ -1035,7 +1214,7 @@ mkdir n8n && cd n8n
         </section>
 
         <!-- ==================== PHASE 1: WEEK 2 ==================== -->
-        <section id="week2" class="mb-16">
+        <section id="week2" class="mb-16 view-section hidden" data-view="build">
           <h2 class="text-2xl font-extrabold mb-4">Week 2: Build Follow-Up Automation + Prep Outreach</h2>
 
           <!-- Days 8-9 -->
@@ -1142,7 +1321,7 @@ mkdir n8n && cd n8n
         </section>
 
         <!-- ==================== PHASE 2: WEEK 3 ==================== -->
-        <section id="week3" class="mb-16">
+        <section id="week3" class="mb-16 view-section hidden" data-view="build">
           <div class="mb-6 pb-3 border-b-2 border-purple-200 mt-20">
             <span class="text-xs font-bold text-purple-600 uppercase tracking-widest">Phase 2 — Outreach</span>
             <h2 class="text-2xl font-extrabold mt-1">Week 3: Start Selling</h2>
@@ -1213,7 +1392,7 @@ mkdir n8n && cd n8n
         </section>
 
         <!-- ==================== PHASE 2: WEEK 4 ==================== -->
-        <section id="week4" class="mb-16">
+        <section id="week4" class="mb-16 view-section hidden" data-view="build">
           <h2 class="text-2xl font-extrabold mb-4">Week 4: Close Your First Client</h2>
 
           <h3 class="text-lg font-bold mt-8 mb-4 flex items-center gap-2"><span class="bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded">DAYS 22-28</span> Demo → Close → Onboard</h3>
@@ -1258,7 +1437,7 @@ mkdir n8n && cd n8n
         </section>
 
         <!-- ==================== PHASE 3: WEEKS 5-6 ==================== -->
-        <section id="week5-6" class="mb-16">
+        <section id="week5-6" class="mb-16 view-section hidden" data-view="launch">
           <div class="mb-6 pb-3 border-b-2 border-emerald-200 mt-20">
             <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest">Phase 3 — Deliver &amp; Grow</span>
             <h2 class="text-2xl font-extrabold mt-1">Weeks 5-6: Deliver, Prove, Expand</h2>
@@ -1312,7 +1491,7 @@ Worth a 2-minute demo? I can show you exactly how it sounds.
         </section>
 
         <!-- ==================== PHASE 3: WEEKS 7-8 ==================== -->
-        <section id="week7-8" class="mb-16">
+        <section id="week7-8" class="mb-16 view-section hidden" data-view="launch">
           <h2 class="text-2xl font-extrabold mb-4">Weeks 7-8: Optimize &amp; Close Clients 2-3</h2>
 
           <div class="space-y-3">
@@ -1336,7 +1515,7 @@ Worth a 2-minute demo? I can show you exactly how it sounds.
         </section>
 
         <!-- ==================== PHASE 4: MONTH 3 ==================== -->
-        <section id="month3" class="mb-16">
+        <section id="month3" class="mb-16 view-section hidden" data-view="launch">
           <div class="mb-6 pb-3 border-b-2 border-amber-200 mt-20">
             <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">Phase 4 — Scale</span>
             <h2 class="text-2xl font-extrabold mt-1">Month 3: Scale to 5 Clients</h2>
@@ -1366,7 +1545,7 @@ Worth a 2-minute demo? I can show you exactly how it sounds.
         </section>
 
         <!-- ==================== MONTHS 4-6 ==================== -->
-        <section id="month4-6" class="mb-16">
+        <section id="month4-6" class="mb-16 view-section hidden" data-view="launch">
           <h2 class="text-2xl font-extrabold mb-4">Months 4-6: The Growth Machine</h2>
           <p class="text-gray-700 leading-relaxed mb-4">By now you should have a repeatable system. Here's where you push for 10 clients and $10K/month.</p>
 
@@ -1407,7 +1586,7 @@ Worth a 2-minute demo? I can show you exactly how it sounds.
         </section>
 
         <!-- ==================== LEAD GENERATION ENGINE ==================== -->
-        <section id="leadgen" class="mb-16">
+        <section id="leadgen" class="mb-16 view-section hidden" data-view="sales">
           <div class="mb-6 pb-3 border-b-2 border-amber-200 mt-20">
             <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">Growth Engine</span>
             <h2 class="text-2xl font-extrabold mt-1">Lead Generation Engine</h2>
@@ -1568,7 +1747,7 @@ Worth a 2-minute demo? I can show you exactly how it sounds.
         </section>
 
         <!-- ==================== CLIENT ACQUISITION PIPELINE ==================== -->
-        <section id="pipeline" class="mb-16">
+        <section id="pipeline" class="mb-16 view-section hidden" data-view="sales">
           <h2 class="text-2xl font-extrabold mb-4">Client Acquisition Pipeline: Lead → Close</h2>
           <p class="text-gray-700 leading-relaxed mb-6">The Lead Gen section above fills the top of the funnel. This section covers what happens from the moment someone shows interest to the moment they hand you money. Every step, every script, every timeline.</p>
 
@@ -1721,7 +1900,7 @@ Colibri Code"</code></div>
         </section>
 
         <!-- ==================== CLIENT ONBOARDING SOP ==================== -->
-        <section id="onboarding" class="mb-16">
+        <section id="onboarding" class="mb-16 view-section hidden" data-view="sales">
           <h2 class="text-2xl font-extrabold mb-4">Client Onboarding SOP (Step-by-Step)</h2>
           <p class="text-gray-700 leading-relaxed mb-6">When a client signs, follow this exact process. Target: client fully live in 48-72 hours. The faster they go live, the faster they see ROI, the less likely they churn.</p>
 
@@ -1825,7 +2004,7 @@ Colibri Code"</code></div>
         </section>
 
         <!-- ==================== TECHNOLOGY DELIVERY ==================== -->
-        <section id="tech-delivery" class="mb-16">
+        <section id="tech-delivery" class="mb-16 view-section hidden" data-view="tech">
           <h2 class="text-2xl font-extrabold mb-4">Technology Delivery: Exactly What Gets Built</h2>
           <p class="text-gray-700 leading-relaxed mb-6">For each service tier, here's precisely what you deploy, what the client sees, and what runs in the background.</p>
 
@@ -1903,7 +2082,7 @@ Colibri Code"</code></div>
         </section>
 
         <!-- ==================== PHONE SETUP & COMPLIANCE ==================== -->
-        <section id="phone-setup" class="mb-16">
+        <section id="phone-setup" class="mb-16 view-section hidden" data-view="tech">
           <h2 class="text-2xl font-extrabold mb-4">Phone Setup & SMS Compliance</h2>
           <p class="text-gray-700 leading-relaxed mb-6">The #1 question clients ask: "What happens to my phone number?" Here are the three options, when to use each, and the SMS compliance you must handle.</p>
 
@@ -1976,7 +2155,7 @@ Colibri Code"</code></div>
         </section>
 
         <!-- ==================== GOHIGHLEVEL OPTION ==================== -->
-        <section id="ghl" class="mb-16">
+        <section id="ghl" class="mb-16 view-section hidden" data-view="tech">
           <h2 class="text-2xl font-extrabold mb-4">GoHighLevel: The All-in-One CRM Option</h2>
           <p class="text-gray-700 leading-relaxed mb-6">GoHighLevel (GHL) can replace 5-6 separate tools in your stack and adds powerful features. Here's when to adopt it and how it fits.</p>
 
@@ -2045,7 +2224,7 @@ Colibri Code"</code></div>
         </section>
 
         <!-- ==================== REAL COST ECONOMICS ==================== -->
-        <section id="economics" class="mb-16">
+        <section id="economics" class="mb-16 view-section hidden" data-view="growth">
           <h2 class="text-2xl font-extrabold mb-4">Real Cost Economics: Honest P&amp;L</h2>
           <p class="text-gray-700 leading-relaxed mb-6">Not the "potential" income — the actual math with all costs included. No hand-waving.</p>
 
@@ -2209,7 +2388,7 @@ Colibri Code"</code></div>
         </section>
 
         <!-- ==================== CHURN PREVENTION ==================== -->
-        <section id="retention" class="mb-16">
+        <section id="retention" class="mb-16 view-section hidden" data-view="growth">
           <h2 class="text-2xl font-extrabold mb-4">Client Retention & Churn Prevention</h2>
           <p class="text-gray-700 leading-relaxed mb-6">Acquiring a client costs 5-10x more than keeping one. Your #1 job after closing is making them never want to leave. Here's how.</p>
 
@@ -2258,7 +2437,7 @@ Colibri Code"</code></div>
         </section>
 
         <!-- ==================== EXPANSION PACKAGES ==================== -->
-        <section id="expansion" class="mb-16">
+        <section id="expansion" class="mb-16 view-section hidden" data-view="growth">
           <h2 class="text-2xl font-extrabold mb-4">Expansion Packages: Upsell After Month 2</h2>
           <p class="text-gray-700 leading-relaxed mb-6">Once a client trusts you (month 2+), these add-ons increase your average revenue per client from $1,000 to $1,800-$2,800/mo. Each takes minimal extra work because you've already built the foundation. Sell them gradually — see the recommended sequence at the bottom.</p>
 
@@ -2438,7 +2617,7 @@ Colibri Code"</code></div>
         </section>
 
         <!-- ==================== COMPETITIVE POSITIONING ==================== -->
-        <section id="competition" class="mb-16">
+        <section id="competition" class="mb-16 view-section hidden" data-view="growth">
           <h2 class="text-2xl font-extrabold mb-4">Competitive Positioning: How You Win</h2>
           <p class="text-gray-700 leading-relaxed mb-6">You're not the only AI agency. Here's who you compete with and how to beat them every time.</p>
 
@@ -2482,7 +2661,7 @@ Colibri Code"</code></div>
         </section>
 
         <!-- ==================== SCALING MILESTONES ==================== -->
-        <section id="milestones" class="mb-16">
+        <section id="milestones" class="mb-16 view-section hidden" data-view="growth">
           <h2 class="text-2xl font-extrabold mb-4">Scaling Milestones: What Changes at Each Stage</h2>
           <p class="text-gray-700 leading-relaxed mb-6">The business looks different at 1 client vs. 20. Here's what to expect and what to adjust at each milestone.</p>
 
@@ -2558,7 +2737,7 @@ Colibri Code"</code></div>
         </section>
 
         <!-- ==================== AI AGENT SCRIPT LIBRARY ==================== -->
-        <section id="agent-scripts" class="mb-16">
+        <section id="agent-scripts" class="mb-16 view-section hidden" data-view="tech">
           <h2 class="text-2xl font-extrabold mb-4">AI Agent Script Library</h2>
           <p class="text-gray-700 leading-relaxed mb-6">These are the Vapi system prompts you'll customize per client. Start with the HVAC template and adapt for other trades — 80% stays the same.</p>
 
@@ -2655,7 +2834,7 @@ UPSELL PROMPT (after booking standard service):
         </section>
 
         <!-- ==================== TOOLS COMPARISON ==================== -->
-        <section id="tools-compare" class="mb-16">
+        <section id="tools-compare" class="mb-16 view-section hidden" data-view="tech">
           <h2 class="text-2xl font-extrabold mb-4">Tool Alternatives & Comparison</h2>
           <p class="text-gray-700 leading-relaxed mb-6">For every tool in your stack, here are the alternatives. If something doesn't work or you outgrow it, you have backup options.</p>
 
@@ -2685,7 +2864,7 @@ UPSELL PROMPT (after booking standard service):
         </section>
 
         <!-- ==================== LEGAL & CONTRACTS ==================== -->
-        <section id="legal" class="mb-16">
+        <section id="legal" class="mb-16 view-section hidden" data-view="reference">
           <h2 class="text-2xl font-extrabold mb-4">Legal Essentials & Contract Template</h2>
           <p class="text-gray-700 leading-relaxed mb-6">Keep it simple. A 2-page agreement protects both sides. Here are the key terms every client contract must include.</p>
 
@@ -2726,7 +2905,7 @@ UPSELL PROMPT (after booking standard service):
         </section>
 
         <!-- ==================== CASE STUDY FACTORY ==================== -->
-        <section id="case-studies" class="mb-16">
+        <section id="case-studies" class="mb-16 view-section hidden" data-view="growth">
           <h2 class="text-2xl font-extrabold mb-4">Case Study Factory: Build Social Proof Fast</h2>
           <p class="text-gray-700 leading-relaxed mb-6">After 30 days with your first client, you have enough data for a case study. Case studies are your single best sales asset — more powerful than any pitch deck.</p>
 
@@ -2784,7 +2963,7 @@ UPSELL PROMPT (after booking standard service):
         </section>
 
         <!-- ==================== DAILY/WEEKLY RITUALS ==================== -->
-        <section id="rituals" class="mb-16">
+        <section id="rituals" class="mb-16 view-section hidden" data-view="reference">
           <h2 class="text-2xl font-extrabold mb-4">Daily & Weekly Rituals</h2>
           <p class="text-gray-700 leading-relaxed mb-6">Once you're past the setup phase (Month 2+), these recurring actions keep the machine running. Pin this somewhere visible.</p>
 
@@ -2839,7 +3018,7 @@ UPSELL PROMPT (after booking standard service):
         </section>
 
         <!-- ==================== SCRIPTS & TEMPLATES ==================== -->
-        <section id="scripts" class="mb-16">
+        <section id="scripts" class="mb-16 view-section hidden" data-view="sales">
           <div class="mb-6 pb-3 border-b-2 border-gray-200 mt-20">
             <span class="text-xs font-bold text-gray-500 uppercase tracking-widest">Reference</span>
             <h2 class="text-2xl font-extrabold mt-1">All Scripts &amp; Templates</h2>
@@ -3047,7 +3226,7 @@ Talk soon,
         </section>
 
         <!-- ==================== FINANCIAL PROJECTIONS ==================== -->
-        <section id="financials" class="mb-16">
+        <section id="financials" class="mb-16 view-section hidden" data-view="reference">
           <h2 class="text-2xl font-extrabold mb-4">Financial Projections</h2>
 
           <h3 class="text-lg font-bold mt-6 mb-3">Revenue Ramp-Up (Conservative)</h3>
@@ -3093,7 +3272,7 @@ Talk soon,
         </section>
 
         <!-- ==================== FAQ & OBJECTIONS ==================== -->
-        <section id="faq" class="mb-16">
+        <section id="faq" class="mb-16 view-section hidden" data-view="reference">
           <h2 class="text-2xl font-extrabold mb-4">FAQ &amp; Handling Objections</h2>
           <p class="text-gray-700 leading-relaxed mb-6">What prospects will ask, and exactly what to say.</p>
 
@@ -3149,31 +3328,167 @@ Talk soon,
           </div>
         </section>
 
-        <!-- Final Motivation -->
-        <div class="mt-16 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 rounded-2xl p-8 sm:p-12 text-white text-center">
-          <h2 class="text-2xl sm:text-3xl font-extrabold mb-4">The Only Thing Left Is to Start</h2>
-          <p class="text-blue-100 leading-relaxed mb-6 max-w-xl mx-auto">You have the niche. You have the tools. You have every script, template, and daily action mapped out. The difference between this being a plan and this being a business is one thing: Day 1. Open your calendar. Block out tomorrow. Begin.</p>
-          <div class="flex justify-center gap-4 flex-wrap">
-            <a href="#week1" class="inline-flex items-center bg-white text-blue-700 font-semibold px-6 py-3 rounded-xl shadow">Go to Day 1 &rarr;</a>
-            <a href="#accounts" class="inline-flex items-center bg-blue-500 text-white font-semibold px-6 py-3 rounded-xl">All Accounts Checklist</a>
-          </div>
-          <p class="text-sm text-blue-200 mt-6">Built for Mike + Paola &middot; Colibri Code LLC &middot; Go build something real.</p>
-        </div>
+      <!-- View navigation (prev/next) -->
+      <div id="view-nav" class="hidden mt-12 mb-4 flex items-center justify-between">
+        <button id="prev-btn" class="view-nav-btn" onclick="navPrev()">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          <span id="prev-label">Previous</span>
+        </button>
+        <button id="next-btn" class="view-nav-btn primary" onclick="navNext()">
+          <span id="next-label">Next</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
 
-      </main>
-    </div>
+    </main>
   </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Progress bar
-  var pb = document.getElementById('progress-bar');
-  if (pb) {
-    window.addEventListener('scroll', function() {
-      var s = window.scrollY, d = document.documentElement.scrollHeight - window.innerHeight;
-      pb.style.width = (d > 0 ? (s/d)*100 : 0) + '%';
-    }, {passive:true});
+(function() {
+  var views = {
+    home: ['explain','quickstart','overview','situation'],
+    setup: ['business','niche','services','stack','accounts','roles'],
+    build: ['week1','week2','week3','week4'],
+    launch: ['week5-6','week7-8','month3','month4-6'],
+    sales: ['leadgen','pipeline','onboarding','scripts'],
+    tech: ['tech-delivery','phone-setup','ghl','agent-scripts','tools-compare'],
+    growth: ['economics','expansion','retention','competition','milestones','case-studies'],
+    reference: ['legal','rituals','financials','faq']
+  };
+
+  var viewLabels = {
+    dashboard: 'Dashboard',
+    home: 'Getting Started',
+    setup: 'Business Setup',
+    build: 'Weeks 1-4: Build',
+    launch: 'Weeks 5+: Launch',
+    sales: 'Sales & Clients',
+    tech: 'Tech Deep Dives',
+    growth: 'Growth & Money',
+    reference: 'Resources'
+  };
+
+  var viewOrder = ['dashboard','home','setup','build','launch','sales','tech','growth','reference'];
+  var currentView = 'dashboard';
+
+  function showView(key) {
+    // Hide everything
+    document.querySelectorAll('.view-section').forEach(function(s) { s.classList.add('hidden'); });
+    document.getElementById('dashboard').classList.add('hidden');
+    document.getElementById('view-nav').classList.add('hidden');
+    document.getElementById('section-subnav').classList.add('hidden');
+
+    if (key === 'dashboard') {
+      document.getElementById('dashboard').classList.remove('hidden');
+    } else {
+      var ids = views[key];
+      if (ids) {
+        ids.forEach(function(id) {
+          var el = document.getElementById(id);
+          if (el) { el.classList.remove('hidden'); }
+        });
+        // Show prev/next
+        document.getElementById('view-nav').classList.remove('hidden');
+        updateViewNav(key);
+        // Build section sub-nav
+        buildSubnav(ids);
+      }
+    }
+
+    // Update sidebar active
+    document.querySelectorAll('.nav-item').forEach(function(n) { n.classList.remove('active'); });
+    var activeBtn = document.querySelector('[data-nav="' + key + '"]');
+    if (activeBtn) activeBtn.classList.add('active');
+
+    // Update breadcrumb
+    var bc = document.getElementById('breadcrumb-current');
+    if (bc) bc.textContent = viewLabels[key] || key;
+
+    // Scroll to top
+    window.scrollTo({top: 0, behavior: 'instant'});
+
+    // Close mobile menu
+    closeMobile();
+
+    // Save state
+    try { localStorage.setItem('agencyPlanView', key); } catch(e) {}
+    currentView = key;
   }
+
+  function buildSubnav(sectionIds) {
+    var nav = document.getElementById('section-subnav');
+    nav.innerHTML = '';
+    sectionIds.forEach(function(id) {
+      var sec = document.getElementById(id);
+      if (!sec) return;
+      var h2 = sec.querySelector('h2');
+      if (!h2) return;
+      var a = document.createElement('a');
+      a.href = '#' + id;
+      a.textContent = h2.textContent.replace(/^(Week\s*\d|Weeks?\s*\d|Month\s*\d|Months?\s*\d)[:\s]*/i, function(m) { return m; });
+      if (a.textContent.length > 35) a.textContent = a.textContent.substring(0,32) + '...';
+      nav.appendChild(a);
+    });
+    if (nav.children.length > 1) {
+      nav.classList.remove('hidden');
+    }
+  }
+
+  function updateViewNav(key) {
+    var idx = viewOrder.indexOf(key);
+    var prevBtn = document.getElementById('prev-btn');
+    var nextBtn = document.getElementById('next-btn');
+    var prevLabel = document.getElementById('prev-label');
+    var nextLabel = document.getElementById('next-label');
+
+    if (idx <= 0) {
+      prevBtn.style.visibility = 'hidden';
+    } else {
+      prevBtn.style.visibility = 'visible';
+      prevLabel.textContent = viewLabels[viewOrder[idx - 1]] || 'Previous';
+    }
+
+    if (idx >= viewOrder.length - 1) {
+      nextBtn.style.visibility = 'hidden';
+    } else {
+      nextBtn.style.visibility = 'visible';
+      nextLabel.textContent = viewLabels[viewOrder[idx + 1]] || 'Next';
+    }
+  }
+
+  window.navPrev = function() {
+    var idx = viewOrder.indexOf(currentView);
+    if (idx > 0) showView(viewOrder[idx - 1]);
+  };
+
+  window.navNext = function() {
+    var idx = viewOrder.indexOf(currentView);
+    if (idx < viewOrder.length - 1) showView(viewOrder[idx + 1]);
+  };
+
+  // Mobile menu
+  window.toggleMobile = function() {
+    var sb = document.getElementById('sidebar');
+    var ov = document.getElementById('sidebar-overlay');
+    var isOpen = !sb.classList.contains('-translate-x-full');
+    if (isOpen) {
+      sb.classList.add('-translate-x-full');
+      ov.classList.add('hidden');
+    } else {
+      sb.classList.remove('-translate-x-full');
+      ov.classList.remove('hidden');
+    }
+  };
+
+  function closeMobile() {
+    var sb = document.getElementById('sidebar');
+    var ov = document.getElementById('sidebar-overlay');
+    if (window.innerWidth < 1024) {
+      sb.classList.add('-translate-x-full');
+      ov.classList.add('hidden');
+    }
+  }
+
   // Copy buttons
   document.querySelectorAll('.copy-btn').forEach(function(b) {
     b.addEventListener('click', function() {
@@ -3185,28 +3500,65 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   });
-  // TOC active state
-  var links = document.querySelectorAll('.toc-link');
-  if (links.length) {
-    var secs = [];
-    links.forEach(function(l) {
-      var h = l.getAttribute('href');
-      if (h && h.startsWith('#')) { var s = document.querySelector(h); if (s) secs.push(s); }
-    });
-    if (secs.length) {
-      var obs = new IntersectionObserver(function(entries) {
-        entries.forEach(function(e) {
-          if (e.isIntersecting) {
-            links.forEach(function(l){l.classList.remove('active');});
-            var a = document.querySelector('.toc-link[href="#'+e.target.id+'"]');
-            if (a) a.classList.add('active');
-          }
-        });
-      }, {rootMargin:'-70px 0px -60% 0px', threshold:0});
-      secs.forEach(function(s){obs.observe(s);});
+
+  // Keyboard navigation
+  document.addEventListener('keydown', function(e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); navPrev(); }
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); navNext(); }
+    if (e.key === 'Escape') { showView('dashboard'); }
+  });
+
+  // Make showView global
+  window.showView = showView;
+
+  // Init: restore last view or show dashboard
+  var saved;
+  try { saved = localStorage.getItem('agencyPlanView'); } catch(e) {}
+  if (saved && views[saved]) {
+    showView(saved);
+  } else {
+    showView('dashboard');
+  }
+
+  // Handle hash links from external/internal navigation
+  function handleHash() {
+    var hash = window.location.hash.replace('#', '');
+    if (!hash) return;
+    // Find which view contains this section
+    for (var v in views) {
+      if (views[v].indexOf(hash) !== -1) {
+        showView(v);
+        setTimeout(function() {
+          var el = document.getElementById(hash);
+          if (el) el.scrollIntoView({behavior: 'smooth', block: 'start'});
+        }, 100);
+        return;
+      }
     }
   }
-});
+  window.addEventListener('hashchange', handleHash);
+  if (window.location.hash) handleHash();
+
+  // Intercept internal anchor clicks to switch views
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[href^="#"]');
+    if (!link) return;
+    var hash = link.getAttribute('href').replace('#', '');
+    if (!hash) return;
+    for (var v in views) {
+      if (views[v].indexOf(hash) !== -1) {
+        e.preventDefault();
+        showView(v);
+        setTimeout(function() {
+          var el = document.getElementById(hash);
+          if (el) el.scrollIntoView({behavior: 'smooth', block: 'start'});
+        }, 150);
+        return;
+      }
+    }
+  });
+})();
 </script>
 </body>
 </html>
