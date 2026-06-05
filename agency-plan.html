@@ -3902,6 +3902,325 @@ Questions? Reply to this email or text me at [YOUR NUMBER].
           </div>
         </section>
 
+        <!-- ==================== AGENTIC AI SERVICES ==================== -->
+        <section id="agentic-ai" class="mb-16 view-section hidden" data-view="tech">
+          <h2 class="text-2xl font-extrabold mb-4">Agentic AI: The Premium Tier That Changes Everything</h2>
+          <p class="text-gray-700 leading-relaxed mb-6">Your core AI phone agent is <em>reactive</em> &mdash; it answers when the phone rings. Agentic AI is <em>proactive and autonomous</em> &mdash; it reasons, plans multi-step actions, uses tools, and executes tasks without human involvement. This is the difference between a receptionist and an operations manager. It&rsquo;s your biggest competitive moat and your highest-margin upsell.</p>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">Reactive vs. Agentic: What&rsquo;s the Difference?</h3>
+          <div class="overflow-x-auto mb-6">
+            <table class="w-full text-xs border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold w-1/4"></th><th class="text-left px-3 py-2 font-semibold">Reactive AI (Your Core Product)</th><th class="text-left px-3 py-2 font-semibold">Agentic AI (Premium Tier)</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr><td class="px-3 py-2 font-semibold">Trigger</td><td class="px-3 py-2">Phone rings &rarr; AI answers</td><td class="px-3 py-2">AI decides when and how to act on its own</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Decision-making</td><td class="px-3 py-2">Follows a script with branching logic</td><td class="px-3 py-2">Reasons about context, weighs options, chooses the best action</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Tools</td><td class="px-3 py-2">Captures info, books an appointment</td><td class="px-3 py-2">Checks calendars, queries databases, sends emails, updates CRMs, triggers workflows, calls APIs</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Memory</td><td class="px-3 py-2">Single conversation context</td><td class="px-3 py-2">Remembers past interactions, learns patterns, builds customer profiles over time</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Multi-step</td><td class="px-3 py-2">One task (answer call &rarr; log it)</td><td class="px-3 py-2">Chains 5-10 actions: check availability &rarr; match to right tech &rarr; consider drive time &rarr; book &rarr; confirm &rarr; prep dispatch notes</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Example</td><td class="px-3 py-2">&ldquo;I booked you for Tuesday at 2pm&rdquo;</td><td class="px-3 py-2">&ldquo;Based on the issue, I assigned your most experienced HVAC tech who&rsquo;s already in that neighborhood tomorrow. He&rsquo;ll arrive between 10-12. I also noticed this customer&rsquo;s AC unit is 12 years old &mdash; I flagged a replacement consultation.&rdquo;</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">7 Agentic AI Services for Home Service Businesses</h3>
+          <p class="text-sm text-gray-700 mb-4">Each of these is a standalone product or a premium add-on. They build on your existing stack (n8n + Claude API + Supabase + Twilio) &mdash; no new infrastructure needed.</p>
+
+          <div class="space-y-4">
+            <!-- Agent 1: Smart Dispatch -->
+            <div class="bg-white rounded-xl border-2 border-blue-200 p-5">
+              <div class="flex justify-between items-start mb-2">
+                <h4 class="font-bold text-sm text-blue-700">1. Smart Dispatch Agent</h4>
+                <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded">$500-800/mo</span>
+              </div>
+              <p class="text-xs text-gray-600 mb-3">Instead of just booking appointments, this agent thinks like a dispatcher. It matches incoming jobs to the right technician based on skills, location, availability, and priority &mdash; then coordinates everything automatically.</p>
+              <div class="grid sm:grid-cols-2 gap-3">
+                <div>
+                  <p class="text-xs font-bold text-gray-700 mb-1">What it does:</p>
+                  <div class="space-y-1 text-xs text-gray-600">
+                    <p>&bull; Receives new job request (from phone, web, or text)</p>
+                    <p>&bull; Checks all technician calendars + locations</p>
+                    <p>&bull; Considers: tech specialization, drive time, customer priority, job urgency</p>
+                    <p>&bull; Auto-assigns to the optimal tech</p>
+                    <p>&bull; Sends dispatch details to tech (address, issue, customer history)</p>
+                    <p>&bull; Notifies customer with tech name, ETA, and photo</p>
+                    <p>&bull; Handles rescheduling if tech runs late (auto-notifies next customers in queue)</p>
+                  </div>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-gray-700 mb-1">How you build it:</p>
+                  <div class="space-y-1 text-xs text-gray-600">
+                    <p>&bull; <strong>LLM:</strong> Claude Sonnet with tool use (function calling)</p>
+                    <p>&bull; <strong>Tools:</strong> Google Calendar API (check availability), Google Maps API (drive time), Supabase (tech profiles + skills), Twilio (notify tech + customer)</p>
+                    <p>&bull; <strong>Orchestration:</strong> n8n workflow triggered by new appointment in Supabase</p>
+                    <p>&bull; <strong>Build time:</strong> 8-12 hours first client, 2-3 hours after template exists</p>
+                    <p>&bull; <strong>Your cost:</strong> ~$15-30/mo (API calls + Maps API)</p>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-3 bg-blue-50 rounded-lg p-2">
+                <p class="text-xs text-blue-800"><strong>Sell it as:</strong> &ldquo;Your own AI dispatch coordinator. It knows where every tech is, what they&rsquo;re good at, and assigns jobs to minimize drive time and maximize your daily job count. Most companies see 15-25% more jobs completed per day.&rdquo;</p>
+              </div>
+            </div>
+
+            <!-- Agent 2: Lead Nurturing -->
+            <div class="bg-white rounded-xl border-2 border-emerald-200 p-5">
+              <div class="flex justify-between items-start mb-2">
+                <h4 class="font-bold text-sm text-emerald-700">2. Autonomous Lead Nurturing Agent</h4>
+                <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">$400-600/mo</span>
+              </div>
+              <p class="text-xs text-gray-600 mb-3">Goes way beyond simple drip sequences. This agent looks at each lead individually, decides the best next action, and adapts its approach based on responses &mdash; like having a dedicated sales rep for every lead.</p>
+              <div class="grid sm:grid-cols-2 gap-3">
+                <div>
+                  <p class="text-xs font-bold text-gray-700 mb-1">What it does:</p>
+                  <div class="space-y-1 text-xs text-gray-600">
+                    <p>&bull; Monitors all new leads (calls, web forms, texts)</p>
+                    <p>&bull; Scores each lead: urgency, job size, responsiveness</p>
+                    <p>&bull; Chooses the right channel (SMS vs email vs phone) and timing</p>
+                    <p>&bull; Personalizes every message using call history and conversation context</p>
+                    <p>&bull; If SMS gets no reply in 24hr &rarr; tries email. If email opens but no reply &rarr; tries a phone call</p>
+                    <p>&bull; Knows when to stop (after X attempts) and when to re-engage (seasonal triggers)</p>
+                    <p>&bull; Escalates hot leads to the owner immediately with full context</p>
+                  </div>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-gray-700 mb-1">How you build it:</p>
+                  <div class="space-y-1 text-xs text-gray-600">
+                    <p>&bull; <strong>LLM:</strong> Claude with tool use for reasoning + action selection</p>
+                    <p>&bull; <strong>Tools:</strong> Supabase (lead history), Twilio (SMS/call), Resend (email), Vapi (outbound calls)</p>
+                    <p>&bull; <strong>Loop:</strong> n8n cron (every 2 hours) &rarr; query leads needing action &rarr; Claude decides next step per lead &rarr; execute</p>
+                    <p>&bull; <strong>Build time:</strong> 6-10 hours</p>
+                    <p>&bull; <strong>Your cost:</strong> ~$20-40/mo (API calls + Twilio usage)</p>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-3 bg-emerald-50 rounded-lg p-2">
+                <p class="text-xs text-emerald-800"><strong>Sell it as:</strong> &ldquo;Every lead gets personal attention, automatically. The AI follows up at the right time, on the right channel, with the right message. Our clients convert 30-50% more leads into booked jobs.&rdquo;</p>
+              </div>
+            </div>
+
+            <!-- Agent 3: Quote Follow-Up -->
+            <div class="bg-white rounded-xl border-2 border-purple-200 p-5">
+              <div class="flex justify-between items-start mb-2">
+                <h4 class="font-bold text-sm text-purple-700">3. Intelligent Quote Follow-Up Agent</h4>
+                <span class="text-xs font-bold text-purple-600 bg-purple-50 px-2 py-1 rounded">$300-500/mo</span>
+              </div>
+              <p class="text-xs text-gray-600 mb-3">Contractors send quotes and then forget to follow up. This agent tracks every outstanding quote and nurtures until the customer decides &mdash; adjusting its approach based on the customer&rsquo;s behavior.</p>
+              <div class="space-y-1 text-xs text-gray-600">
+                <p>&bull; Day 1: &ldquo;Hi [Name], just checking &mdash; did you get a chance to review the quote for your AC replacement?&rdquo;</p>
+                <p>&bull; Day 3 (if opened but no reply): &ldquo;I know it&rsquo;s a big decision. If you have any questions about the options, I&rsquo;m happy to help.&rdquo;</p>
+                <p>&bull; Day 5 (if competitor mentioned): &ldquo;We stand behind our pricing. We also offer 12-month financing at 0% &mdash; would that help?&rdquo;</p>
+                <p>&bull; Day 10 (going cold): &ldquo;No pressure at all. This quote is valid for 30 days. If your timeline changes, we&rsquo;re here.&rdquo;</p>
+                <p>&bull; Day 30 (re-engage): &ldquo;Hey [Name], wanted to circle back. Summer&rsquo;s coming &mdash; if you&rsquo;re still thinking about the AC, we have a few install slots open next week.&rdquo;</p>
+              </div>
+              <p class="text-xs text-gray-500 mt-2"><strong>Your cost:</strong> ~$10/mo. <strong>Build time:</strong> 4-6 hours. <strong>The magic:</strong> Claude reads each conversation thread and writes contextually appropriate follow-ups &mdash; not canned templates.</p>
+            </div>
+
+            <!-- Agent 4: Reputation Manager -->
+            <div class="bg-white rounded-xl border-2 border-amber-200 p-5">
+              <div class="flex justify-between items-start mb-2">
+                <h4 class="font-bold text-sm text-amber-700">4. AI Reputation Management Agent</h4>
+                <span class="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-1 rounded">$300-500/mo</span>
+              </div>
+              <p class="text-xs text-gray-600 mb-3">Goes far beyond &ldquo;send a review request after the job.&rdquo; This agent monitors all review platforms, responds intelligently, routes negative feedback before it goes public, and strategically requests reviews from the happiest customers.</p>
+              <div class="space-y-1 text-xs text-gray-600">
+                <p>&bull; <strong>Post-job survey:</strong> Texts customer a 1-question satisfaction check. If score is 9-10 &rarr; sends Google review link. If 1-6 &rarr; routes complaint to owner privately (prevents bad public reviews).</p>
+                <p>&bull; <strong>Review response:</strong> Monitors Google, Yelp, BBB for new reviews. Drafts personalized responses for owner approval. Positive: &ldquo;Thanks, [Name]! Glad we could help with the [specific service].&rdquo; Negative: empathetic acknowledgment + resolution offer.</p>
+                <p>&bull; <strong>Competitive monitoring:</strong> Tracks competitors&rsquo; reviews and alerts when a competitor&rsquo;s rating drops (opportunity to poach their unhappy customers).</p>
+                <p>&bull; <strong>Strategic timing:</strong> Doesn&rsquo;t send all review requests on the same day. Spaces them to maintain a steady stream of fresh reviews (Google&rsquo;s algorithm rewards consistency over bursts).</p>
+              </div>
+              <p class="text-xs text-gray-500 mt-2"><strong>Your cost:</strong> ~$8/mo. <strong>Build time:</strong> 6-8 hours. <strong>Uses:</strong> Google Business Profile API + Claude for response drafting + Twilio for surveys.</p>
+            </div>
+
+            <!-- Agent 5: Maintenance Plan Seller -->
+            <div class="bg-white rounded-xl border-2 border-fuchsia-200 p-5">
+              <div class="flex justify-between items-start mb-2">
+                <h4 class="font-bold text-sm text-fuchsia-700">5. Maintenance Plan Sales Agent</h4>
+                <span class="text-xs font-bold text-fuchsia-600 bg-fuchsia-50 px-2 py-1 rounded">$400-700/mo</span>
+              </div>
+              <p class="text-xs text-gray-600 mb-3">HVAC and plumbing companies make their most predictable revenue from annual maintenance plans ($150-$400/year per household). This agent proactively sells plans to the client&rsquo;s existing customer base and handles renewals.</p>
+              <div class="space-y-1 text-xs text-gray-600">
+                <p>&bull; <strong>Outbound campaigns:</strong> Calls or texts customers who had service in the last 6-18 months: &ldquo;Hi [Name], it&rsquo;s been [X] months since we serviced your AC. Would you like to schedule your annual tune-up? We also have a maintenance plan that saves you 15% on all service calls.&rdquo;</p>
+                <p>&bull; <strong>Renewal automation:</strong> 30 days before a plan expires, starts a renewal sequence (text &rarr; email &rarr; call). Handles objections and can offer incentives.</p>
+                <p>&bull; <strong>Seasonal triggers:</strong> In spring, contacts all customers about AC tune-ups. In fall, about furnace tune-ups. Adjusts messaging based on region and weather.</p>
+                <p>&bull; <strong>Revenue tracking:</strong> Reports to the client exactly how many plans were sold/renewed and the recurring revenue generated.</p>
+              </div>
+              <p class="text-xs text-gray-500 mt-2"><strong>Your cost:</strong> ~$30-50/mo (outbound Vapi calls + SMS). <strong>Build time:</strong> 8-12 hours. <strong>Client ROI:</strong> If the agent sells 20 maintenance plans at $300 each = $6,000 in new annual revenue for a $500/mo service.</p>
+            </div>
+
+            <!-- Agent 6: Customer Intelligence -->
+            <div class="bg-white rounded-xl border-2 border-cyan-200 p-5">
+              <div class="flex justify-between items-start mb-2">
+                <h4 class="font-bold text-sm text-cyan-700">6. Customer Intelligence &amp; Upsell Agent</h4>
+                <span class="text-xs font-bold text-cyan-600 bg-cyan-50 px-2 py-1 rounded">$300-500/mo</span>
+              </div>
+              <p class="text-xs text-gray-600 mb-3">This agent builds and analyzes customer profiles to identify upsell opportunities and predict needs before the customer asks. It&rsquo;s the difference between a business that waits for calls and one that proactively generates revenue.</p>
+              <div class="space-y-1 text-xs text-gray-600">
+                <p>&bull; <strong>Equipment age tracking:</strong> After each service call, the agent logs equipment details (make, model, install date). When a unit approaches end-of-life (10-15 years), it proactively contacts the customer about replacement options.</p>
+                <p>&bull; <strong>Seasonal predictions:</strong> Analyzes last year&rsquo;s call patterns to predict this year&rsquo;s demand. Sends pre-season offers to customers who booked service last year at the same time.</p>
+                <p>&bull; <strong>Cross-sell identification:</strong> Customer called for plumbing? Agent checks if they also have HVAC with the same company. If not: &ldquo;By the way, we also service AC systems. Want to bundle your next maintenance visit?&rdquo;</p>
+                <p>&bull; <strong>Churn prediction:</strong> If a long-time customer hasn&rsquo;t called in 18+ months, triggers a re-engagement campaign before they find a new provider.</p>
+              </div>
+              <p class="text-xs text-gray-500 mt-2"><strong>Your cost:</strong> ~$10-20/mo. <strong>Build time:</strong> 10-15 hours. <strong>Uses:</strong> Claude for analysis + Supabase for customer profiles + n8n for triggers.</p>
+            </div>
+
+            <!-- Agent 7: Multi-Channel Coordinator -->
+            <div class="bg-white rounded-xl border-2 border-gray-300 p-5">
+              <div class="flex justify-between items-start mb-2">
+                <h4 class="font-bold text-sm text-gray-700">7. Multi-Channel Coordinator Agent</h4>
+                <span class="text-xs font-bold text-gray-600 bg-gray-100 px-2 py-1 rounded">$500-1,000/mo</span>
+              </div>
+              <p class="text-xs text-gray-600 mb-3">The ultimate agent: a single AI brain that manages phone, SMS, email, web chat, and social media simultaneously. It maintains context across all channels &mdash; if a customer calls and then texts a follow-up, the agent knows the full history.</p>
+              <div class="space-y-1 text-xs text-gray-600">
+                <p>&bull; <strong>Unified inbox:</strong> Customer emails from their website &rarr; agent reads and responds. Same customer texts &rarr; agent picks up the conversation where the email left off. Customer calls &rarr; voice agent has all context from text and email threads.</p>
+                <p>&bull; <strong>Channel optimization:</strong> Learns which customers prefer which channel and routes communications accordingly. Some customers always ignore texts but reply to emails. The agent remembers.</p>
+                <p>&bull; <strong>Social media monitoring:</strong> Monitors Facebook messages and Google Business Profile Q&amp;A. Responds to inquiries and routes to booking flow.</p>
+                <p>&bull; <strong>Handoff intelligence:</strong> When a customer needs a human, the agent transfers with a full briefing: &ldquo;This is [Name], they called about AC repair on Tuesday, texted a photo of the unit yesterday, and have been a customer for 3 years. Their unit is a 2015 Carrier.&rdquo;</p>
+              </div>
+              <p class="text-xs text-gray-500 mt-2"><strong>Your cost:</strong> ~$40-80/mo. <strong>Build time:</strong> 15-20 hours. <strong>This is the premium product that no answering service can match.</strong></p>
+            </div>
+          </div>
+
+          <h3 class="text-lg font-bold mt-10 mb-4">Pricing: Agentic AI Service Tiers</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Tier</th><th class="text-left px-3 py-2 font-semibold">What&rsquo;s Included</th><th class="text-right px-3 py-2 font-semibold">Monthly</th><th class="text-right px-3 py-2 font-semibold">Setup</th><th class="text-right px-3 py-2 font-semibold">Your Cost</th><th class="text-right px-3 py-2 font-semibold">Margin</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr class="bg-gray-50"><td class="px-3 py-2 font-semibold" colspan="6">Your existing tiers (for comparison)</td></tr>
+                <tr><td class="px-3 py-2">Starter</td><td class="px-3 py-2">AI phone agent only</td><td class="px-3 py-2 text-right">$500</td><td class="px-3 py-2 text-right">$1,500</td><td class="px-3 py-2 text-right">$30-60</td><td class="px-3 py-2 text-right">88-94%</td></tr>
+                <tr><td class="px-3 py-2">Bundle</td><td class="px-3 py-2">Phone + follow-up + reviews</td><td class="px-3 py-2 text-right">$1,000</td><td class="px-3 py-2 text-right">$2,500</td><td class="px-3 py-2 text-right">$40-80</td><td class="px-3 py-2 text-right">92-96%</td></tr>
+                <tr class="bg-purple-50"><td class="px-3 py-2 font-semibold" colspan="6">New agentic tiers</td></tr>
+                <tr class="bg-purple-50"><td class="px-3 py-2 font-bold text-purple-700">Agentic Pro</td><td class="px-3 py-2">Bundle + Smart Dispatch + Lead Nurturing + Quote Follow-Up</td><td class="px-3 py-2 text-right font-bold">$2,000-2,500</td><td class="px-3 py-2 text-right">$5,000</td><td class="px-3 py-2 text-right">$80-150</td><td class="px-3 py-2 text-right font-bold text-emerald-600">93-96%</td></tr>
+                <tr class="bg-purple-100"><td class="px-3 py-2 font-bold text-purple-800">Agentic Enterprise</td><td class="px-3 py-2">Everything above + Multi-Channel + Customer Intelligence + Maintenance Sales + Reputation Mgmt</td><td class="px-3 py-2 text-right font-bold">$3,500-5,000</td><td class="px-3 py-2 text-right">$7,500-10,000</td><td class="px-3 py-2 text-right">$120-250</td><td class="px-3 py-2 text-right font-bold text-emerald-600">95-97%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout callout-cost p-4 mt-3">
+            <p class="font-semibold text-amber-800 text-sm mb-1">The Math at Scale</p>
+            <p class="text-sm text-amber-700">5 clients on Agentic Pro ($2,250/mo avg) + 2 clients on Enterprise ($4,000/mo avg) = <strong>$19,250/mo revenue</strong> from just 7 clients, at ~$800/mo total cost = <strong>$18,450/mo profit.</strong> Compare that to needing 20 clients at the basic Bundle tier to reach similar numbers. Agentic AI lets you make more money from fewer clients with less operational load.</p>
+          </div>
+
+          <h3 class="text-lg font-bold mt-10 mb-4">How to Build Agentic Workflows (Technical)</h3>
+          <div class="bg-white rounded-xl border-2 border-blue-200 p-5">
+            <p class="text-sm text-gray-700 mb-3">The core pattern for every agentic AI service is the same. Once you build one, the others are variations on the same architecture.</p>
+            <div class="space-y-3 text-sm text-gray-700">
+              <div class="bg-gray-50 rounded-lg p-3">
+                <p class="font-bold text-blue-700 text-xs mb-1">The Agent Loop Pattern</p>
+                <p class="text-xs font-mono text-gray-600">Trigger &rarr; Gather Context &rarr; LLM Decides Action &rarr; Execute Action &rarr; Observe Result &rarr; LLM Decides Next Action &rarr; Loop Until Done</p>
+              </div>
+              <div>
+                <p class="font-bold text-xs mb-1">Implementation in your stack:</p>
+                <div class="space-y-1 text-xs text-gray-600">
+                  <p>&bull; <strong>n8n &ldquo;AI Agent&rdquo; node:</strong> Built-in support for the agent loop pattern. Give Claude tools (Supabase query, Twilio send, Calendar check, etc.) and a goal. It reasons about which tool to use and when.</p>
+                  <p>&bull; <strong>Claude tool use (function calling):</strong> Define your tools as JSON schemas. Claude receives the context, decides which tool(s) to call, you execute them, feed results back, Claude decides next step. This is the core of agentic behavior.</p>
+                  <p>&bull; <strong>Supabase for memory:</strong> Store conversation history, customer profiles, and action logs. The agent reads history before deciding. This gives it long-term memory across interactions.</p>
+                  <p>&bull; <strong>n8n cron for proactive triggers:</strong> Not all agents are triggered by a call. The Maintenance Plan agent runs daily at 9am, checks which customers need outreach, and acts. The Quote Follow-Up agent runs every 2 hours and checks for stale quotes.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="prompt-block mt-4"><button class="copy-btn">Copy</button><code>// Example: Claude tool-use call for Smart Dispatch Agent
+// This is what you send to the Anthropic API
+
+{
+  "model": "claude-sonnet-4-20250514",
+  "max_tokens": 1024,
+  "system": "You are a dispatch coordinator for an HVAC company. Your job is to assign incoming service requests to the optimal technician. Consider: tech skills, current location, drive time, availability, and customer priority. Always explain your reasoning.",
+  "tools": [
+    {
+      "name": "check_tech_availability",
+      "description": "Check a technician&#x27;s schedule for available time slots",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "tech_id": {"type": "string"},
+          "date": {"type": "string", "format": "date"}
+        },
+        "required": ["tech_id", "date"]
+      }
+    },
+    {
+      "name": "get_drive_time",
+      "description": "Calculate drive time between two addresses",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "from_address": {"type": "string"},
+          "to_address": {"type": "string"}
+        },
+        "required": ["from_address", "to_address"]
+      }
+    },
+    {
+      "name": "assign_job",
+      "description": "Assign a job to a technician and notify all parties",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "job_id": {"type": "string"},
+          "tech_id": {"type": "string"},
+          "time_slot": {"type": "string"},
+          "notes": {"type": "string"}
+        },
+        "required": ["job_id", "tech_id", "time_slot"]
+      }
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "New service request: AC not cooling at 742 Maple St, Austin TX. Customer is a maintenance plan member (priority). Requested: tomorrow morning. Available techs: Mike S. (senior, currently in Round Rock), Dave R. (junior, currently in South Austin), Lisa T. (senior, currently downtown)."
+    }
+  ]
+}</code></div>
+
+          <h3 class="text-lg font-bold mt-10 mb-4">When to Introduce Agentic Services</h3>
+          <div class="bg-white rounded-xl border border-gray-200 p-5">
+            <div class="space-y-3 text-sm text-gray-700">
+              <div class="flex items-start gap-3">
+                <span class="bg-gray-200 text-gray-700 text-xs font-bold px-2 py-1 rounded-full whitespace-nowrap">Month 1-3</span>
+                <p><strong>Don&rsquo;t offer agentic services yet.</strong> Focus on the core AI phone agent. Get 3-5 clients, deliver great results, build case studies. The basic product is compelling enough.</p>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="bg-blue-200 text-blue-700 text-xs font-bold px-2 py-1 rounded-full whitespace-nowrap">Month 4-6</span>
+                <p><strong>Build your first agentic agent for an existing client.</strong> Pick the Quote Follow-Up agent &mdash; it&rsquo;s the simplest and most obvious ROI. Offer it free for 30 days to your best client. When it recovers $5K+ in stale quotes, you have your case study.</p>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="bg-purple-200 text-purple-700 text-xs font-bold px-2 py-1 rounded-full whitespace-nowrap">Month 6+</span>
+                <p><strong>Launch the Agentic Pro tier for new clients.</strong> Lead with: &ldquo;Most AI agencies just answer your phone. We run your entire front office.&rdquo; Existing clients get offered the upgrade at a discount. New clients see it as the premium option on your pricing page.</p>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="bg-emerald-200 text-emerald-700 text-xs font-bold px-2 py-1 rounded-full whitespace-nowrap">Month 9+</span>
+                <p><strong>Launch Enterprise for larger contractors.</strong> 10+ truck companies, multi-location businesses, franchise operators. These companies pay $3,500-5,000/mo without blinking because it replaces an office manager and a dispatcher. <strong>This is where the real money is.</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout callout-action p-4 mt-6">
+            <p class="font-semibold text-blue-800 text-sm mb-1">Why This Is Your Moat</p>
+            <p class="text-sm text-blue-700">Anyone can set up a Vapi phone agent &mdash; YouTube tutorials make it a weekend project. But building truly agentic systems that reason, use tools, maintain memory, and orchestrate multi-step workflows? That requires real engineering skill. The moment you offer agentic AI, you&rsquo;re not competing with &ldquo;AI answering services&rdquo; anymore &mdash; you&rsquo;re competing with hiring a full-time operations manager. And you&rsquo;re 80% cheaper. That&rsquo;s a moat that widens over time as you build more agent types and accumulate customer data.</p>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">Video Tutorials: Building AI Agents</h3>
+          <div class="grid sm:grid-cols-2 gap-3">
+            <a href="https://www.youtube.com/watch?v=iBkTMRghXpQ" target="_blank" class="flex items-start gap-2 bg-blue-50 rounded-lg p-3 hover:bg-blue-100 transition-colors">
+              <span class="text-red-500 text-lg mt-0.5">&#9654;</span>
+              <div><p class="text-xs font-bold text-gray-800">n8n AI Agent Tutorial</p><p class="text-xs text-gray-500">Build AI agents with tool use in n8n &mdash; the exact pattern you&rsquo;ll use</p></div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=NNq_MzRuFhc" target="_blank" class="flex items-start gap-2 bg-blue-50 rounded-lg p-3 hover:bg-blue-100 transition-colors">
+              <span class="text-red-500 text-lg mt-0.5">&#9654;</span>
+              <div><p class="text-xs font-bold text-gray-800">Claude Tool Use / Function Calling</p><p class="text-xs text-gray-500">How to give Claude tools and let it decide when to use them</p></div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=4IJXaJfFbyg" target="_blank" class="flex items-start gap-2 bg-blue-50 rounded-lg p-3 hover:bg-blue-100 transition-colors">
+              <span class="text-red-500 text-lg mt-0.5">&#9654;</span>
+              <div><p class="text-xs font-bold text-gray-800">Build an AI Agent from Scratch</p><p class="text-xs text-gray-500">Full walkthrough: agent loop, memory, tools, orchestration</p></div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=MUjSYPvRiGo" target="_blank" class="flex items-start gap-2 bg-blue-50 rounded-lg p-3 hover:bg-blue-100 transition-colors">
+              <span class="text-red-500 text-lg mt-0.5">&#9654;</span>
+              <div><p class="text-xs font-bold text-gray-800">Vapi + n8n Advanced Workflows</p><p class="text-xs text-gray-500">Complex voice agent with multi-tool orchestration</p></div>
+            </a>
+          </div>
+        </section>
+
         <!-- ==================== COMPETITIVE POSITIONING ==================== -->
         <section id="competition" class="mb-16 view-section hidden" data-view="growth">
           <h2 class="text-2xl font-extrabold mb-4">Competitive Positioning: How You Win</h2>
@@ -5403,7 +5722,7 @@ Talk soon,
     build: ['week1','week2','week3','week4','demo-env'],
     launch: ['week5-6','week7-8','month3','month4-6'],
     sales: ['leadgen','pipeline','email-infra','missed-call-audit','referral-partners','agency-website','onboarding','scripts'],
-    tech: ['tech-delivery','phone-setup','ghl','agent-scripts','tools-compare','voice-platforms'],
+    tech: ['tech-delivery','phone-setup','ghl','agentic-ai','agent-scripts','tools-compare','voice-platforms'],
     growth: ['economics','expansion','retention','competition','milestones','case-studies','seasonal','client-success'],
     reference: ['legal','rituals','financials','faq','resources']
   };
