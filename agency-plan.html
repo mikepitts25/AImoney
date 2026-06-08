@@ -212,6 +212,12 @@
         Growth &amp; Money
       </button>
 
+      <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-5 mb-1 px-3">Accelerate</div>
+      <button onclick="showView('ai')" class="nav-item" data-nav="ai">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+        AI Leverage
+      </button>
+
       <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-5 mb-1 px-3">Reference</div>
       <button onclick="showView('reference')" class="nav-item" data-nav="reference">
         <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
@@ -271,10 +277,10 @@
         <div class="mb-8">
           <p class="text-sm text-blue-600 font-semibold uppercase tracking-wide mb-2">Complete Course &middot; Updated June 2026</p>
           <h1 class="text-3xl sm:text-4xl font-extrabold leading-tight">AI Agency Blueprint</h1>
-          <p class="mt-3 text-lg text-gray-500">The complete, step-by-step system to build a $10K/month AI automation agency from scratch &mdash; even part-time, even from overseas.</p>
+          <p class="mt-3 text-lg text-gray-500">The complete, step-by-step system to build a $10K/month AI automation agency from scratch &mdash; even part-time, even from overseas. Now with a full AI Leverage module.</p>
           <div class="mt-4 flex flex-wrap gap-2 text-xs">
-            <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full font-semibold">8 Modules</span>
-            <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full font-semibold">46+ Lessons</span>
+            <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full font-semibold">9 Modules</span>
+            <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full font-semibold">52+ Lessons</span>
             <span class="bg-purple-50 text-purple-700 px-3 py-1 rounded-full font-semibold">Templates Included</span>
             <span class="bg-amber-50 text-amber-700 px-3 py-1 rounded-full font-semibold">Copy-Paste Scripts</span>
           </div>
@@ -309,7 +315,7 @@
               <div class="text-[10px] text-slate-400 uppercase">Quizzes Passed</div>
             </div>
             <div>
-              <div class="text-xl font-bold stat-counter" id="stat-modules">0/8</div>
+              <div class="text-xl font-bold stat-counter" id="stat-modules">0/9</div>
               <div class="text-[10px] text-slate-400 uppercase">Modules Done</div>
             </div>
           </div>
@@ -436,6 +442,18 @@
             <p class="text-xs text-gray-500 mb-3">Legal, daily rituals, financial projections, FAQ</p>
             <div class="text-[10px] font-bold text-gray-400 uppercase mb-1">Module 8</div>
             <div class="text-xs text-blue-600 font-semibold">4 lessons &rarr;</div>
+          </div>
+
+          <div class="dash-card" onclick="showView('ai')">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-8 h-8 rounded-lg bg-purple-100 flex items-center justify-center text-purple-600">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+              </div>
+              <h3 class="font-bold text-sm text-gray-900">AI Leverage</h3>
+            </div>
+            <p class="text-xs text-gray-500 mb-3">Build tools with AI, AI lead-gen, automated Missed Call Audit, Hermes/OpenClaw, prompt library</p>
+            <div class="text-[10px] font-bold text-gray-400 uppercase mb-1">Module 9</div>
+            <div class="text-xs text-blue-600 font-semibold">6 lessons &rarr;</div>
           </div>
         </div>
 
@@ -2958,9 +2976,7 @@ Should I set this up for you?&rdquo;</code></div>
               <p class="mt-3"><strong>Target:</strong> 200-500 verified contractor emails per city. Focus on businesses with 10-100 Google reviews (big enough to have call volume, small enough to not have enterprise solutions).</p>
             </div>
           </div>
-        </section>
 
-        
           <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border border-blue-200 p-5 mt-6">
             <h3 class="font-bold text-sm text-blue-800 mb-3">Watch: Cold Email Setup Tutorials</h3>
             <div class="grid sm:grid-cols-2 gap-3">
@@ -6048,8 +6064,8 @@ Talk soon,
             <h1 class="text-3xl sm:text-4xl font-extrabold leading-tight mb-4">AI Agency Blueprint</h1>
             <p class="text-lg text-purple-200 max-w-2xl mx-auto mb-6">Build a $10K/month AI automation agency selling AI phone agents to home service businesses. Step-by-step. Copy-paste templates. No fluff.</p>
             <div class="flex flex-wrap justify-center gap-3 mb-8">
-              <span class="module-badge badge-time text-sm px-3 py-1">8 Modules</span>
-              <span class="module-badge badge-lessons text-sm px-3 py-1">46+ Lessons</span>
+              <span class="module-badge badge-time text-sm px-3 py-1">9 Modules</span>
+              <span class="module-badge badge-lessons text-sm px-3 py-1">52+ Lessons</span>
               <span class="module-badge badge-difficulty text-sm px-3 py-1">Templates + Scripts</span>
             </div>
             <div class="sales-price mb-2">$497</div>
@@ -6098,6 +6114,11 @@ Talk soon,
               <div class="text-2xl mb-2">&#x1F4DA;</div>
               <h3 class="font-bold text-sm mb-1">Module 8: Resources</h3>
               <p class="text-xs text-gray-500">Legal/tax guide, daily rituals, financial tracking templates, FAQ, recommended tools, books, and YouTube channels. 4 lessons, 1 hour.</p>
+            </div>
+            <div class="course-card">
+              <div class="text-2xl mb-2">&#x1F916;</div>
+              <h3 class="font-bold text-sm mb-1">Module 9: AI Leverage</h3>
+              <p class="text-xs text-gray-500">Build tools/apps with AI, a near-free AI lead-gen stack, the automated Missed Call Audit, an honest take on autonomous agents (Hermes/OpenClaw), and a copy-paste prompt library. 6 lessons, 3 hours.</p>
             </div>
           </div>
 
@@ -6279,7 +6300,7 @@ Talk soon,
           <!-- CTA -->
           <div class="bg-gradient-to-r from-blue-600 to-purple-700 rounded-2xl p-8 text-center text-white">
             <h2 class="text-2xl font-extrabold mb-2">Ready to Build Your AI Agency?</h2>
-            <p class="text-blue-100 mb-4">8 modules. 46+ lessons. Every template, script, and workflow you need.</p>
+            <p class="text-blue-100 mb-4">9 modules. 52+ lessons. Every template, script, and workflow you need.</p>
             <div class="sales-price mb-1" style="font-size:2.5rem">$497</div>
             <p class="text-blue-200 text-xs mb-6">One-time. Lifetime access. 30-day guarantee.</p>
             <button onclick="showView('home')" class="bg-white text-blue-700 font-bold px-8 py-3 rounded-xl hover:bg-blue-50 transition-all text-sm">Start Module 1 &rarr;</button>
@@ -6315,6 +6336,412 @@ Talk soon,
           </div>
         </section>
 
+
+        <!-- ==================== MODULE 9: AI LEVERAGE ==================== -->
+        <section id="ai-overview" class="mb-16 view-section hidden" data-view="ai">
+          <div class="module-header">
+            <div class="module-number">9</div>
+            <h2 class="text-xl font-extrabold mb-1">AI Leverage</h2>
+            <p class="text-sm text-slate-300 mb-3">Use AI to build your tools, fill your pipeline, and run your back office &mdash; so two part-time people operate like a team of ten.</p>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="module-badge badge-time"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> 3 hours</span>
+              <span class="module-badge badge-difficulty">Intermediate</span>
+              <span class="module-badge badge-lessons">6 Lessons</span>
+            </div>
+            <div class="text-xs font-semibold text-slate-300 uppercase tracking-wide mb-2">What You'll Learn</div>
+            <ul class="module-objectives">
+              <li>Build client dashboards, calculators, and tools with AI &mdash; no developer needed</li>
+              <li>Fill your pipeline with a near-free AI lead-gen stack</li>
+              <li>Automate the Missed Call Audit to generate undeniable sales proof</li>
+              <li>Decide if autonomous agents (Hermes, OpenClaw) belong in your business</li>
+              <li>Run market research, content, and demo videos with AI</li>
+              <li>Use a copy-paste prompt library to skip the blank page</li>
+            </ul>
+          </div>
+
+          <p class="text-gray-700 leading-relaxed mb-4">Here's the meta-move that makes this whole business work for two part-time people: <strong>use AI to build and run the agency itself</strong>, not just to deliver the product. There are three jobs AI can do for you:</p>
+          <div class="grid sm:grid-cols-3 gap-3 mb-6">
+            <div class="bg-blue-50 rounded-xl p-4 border border-blue-100">
+              <div class="text-2xl mb-1">&#x1F528;</div>
+              <h3 class="font-bold text-sm text-blue-800">1. Build</h3>
+              <p class="text-xs text-gray-600">Dashboards, calculators, landing pages, internal CRM, custom n8n nodes &mdash; described in plain English, built in hours.</p>
+            </div>
+            <div class="bg-emerald-50 rounded-xl p-4 border border-emerald-100">
+              <div class="text-2xl mb-1">&#x1F3AF;</div>
+              <h3 class="font-bold text-sm text-emerald-800">2. Get Clients</h3>
+              <p class="text-xs text-gray-600">Scrape prospects, mine their reviews for pain, write personalized outreach, and run automated Missed Call Audits &mdash; for pennies per lead.</p>
+            </div>
+            <div class="bg-purple-50 rounded-xl p-4 border border-purple-100">
+              <div class="text-2xl mb-1">&#x2699;&#xFE0F;</div>
+              <h3 class="font-bold text-sm text-purple-800">3. Operate</h3>
+              <p class="text-xs text-gray-600">Research markets, write SOPs, generate reports, and (carefully) run an always-on back-office AI assistant.</p>
+            </div>
+          </div>
+
+          <div class="callout callout-warning p-4 mb-6">
+            <p class="font-semibold text-red-800 text-sm mb-1">&#x1F6A8; The Golden Rule of AI Leverage</p>
+            <p class="text-sm text-red-700">AI <strong>builds and assists</strong>; a human <strong>reviews anything that touches money, client call-routing, or credentials</strong>. You sell reliability &mdash; never let an autonomous agent ship to a client's live phone system unattended, and never hand your Vapi/Twilio/Supabase API keys to a tool you don't fully control. Use AI to go fast on everything <em>except</em> the few things where a mistake reaches a paying client.</p>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-3">Master Cheat-Sheet: Which AI Tool for Which Job</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Job</th><th class="text-left px-3 py-2 font-semibold">Best Tool</th><th class="text-left px-3 py-2 font-semibold">~Cost</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white text-gray-700">
+                <tr><td class="px-3 py-2">Quick calculator / one-off tool</td><td class="px-3 py-2 font-semibold">Claude Artifacts</td><td class="px-3 py-2">in Claude Pro $20/mo</td></tr>
+                <tr><td class="px-3 py-2">Client dashboard / marketing app</td><td class="px-3 py-2 font-semibold">Lovable (+ Supabase)</td><td class="px-3 py-2">$25/mo</td></tr>
+                <tr><td class="px-3 py-2">Polished landing-page design</td><td class="px-3 py-2 font-semibold">v0 by Vercel</td><td class="px-3 py-2">usage-based</td></tr>
+                <tr><td class="px-3 py-2">Build/maintain real code (n8n nodes, CRM, bug fixes)</td><td class="px-3 py-2 font-semibold">Claude Code</td><td class="px-3 py-2">$20&ndash;200/mo</td></tr>
+                <tr><td class="px-3 py-2">Prospect lists (HVAC/plumbing by city)</td><td class="px-3 py-2 font-semibold">Outscraper</td><td class="px-3 py-2">$3 / 1,000</td></tr>
+                <tr><td class="px-3 py-2">Personalized cold-email lines at scale</td><td class="px-3 py-2 font-semibold">Claude on review data (or Clay)</td><td class="px-3 py-2">&lt;$0.01/lead</td></tr>
+                <tr><td class="px-3 py-2">Send cold email + warmup</td><td class="px-3 py-2 font-semibold">Instantly or Smartlead</td><td class="px-3 py-2">$37&ndash;94/mo</td></tr>
+                <tr><td class="px-3 py-2">Automated Missed Call Audit</td><td class="px-3 py-2 font-semibold">Twilio + AMD</td><td class="px-3 py-2">~$7.50 / 1,000 calls</td></tr>
+                <tr><td class="px-3 py-2">Market / competitor research</td><td class="px-3 py-2 font-semibold">Perplexity Pro</td><td class="px-3 py-2">$20/mo</td></tr>
+                <tr><td class="px-3 py-2">SOPs, scripts, proposals, copy</td><td class="px-3 py-2 font-semibold">Claude</td><td class="px-3 py-2">$20/mo</td></tr>
+                <tr><td class="px-3 py-2">Demo / explainer videos</td><td class="px-3 py-2 font-semibold">HeyGen</td><td class="px-3 py-2">$29+/mo</td></tr>
+                <tr><td class="px-3 py-2">Voiceovers</td><td class="px-3 py-2 font-semibold">ElevenLabs</td><td class="px-3 py-2">usage-based</td></tr>
+                <tr><td class="px-3 py-2">Always-on back-office assistant (optional)</td><td class="px-3 py-2 font-semibold">Hermes Agent on a $5 VPS</td><td class="px-3 py-2">$5/mo + tokens</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-xs text-gray-500 mt-2">Prices are mid-2026 ballparks and change often &mdash; verify at signup. The whole AI stack above runs roughly <strong>$120&ndash;260/month</strong>, most of which you only add once clients are paying.</p>
+        </section>
+
+        <!-- ai-build -->
+        <section id="ai-build" class="mb-16 view-section hidden" data-view="ai">
+          <h2 class="text-2xl font-extrabold mb-4">Lesson 1: Build Your Own Tools &amp; Apps with AI</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">You do not need to hire a developer. In 2026, you describe what you want in plain English and AI builds working software. For a 2-person agency, this means you can ship a client dashboard, a lead-magnet calculator, or an internal CRM in an afternoon instead of paying $3,000&ndash;$10,000 to a freelancer or waiting weeks.</p>
+
+          <h3 class="text-lg font-bold mt-6 mb-3">The Build Tools (and when to use each)</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Tool</th><th class="text-left px-3 py-2 font-semibold">What it makes</th><th class="text-left px-3 py-2 font-semibold">Use it for</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white text-gray-700">
+                <tr><td class="px-3 py-2 font-semibold">Claude Artifacts</td><td class="px-3 py-2">Self-contained interactive app, shareable by link</td><td class="px-3 py-2">Fastest path to a calculator or internal one-off. Zero deployment.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Lovable</td><td class="px-3 py-2">Full app: React front end + Supabase back end, deployed</td><td class="px-3 py-2"><strong>Best for client dashboards</strong> &mdash; it wires into the Supabase you already run.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Bolt.new</td><td class="px-3 py-2">Full-stack app in the browser</td><td class="px-3 py-2">Fast throwaway prototypes you'll iterate on quickly.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">v0 by Vercel</td><td class="px-3 py-2">Best-looking front-end UI (React/Tailwind)</td><td class="px-3 py-2">Polished public landing pages where design matters.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Replit Agent</td><td class="px-3 py-2">Build + database + hosting in one place</td><td class="px-3 py-2">When you want everything bundled, e.g. an internal CRM MVP.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Claude Code</td><td class="px-3 py-2">Edits real repos, runs tests, opens PRs</td><td class="px-3 py-2">Maintaining n8n custom nodes, integration glue, real bug fixes.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout callout-tool p-4 mt-4 mb-6">
+            <p class="font-semibold text-emerald-800 text-sm mb-1">Recommended starter combo</p>
+            <p class="text-sm text-emerald-700"><strong>Lovable</strong> (dashboards + marketing app, ~$25/mo) + <strong>Claude Artifacts</strong> (quick calculators/tools, included in Claude Pro) + <strong>Claude Code</strong> (maintain real code as you grow). Both Lovable and Claude connect cleanly to your Supabase. Total to start: about $45/month.</p>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-3">5 Things to Build With AI This Week</h3>
+
+          <div class="space-y-4">
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <div class="flex items-center gap-2 mb-1"><span class="step-num step-mike">1</span><h4 class="font-bold text-sm">Missed-Call ROI Calculator (your #1 lead magnet)</h4></div>
+              <p class="text-sm text-gray-600 mb-2">A simple page where a contractor enters their call volume, average job value, and missed-call %, and sees the dollars they're losing per year. Capture their email to send the result. This single tool books demos on autopilot. Build in <strong>Claude Artifacts</strong> (instant) or <strong>Lovable</strong> (if you want email capture into Supabase).</p>
+              <div class="prompt-block"><button class="copy-btn">Copy</button><code>Build an interactive "Missed Call Revenue Calculator" web app for a home-services AI receptionist agency.
+
+Inputs (sliders + number fields):
+- Calls received per week
+- Percentage of calls missed (default 30%)
+- Average value of one job ($)
+- Close rate on answered calls (default 40%)
+
+Output (update live):
+- Missed calls per month and per year
+- Estimated lost revenue per month and per year (missed calls x close rate x avg job value)
+- A headline like: "You're losing about $X per year in missed calls."
+- A call-to-action button: "See how we fix this — book a 15-min demo"
+
+Style: clean, modern, mobile-friendly, blue/emerald accents, big bold numbers.
+Add an email capture field that says "Email me my results."</code></div>
+            </div>
+
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <div class="flex items-center gap-2 mb-1"><span class="step-num step-mike">2</span><h4 class="font-bold text-sm">Client Reporting Dashboard</h4></div>
+              <p class="text-sm text-gray-600 mb-2">A logged-in page where each client sees their own numbers: calls answered, appointments booked, after-hours calls captured, estimated revenue saved. Proving ROI monthly is the #1 reason clients stay (Module 1). Build in <strong>Lovable</strong> on top of your Supabase tables.</p>
+              <div class="prompt-block"><button class="copy-btn">Copy</button><code>Build a client reporting dashboard that connects to my Supabase database.
+
+Each client logs in and sees ONLY their own data (use Supabase Auth + row-level security).
+Show monthly KPI cards: total calls answered, appointments booked, after-hours calls captured, estimated revenue saved.
+Add a line chart of calls answered per day and a table of recent bookings (name, service, date, status).
+Add a "Download PDF report" button.
+Clean, professional, white-label friendly (I'll add the client's logo). Mobile responsive.</code></div>
+            </div>
+
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <div class="flex items-center gap-2 mb-1"><span class="step-num step-paola">3</span><h4 class="font-bold text-sm">Lightweight Internal CRM / Pipeline Board</h4></div>
+              <p class="text-sm text-gray-600 mb-2">A simple kanban (New &rarr; Contacted &rarr; Demo Booked &rarr; Proposal &rarr; Closed) so Paola can track every prospect without paying for a CRM yet. Build in <strong>Lovable</strong> or <strong>Replit Agent</strong>.</p>
+            </div>
+
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <div class="flex items-center gap-2 mb-1"><span class="step-num step-mike">4</span><h4 class="font-bold text-sm">Custom n8n Nodes &amp; Integration Glue</h4></div>
+              <p class="text-sm text-gray-600 mb-2">When you need to connect Vapi &rarr; Twilio &rarr; Supabase in a way no template covers, have <strong>Claude Code</strong> write the custom function node or small script. It reads your repo, writes the code, and you review the diff before it ships.</p>
+            </div>
+
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <div class="flex items-center gap-2 mb-1"><span class="step-num step-paola">5</span><h4 class="font-bold text-sm">Demo / Sales Landing Page</h4></div>
+              <p class="text-sm text-gray-600 mb-2">A one-page site with your Loom demo, the ROI calculator, a "call our demo number" button, and a Cal.com link. Build the design in <strong>v0</strong> or the whole thing in <strong>Lovable</strong>.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ai-clients -->
+        <section id="ai-clients" class="mb-16 view-section hidden" data-view="ai">
+          <h2 class="text-2xl font-extrabold mb-4">Lesson 2: Find &amp; Get Clients with AI</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">Your ideal customer is unusually easy to find: every home-service business is on Google Maps with a public name, phone, website, category, and &mdash; critically &mdash; <strong>reviews that often complain about missed calls</strong>. You do not need expensive databases like ZoomInfo. The winning stack for a tiny team is cheap and mostly automated.</p>
+
+          <div class="callout callout-action p-4 mb-6">
+            <p class="font-semibold text-blue-800 text-sm mb-1">The Pipeline in One Line</p>
+            <p class="text-sm text-blue-700"><strong>Outscraper</strong> (pull the list) &rarr; <strong>Claude</strong> (mine reviews for missed-call complaints + write a personalized first line) &rarr; <strong>Instantly/Smartlead</strong> (send + warm up inboxes) &rarr; <strong>Twilio Missed Call Audit</strong> (undeniable proof) &rarr; human demo call. All-in: roughly <strong>$130&ndash;260/month</strong> plus pennies per lead.</p>
+          </div>
+
+          <h3 class="text-lg font-bold mt-6 mb-3">Lead Data: Where to Get the List</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Tool</th><th class="text-left px-3 py-2 font-semibold">Price</th><th class="text-left px-3 py-2 font-semibold">Verdict</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white text-gray-700">
+                <tr><td class="px-3 py-2 font-semibold">Outscraper</td><td class="px-3 py-2">$3 / 1,000 (500 free)</td><td class="px-3 py-2 text-emerald-700"><strong>Best primary source.</strong> Name, phone, site, category, rating, review text.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Apify (Maps scraper)</td><td class="px-3 py-2">$4 / 1,000 + extras</td><td class="px-3 py-2">Good backup; very flexible.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Apollo.io</td><td class="px-3 py-2">$49&ndash;119/mo</td><td class="px-3 py-2">Use only to enrich owner name/email on filtered lists.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">ZoomInfo</td><td class="px-3 py-2">~$15k+/yr</td><td class="px-3 py-2 text-red-600"><strong>Do not buy.</strong> Wrong tool, wildly overpriced.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-3">The Best Signal: Reviews That Mention Missed Calls</h3>
+          <p class="text-sm text-gray-700 mb-3">Reviews are a goldmine. Phrases like <em>"couldn't reach them," "no answer," "didn't call back," "left a voicemail"</em> are direct proof of the exact problem you solve &mdash; and a quotable hook for your email. Scrape reviews, then run Claude over them to flag and quote the complaints.</p>
+          <div class="bg-white rounded-xl border border-gray-200 p-4 mb-2">
+            <p class="text-xs font-semibold text-gray-500 uppercase mb-2">Other high-fit signals you can detect for free</p>
+            <div class="grid sm:grid-cols-2 gap-2 text-sm text-gray-700">
+              <p class="check-item">Low review-response rate (owner ignores reviews = understaffed on comms)</p>
+              <p class="check-item">No website / no online booking / no listed hours</p>
+              <p class="check-item">Hiring a receptionist or dispatcher (job posting = pain + budget)</p>
+              <p class="check-item">Running Google Local Services Ads (every missed call wastes ad spend)</p>
+              <p class="check-item">Closes at 5pm (misses all evening emergency calls)</p>
+              <p class="check-item">High review count but slow responses (busy + overwhelmed)</p>
+            </div>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-3">The Automated Missed Call Audit (Your Sharpest Weapon)</h3>
+          <p class="text-sm text-gray-700 mb-3">Call a list of prospects, detect whether a human answers vs. voicemail, log the result, then open your outreach with: <em>"We called your main line 3 times last Tuesday &mdash; twice it went to voicemail. Here's what that's costing you."</em> This is buildable for pennies with <strong>Twilio's Answering Machine Detection (AMD)</strong>.</p>
+          <div class="bg-white rounded-xl border border-gray-200 p-5 mb-3">
+            <ol class="text-sm text-gray-700 space-y-2 list-decimal ml-5">
+              <li>n8n triggers Twilio to dial a prospect's main number during business hours.</li>
+              <li>Twilio AMD classifies the pickup: <code>human</code>, <code>machine_start</code> (voicemail), or no-answer (~94% accuracy, ~$0.0075 per answered call).</li>
+              <li><strong>Hang up immediately</strong> and log the result to Supabase. You never play audio or run a bot &mdash; it's a connectivity test, which keeps you clear of robocall rules.</li>
+              <li>Prospects that missed your calls go to the top of your outreach list with their result quoted in the email.</li>
+            </ol>
+          </div>
+          <p class="text-xs text-gray-500 mb-4">Auditing 1,000 prospects costs roughly <strong>$15 total</strong> and produces hyper-specific proof. Respect calling windows (8am&ndash;9pm local), don't hammer the same number, and target main business lines, not personal cells.</p>
+
+          <div class="callout callout-warning p-4 mb-6">
+            <p class="font-semibold text-red-800 text-sm mb-1">&#x26A0;&#xFE0F; Legal: Do NOT use AI voice to cold-call prospects</p>
+            <p class="text-sm text-red-700 mb-2">In February 2024 the FCC ruled AI-generated voices are "artificial voices" under the TCPA. Cold-calling prospects with an AI voice requires prior written consent you don't have &mdash; penalties run <strong>$500&ndash;$1,500 per call</strong>. State "mini-TCPA" laws add more risk. Keep AI voice for <em>inbound</em> (your product) and consented calls only.</p>
+            <p class="text-sm text-red-700"><strong>Compliant prospecting channels:</strong> cold <em>email</em> (legal under CAN-SPAM for B2B with truthful headers, a physical address, and a working opt-out), human-dialed follow-ups to business landlines, and the hang-up Missed Call Audit (measurement only, no message delivered).</p>
+          </div>
+
+          <h3 class="text-lg font-bold mt-6 mb-3">Skip the Expensive "AI SDR" Agents</h3>
+          <p class="text-sm text-gray-700 mb-2">Autonomous "AI SDR" platforms (Artisan's Ava ~$2,000/mo+, 11x's Alice ~$5,000/mo) are built for funded teams, lock you into annual contracts, and reviewers say their personalization reads generic on niche local trades. A hand-tuned Claude + Instantly/Smartlead flow gets ~90% of the value for under $200/mo with full control. <strong>Don't buy an AI SDR.</strong></p>
+          <p class="text-sm text-gray-700">Per-lead cost reality check: the DIY <strong>Claude-on-Outscraper-reviews</strong> route runs about <strong>$0.003&ndash;$0.01 per lead</strong>. Clay (when you scale) runs ~$0.14&ndash;$0.16/lead all-in &mdash; and you can cut its AI cost to near zero by plugging in your own Claude API key.</p>
+        </section>
+
+        <!-- ai-research -->
+        <section id="ai-research" class="mb-16 view-section hidden" data-view="ai">
+          <h2 class="text-2xl font-extrabold mb-4">Lesson 3: Research, Content &amp; Demo Videos with AI</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">Everything that used to need a researcher, copywriter, or video team, you now do yourself with AI. Two subscriptions cover almost all of it.</p>
+
+          <h3 class="text-lg font-bold mt-6 mb-3">Research &amp; Writing</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Tool</th><th class="text-left px-3 py-2 font-semibold">Best at</th><th class="text-left px-3 py-2 font-semibold">Price</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white text-gray-700">
+                <tr><td class="px-3 py-2 font-semibold">Perplexity Pro</td><td class="px-3 py-2">Fast, cited niche &amp; competitor research</td><td class="px-3 py-2">$20/mo</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">ChatGPT / Gemini Deep Research</td><td class="px-3 py-2">Thorough written market analyses</td><td class="px-3 py-2">$20/mo</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Claude (Projects)</td><td class="px-3 py-2">SOPs, scripts, proposals, the playbook itself</td><td class="px-3 py-2">$20/mo</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout callout-cost p-4 mt-3 mb-6">
+            <p class="font-semibold text-amber-800 text-sm mb-1">You only need two</p>
+            <p class="text-sm text-amber-900">For a 2-person shop, <strong>Perplexity Pro ($20) + Claude Pro ($20)</strong> covers research, SOPs, copy, and scripts. Add ChatGPT/Gemini only for occasional heavy deep-research reports.</p>
+          </div>
+
+          <h3 class="text-lg font-bold mt-6 mb-3">Demo Videos &amp; Voice</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Tool</th><th class="text-left px-3 py-2 font-semibold">Use for</th><th class="text-left px-3 py-2 font-semibold">Price</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white text-gray-700">
+                <tr><td class="px-3 py-2 font-semibold">HeyGen</td><td class="px-3 py-2">Realistic AI-avatar demo / "how it works" videos, 175+ languages (great for bilingual)</td><td class="px-3 py-2">$29+/mo</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Synthesia</td><td class="px-3 py-2">Consistent templated explainer videos</td><td class="px-3 py-2">$29+/mo</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">ElevenLabs</td><td class="px-3 py-2">Voiceovers for demos; voice prototyping</td><td class="px-3 py-2">usage-based</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-sm text-gray-600 mt-3">Your actual receptionist voice runs through <strong>Vapi</strong> (Module 6) &mdash; these are for marketing videos. A bilingual HeyGen demo (English + Spanish versions of the same script) is a cheap way to show off Paola's differentiator without filming anything.</p>
+          <p class="text-sm text-gray-700 mt-3">For cold-email copy, landing-page copy, and demo scripts, skip dedicated copywriting SaaS (Jasper/Copy.ai) &mdash; <strong>Claude is better for nuanced B2B</strong> and you already pay for it.</p>
+        </section>
+
+        <!-- ai-agents -->
+        <section id="ai-agents" class="mb-16 view-section hidden" data-view="ai">
+          <h2 class="text-2xl font-extrabold mb-4">Lesson 4: Autonomous AI Agents &mdash; Hermes, OpenClaw &amp; Your Back Office</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">"Autonomous agents" are AI that don't just chat &mdash; they take actions: run commands, read/write files, browse the web, send messages, and call APIs, often triggered from a chat app like Telegram or Slack. In 2026 the two most popular open-source ones are <strong>Hermes Agent</strong> and <strong>OpenClaw</strong>. You asked whether they'd help run this business. Here's the honest answer.</p>
+
+          <div class="grid md:grid-cols-2 gap-4 mb-6">
+            <div class="bg-emerald-50 rounded-xl border-2 border-emerald-200 p-5">
+              <h3 class="font-bold text-emerald-800 mb-1">Hermes Agent (Nous Research)</h3>
+              <p class="text-xs text-gray-600 mb-2">Open-source agent released Feb 2026. Runs on a <strong>$5 VPS</strong> (you already have a Hetzner box), one-line install, works with <em>any</em> model (OpenRouter, Claude, OpenAI, local). Has <strong>persistent memory</strong>, a self-improving "skills" loop, 40+ built-in tools, and talks to you over Telegram/Slack/WhatsApp/Discord/Signal/Email.</p>
+              <p class="text-xs font-semibold text-emerald-700 mb-1">Verdict: Optional &mdash; useful as a back-office assistant.</p>
+              <p class="text-xs text-gray-600">More stable than OpenClaw and built for always-on background tasks. It overlaps with what n8n already does for you, so it's a "nice to have," not required.</p>
+            </div>
+            <div class="bg-red-50 rounded-xl border-2 border-red-200 p-5">
+              <h3 class="font-bold text-red-800 mb-1">OpenClaw</h3>
+              <p class="text-xs text-gray-600 mb-2">Open-source agent that went viral in early 2026 (most-starred project on GitHub). More powerful on paper &mdash; multi-agent, 13,000+ community "skills," runs locally with deep access to your files and OS.</p>
+              <p class="text-xs font-semibold text-red-700 mb-1">Verdict: Avoid for this business (security).</p>
+              <p class="text-xs text-gray-600">2026 brought documented incidents: malicious skill packages on "ClawHub," <strong>leaked plaintext API keys</strong>, the "ClawJacked" hijack, and 20,000+ instances exposed on the open internet. Too risky for a business holding client phone access and PII.</p>
+            </div>
+          </div>
+
+          <div class="callout callout-warning p-4 mb-6">
+            <p class="font-semibold text-red-800 text-sm mb-1">&#x1F510; Security rules if you run ANY autonomous agent</p>
+            <ul class="text-sm text-red-700 space-y-1 ml-4">
+              <li>&bull; Run it on an <strong>isolated VPS</strong>, never your main laptop or production server.</li>
+              <li>&bull; Give it <strong>scoped, read-mostly</strong> access &mdash; never your live Vapi/Twilio/Stripe keys or client databases with write access.</li>
+              <li>&bull; <strong>Never expose its control port to the internet.</strong> Most real-world breaches are misconfiguration, not exotic hacks.</li>
+              <li>&bull; Treat community "skills/plugins" as untrusted code. Don't install random ones.</li>
+              <li>&bull; Keep a human approving anything that contacts a client or moves money.</li>
+            </ul>
+          </div>
+
+          <h3 class="text-lg font-bold mt-6 mb-3">What an AI Ops Assistant Could Actually Do For You</h3>
+          <p class="text-sm text-gray-700 mb-2">If you do add Hermes Agent on a cheap VPS, point it at your own internal data only and let it handle low-stakes, repetitive back-office work, pinging you on Telegram:</p>
+          <div class="bg-white rounded-xl border border-gray-200 p-4 mb-4">
+            <div class="grid sm:grid-cols-2 gap-2 text-sm text-gray-700">
+              <p class="check-item">Nightly health check: "Did every client's AI agent answer test calls today?"</p>
+              <p class="check-item">Draft each client's monthly report from Supabase data for your review</p>
+              <p class="check-item">Summarize the day's new leads and flag the hottest ones</p>
+              <p class="check-item">Watch n8n/Supabase and alert you the moment something breaks</p>
+              <p class="check-item">Draft follow-up emails to prospects who went quiet (you approve &amp; send)</p>
+              <p class="check-item">Compile a weekly "state of the business" digest</p>
+            </div>
+          </div>
+
+          <h3 class="text-lg font-bold mt-6 mb-3">The Safe, Recommended Setup</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Need</th><th class="text-left px-3 py-2 font-semibold">Use this</th><th class="text-left px-3 py-2 font-semibold">Why</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white text-gray-700">
+                <tr><td class="px-3 py-2">Reliable automation/orchestration</td><td class="px-3 py-2 font-semibold">n8n</td><td class="px-3 py-2">You already run it; predictable, no surprises near clients.</td></tr>
+                <tr><td class="px-3 py-2">Coding agent (build/fix software)</td><td class="px-3 py-2 font-semibold">Claude Code</td><td class="px-3 py-2">Sandboxed, you review every diff before it ships.</td></tr>
+                <tr><td class="px-3 py-2">Always-on chat-driven ops assistant</td><td class="px-3 py-2 font-semibold">Hermes Agent (optional)</td><td class="px-3 py-2">$5 VPS, internal data only, low-stakes tasks.</td></tr>
+                <tr><td class="px-3 py-2">Cheap bulk text generation</td><td class="px-3 py-2 font-semibold">Hermes 4 70B via OpenRouter</td><td class="px-3 py-2">~$0.13/$0.40 per M tokens for low-stakes drafting only.</td></tr>
+                <tr><td class="px-3 py-2">Anything touching a live client</td><td class="px-3 py-2 font-semibold">A human + frontier model (Claude)</td><td class="px-3 py-2">You sell reliability &mdash; keep quality high.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout callout-protip p-4 mt-4">
+            <p class="font-semibold text-amber-800 text-sm mb-1">&#x1F4A1; Note: two different "Hermes"</p>
+            <p class="text-sm text-amber-900"><strong>Hermes Agent</strong> = the autonomous agent above. <strong>Hermes 4</strong> = a family of cheap open-weight LLMs (also from Nous Research) you can call via OpenRouter. The LLM is a legitimate cost play for bulk, low-stakes generation; your customer-facing receptionist should still run on a frontier model for quality.</p>
+          </div>
+        </section>
+
+        <!-- ai-prompts -->
+        <section id="ai-prompts" class="mb-16 view-section hidden" data-view="ai">
+          <h2 class="text-2xl font-extrabold mb-4">Lesson 5: Copy-Paste AI Prompt Library</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">Never start from a blank page. Paste these into Claude (or your tool of choice), fill in the brackets, and go. Hit <strong>Copy</strong> on any block.</p>
+
+          <h3 class="text-lg font-bold mt-6 mb-2">1. Turn reviews into personalized cold-email lines</h3>
+          <div class="prompt-block"><button class="copy-btn">Copy</button><code>You are writing the personalized first line of a cold email to home-service businesses.
+I will paste a list of businesses with their Google reviews.
+
+For each business, do this:
+1. Scan the reviews for any sign of a missed-call, slow-response, or "couldn't reach them" problem.
+2. If found, write ONE friendly opening line that references it without being creepy.
+   Example: "Saw a couple of your reviews mention trouble reaching the office after hours —"
+3. If no call-related complaint exists, write a neutral opener that compliments their rating.
+
+Output a table: Business name | Opening line | Signal found (yes/no).
+Keep lines under 20 words, natural, never salesy.
+
+[PASTE BUSINESS + REVIEW DATA HERE]</code></div>
+
+          <h3 class="text-lg font-bold mt-6 mb-2">2. Research a niche + metro before you target it</h3>
+          <div class="prompt-block"><button class="copy-btn">Copy</button><code>Act as a market researcher. I run an AI phone-receptionist agency selling to home-service businesses.
+
+Research [TRADE, e.g. HVAC] in [CITY/METRO]:
+- Roughly how many such businesses operate there
+- Typical job/ticket value for this trade
+- How seasonal demand works (peak months)
+- Whether the market has many Hispanic-owned businesses (bilingual angle)
+- Any existing AI-receptionist competitors targeting them, and their pricing
+- The 3 strongest talking points I should lead with for this trade
+
+Cite sources. Flag anything uncertain.</code></div>
+
+          <h3 class="text-lg font-bold mt-6 mb-2">3. Build the Missed-Call ROI Calculator (for Claude Artifacts / Lovable)</h3>
+          <div class="prompt-block"><button class="copy-btn">Copy</button><code>Build an interactive "Missed Call Revenue Calculator" web app.
+Inputs: calls/week, % missed (default 30%), avg job value $, close rate (default 40%).
+Live output: missed calls/month + /year, lost revenue/month + /year, and a bold headline
+"You're losing about $X/year in missed calls." Add a CTA button "Book a 15-min demo"
+and an email-capture field "Email me my results."
+Clean, mobile-first, blue/emerald accents, big numbers.</code></div>
+
+          <h3 class="text-lg font-bold mt-6 mb-2">4. Write a 4-email cold sequence</h3>
+          <div class="prompt-block"><button class="copy-btn">Copy</button><code>Write a 4-email cold outreach sequence for [TRADE] businesses in [CITY].
+We sell a bilingual (English/Spanish) AI phone receptionist that answers 24/7,
+books appointments, and texts confirmations, for ~$1,000/mo.
+
+Email 1: lead with the missed-call problem + a specific dollar figure they're losing.
+Email 2: short proof/case-study angle ("an HVAC co. in [city] captured 47 after-hours calls").
+Email 3: the bilingual angle + offer a 2-minute demo.
+Email 4: breakup email.
+
+Each under 90 words, plain text, one clear CTA, casual and human (not corporate).
+Include 3 subject-line options per email.</code></div>
+
+          <h3 class="text-lg font-bold mt-6 mb-2">5. Generate an SOP from messy notes</h3>
+          <div class="prompt-block"><button class="copy-btn">Copy</button><code>Turn my rough notes into a clean, numbered Standard Operating Procedure a new VA could follow with zero context.
+Include: purpose, tools needed, step-by-step instructions, common mistakes to avoid, and a definition-of-done checklist.
+Format with clear headings. Here are my notes:
+
+[PASTE NOTES]</code></div>
+
+          <h3 class="text-lg font-bold mt-6 mb-2">6. Prep for a discovery call (research a prospect)</h3>
+          <div class="prompt-block"><button class="copy-btn">Copy</button><code>I have a discovery call with [BUSINESS NAME], a [TRADE] company in [CITY].
+Based on the info below, give me:
+- 3 likely pain points for a business this size
+- 5 smart discovery questions to ask
+- The ROI math I should walk them through (estimate their missed-call losses)
+- 2 likely objections and how to answer them
+
+[PASTE WHATEVER YOU KNOW: website text, reviews, size, hours]</code></div>
+
+          <h3 class="text-lg font-bold mt-6 mb-2">7. Spec an n8n workflow for Claude Code to build</h3>
+          <div class="prompt-block"><button class="copy-btn">Copy</button><code>I use n8n, Vapi, Twilio, Supabase, and Cal.com.
+Design a workflow that: when a Vapi call ends, receive the webhook, extract caller name/number/intent,
+write a row to Supabase 'calls' table, and if an appointment was requested, create a Cal.com booking
+and send a confirmation SMS via Twilio. List the nodes in order, the data mapping between them,
+and any edge cases I should handle (missing fields, duplicate calls, after-hours).</code></div>
+
+          <div class="callout callout-tool p-4 mt-6">
+            <p class="font-semibold text-emerald-800 text-sm mb-1">Pro move</p>
+            <p class="text-sm text-emerald-700">Save these as saved prompts / a Claude Project so Paola and Mike both reuse the exact same wording. Consistency is what makes a 2-person team feel like a system.</p>
+          </div>
+        </section>
+
+        <!-- Knowledge Check: Module 9 -->
+        <div class="quiz-card mb-8 view-section hidden" data-view="ai" id="quiz-m9">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="value-tag">Knowledge Check</span>
+            <span class="text-sm font-bold text-purple-900">Module 9: AI Leverage</span>
+          </div>
+          <p class="text-sm text-gray-700 mb-3">You want to fill your pipeline fast. Which approach is both effective AND legally safe for prospecting US home-service businesses?</p>
+          <button class="quiz-option" data-correct="false" onclick="checkQuiz(this)">Use an AI voice agent to auto cold-call 1,000 businesses and pitch them</button>
+          <button class="quiz-option" data-correct="true" onclick="checkQuiz(this)">Scrape Maps with Outscraper, mine reviews with Claude for missed-call complaints, run a Twilio hang-up audit, then send CAN-SPAM-compliant cold email</button>
+          <button class="quiz-option" data-correct="false" onclick="checkQuiz(this)">Buy a $5,000/mo autonomous AI SDR and let it run unattended</button>
+          <button class="quiz-option" data-correct="false" onclick="checkQuiz(this)">Give OpenClaw your Twilio keys and tell it to find and call clients</button>
+          <div class="quiz-feedback correct">Correct! Cheap, effective, and compliant. AI cold-<em>calling</em> violates the TCPA (AI = "artificial voice"), AI SDRs are overpriced for a tiny shop, and handing live keys to OpenClaw is a security disaster. The data-to-email pipeline wins.</div>
+          <div class="quiz-feedback incorrect">Not safe. AI voice cold-calling breaks the TCPA ($500&ndash;$1,500/call), AI SDRs are overpriced and generic, and giving an autonomous agent your live credentials is a security risk. The safe play: Outscraper &rarr; Claude on reviews &rarr; Twilio hang-up audit &rarr; compliant cold email.</div>
+        </div>
+
       <!-- View navigation (prev/next) -->
       <div id="view-nav" class="hidden mt-12 mb-4 flex items-center justify-between">
         <button id="prev-btn" class="view-nav-btn" onclick="navPrev()">
@@ -6340,6 +6767,7 @@ Talk soon,
     sales: ['leadgen','pipeline','email-infra','missed-call-audit','referral-partners','agency-website','onboarding','scripts','quiz-m5'],
     tech: ['tech-delivery','phone-setup','ghl','agentic-ai','agent-scripts','tools-compare','quiz-m6','voice-platforms'],
     growth: ['economics','expansion','retention','competition','milestones','case-studies','seasonal','client-success'],
+    ai: ['ai-overview','ai-build','ai-clients','ai-research','ai-agents','ai-prompts','quiz-m9'],
     reference: ['legal','rituals','financials','faq','resources','glossary'],
     course: ['course-sales']
   };
@@ -6353,11 +6781,12 @@ Talk soon,
     sales: 'Module 5: Sales & Clients',
     tech: 'Module 6: Tech Deep Dives',
     growth: 'Module 7: Growth & Money',
+    ai: 'Module 9: AI Leverage',
     reference: 'Module 8: Resources',
     course: 'Course Overview'
   };
 
-  var viewOrder = ['dashboard','home','setup','build','launch','sales','tech','growth','reference'];
+  var viewOrder = ['dashboard','home','setup','build','launch','sales','tech','growth','ai','reference'];
   var currentView = 'dashboard';
 
   function showView(key) {
@@ -6581,16 +7010,17 @@ Talk soon,
 
     // Module completion (approximate based on sections)
     var modulesDone = 0;
-    if (pct >= 12) modulesDone++;
-    if (pct >= 25) modulesDone++;
-    if (pct >= 38) modulesDone++;
-    if (pct >= 50) modulesDone++;
-    if (pct >= 62) modulesDone++;
-    if (pct >= 75) modulesDone++;
+    if (pct >= 11) modulesDone++;
+    if (pct >= 22) modulesDone++;
+    if (pct >= 33) modulesDone++;
+    if (pct >= 44) modulesDone++;
+    if (pct >= 55) modulesDone++;
+    if (pct >= 66) modulesDone++;
+    if (pct >= 77) modulesDone++;
     if (pct >= 88) modulesDone++;
     if (pct >= 98) modulesDone++;
     var statModules = document.getElementById('stat-modules');
-    if (statModules) statModules.textContent = modulesDone + '/8';
+    if (statModules) statModules.textContent = modulesDone + '/9';
   }
 
   // Quiz logic
