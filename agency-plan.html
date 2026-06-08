@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Agency Launch Plan — Colibri Code LLC</title>
+  <title>AI Agency Blueprint — Complete Course | Colibri Code LLC</title>
   <meta name="robots" content="noindex, nofollow">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -85,6 +85,65 @@
     .view-nav-btn.primary { background: #2563eb; color: white; border-color: #2563eb; }
     .view-nav-btn.primary:hover { background: #1d4ed8; }
 
+
+    /* ============ COURSE FEATURES ============ */
+    /* Progress bar */
+    .course-progress { height: 6px; background: #e2e8f0; border-radius: 3px; overflow: hidden; }
+    .course-progress-fill { height: 100%; background: linear-gradient(90deg, #2563eb, #7c3aed); border-radius: 3px; transition: width 0.6s ease; }
+
+    /* Interactive checkboxes */
+    .check-item { cursor: pointer; user-select: none; }
+    .check-item.completed { color: #6b7280; }
+    .check-item.completed::before { background: #2563eb; border-color: #2563eb; }
+    .check-item.completed::after { content: '\2713'; position: absolute; left: 0.25rem; top: 0.25rem; font-size: 0.7rem; color: white; font-weight: 700; }
+    .check-item:hover::before { border-color: #93c5fd; }
+
+    /* Module header */
+    .module-header { background: linear-gradient(135deg, #1e293b 0%, #334155 100%); border-radius: 1rem; padding: 1.75rem 2rem; color: white; margin-bottom: 2rem; position: relative; overflow: hidden; }
+    .module-header::before { content: ''; position: absolute; top: -50%; right: -20%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%); }
+    .module-number { display: inline-flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; background: rgba(255,255,255,0.15); border-radius: 0.75rem; font-size: 1rem; font-weight: 800; margin-bottom: 0.75rem; }
+    .module-badge { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.25rem 0.625rem; border-radius: 9999px; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+    .badge-time { background: rgba(59,130,246,0.2); color: #93c5fd; }
+    .badge-difficulty { background: rgba(16,185,129,0.2); color: #6ee7b7; }
+    .badge-lessons { background: rgba(168,85,247,0.2); color: #c4b5fd; }
+    .module-objectives { list-style: none; padding: 0; margin: 0; }
+    .module-objectives li { position: relative; padding-left: 1.5rem; font-size: 0.8125rem; color: #cbd5e1; margin-bottom: 0.375rem; }
+    .module-objectives li::before { content: '\2713'; position: absolute; left: 0; color: #34d399; font-weight: 700; }
+
+    /* Knowledge check / quiz */
+    .quiz-card { background: linear-gradient(135deg, #faf5ff 0%, #ede9fe 100%); border: 2px solid #c4b5fd; border-radius: 1rem; padding: 1.5rem; margin-top: 2rem; }
+    .quiz-option { display: block; width: 100%; text-align: left; padding: 0.75rem 1rem; margin-top: 0.5rem; border: 2px solid #e2e8f0; border-radius: 0.75rem; background: white; cursor: pointer; font-size: 0.875rem; transition: all 0.15s; }
+    .quiz-option:hover { border-color: #a78bfa; background: #faf5ff; }
+    .quiz-option.correct { border-color: #10b981; background: #ecfdf5; }
+    .quiz-option.incorrect { border-color: #ef4444; background: #fef2f2; }
+    .quiz-option.disabled { pointer-events: none; opacity: 0.7; }
+    .quiz-feedback { margin-top: 0.75rem; padding: 0.75rem 1rem; border-radius: 0.5rem; font-size: 0.8125rem; display: none; }
+    .quiz-feedback.show { display: block; }
+    .quiz-feedback.correct { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+    .quiz-feedback.incorrect { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+
+    /* Pro tip callout */
+    .callout-protip { border-color: #f59e0b; background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); }
+
+    /* Course value tag */
+    .value-tag { display: inline-flex; align-items: center; gap: 0.25rem; background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); color: #78350f; padding: 0.25rem 0.625rem; border-radius: 9999px; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; }
+
+    /* Sidebar progress indicator */
+    .nav-progress { width: 100%; height: 3px; background: #e2e8f0; border-radius: 2px; margin-top: 0.25rem; }
+    .nav-progress-fill { height: 100%; border-radius: 2px; background: #2563eb; transition: width 0.4s ease; }
+
+    /* Stats counter animation */
+    .stat-counter { font-variant-numeric: tabular-nums; }
+
+    /* Course card hover */
+    .course-card { background: white; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 1.5rem; transition: all 0.25s; }
+    .course-card:hover { border-color: #a78bfa; box-shadow: 0 8px 24px rgba(124,58,237,0.12); transform: translateY(-3px); }
+
+    /* Sales page specific */
+    .sales-hero { background: linear-gradient(135deg, #1e1b4b 0%, #312e81 30%, #4c1d95 70%, #581c87 100%); }
+    .sales-price { font-size: 3.5rem; font-weight: 900; background: linear-gradient(135deg, #fbbf24, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .guarantee-badge { background: linear-gradient(135deg, #ecfdf5, #d1fae5); border: 2px solid #34d399; border-radius: 1rem; }
+
     @media print {
       #sidebar, #topbar, #sidebar-overlay, .view-nav, .section-subnav, #dashboard { display: none !important; }
       .view-section { display: block !important; }
@@ -101,8 +160,17 @@
   <!-- Sidebar -->
   <aside id="sidebar" class="fixed top-0 left-0 bottom-0 w-60 bg-white border-r border-gray-200 z-50 -translate-x-full lg:translate-x-0 flex flex-col">
     <div class="p-4 border-b border-gray-100 flex-shrink-0">
-      <div class="font-bold text-base text-gray-900">AI Agency Plan</div>
+      <div class="font-bold text-base text-gray-900">AI Agency Blueprint</div>
       <div class="text-xs text-gray-400 mt-0.5">Colibri Code LLC</div>
+      <div class="mt-2">
+        <div class="flex items-center justify-between text-[10px] text-gray-500 mb-1">
+          <span>Course Progress</span>
+          <span id="sidebar-progress-pct" class="font-bold text-blue-600">0%</span>
+        </div>
+        <div class="course-progress">
+          <div id="sidebar-progress-bar" class="course-progress-fill" style="width:0%"></div>
+        </div>
+      </div>
     </div>
     <nav class="flex-1 overflow-y-auto p-3 space-y-0.5">
       <button onclick="showView('dashboard')" class="nav-item active" data-nav="dashboard">
@@ -149,13 +217,20 @@
         <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
         Resources
       </button>
+
+      <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-5 mb-1 px-3">Sell</div>
+      <button onclick="showView('course')" class="nav-item" data-nav="course">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Course Sales Page
+      </button>
     </nav>
     <div class="flex-shrink-0 p-3 border-t border-gray-100 bg-gray-50/50">
-      <div class="flex items-center gap-3 text-[11px] text-gray-500 px-1">
+      <div class="flex items-center gap-3 text-[11px] text-gray-500 px-1 mb-1">
         <span class="flex items-center gap-1"><span class="legend-dot bg-blue-600"></span>Mike</span>
         <span class="flex items-center gap-1"><span class="legend-dot bg-fuchsia-500"></span>Paola</span>
         <span class="flex items-center gap-1"><span class="legend-dot bg-emerald-500"></span>Both</span>
       </div>
+      <button onclick="if(confirm('Reset all progress? This clears all checkboxes and quiz answers.')){localStorage.removeItem('agencyBlueprintProgress');location.reload();}" class="text-[10px] text-gray-400 hover:text-red-500 transition-colors px-1 cursor-pointer" style="background:none;border:none;">Reset Progress</button>
     </div>
   </aside>
 
@@ -194,16 +269,53 @@
       <!-- Dashboard -->
       <div id="dashboard">
         <div class="mb-8">
-          <p class="text-sm text-blue-600 font-semibold uppercase tracking-wide mb-2">Private Playbook &middot; Updated June 2026</p>
-          <h1 class="text-3xl sm:text-4xl font-extrabold leading-tight">AI Agency Launch Plan</h1>
-          <p class="mt-3 text-lg text-gray-500">A day-by-day, no-BS guide for Mike + Paola to build a $10K/month AI automation agency.</p>
+          <p class="text-sm text-blue-600 font-semibold uppercase tracking-wide mb-2">Complete Course &middot; Updated June 2026</p>
+          <h1 class="text-3xl sm:text-4xl font-extrabold leading-tight">AI Agency Blueprint</h1>
+          <p class="mt-3 text-lg text-gray-500">The complete, step-by-step system to build a $10K/month AI automation agency from scratch &mdash; even part-time, even from overseas.</p>
           <div class="mt-4 flex flex-wrap gap-2 text-xs">
-            <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full font-semibold">Home Services Niche</span>
-            <span class="bg-fuchsia-50 text-fuchsia-700 px-3 py-1 rounded-full font-semibold">2-Person Team</span>
-            <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full font-semibold">Colibri Code LLC</span>
-            <span class="bg-amber-50 text-amber-700 px-3 py-1 rounded-full font-semibold">Bilingual EN/ES</span>
+            <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full font-semibold">8 Modules</span>
+            <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full font-semibold">46+ Lessons</span>
+            <span class="bg-purple-50 text-purple-700 px-3 py-1 rounded-full font-semibold">Templates Included</span>
+            <span class="bg-amber-50 text-amber-700 px-3 py-1 rounded-full font-semibold">Copy-Paste Scripts</span>
           </div>
         </div>
+
+        <!-- Course Progress Overview -->
+        <div class="bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl p-6 mb-8 text-white">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+            <div>
+              <h2 class="text-lg font-bold">Your Progress</h2>
+              <p class="text-sm text-slate-300">Track your journey from zero to $10K/month</p>
+            </div>
+            <div class="text-right">
+              <div class="text-3xl font-extrabold stat-counter" id="dash-progress-pct">0%</div>
+              <div class="text-xs text-slate-400">completed</div>
+            </div>
+          </div>
+          <div class="course-progress" style="height:10px">
+            <div id="dash-progress-bar" class="course-progress-fill" style="width:0%"></div>
+          </div>
+          <div class="grid grid-cols-4 gap-4 mt-4 text-center">
+            <div>
+              <div class="text-xl font-bold stat-counter" id="stat-completed">0</div>
+              <div class="text-[10px] text-slate-400 uppercase">Tasks Done</div>
+            </div>
+            <div>
+              <div class="text-xl font-bold stat-counter" id="stat-total">0</div>
+              <div class="text-[10px] text-slate-400 uppercase">Total Tasks</div>
+            </div>
+            <div>
+              <div class="text-xl font-bold stat-counter" id="stat-quizzes">0</div>
+              <div class="text-[10px] text-slate-400 uppercase">Quizzes Passed</div>
+            </div>
+            <div>
+              <div class="text-xl font-bold stat-counter" id="stat-modules">0/8</div>
+              <div class="text-[10px] text-slate-400 uppercase">Modules Done</div>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="text-lg font-bold mb-4">Course Modules</h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
           <div class="dash-card" onclick="showView('home')">
@@ -214,7 +326,8 @@
               <h3 class="font-bold text-sm text-gray-900">Getting Started</h3>
             </div>
             <p class="text-xs text-gray-500 mb-3">What this is, quick start checklist, overview, your advantages</p>
-            <div class="text-xs text-blue-600 font-semibold">4 sections &rarr;</div>
+            <div class="text-[10px] font-bold text-gray-400 uppercase mb-1">Module 1</div>
+            <div class="text-xs text-blue-600 font-semibold">4 lessons &rarr;</div>
           </div>
 
           <div class="dash-card" onclick="showView('setup')">
@@ -225,7 +338,8 @@
               <h3 class="font-bold text-sm text-gray-900">Business Setup</h3>
             </div>
             <p class="text-xs text-gray-500 mb-3">LLC, niche, pricing, tech stack, accounts, role split</p>
-            <div class="text-xs text-blue-600 font-semibold">6 sections &rarr;</div>
+            <div class="text-[10px] font-bold text-gray-400 uppercase mb-1">Module 2</div>
+            <div class="text-xs text-blue-600 font-semibold">6 lessons &rarr;</div>
           </div>
 
           <div class="dash-card" onclick="showView('build')">
@@ -236,7 +350,8 @@
               <h3 class="font-bold text-sm text-gray-900">Weeks 1-4: Build</h3>
             </div>
             <p class="text-xs text-gray-500 mb-3">Day-by-day setup, demo building, first outreach, first client</p>
-            <div class="text-xs text-blue-600 font-semibold">4 sections &rarr;</div>
+            <div class="text-[10px] font-bold text-gray-400 uppercase mb-1">Module 3</div>
+            <div class="text-xs text-blue-600 font-semibold">5 lessons &rarr;</div>
           </div>
 
           <div class="dash-card" onclick="showView('launch')">
@@ -247,7 +362,8 @@
               <h3 class="font-bold text-sm text-gray-900">Weeks 5+: Launch</h3>
             </div>
             <p class="text-xs text-gray-500 mb-3">Deliver to clients, optimize, scale to 5-10 clients</p>
-            <div class="text-xs text-blue-600 font-semibold">4 sections &rarr;</div>
+            <div class="text-[10px] font-bold text-gray-400 uppercase mb-1">Module 4</div>
+            <div class="text-xs text-blue-600 font-semibold">4 lessons &rarr;</div>
           </div>
 
           <div class="dash-card" onclick="showView('sales')">
@@ -258,7 +374,8 @@
               <h3 class="font-bold text-sm text-gray-900">Sales &amp; Clients</h3>
             </div>
             <p class="text-xs text-gray-500 mb-3">Lead gen, pipeline, cold email setup, Missed Call Audit, referral partners, scripts</p>
-            <div class="text-xs text-blue-600 font-semibold">7 sections &rarr;</div>
+            <div class="text-[10px] font-bold text-gray-400 uppercase mb-1">Module 5</div>
+            <div class="text-xs text-blue-600 font-semibold">8 lessons &rarr;</div>
           </div>
 
           <div class="dash-card" onclick="showView('tech')">
@@ -269,7 +386,8 @@
               <h3 class="font-bold text-sm text-gray-900">Tech Deep Dives</h3>
             </div>
             <p class="text-xs text-gray-500 mb-3">Voice AI setup, phone/SMS, CRM, agent scripts, tool comparisons, platform showdown</p>
-            <div class="text-xs text-blue-600 font-semibold">6 sections &rarr;</div>
+            <div class="text-[10px] font-bold text-gray-400 uppercase mb-1">Module 6</div>
+            <div class="text-xs text-blue-600 font-semibold">7 lessons &rarr;</div>
           </div>
 
           <div class="dash-card" onclick="showView('growth')">
@@ -280,9 +398,34 @@
               <h3 class="font-bold text-sm text-gray-900">Growth &amp; Money</h3>
             </div>
             <p class="text-xs text-gray-500 mb-3">P&amp;L economics, expansion packages, retention, seasonal calendar, client success playbook</p>
-            <div class="text-xs text-blue-600 font-semibold">8 sections &rarr;</div>
+            <div class="text-[10px] font-bold text-gray-400 uppercase mb-1">Module 7</div>
+            <div class="text-xs text-blue-600 font-semibold">8 lessons &rarr;</div>
           </div>
 
+
+        <!-- What Success Looks Like -->
+        <div class="bg-white rounded-2xl border border-gray-200 p-6 mb-8">
+          <h2 class="text-lg font-bold mb-4">What Success Looks Like</h2>
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div class="text-center p-4 bg-blue-50 rounded-xl">
+              <div class="text-xs text-blue-600 font-bold uppercase mb-1">Week 4</div>
+              <div class="text-2xl font-extrabold text-blue-700">First Demo</div>
+              <p class="text-xs text-gray-500 mt-1">Working AI agent, cold emails flowing, first demo call booked</p>
+            </div>
+            <div class="text-center p-4 bg-emerald-50 rounded-xl">
+              <div class="text-xs text-emerald-600 font-bold uppercase mb-1">Month 3</div>
+              <div class="text-2xl font-extrabold text-emerald-700">$3-5K MRR</div>
+              <p class="text-xs text-gray-500 mt-1">3-5 paying clients, proven delivery process, testimonials collected</p>
+            </div>
+            <div class="text-center p-4 bg-purple-50 rounded-xl">
+              <div class="text-xs text-purple-600 font-bold uppercase mb-1">Month 6</div>
+              <div class="text-2xl font-extrabold text-purple-700">$10K MRR</div>
+              <p class="text-xs text-gray-500 mt-1">10 clients, referral pipeline active, considering first VA hire</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="text-lg font-bold mb-4">Course Modules (continued)</h2>
           <div class="dash-card" onclick="showView('reference')">
             <div class="flex items-center gap-2 mb-2">
               <div class="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-600">
@@ -291,7 +434,8 @@
               <h3 class="font-bold text-sm text-gray-900">Resources</h3>
             </div>
             <p class="text-xs text-gray-500 mb-3">Legal, daily rituals, financial projections, FAQ</p>
-            <div class="text-xs text-blue-600 font-semibold">4 sections &rarr;</div>
+            <div class="text-[10px] font-bold text-gray-400 uppercase mb-1">Module 8</div>
+            <div class="text-xs text-blue-600 font-semibold">4 lessons &rarr;</div>
           </div>
         </div>
 
@@ -312,6 +456,19 @@
 
       <!-- All section content -->
 <section id="explain" class="mb-16 view-section hidden" data-view="home">
+          <div class="module-header">
+            <div class="module-number">1</div>
+            <h2 class="text-xl font-extrabold mb-1">Getting Started</h2>
+            <p class="text-sm text-slate-300 mb-3">Understand the business model, your advantages, and the complete roadmap</p>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="module-badge badge-time"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> 45 min</span>
+              <span class="module-badge badge-difficulty">Beginner</span>
+              <span class="module-badge badge-lessons">4 Lessons</span>
+            </div>
+            <div class="text-xs font-semibold text-slate-300 uppercase tracking-wide mb-2">What You'll Learn</div>
+            <ul class="module-objectives"><li>Explain the AI receptionist business model in 2 minutes</li><li>Identify your 4 competitive advantages</li><li>Map the complete 6-month timeline</li><li>Complete the Quick Start checklist prioritization</li></ul>
+          </div>
+
           <div class="bg-white rounded-2xl border-2 border-blue-200 p-6 sm:p-8">
             <h2 class="text-2xl font-extrabold mb-4">What Is This? (The 2-Minute Explanation)</h2>
 
@@ -362,9 +519,29 @@
               </div>
 
               <p class="mt-4"><strong>In one sentence:</strong> We charge US contractors $1,000/month so they never miss a phone call again, it costs us $50/month to deliver, and the whole thing runs on autopilot while we live our life in Germany.</p>
+
+              <div class="callout callout-protip p-4 mt-6">
+                <p class="font-semibold text-amber-800 text-sm mb-1">&#x1F4A1; Course Tip: The 30-Second Elevator Pitch</p>
+                <p class="text-sm text-amber-900">Practice explaining this business to someone who's never heard of AI in under 30 seconds: <em>"We help plumbers and HVAC companies stop losing customers from missed phone calls by setting up an AI receptionist that answers 24/7, books appointments, and sends confirmations &mdash; all for less than the cost of one lost job per month."</em> If you can say this naturally, you can sell it to anyone.</p>
+              </div>
             </div>
           </div>
         </section>
+
+
+        <!-- Knowledge Check: Module 1 -->
+        <div class="quiz-card mb-8 view-section hidden" data-view="home" id="quiz-m1">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="value-tag">Knowledge Check</span>
+            <span class="text-sm font-bold text-purple-900">Module 1 Quiz</span>
+          </div>
+          <p class="text-sm text-gray-700 mb-3">A plumber loses $45K-$120K/year from missed calls. You charge them $1,000/month. What's the primary reason clients stay and keep paying?</p>
+          <button class="quiz-option" data-correct="false" onclick="checkQuiz(this)">The AI sounds really cool and futuristic</button>
+          <button class="quiz-option" data-correct="true" onclick="checkQuiz(this)">Monthly reports prove they're capturing revenue they used to lose</button>
+          <button class="quiz-option" data-correct="false" onclick="checkQuiz(this)">They signed a long-term contract</button>
+          <div class="quiz-feedback correct">Exactly! Retention = proving ROI. Monthly reports show calls answered, appointments booked, and revenue captured. The math keeps them paying.</div>
+          <div class="quiz-feedback incorrect">Not quite. Clients stay because of proven ROI, not cool tech or contracts. Your monthly reports show real dollars captured from calls they would have missed.</div>
+        </div>
 
         <!-- ==================== QUICK START DASHBOARD ==================== -->
         <section id="quickstart" class="mb-16 view-section hidden" data-view="home">
@@ -646,6 +823,21 @@
         <section id="overview" class="mb-16 view-section hidden" data-view="home">
           <h2 class="text-2xl font-extrabold mb-4">Overview: What You're Building</h2>
           <p class="text-gray-700 leading-relaxed mb-4">You're going to sell AI phone agents and automation to home service businesses (HVAC, plumbing, electrical, landscaping). These businesses lose <strong>$45,000-$120,000 per year</strong> from missed calls. You fix that problem with an AI voice agent that answers 24/7, captures leads, and books appointments.</p>
+
+          <div class="bg-gradient-to-r from-slate-50 to-blue-50 rounded-xl border border-blue-200 p-5 mb-6">
+            <h4 class="font-bold text-sm text-blue-800 mb-3">Industry Data: Why Home Services + AI = Perfect Timing</h4>
+            <div class="grid sm:grid-cols-2 gap-3 text-sm text-gray-700">
+              <div class="flex items-start gap-2"><span class="text-blue-500 font-bold">&#x2022;</span> <strong>3.5M+</strong> home service businesses in the US (IBIS World 2024)</div>
+              <div class="flex items-start gap-2"><span class="text-blue-500 font-bold">&#x2022;</span> <strong>$657B</strong> US home services market size (Grand View Research)</div>
+              <div class="flex items-start gap-2"><span class="text-blue-500 font-bold">&#x2022;</span> <strong>62%</strong> of consumers hang up after 1 minute on hold (Arise)</div>
+              <div class="flex items-start gap-2"><span class="text-blue-500 font-bold">&#x2022;</span> <strong>85%</strong> of customers whose calls aren't answered won't call back (BrightLocal)</div>
+              <div class="flex items-start gap-2"><span class="text-blue-500 font-bold">&#x2022;</span> <strong>$1,200</strong> average value of a missed HVAC call (ServiceTitan)</div>
+              <div class="flex items-start gap-2"><span class="text-blue-500 font-bold">&#x2022;</span> <strong>&lt;1%</strong> of home service businesses currently use AI phone agents</div>
+              <div class="flex items-start gap-2"><span class="text-blue-500 font-bold">&#x2022;</span> <strong>37,500+</strong> new Hispanic-owned construction firms 2017-2022 (Census)</div>
+              <div class="flex items-start gap-2"><span class="text-blue-500 font-bold">&#x2022;</span> <strong>$3,500/mo</strong> average cost of a full-time receptionist (Bureau of Labor Statistics)</div>
+            </div>
+            <p class="text-xs text-gray-500 mt-3">These numbers are your sales ammunition. Use them on discovery calls to establish credibility and urgency.</p>
+          </div>
           <p class="text-gray-700 leading-relaxed mb-4">This is not a passive income play. It's a real service business with real clients who pay you $500-$2,000/month because you save them real money. The margins are 80-90% because the tools cost almost nothing per client.</p>
 
           <h3 class="text-lg font-bold mt-8 mb-3">The Numbers</h3>
@@ -760,6 +952,19 @@
 
         <!-- ==================== BUSINESS SETUP ==================== -->
         <section id="business" class="mb-16 view-section hidden" data-view="setup">
+          <div class="module-header">
+            <div class="module-number">2</div>
+            <h2 class="text-xl font-extrabold mb-1">Business Setup</h2>
+            <p class="text-sm text-slate-300 mb-3">LLC, niche selection, pricing strategy, tech stack, and role division</p>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="module-badge badge-time"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> 2 hours</span>
+              <span class="module-badge badge-difficulty">Beginner</span>
+              <span class="module-badge badge-lessons">6 Lessons</span>
+            </div>
+            <div class="text-xs font-semibold text-slate-300 uppercase tracking-wide mb-2">What You'll Learn</div>
+            <ul class="module-objectives"><li>Configure your LLC for AI agency operations</li><li>Select and validate your starting niche and target cities</li><li>Set pricing tiers that maximize revenue per client</li><li>Choose and set up your complete tech stack</li><li>Define clear role splits between partners</li></ul>
+          </div>
+
           <h2 class="text-2xl font-extrabold mb-4">Business Setup: Colibri Code LLC</h2>
           <p class="text-gray-700 leading-relaxed mb-4">You already have <strong>Colibri Code LLC</strong> registered in the US. Here's what you need to complete the business infrastructure for the agency arm.</p>
 
@@ -1349,6 +1554,19 @@
 
         <!-- ==================== PHASE 1: WEEK 1 ==================== -->
         <section id="week1" class="mb-16 view-section hidden" data-view="build">
+          <div class="module-header">
+            <div class="module-number">3</div>
+            <h2 class="text-xl font-extrabold mb-1">Weeks 1-4: Build Phase</h2>
+            <p class="text-sm text-slate-300 mb-3">Day-by-day build schedule, demo environment, first outreach, first client</p>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="module-badge badge-time"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> 4 weeks</span>
+              <span class="module-badge badge-difficulty">Intermediate</span>
+              <span class="module-badge badge-lessons">5 Lessons</span>
+            </div>
+            <div class="text-xs font-semibold text-slate-300 uppercase tracking-wide mb-2">What You'll Learn</div>
+            <ul class="module-objectives"><li>Set up all tools and accounts in Week 1</li><li>Build and test a working AI phone agent</li><li>Create a demo environment prospects can call</li><li>Launch cold email outreach at scale</li><li>Close your first paying client</li></ul>
+          </div>
+
           <div class="mb-6 pb-3 border-b-2 border-blue-200">
             <span class="text-xs font-bold text-blue-600 uppercase tracking-widest">Phase 1 — Setup</span>
             <h2 class="text-2xl font-extrabold mt-1">Week 1: Foundation</h2>
@@ -1979,6 +2197,19 @@ mkdir n8n && cd n8n
 
         <!-- ==================== PHASE 3: WEEKS 5-6 ==================== -->
         <section id="week5-6" class="mb-16 view-section hidden" data-view="launch">
+          <div class="module-header">
+            <div class="module-number">4</div>
+            <h2 class="text-xl font-extrabold mb-1">Weeks 5+: Launch & Scale</h2>
+            <p class="text-sm text-slate-300 mb-3">Client delivery, optimization, scaling to 5-10 clients</p>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="module-badge badge-time"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> 2-4 months</span>
+              <span class="module-badge badge-difficulty">Intermediate</span>
+              <span class="module-badge badge-lessons">4 Lessons</span>
+            </div>
+            <div class="text-xs font-semibold text-slate-300 uppercase tracking-wide mb-2">What You'll Learn</div>
+            <ul class="module-objectives"><li>Deliver a flawless onboarding for Client #1</li><li>Build monthly reporting that proves ROI</li><li>Optimize your sales pipeline for consistent closes</li><li>Scale from 1 client to 5-10 clients systematically</li></ul>
+          </div>
+
           <div class="mb-6 pb-3 border-b-2 border-emerald-200 mt-20">
             <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest">Phase 3 — Deliver &amp; Grow</span>
             <h2 class="text-2xl font-extrabold mt-1">Weeks 5-6: Deliver, Prove, Expand</h2>
@@ -2231,6 +2462,19 @@ Worth a 2-minute demo? I can show you exactly how it sounds.
 
         <!-- ==================== LEAD GENERATION ENGINE ==================== -->
         <section id="leadgen" class="mb-16 view-section hidden" data-view="sales">
+          <div class="module-header">
+            <div class="module-number">5</div>
+            <h2 class="text-xl font-extrabold mb-1">Sales & Client Acquisition</h2>
+            <p class="text-sm text-slate-300 mb-3">Lead generation, cold email, pipeline management, scripts, and onboarding</p>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="module-badge badge-time"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> 3 hours</span>
+              <span class="module-badge badge-difficulty">Intermediate</span>
+              <span class="module-badge badge-lessons">8 Lessons</span>
+            </div>
+            <div class="text-xs font-semibold text-slate-300 uppercase tracking-wide mb-2">What You'll Learn</div>
+            <ul class="module-objectives"><li>Build a multi-channel lead generation system</li><li>Set up cold email infrastructure that avoids spam</li><li>Run the Missed Call Audit to create urgency</li><li>Master the discovery call and demo script</li><li>Create proposals that close at 40%+ rate</li><li>Onboard new clients in under 48 hours</li></ul>
+          </div>
+
           <div class="mb-6 pb-3 border-b-2 border-amber-200 mt-20">
             <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">Growth Engine</span>
             <h2 class="text-2xl font-extrabold mt-1">Lead Generation Engine</h2>
@@ -3067,6 +3311,19 @@ a partnership. Here's my calendar: [CAL.COM LINK]
 
         <!-- ==================== TECHNOLOGY DELIVERY ==================== -->
         <section id="tech-delivery" class="mb-16 view-section hidden" data-view="tech">
+          <div class="module-header">
+            <div class="module-number">6</div>
+            <h2 class="text-xl font-extrabold mb-1">Tech Deep Dives</h2>
+            <p class="text-sm text-slate-300 mb-3">Voice AI, phone systems, CRM, agent scripts, agentic AI, and platform comparisons</p>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="module-badge badge-time"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> 4 hours</span>
+              <span class="module-badge badge-difficulty">Advanced</span>
+              <span class="module-badge badge-lessons">7 Lessons</span>
+            </div>
+            <div class="text-xs font-semibold text-slate-300 uppercase tracking-wide mb-2">What You'll Learn</div>
+            <ul class="module-objectives"><li>Configure Vapi + Twilio for production voice AI</li><li>Build n8n workflows for the complete call pipeline</li><li>Write AI agent scripts that sound natural</li><li>Understand when to offer agentic AI services</li><li>Compare and choose between competing platforms</li></ul>
+          </div>
+
           <h2 class="text-2xl font-extrabold mb-4">Technology Delivery: Exactly What Gets Built</h2>
           <p class="text-gray-700 leading-relaxed mb-6">For each service tier, here's precisely what you deploy, what the client sees, and what runs in the background.</p>
 
@@ -3470,6 +3727,19 @@ Questions? Reply to this email or text me at [YOUR NUMBER].
 
         <!-- ==================== REAL COST ECONOMICS ==================== -->
         <section id="economics" class="mb-16 view-section hidden" data-view="growth">
+          <div class="module-header">
+            <div class="module-number">7</div>
+            <h2 class="text-xl font-extrabold mb-1">Growth & Money</h2>
+            <p class="text-sm text-slate-300 mb-3">Unit economics, expansion packages, retention, competitive positioning, and scaling milestones</p>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="module-badge badge-time"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> 2 hours</span>
+              <span class="module-badge badge-difficulty">Intermediate</span>
+              <span class="module-badge badge-lessons">8 Lessons</span>
+            </div>
+            <div class="text-xs font-semibold text-slate-300 uppercase tracking-wide mb-2">What You'll Learn</div>
+            <ul class="module-objectives"><li>Calculate exact unit economics per client</li><li>Design expansion packages that increase ARPU</li><li>Build retention systems for 90%+ annual retention</li><li>Position against competitors with data</li><li>Plan seasonal marketing around contractor cycles</li></ul>
+          </div>
+
           <h2 class="text-2xl font-extrabold mb-4">Real Cost Economics: Honest P&amp;L</h2>
           <p class="text-gray-700 leading-relaxed mb-6">Not the "potential" income — the actual math with all costs included. No hand-waving.</p>
 
@@ -4364,6 +4634,21 @@ Questions? Reply to this email or text me at [YOUR NUMBER].
         </section>
 
         <!-- ==================== AI AGENT SCRIPT LIBRARY ==================== -->
+
+        <!-- Knowledge Check: Module 5 -->
+        <div class="quiz-card mb-8 view-section hidden" data-view="sales" id="quiz-m5">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="value-tag">Knowledge Check</span>
+            <span class="text-sm font-bold text-purple-900">Module 5: Sales Mastery</span>
+          </div>
+          <p class="text-sm text-gray-700 mb-3">You're about to call a roofing company for a Missed Call Audit. What's the FIRST thing you should do?</p>
+          <button class="quiz-option" data-correct="true" onclick="checkQuiz(this)">Call their business number during business hours and document what happens (voicemail, no answer, hold time)</button>
+          <button class="quiz-option" data-correct="false" onclick="checkQuiz(this)">Send them a cold email about your AI service</button>
+          <button class="quiz-option" data-correct="false" onclick="checkQuiz(this)">Check if they already have an AI phone system</button>
+          <div class="quiz-feedback correct">Yes! The Missed Call Audit starts by experiencing their phone system as a customer would. Document everything: rings, voicemail, hold time. This becomes your proof point on the sales call.</div>
+          <div class="quiz-feedback incorrect">The Missed Call Audit starts with calling them. You need first-hand evidence of their problem before reaching out. Call, document the experience, then use that as your opening.</div>
+        </div>
+
         <section id="agent-scripts" class="mb-16 view-section hidden" data-view="tech">
           <h2 class="text-2xl font-extrabold mb-4">AI Agent Script Library</h2>
           <p class="text-gray-700 leading-relaxed mb-6">These are the Vapi system prompts you'll customize per client. Start with the HVAC template and adapt for other trades — 80% stays the same.</p>
@@ -4491,6 +4776,21 @@ UPSELL PROMPT (after booking standard service):
         </section>
 
         <!-- ==================== VOICE AI PLATFORM SHOWDOWN ==================== -->
+
+        <!-- Knowledge Check: Module 6 -->
+        <div class="quiz-card mb-8 view-section hidden" data-view="tech" id="quiz-m6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="value-tag">Knowledge Check</span>
+            <span class="text-sm font-bold text-purple-900">Module 6: Technical Architecture</span>
+          </div>
+          <p class="text-sm text-gray-700 mb-3">A client's AI agent needs to: answer calls, check the calendar for open slots, book an appointment, and send a confirmation text. What's the correct data flow?</p>
+          <button class="quiz-option" data-correct="false" onclick="checkQuiz(this)">Twilio &rarr; Claude API &rarr; Google Calendar &rarr; Twilio SMS</button>
+          <button class="quiz-option" data-correct="true" onclick="checkQuiz(this)">Twilio &rarr; Vapi (voice AI) &rarr; n8n webhook &rarr; Supabase + Cal.com &rarr; Twilio SMS</button>
+          <button class="quiz-option" data-correct="false" onclick="checkQuiz(this)">Vapi handles everything end-to-end, no other tools needed</button>
+          <div class="quiz-feedback correct">Exactly! Twilio handles telephony, Vapi manages the AI conversation, n8n orchestrates the workflow via webhooks, Supabase stores the data, Cal.com handles scheduling, and Twilio sends the confirmation SMS.</div>
+          <div class="quiz-feedback incorrect">The correct flow uses your full stack: Twilio (phone) &rarr; Vapi (AI conversation) &rarr; n8n (workflow automation) &rarr; Supabase + Cal.com (data + scheduling) &rarr; Twilio SMS (confirmation).</div>
+        </div>
+
         <section id="voice-platforms" class="mb-16 view-section hidden" data-view="tech">
           <h2 class="text-2xl font-extrabold mb-4">Voice AI Platform Showdown: Vapi vs Everyone</h2>
           <p class="text-gray-700 leading-relaxed mb-6">This is the most important technical decision you'll make. The wrong platform means bad call quality, angry customers, and churned clients. Here's every option with honest pros and cons.</p>
@@ -4553,6 +4853,19 @@ UPSELL PROMPT (after booking standard service):
 
         <!-- ==================== LEGAL & CONTRACTS ==================== -->
         <section id="legal" class="mb-16 view-section hidden" data-view="reference">
+          <div class="module-header">
+            <div class="module-number">8</div>
+            <h2 class="text-xl font-extrabold mb-1">Resources & Reference</h2>
+            <p class="text-sm text-slate-300 mb-3">Legal considerations, daily rituals, financial tracking, FAQ, and learning resources</p>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="module-badge badge-time"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> 1 hour</span>
+              <span class="module-badge badge-difficulty">Beginner</span>
+              <span class="module-badge badge-lessons">4 Lessons</span>
+            </div>
+            <div class="text-xs font-semibold text-slate-300 uppercase tracking-wide mb-2">What You'll Learn</div>
+            <ul class="module-objectives"><li>Understand SOFA tax implications for your business</li><li>Set up daily and weekly business rituals</li><li>Track finances and key metrics accurately</li><li>Know where to find help and continue learning</li></ul>
+          </div>
+
           <h2 class="text-2xl font-extrabold mb-4">Legal Essentials & Contract Template</h2>
           <p class="text-gray-700 leading-relaxed mb-6">Keep it simple. A 2-page agreement protects both sides. Here are the key terms every client contract must include.</p>
 
@@ -5589,7 +5902,33 @@ Talk soon,
 
         <!-- ==================== RESOURCES ==================== -->
         <section id="resources" class="mb-16 view-section hidden" data-view="reference">
-          <h2 class="text-2xl font-extrabold mb-4">Resources &amp; Learning Path</h2>
+          
+          <div class="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-xl border-2 border-purple-200 p-5 mb-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="value-tag">Bonus</span>
+              <h4 class="font-bold text-sm text-purple-800">Downloadable Templates &amp; Resources</h4>
+            </div>
+            <p class="text-sm text-gray-600 mb-3">These files are included with the course. Import them directly into your tools.</p>
+            <div class="grid sm:grid-cols-2 gap-2 text-sm">
+              <div class="bg-white rounded-lg p-3 border border-purple-100">
+                <p class="font-bold text-xs text-purple-700">01-vapi-system-prompt.md</p>
+                <p class="text-xs text-gray-500">Production Vapi agent script with bilingual support</p>
+              </div>
+              <div class="bg-white rounded-lg p-3 border border-purple-100">
+                <p class="font-bold text-xs text-purple-700">02-n8n-workflows.md</p>
+                <p class="text-xs text-gray-500">4 complete n8n workflow architectures</p>
+              </div>
+              <div class="bg-white rounded-lg p-3 border border-purple-100">
+                <p class="font-bold text-xs text-purple-700">03-supabase-schema.sql</p>
+                <p class="text-xs text-gray-500">Full database schema, ready to run</p>
+              </div>
+              <div class="bg-white rounded-lg p-3 border border-purple-100">
+                <p class="font-bold text-xs text-purple-700">04-twilio-setup-checklist.md</p>
+                <p class="text-xs text-gray-500">Step-by-step phone setup with A2P 10DLC</p>
+              </div>
+            </div>
+          </div>
+<h2 class="text-2xl font-extrabold mb-4">Resources &amp; Learning Path</h2>
           <p class="text-gray-700 leading-relaxed mb-6">Everything you need to learn, organized by when you need it. Don&#x2019;t try to watch everything at once &#x2014; follow the phases.</p>
 
           <h3 class="text-lg font-bold mt-8 mb-4">Phase 1: Before You Start (Week 0)</h3>
@@ -5699,6 +6038,283 @@ Talk soon,
           </div>
         </section>
 
+
+        <!-- ==================== COURSE SALES PAGE ==================== -->
+        <section id="course-sales" class="mb-16 view-section hidden" data-view="course">
+
+          <!-- Hero -->
+          <div class="sales-hero rounded-2xl p-8 sm:p-12 text-center text-white mb-8">
+            <p class="text-sm font-semibold text-purple-300 uppercase tracking-widest mb-3">The Complete System</p>
+            <h1 class="text-3xl sm:text-4xl font-extrabold leading-tight mb-4">AI Agency Blueprint</h1>
+            <p class="text-lg text-purple-200 max-w-2xl mx-auto mb-6">Build a $10K/month AI automation agency selling AI phone agents to home service businesses. Step-by-step. Copy-paste templates. No fluff.</p>
+            <div class="flex flex-wrap justify-center gap-3 mb-8">
+              <span class="module-badge badge-time text-sm px-3 py-1">8 Modules</span>
+              <span class="module-badge badge-lessons text-sm px-3 py-1">46+ Lessons</span>
+              <span class="module-badge badge-difficulty text-sm px-3 py-1">Templates + Scripts</span>
+            </div>
+            <div class="sales-price mb-2">$497</div>
+            <p class="text-purple-300 text-sm">One-time payment. Lifetime access. Free updates.</p>
+          </div>
+
+          <!-- What's Inside -->
+          <h2 class="text-2xl font-extrabold mb-6">What's Inside</h2>
+          <div class="grid sm:grid-cols-2 gap-4 mb-8">
+            <div class="course-card">
+              <div class="text-2xl mb-2">&#x1F3AF;</div>
+              <h3 class="font-bold text-sm mb-1">Module 1: Getting Started</h3>
+              <p class="text-xs text-gray-500">Understand the business model, your competitive advantages, the complete roadmap, and the Quick Start checklist. 4 lessons, 45 min.</p>
+            </div>
+            <div class="course-card">
+              <div class="text-2xl mb-2">&#x1F3E2;</div>
+              <h3 class="font-bold text-sm mb-1">Module 2: Business Setup</h3>
+              <p class="text-xs text-gray-500">LLC configuration, niche selection with data, pricing strategy (tiered), complete tech stack setup, role division. 6 lessons, 2 hours.</p>
+            </div>
+            <div class="course-card">
+              <div class="text-2xl mb-2">&#x1F528;</div>
+              <h3 class="font-bold text-sm mb-1">Module 3: Build Phase (Weeks 1-4)</h3>
+              <p class="text-xs text-gray-500">Day-by-day build schedule. Set up every tool, build your first AI agent, create demo environment, launch outreach. 5 lessons, 4 weeks.</p>
+            </div>
+            <div class="course-card">
+              <div class="text-2xl mb-2">&#x1F680;</div>
+              <h3 class="font-bold text-sm mb-1">Module 4: Launch & Scale</h3>
+              <p class="text-xs text-gray-500">Deliver to Client #1, build reporting, optimize pipeline, scale to 5-10 clients. 4 lessons, 2-4 months.</p>
+            </div>
+            <div class="course-card">
+              <div class="text-2xl mb-2">&#x1F4B0;</div>
+              <h3 class="font-bold text-sm mb-1">Module 5: Sales & Clients</h3>
+              <p class="text-xs text-gray-500">Multi-channel lead gen, cold email infrastructure, the Missed Call Audit, discovery scripts, proposals, onboarding SOPs. 8 lessons, 3 hours.</p>
+            </div>
+            <div class="course-card">
+              <div class="text-2xl mb-2">&#x2699;&#xFE0F;</div>
+              <h3 class="font-bold text-sm mb-1">Module 6: Tech Deep Dives</h3>
+              <p class="text-xs text-gray-500">Vapi + Twilio setup, n8n workflows, agent scripts, agentic AI premium tier, platform comparisons. 7 lessons, 4 hours.</p>
+            </div>
+            <div class="course-card">
+              <div class="text-2xl mb-2">&#x1F4C8;</div>
+              <h3 class="font-bold text-sm mb-1">Module 7: Growth & Money</h3>
+              <p class="text-xs text-gray-500">Unit economics, expansion packages, retention systems, competitive positioning, seasonal marketing, case studies. 8 lessons, 2 hours.</p>
+            </div>
+            <div class="course-card">
+              <div class="text-2xl mb-2">&#x1F4DA;</div>
+              <h3 class="font-bold text-sm mb-1">Module 8: Resources</h3>
+              <p class="text-xs text-gray-500">Legal/tax guide, daily rituals, financial tracking templates, FAQ, recommended tools, books, and YouTube channels. 4 lessons, 1 hour.</p>
+            </div>
+          </div>
+
+          <!-- Bonuses -->
+          <div class="bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl border-2 border-amber-300 p-6 sm:p-8 mb-8">
+            <h2 class="text-xl font-extrabold mb-1">Included Bonuses (Worth $2,000+)</h2>
+            <p class="text-sm text-gray-600 mb-4">Everything you need to start without building from scratch.</p>
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div class="flex items-start gap-3 bg-white/80 rounded-lg p-3">
+                <span class="value-tag">$500</span>
+                <div>
+                  <p class="text-sm font-bold">Vapi System Prompt Template</p>
+                  <p class="text-xs text-gray-500">Production-ready AI agent script for HVAC/plumbing with bilingual support</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-white/80 rounded-lg p-3">
+                <span class="value-tag">$400</span>
+                <div>
+                  <p class="text-sm font-bold">n8n Workflow Blueprints</p>
+                  <p class="text-xs text-gray-500">4 complete workflow architectures: call handler, missed call, reporting, lead capture</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-white/80 rounded-lg p-3">
+                <span class="value-tag">$300</span>
+                <div>
+                  <p class="text-sm font-bold">Supabase Database Schema</p>
+                  <p class="text-xs text-gray-500">Complete PostgreSQL schema with tables, RLS policies, views, and seed data</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-white/80 rounded-lg p-3">
+                <span class="value-tag">$300</span>
+                <div>
+                  <p class="text-sm font-bold">Cold Email Sequences</p>
+                  <p class="text-xs text-gray-500">5 proven email sequences plus follow-up templates that book demos</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-white/80 rounded-lg p-3">
+                <span class="value-tag">$250</span>
+                <div>
+                  <p class="text-sm font-bold">Sales Scripts & Discovery Questions</p>
+                  <p class="text-xs text-gray-500">Word-for-word cold call, discovery call, and demo scripts</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 bg-white/80 rounded-lg p-3">
+                <span class="value-tag">$250</span>
+                <div>
+                  <p class="text-sm font-bold">Client Proposal Template</p>
+                  <p class="text-xs text-gray-500">Copy-paste proposal that closes at 40%+ rate, with ROI calculator</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Who This Is For -->
+          <div class="grid sm:grid-cols-2 gap-6 mb-8">
+            <div class="bg-emerald-50 rounded-xl border border-emerald-200 p-6">
+              <h3 class="font-bold text-emerald-800 mb-3">This Is For You If...</h3>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start gap-2"><span class="text-emerald-500 font-bold mt-0.5">&#10003;</span> You want a high-margin service business, not a product</li>
+                <li class="flex items-start gap-2"><span class="text-emerald-500 font-bold mt-0.5">&#10003;</span> You can commit 15-25 hours/week (works part-time)</li>
+                <li class="flex items-start gap-2"><span class="text-emerald-500 font-bold mt-0.5">&#10003;</span> You're comfortable learning no-code tools (n8n, Vapi)</li>
+                <li class="flex items-start gap-2"><span class="text-emerald-500 font-bold mt-0.5">&#10003;</span> You want to sell AI to businesses, not build AI from scratch</li>
+                <li class="flex items-start gap-2"><span class="text-emerald-500 font-bold mt-0.5">&#10003;</span> You have $16-$200 to invest in startup costs</li>
+              </ul>
+            </div>
+            <div class="bg-red-50 rounded-xl border border-red-200 p-6">
+              <h3 class="font-bold text-red-800 mb-3">This Is NOT For You If...</h3>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start gap-2"><span class="text-red-400 font-bold mt-0.5">&#10007;</span> You want passive income with zero effort</li>
+                <li class="flex items-start gap-2"><span class="text-red-400 font-bold mt-0.5">&#10007;</span> You're not willing to make sales calls or send cold emails</li>
+                <li class="flex items-start gap-2"><span class="text-red-400 font-bold mt-0.5">&#10007;</span> You need to make money within the first 2 weeks</li>
+                <li class="flex items-start gap-2"><span class="text-red-400 font-bold mt-0.5">&#10007;</span> You want to build a SaaS product, not a service</li>
+                <li class="flex items-start gap-2"><span class="text-red-400 font-bold mt-0.5">&#10007;</span> You're looking for theory — this is all execution</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- The Math -->
+          <div class="bg-white rounded-2xl border-2 border-blue-200 p-6 sm:p-8 mb-8">
+            <h2 class="text-xl font-extrabold mb-4">The Math: Why This Works</h2>
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+                <thead class="bg-blue-50"><tr><th class="text-left px-4 py-3 font-semibold">Milestone</th><th class="text-right px-4 py-3 font-semibold">Clients</th><th class="text-right px-4 py-3 font-semibold">Monthly Revenue</th><th class="text-right px-4 py-3 font-semibold">Monthly Cost</th><th class="text-right px-4 py-3 font-semibold">Monthly Profit</th></tr></thead>
+                <tbody class="divide-y divide-gray-100 bg-white">
+                  <tr><td class="px-4 py-3">Month 2</td><td class="px-4 py-3 text-right">1</td><td class="px-4 py-3 text-right">$1,000</td><td class="px-4 py-3 text-right">$250</td><td class="px-4 py-3 text-right font-bold text-emerald-600">$750</td></tr>
+                  <tr><td class="px-4 py-3">Month 4</td><td class="px-4 py-3 text-right">3</td><td class="px-4 py-3 text-right">$3,000</td><td class="px-4 py-3 text-right">$350</td><td class="px-4 py-3 text-right font-bold text-emerald-600">$2,650</td></tr>
+                  <tr><td class="px-4 py-3">Month 6</td><td class="px-4 py-3 text-right">7</td><td class="px-4 py-3 text-right">$7,000</td><td class="px-4 py-3 text-right">$500</td><td class="px-4 py-3 text-right font-bold text-emerald-600">$6,500</td></tr>
+                  <tr class="bg-emerald-50"><td class="px-4 py-3 font-bold">Month 12</td><td class="px-4 py-3 text-right font-bold">15</td><td class="px-4 py-3 text-right font-bold">$15,000</td><td class="px-4 py-3 text-right">$800</td><td class="px-4 py-3 text-right font-extrabold text-emerald-600">$14,200</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="text-xs text-gray-500 mt-3">Based on $1,000/mo average client value. Setup fees ($1,500-$3,000 per client) are additional revenue not shown. Costs include all tools, hosting, and phone.</p>
+          </div>
+
+          <!-- Guarantee -->
+          <div class="guarantee-badge p-6 sm:p-8 mb-8 text-center">
+            <div class="text-3xl mb-2">&#x1F6E1;&#xFE0F;</div>
+            <h3 class="text-lg font-extrabold text-emerald-800 mb-2">30-Day Action Guarantee</h3>
+            <p class="text-sm text-gray-700 max-w-xl mx-auto">Follow the plan, complete Modules 1-3, and if you don't have a working AI agent and active outreach within 30 days, get a full refund. No questions asked. We only win when you win.</p>
+          </div>
+
+          <!-- FAQ -->
+          <h2 class="text-xl font-extrabold mb-4">Common Questions</h2>
+          <div class="space-y-3 mb-8">
+            <div class="bg-white rounded-xl border border-gray-200 p-4">
+              <p class="font-bold text-sm mb-1">Do I need technical skills?</p>
+              <p class="text-sm text-gray-600">No coding required. Everything uses no-code/low-code tools (n8n, Vapi, Supabase). If you can use a spreadsheet, you can do this. We provide copy-paste templates for everything technical.</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-4">
+              <p class="font-bold text-sm mb-1">How much does it cost to get started?</p>
+              <p class="text-sm text-gray-600">As little as $16/month (domain + VPS + Twilio). The ultra-lean budget in Module 2 shows how to launch for under $20. Full setup with all tools is about $200/month, but you can start lean and upgrade as you get clients.</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-4">
+              <p class="font-bold text-sm mb-1">Can I do this part-time?</p>
+              <p class="text-sm text-gray-600">The entire plan is designed for part-time (15-25 hours/week). The AI handles calls 24/7 — you just build, sell, and manage. The time zone section in Module 1 shows how to optimize your hours from any location.</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-4">
+              <p class="font-bold text-sm mb-1">What if I'm not bilingual?</p>
+              <p class="text-sm text-gray-600">Bilingual is a bonus, not a requirement. English-only AI agents are the standard product. You can still target the massive English-speaking contractor market and make great money. The bilingual sections show how to add it later if you hire a Spanish-speaking VA.</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-4">
+              <p class="font-bold text-sm mb-1">How long until I get my first client?</p>
+              <p class="text-sm text-gray-600">Typical timeline: Week 1-2 setup, Week 3-4 outreach starts, Week 4-8 first client closes. Conservative estimate is 6-8 weeks. Fastest students close in Week 3-4 because the Missed Call Audit creates immediate urgency.</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-4">
+              <p class="font-bold text-sm mb-1">Is the home services market saturated?</p>
+              <p class="text-sm text-gray-600">There are 3.5+ million home service businesses in the US. Fewer than 1% use AI phone agents. The market is barely started. Even in competitive metros, there are thousands of businesses per city with no AI solution. Module 7 covers exactly how to position against competitors.</p>
+            </div>
+          </div>
+
+
+          <!-- How to Sell This Course -->
+          <div class="bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 mb-8">
+            <h2 class="text-xl font-extrabold mb-4">How to Sell This Course</h2>
+            <p class="text-sm text-gray-600 mb-4">If you're packaging this as a product, here are the channels and strategies that work:</p>
+            <div class="space-y-3">
+              <div class="flex items-start gap-3">
+                <span class="step-num step-mike text-xs">1</span>
+                <div>
+                  <p class="font-bold text-sm">YouTube + Loom Previews</p>
+                  <p class="text-xs text-gray-600">Create 5-10 minute preview videos showing the AI agent in action. Record yourself calling the demo number. Show the n8n workflow. Give away Module 1 content for free to build trust.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="step-num step-paola text-xs">2</span>
+                <div>
+                  <p class="font-bold text-sm">Twitter/X + LinkedIn Content</p>
+                  <p class="text-xs text-gray-600">Share results: "Set up an AI phone agent for an HVAC company. It answered 47 calls in week 1 that would have gone to voicemail." Build in public. Show the dashboard, the numbers, the client texts.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="step-num step-both text-xs">3</span>
+                <div>
+                  <p class="font-bold text-sm">AI/Automation Communities</p>
+                  <p class="text-xs text-gray-600">Post in n8n community, Make.com forums, AI agency Facebook groups, r/artificial, r/entrepreneur. Answer questions about voice AI &mdash; become the expert, then link to the course.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="step-num step-mike text-xs">4</span>
+                <div>
+                  <p class="font-bold text-sm">Email List via Lead Magnet</p>
+                  <p class="text-xs text-gray-600">Give away the "Missed Call Calculator" &mdash; a simple tool where they input their industry, call volume, and average job value, and it shows them how much they're losing. Collect emails, nurture with weekly tips, sell the course.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="step-num step-both text-xs">5</span>
+                <div>
+                  <p class="font-bold text-sm">Platforms: Gumroad, Teachable, or Skool</p>
+                  <p class="text-xs text-gray-600"><strong>Gumroad:</strong> Simplest, 10% fee, just upload and sell. <strong>Teachable:</strong> Better for drip content and quizzes, $39/mo. <strong>Skool:</strong> Community + course, $99/mo, great for recurring revenue. Start with Gumroad, upgrade when you hit $5K in sales.</p>
+                </div>
+              </div>
+            </div>
+            <div class="callout callout-protip p-4 mt-4">
+              <p class="font-semibold text-amber-800 text-sm mb-1">Pricing Psychology</p>
+              <p class="text-sm text-amber-900">$497 one-time is the sweet spot. It's low enough to be an impulse buy for someone serious about starting an agency, but high enough to filter out tire-kickers. Consider a $997 tier with 1-on-1 onboarding calls, or a $197 "essentials" tier with just Modules 1-4.</p>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="bg-gradient-to-r from-blue-600 to-purple-700 rounded-2xl p-8 text-center text-white">
+            <h2 class="text-2xl font-extrabold mb-2">Ready to Build Your AI Agency?</h2>
+            <p class="text-blue-100 mb-4">8 modules. 46+ lessons. Every template, script, and workflow you need.</p>
+            <div class="sales-price mb-1" style="font-size:2.5rem">$497</div>
+            <p class="text-blue-200 text-xs mb-6">One-time. Lifetime access. 30-day guarantee.</p>
+            <button onclick="showView('home')" class="bg-white text-blue-700 font-bold px-8 py-3 rounded-xl hover:bg-blue-50 transition-all text-sm">Start Module 1 &rarr;</button>
+          </div>
+
+        </section>
+
+        <!-- ==================== GLOSSARY ==================== -->
+        <section id="glossary" class="mb-16 view-section hidden" data-view="reference">
+          <h2 class="text-2xl font-extrabold mb-4">Glossary of Key Terms</h2>
+          <p class="text-sm text-gray-600 mb-4">Quick reference for terms used throughout this course. Bookmark this page.</p>
+          <div class="bg-white rounded-xl border border-gray-200 divide-y divide-gray-100">
+            <div class="p-4"><p class="font-bold text-sm text-blue-700">A2P 10DLC</p><p class="text-sm text-gray-600">Application-to-Person 10-Digit Long Code. US carrier requirement for business SMS. You must register your brand and campaign before sending texts from a regular phone number.</p></div>
+            <div class="p-4"><p class="font-bold text-sm text-blue-700">ARPU</p><p class="text-sm text-gray-600">Average Revenue Per User (client). Your monthly revenue divided by number of clients. Target: $800-$1,500/month.</p></div>
+            <div class="p-4"><p class="font-bold text-sm text-blue-700">Agentic AI</p><p class="text-sm text-gray-600">AI that reasons, plans, and takes multi-step actions autonomously using tools. Unlike reactive AI (responds to input), agentic AI decides what to do next on its own. Premium tier product.</p></div>
+            <div class="p-4"><p class="font-bold text-sm text-blue-700">CAC</p><p class="text-sm text-gray-600">Customer Acquisition Cost. How much it costs to get one new client. Your target: under $200 (mostly time, not money).</p></div>
+            <div class="p-4"><p class="font-bold text-sm text-blue-700">CRM</p><p class="text-sm text-gray-600">Customer Relationship Management. Software to track leads and client interactions. You use Supabase (free) or GoHighLevel ($97-$297/mo).</p></div>
+            <div class="p-4"><p class="font-bold text-sm text-blue-700">Cold Email Warmup</p><p class="text-sm text-gray-600">Process of gradually building reputation for new email domains. Send small volumes of "good" emails for 2 weeks before outreach. Tools: Smartlead auto-warmup.</p></div>
+            <div class="p-4"><p class="font-bold text-sm text-blue-700">Discovery Call</p><p class="text-sm text-gray-600">A 20-30 minute call with a prospect to understand their business, pain points, and qualify them. This is where you diagnose their problem before prescribing your solution.</p></div>
+            <div class="p-4"><p class="font-bold text-sm text-blue-700">GHL (GoHighLevel)</p><p class="text-sm text-gray-600">All-in-one CRM and marketing platform popular with agencies. $97-$297/mo. Optional — you can start without it using Supabase + n8n.</p></div>
+            <div class="p-4"><p class="font-bold text-sm text-blue-700">IVR</p><p class="text-sm text-gray-600">Interactive Voice Response. The old "Press 1 for sales, press 2 for support" phone trees. What we replace with natural AI conversation.</p></div>
+            <div class="p-4"><p class="font-bold text-sm text-blue-700">LTV</p><p class="text-sm text-gray-600">Lifetime Value. Total revenue from a client over their entire relationship. At $1,000/mo with 18-month average retention = $18,000 LTV.</p></div>
+            <div class="p-4"><p class="font-bold text-sm text-blue-700">MRR</p><p class="text-sm text-gray-600">Monthly Recurring Revenue. Your predictable monthly income from all active client subscriptions.</p></div>
+            <div class="p-4"><p class="font-bold text-sm text-blue-700">Missed Call Audit</p><p class="text-sm text-gray-600">Your proprietary sales tool. Call a prospect's business, let it ring, and use the experience (voicemail, no answer) as proof they need your service. Detailed in Module 5.</p></div>
+            <div class="p-4"><p class="font-bold text-sm text-blue-700">n8n</p><p class="text-sm text-gray-600">Open-source workflow automation tool (like Zapier, but self-hosted and free). Your central automation hub connecting Vapi, Twilio, Supabase, and everything else.</p></div>
+            <div class="p-4"><p class="font-bold text-sm text-blue-700">RLS (Row Level Security)</p><p class="text-sm text-gray-600">Supabase/PostgreSQL feature that restricts data access per user. Ensures Client A can't see Client B's data.</p></div>
+            <div class="p-4"><p class="font-bold text-sm text-blue-700">SIP Trunk</p><p class="text-sm text-gray-600">Session Initiation Protocol trunk. How Vapi connects to Twilio to make/receive calls over the internet instead of traditional phone lines.</p></div>
+            <div class="p-4"><p class="font-bold text-sm text-blue-700">SOFA</p><p class="text-sm text-gray-600">Status of Forces Agreement. NATO agreement covering US military personnel stationed abroad. Relevant for tax implications if you're military overseas.</p></div>
+            <div class="p-4"><p class="font-bold text-sm text-blue-700">Supabase</p><p class="text-sm text-gray-600">Open-source Firebase alternative with PostgreSQL database, auth, and APIs. Free tier handles your first 10+ clients easily.</p></div>
+            <div class="p-4"><p class="font-bold text-sm text-blue-700">TTS / STT</p><p class="text-sm text-gray-600">Text-to-Speech / Speech-to-Text. TTS converts AI responses to spoken audio. STT transcribes caller speech to text. Vapi handles both.</p></div>
+            <div class="p-4"><p class="font-bold text-sm text-blue-700">Vapi</p><p class="text-sm text-gray-600">Voice AI platform that powers your phone agents. Handles TTS, STT, conversation management, and tool calling. Your core product delivery tool.</p></div>
+            <div class="p-4"><p class="font-bold text-sm text-blue-700">Webhook</p><p class="text-sm text-gray-600">An HTTP callback — when something happens in one tool, it automatically sends data to another. Example: Vapi call ends &rarr; webhook sends call data to n8n.</p></div>
+          </div>
+        </section>
+
       <!-- View navigation (prev/next) -->
       <div id="view-nav" class="hidden mt-12 mb-4 flex items-center justify-between">
         <button id="prev-btn" class="view-nav-btn" onclick="navPrev()">
@@ -5717,26 +6333,28 @@ Talk soon,
 <script>
 (function() {
   var views = {
-    home: ['explain','quickstart','overview','situation'],
+    home: ['explain','quiz-m1','quickstart','overview','situation'],
     setup: ['business','niche','services','stack','accounts','roles'],
     build: ['week1','week2','week3','week4','demo-env'],
     launch: ['week5-6','week7-8','month3','month4-6'],
-    sales: ['leadgen','pipeline','email-infra','missed-call-audit','referral-partners','agency-website','onboarding','scripts'],
-    tech: ['tech-delivery','phone-setup','ghl','agentic-ai','agent-scripts','tools-compare','voice-platforms'],
+    sales: ['leadgen','pipeline','email-infra','missed-call-audit','referral-partners','agency-website','onboarding','scripts','quiz-m5'],
+    tech: ['tech-delivery','phone-setup','ghl','agentic-ai','agent-scripts','tools-compare','quiz-m6','voice-platforms'],
     growth: ['economics','expansion','retention','competition','milestones','case-studies','seasonal','client-success'],
-    reference: ['legal','rituals','financials','faq','resources']
+    reference: ['legal','rituals','financials','faq','resources','glossary'],
+    course: ['course-sales']
   };
 
   var viewLabels = {
     dashboard: 'Dashboard',
-    home: 'Getting Started',
-    setup: 'Business Setup',
-    build: 'Weeks 1-4: Build',
-    launch: 'Weeks 5+: Launch',
-    sales: 'Sales & Clients',
-    tech: 'Tech Deep Dives',
-    growth: 'Growth & Money',
-    reference: 'Resources'
+    home: 'Module 1: Getting Started',
+    setup: 'Module 2: Business Setup',
+    build: 'Module 3: Build Phase',
+    launch: 'Module 4: Launch & Scale',
+    sales: 'Module 5: Sales & Clients',
+    tech: 'Module 6: Tech Deep Dives',
+    growth: 'Module 7: Growth & Money',
+    reference: 'Module 8: Resources',
+    course: 'Course Overview'
   };
 
   var viewOrder = ['dashboard','home','setup','build','launch','sales','tech','growth','reference'];
@@ -5891,6 +6509,153 @@ Talk soon,
   } else {
     showView('dashboard');
   }
+
+
+  // ============ PROGRESS TRACKING ============
+  var STORAGE_KEY = 'agencyBlueprintProgress';
+
+  function getProgress() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch(e) { return {}; }
+  }
+
+  function saveProgress(data) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch(e) {}
+  }
+
+  // Interactive checkboxes
+  function initCheckboxes() {
+    var progress = getProgress();
+    var items = document.querySelectorAll('.check-item');
+    items.forEach(function(item, idx) {
+      var key = 'check_' + idx + '_' + (item.textContent||'').substring(0,30).replace(/\s+/g,'_');
+      item.setAttribute('data-check-key', key);
+      if (progress[key]) {
+        item.classList.add('completed');
+      }
+      item.addEventListener('click', function() {
+        var p = getProgress();
+        if (item.classList.contains('completed')) {
+          item.classList.remove('completed');
+          delete p[key];
+        } else {
+          item.classList.add('completed');
+          p[key] = true;
+        }
+        saveProgress(p);
+        updateProgressUI();
+      });
+    });
+  }
+
+  function updateProgressUI() {
+    var total = document.querySelectorAll('.check-item').length;
+    var completed = document.querySelectorAll('.check-item.completed').length;
+    var pct = total > 0 ? Math.round((completed / total) * 100) : 0;
+
+    // Sidebar progress
+    var sidebarPct = document.getElementById('sidebar-progress-pct');
+    var sidebarBar = document.getElementById('sidebar-progress-bar');
+    if (sidebarPct) sidebarPct.textContent = pct + '%';
+    if (sidebarBar) sidebarBar.style.width = pct + '%';
+
+    // Dashboard progress
+    var dashPct = document.getElementById('dash-progress-pct');
+    var dashBar = document.getElementById('dash-progress-bar');
+    if (dashPct) dashPct.textContent = pct + '%';
+    if (dashBar) dashBar.style.width = pct + '%';
+
+    // Stats
+    var statCompleted = document.getElementById('stat-completed');
+    var statTotal = document.getElementById('stat-total');
+    if (statCompleted) statCompleted.textContent = completed;
+    if (statTotal) statTotal.textContent = total;
+
+    // Quiz stats
+    var quizzes = document.querySelectorAll('.quiz-card');
+    var passedQuizzes = 0;
+    quizzes.forEach(function(q) {
+      if (q.classList.contains('quiz-passed')) passedQuizzes++;
+    });
+    var statQuizzes = document.getElementById('stat-quizzes');
+    if (statQuizzes) statQuizzes.textContent = passedQuizzes;
+
+    // Module completion (approximate based on sections)
+    var modulesDone = 0;
+    if (pct >= 12) modulesDone++;
+    if (pct >= 25) modulesDone++;
+    if (pct >= 38) modulesDone++;
+    if (pct >= 50) modulesDone++;
+    if (pct >= 62) modulesDone++;
+    if (pct >= 75) modulesDone++;
+    if (pct >= 88) modulesDone++;
+    if (pct >= 98) modulesDone++;
+    var statModules = document.getElementById('stat-modules');
+    if (statModules) statModules.textContent = modulesDone + '/8';
+  }
+
+  // Quiz logic
+  window.checkQuiz = function(btn) {
+    var card = btn.closest('.quiz-card');
+    if (card.classList.contains('quiz-answered')) return;
+    card.classList.add('quiz-answered');
+
+    var isCorrect = btn.getAttribute('data-correct') === 'true';
+    var allBtns = card.querySelectorAll('.quiz-option');
+    allBtns.forEach(function(b) {
+      b.classList.add('disabled');
+      if (b.getAttribute('data-correct') === 'true') {
+        b.classList.add('correct');
+      }
+    });
+
+    if (!isCorrect) {
+      btn.classList.add('incorrect');
+    } else {
+      card.classList.add('quiz-passed');
+    }
+
+    // Show feedback
+    var feedbacks = card.querySelectorAll('.quiz-feedback');
+    feedbacks.forEach(function(fb) {
+      if (isCorrect && fb.classList.contains('correct')) {
+        fb.classList.add('show');
+      } else if (!isCorrect && fb.classList.contains('incorrect')) {
+        fb.classList.add('show');
+      }
+    });
+
+    // Save quiz state
+    var quizId = card.getAttribute('data-quiz') || card.id;
+    var p = getProgress();
+    p['quiz_' + quizId] = isCorrect ? 'passed' : 'failed';
+    saveProgress(p);
+    updateProgressUI();
+  };
+
+  // Restore quiz states
+  function restoreQuizStates() {
+    var progress = getProgress();
+    document.querySelectorAll('.quiz-card').forEach(function(card) {
+      var quizId = card.getAttribute('data-quiz') || card.id;
+      var state = progress['quiz_' + quizId];
+      if (state) {
+        card.classList.add('quiz-answered');
+        if (state === 'passed') card.classList.add('quiz-passed');
+        var allBtns = card.querySelectorAll('.quiz-option');
+        allBtns.forEach(function(b) {
+          b.classList.add('disabled');
+          if (b.getAttribute('data-correct') === 'true') b.classList.add('correct');
+        });
+      }
+    });
+  }
+
+  // Init on load
+  setTimeout(function() {
+    initCheckboxes();
+    restoreQuizStates();
+    updateProgressUI();
+  }, 100);
 
   // Handle hash links from external/internal navigation
   function handleHash() {
