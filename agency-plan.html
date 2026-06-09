@@ -7727,12 +7727,23 @@ and any edge cases I should handle (missing fields, duplicate calls, after-hours
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch(e) {}
   }
 
-  // Interactive checkboxes
+  function stableKey(item) {
+    var sec = item.closest('section[id]');
+    var prefix = sec ? sec.id : 'global';
+    var txt = (item.textContent || '').trim();
+    var h = 5381;
+    for (var i = 0; i < txt.length; i++) {
+      h = ((h << 5) + h + txt.charCodeAt(i)) & 0xFFFFFFFF;
+    }
+    return 'chk_' + prefix + '_' + (h >>> 0).toString(36);
+  }
+
   function initCheckboxes() {
     var progress = getProgress();
+    if (progress._v !== 2) { progress = { _v: 2 }; saveProgress(progress); }
     var items = document.querySelectorAll('.check-item');
-    items.forEach(function(item, idx) {
-      var key = 'check_' + idx + '_' + (item.textContent||'').substring(0,30).replace(/\s+/g,'_');
+    items.forEach(function(item) {
+      var key = stableKey(item);
       item.setAttribute('data-check-key', key);
       if (progress[key]) {
         item.classList.add('completed');
