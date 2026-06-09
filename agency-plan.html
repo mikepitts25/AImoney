@@ -1568,6 +1568,19 @@
           </div>
         </section>
 
+        <div class="quiz-card mb-8 view-section hidden" data-view="setup" id="quiz-m2" data-quiz="m2">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="value-tag">Knowledge Check</span>
+            <span class="text-sm font-bold text-purple-900">Module 2 Quiz</span>
+          </div>
+          <p class="text-sm text-gray-700 mb-3">You're pricing your AI phone agent service. A contractor asks why they should pay $697/mo when Dialzara charges $29/mo. What's the strongest response?</p>
+          <button class="quiz-option" data-correct="false" onclick="checkQuiz(this)">Explain that your AI uses better technology (Vapi vs. their platform)</button>
+          <button class="quiz-option" data-correct="false" onclick="checkQuiz(this)">Offer to match their price to win the deal</button>
+          <button class="quiz-option" data-correct="true" onclick="checkQuiz(this)">Show them the done-for-you value: you build, deploy, optimize, and report — they just answer the phone</button>
+          <div class="quiz-feedback correct">Right. Contractors aren't buying technology — they're buying a solved problem. DIY tools require setup they'll never do. You're an outsourced operations partner, not a software subscription. The price difference buys peace of mind and proven results.</div>
+          <div class="quiz-feedback incorrect">Technology comparisons don't resonate with contractors, and price-matching kills your margins. The winning angle is done-for-you value: they sign up, you handle everything, and they see monthly reports proving ROI. That's worth 20x a DIY tool login they'll never use.</div>
+        </div>
+
         <!-- ==================== PHASE 1: WEEK 1 ==================== -->
         <section id="week1" class="mb-16 view-section hidden" data-view="build">
           <div class="module-header">
@@ -2211,6 +2224,19 @@ mkdir n8n && cd n8n
           </div>
         </section>
 
+        <div class="quiz-card mb-8 view-section hidden" data-view="build" id="quiz-m3" data-quiz="m3">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="value-tag">Knowledge Check</span>
+            <span class="text-sm font-bold text-purple-900">Module 3 Quiz</span>
+          </div>
+          <p class="text-sm text-gray-700 mb-3">You built your demo agent. A prospect agrees to a live demo call. What's the single most important thing to do before the call?</p>
+          <button class="quiz-option" data-correct="false" onclick="checkQuiz(this)">Prepare a slide deck explaining AI technology</button>
+          <button class="quiz-option" data-correct="true" onclick="checkQuiz(this)">Call their business number first to check if it goes to voicemail, then test your demo agent</button>
+          <button class="quiz-option" data-correct="false" onclick="checkQuiz(this)">Send them a pricing sheet in advance so they know what to expect</button>
+          <div class="quiz-feedback correct">Exactly. Calling their number gives you live proof of the problem: "I called your business at 6pm last night and got voicemail — here's the screenshot." Then your working demo shows the solution. Real evidence beats slides every time.</div>
+          <div class="quiz-feedback incorrect">Slide decks and pricing sheets slow down the close. The power move is calling their actual number to document the problem (missed call, voicemail, long hold), then demoing your agent live. Show, don't tell.</div>
+        </div>
+
         <!-- ==================== PHASE 3: WEEKS 5-6 ==================== -->
         <section id="week5-6" class="mb-16 view-section hidden" data-view="launch">
           <div class="module-header">
@@ -2455,6 +2481,82 @@ Worth a 2-minute demo? I can show you exactly how it sounds.
             </div>
           </div>
 
+          <h3 class="text-lg font-bold mt-8 mb-4">VA Job Post Template (Copy &amp; Customize)</h3>
+          <div class="prompt-block"><button class="copy-btn">Copy</button><code>VIRTUAL ASSISTANT — AI Automation Agency (Part-Time, Remote)
+
+Company: Colibri Code LLC (US-based AI agency serving home
+service contractors)
+
+Role: Operations & Lead Research Assistant
+Hours: 10-15 hrs/week (flexible schedule, US business hours)
+Pay: $8-12/hr USD (paid weekly via Wise)
+Location: Remote (Colombia preferred, LatAm welcome)
+Language: Fluent English + Native Spanish required
+
+WHAT YOU'LL DO
+- Build targeted lead lists from Google Maps and Apollo.io
+  (we'll train you — no prior experience needed)
+- Manage cold email campaigns in Smartlead (load leads,
+  monitor replies, flag interested prospects)
+- Update our client tracker in Supabase/Google Sheets
+- Schedule follow-up tasks and calendar appointments
+- Reply to basic inbound emails using templates we provide
+- Create simple social media posts from templates
+- Research local contractors in target US cities
+
+WHAT WE'RE LOOKING FOR
+- Reliable, organized, detail-oriented
+- Comfortable learning new software tools quickly
+- Strong written English (you'll draft short emails)
+- Available during US Eastern hours (9am-1pm ET minimum)
+- Stable internet connection
+- Bonus: experience with CRM tools, cold email, or lead gen
+
+WHAT WE OFFER
+- Flexible schedule (work from anywhere)
+- Paid training (first week is training, still paid)
+- Clear SOPs for every task (no guessing)
+- Growth: start at 10 hrs, scale to 20+ as we grow
+- Long-term position (not a one-off project)
+- Supportive team (Paola manages in Spanish, zero friction)
+
+TO APPLY
+Send a short Loom video (2 min max) introducing yourself in
+English. Tell us: your name, where you're based, your relevant
+experience, and why you'd be a good fit. Email to: [EMAIL]
+
+Applications without a Loom video will not be reviewed.</code></div>
+          <div class="callout callout-tip p-3 mt-3">
+            <p class="text-xs text-blue-700"><strong>Why the Loom requirement:</strong> It filters out 80% of low-effort applicants. Anyone who records a clear, confident 2-minute video in English is already proving they can communicate, follow instructions, and use basic tech tools. That&rsquo;s your entire job description.</p>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">VA Interview Questions (15-Minute Screen)</h3>
+          <div class="bg-white rounded-xl border border-gray-200 p-5 mb-4">
+            <div class="space-y-2 text-sm text-gray-700">
+              <p class="check-item"><strong>&ldquo;Walk me through your typical workday.&rdquo;</strong> &mdash; You want someone who already works remotely and has structure. Red flag: &ldquo;I&rsquo;m flexible, whatever you need.&rdquo; Green flag: &ldquo;I work 8am&ndash;1pm, then again 3&ndash;5pm.&rdquo;</p>
+              <p class="check-item"><strong>&ldquo;Tell me about a time you had to learn a new software tool quickly.&rdquo;</strong> &mdash; They&rsquo;ll be learning Smartlead, Apollo, Supabase. You need someone who isn&rsquo;t intimidated by new tools.</p>
+              <p class="check-item"><strong>&ldquo;If I give you a task and the instructions are unclear, what do you do?&rdquo;</strong> &mdash; Right answer: &ldquo;I&rsquo;d ask before guessing.&rdquo; Wrong answer: &ldquo;I&rsquo;d figure it out myself.&rdquo; You want communicators, not cowboys.</p>
+              <p class="check-item"><strong>&ldquo;What&rsquo;s your internet speed?&rdquo;</strong> &mdash; Have them run a speed test live on the call. Under 10 Mbps is a risk for video calls and tool access.</p>
+              <p class="check-item"><strong>&ldquo;What hours are you available in US Eastern time?&rdquo;</strong> &mdash; You need at least 4 consecutive hours during US business hours. Colombia is ET or ET-1 depending on the season &mdash; perfect overlap.</p>
+              <p class="check-item"><strong>Paid test task ($25):</strong> &ldquo;Find 20 HVAC companies in Charlotte, NC from Google Maps. For each one, get: business name, phone number, Google rating, number of reviews, and whether they have a website. Put it in this Google Sheet. You have 48 hours.&rdquo;</p>
+            </div>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">VA First-Week Training Checklist</h3>
+          <div class="bg-white rounded-xl border border-gray-200 p-5 mb-4">
+            <p class="text-sm text-gray-700 mb-3">Week 1 is 100% training, fully paid. Record Loom walkthroughs for each task so the VA can rewatch. This library also trains future VAs if this one leaves.</p>
+            <div class="space-y-2 text-sm text-gray-700">
+              <p class="check-item"><strong>Day 1:</strong> Company overview (what you do, who your clients are, how the business works). Share the agency-plan overview section. Set up their email, Slack, and tool logins.</p>
+              <p class="check-item"><strong>Day 2:</strong> Tool training: Google Maps prospecting. Walk them through finding contractors, extracting info, entering it into the lead tracker. Have them do 10 leads while you watch.</p>
+              <p class="check-item"><strong>Day 3:</strong> Tool training: Apollo.io for email enrichment. Show them how to find emails, verify them, and export to Smartlead. Do 20 leads together.</p>
+              <p class="check-item"><strong>Day 4:</strong> Tool training: Smartlead campaign management. Show them how to load leads, monitor replies, categorize responses (interested / not interested / out of office / wrong person).</p>
+              <p class="check-item"><strong>Day 5:</strong> Solo practice day. Assign: &ldquo;Build a list of 50 plumbing companies in Dallas, TX. Enrich emails in Apollo. Load into Smartlead staging.&rdquo; Review their work at end of day. Give feedback.</p>
+            </div>
+            <div class="callout callout-tip p-3 mt-3">
+              <p class="text-xs text-blue-700"><strong>Golden rule:</strong> Never give a VA access to client-facing tools (Vapi, Twilio, Stripe, client email) in the first month. Start with lead research only. Add responsibilities as trust builds. One mistake in a client&rsquo;s Twilio account can cost you the relationship.</p>
+            </div>
+          </div>
+
           <h3 class="text-lg font-bold mt-8 mb-3">Month 6 Target State</h3>
           <div class="grid sm:grid-cols-2 gap-4">
             <div class="bg-white rounded-xl border border-gray-200 p-5 text-center">
@@ -2475,6 +2577,19 @@ Worth a 2-minute demo? I can show you exactly how it sounds.
             </div>
           </div>
         </section>
+
+        <div class="quiz-card mb-8 view-section hidden" data-view="launch" id="quiz-m4" data-quiz="m4">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="value-tag">Knowledge Check</span>
+            <span class="text-sm font-bold text-purple-900">Module 4 Quiz</span>
+          </div>
+          <p class="text-sm text-gray-700 mb-3">Your first client has been live for 30 days. When you run the monthly review call, what's the most important metric to lead with?</p>
+          <button class="quiz-option" data-correct="false" onclick="checkQuiz(this)">Total number of calls the AI answered</button>
+          <button class="quiz-option" data-correct="false" onclick="checkQuiz(this)">How natural the AI voice sounds compared to competitors</button>
+          <button class="quiz-option" data-correct="true" onclick="checkQuiz(this)">Estimated revenue protected — missed calls caught multiplied by their average job value</button>
+          <div class="quiz-feedback correct">Revenue protected is the only number that justifies their monthly payment. "Your agent caught 23 after-hours calls. At your average job of $2,800, that's $64,400 in potential revenue that would've gone to voicemail." That's what makes them say "worth every penny."</div>
+          <div class="quiz-feedback incorrect">Call volume and voice quality are supporting details, not headlines. Lead with money: estimated revenue protected = missed calls caught × average job value. That's the number that makes them renew every single month.</div>
+        </div>
 
         <!-- ==================== LEAD GENERATION ENGINE ==================== -->
         <section id="leadgen" class="mb-16 view-section hidden" data-view="sales">
@@ -3233,6 +3348,106 @@ a partnership. Here's my calendar: [CAL.COM LINK]
                 <p class="check-item">Set up recurring billing in Stripe for monthly retainer (starts on go-live date)</p>
                 <p class="check-item">Send welcome email with what to expect + timeline (use template from Scripts section)</p>
                 <p class="check-item">Add client to your Supabase tracker: name, plan, start date, phone number, key contacts</p>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl border-2 border-amber-200 p-5">
+              <h3 class="font-bold text-amber-700 mb-3">Hours 0-1: Client Intake Form (Send Immediately After Signing)</h3>
+              <p class="text-sm text-gray-700 mb-3">Send this form as a Google Form, Tally, or plain email. You <strong>cannot</strong> build the agent without this info. Don&rsquo;t schedule the build until you have it back.</p>
+              <div class="prompt-block"><button class="copy-btn">Copy</button><code>CLIENT INTAKE FORM — [Business Name]
+
+Hi [FIRST NAME]! We're excited to get your AI agent set up.
+Please fill this out as completely as you can — the more detail,
+the better your agent sounds on Day 1. Takes about 10 minutes.
+
+BUSINESS BASICS
+  Business name (exactly as you want it spoken on calls):
+  Address:
+  Service area (cities/zip codes you cover):
+  Website (if any):
+  Google Business Profile URL:
+
+HOURS & SCHEDULING
+  Business hours (Mon-Fri):
+  Weekend hours (if any):
+  Do you take same-day appointments?  [ ] Yes  [ ] No
+  Preferred scheduling method:
+    [ ] We'll book into Cal.com calendar you provide access to
+    [ ] Text me the details, I'll book manually
+    [ ] Other: ____________
+
+SERVICES & PRICING
+  List every service you offer (e.g., AC repair, duct cleaning,
+  water heater install). Be specific — the AI uses this list:
+  1.
+  2.
+  3.
+  4.
+  5.
+  (add more as needed)
+
+  Do you want the AI to quote prices?
+    [ ] Yes — here are my price ranges: ____________
+    [ ] No — just say "we'll provide a free estimate"
+
+CALL HANDLING
+  What info do you need from every caller?
+    [x] Name  [x] Phone  [x] Address  [ ] Email
+    [ ] Type of issue  [ ] Urgency  [ ] Other: ______
+
+  What should the AI do with emergency calls (gas leak, flooding,
+  no heat in winter)?
+    [ ] Forward to my cell immediately: ____________
+    [ ] Book as priority / urgent appointment
+    [ ] Other: ____________
+
+  Emergency forwarding number (cell phone): ____________
+  Backup number (if cell doesn't answer): ____________
+
+  What should the AI say if asked about a service you DON'T offer?
+    [ ] "We don't offer that, but I'd recommend calling [X]"
+    [ ] "That's not one of our core services, but let me take
+         your info and someone will follow up"
+
+EXISTING CUSTOMERS
+  Should the AI handle existing customers differently?
+    [ ] No — treat everyone the same
+    [ ] Yes — ask "Are you an existing customer?" and if yes: ____
+
+BRANDING & TONE
+  How do you want the AI to greet callers?
+    Default: "Thanks for calling [Business Name], how can I help?"
+    Custom: ____________
+
+  Tone preference:
+    [ ] Professional & friendly (recommended)
+    [ ] Casual & warm
+    [ ] Formal & corporate
+
+  Any phrases the AI should NEVER say? ____________
+  Any competitor names to avoid mentioning? ____________
+
+NOTIFICATIONS
+  Where should we send lead notifications?
+    [ ] Text to: ____________
+    [ ] Email to: ____________
+    [ ] Both
+
+  Who should receive notifications?
+    Name: ____________  Phone: ____________  Email: ____________
+    Name: ____________  Phone: ____________  Email: ____________
+
+BILINGUAL (if applicable)
+  Do you need Spanish language support?  [ ] Yes  [ ] No
+  What % of your callers speak Spanish? _____%
+
+Anything else we should know about your business or customers?
+____________
+
+Please return this form within 48 hours so we can start your
+build. Questions? Reply to this email or text Paola at [NUMBER].</code></div>
+              <div class="callout callout-tip p-3 mt-3">
+                <p class="text-xs text-blue-700"><strong>Pro tip:</strong> Send this as a Google Form or <a href="https://tally.so" class="text-blue-600 underline">Tally form</a> (free) for a cleaner experience. Export responses as a spreadsheet so you have a permanent record per client. If the client doesn&rsquo;t return it within 48 hours, Paola follows up by text: &ldquo;Hey [NAME], just need that intake form back so we can start your build! Anything I can help with?&rdquo;</p>
               </div>
             </div>
 
@@ -4356,6 +4571,45 @@ Questions? Reply to this email or text me at [YOUR NUMBER].
               </div>
             </div>
           </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">White-Label &amp; Partner Program (Month 6+)</h3>
+          <p class="text-sm text-gray-700 mb-3">Once your delivery is dialed in and you have capacity, other agencies and consultants can sell your service under their brand. You build and manage the tech; they own the client relationship. This is how you scale to 50+ clients without 50x the sales effort.</p>
+          <div class="grid sm:grid-cols-2 gap-4 mb-4">
+            <div class="bg-white rounded-xl border-2 border-blue-200 p-4">
+              <h4 class="font-bold text-sm text-blue-700 mb-2">Model A: Referral Partner</h4>
+              <p class="text-xs text-gray-700 mb-2">They send you leads, you close and deliver. They get a recurring commission.</p>
+              <div class="text-xs text-gray-700 space-y-1">
+                <p><strong>Their role:</strong> Introduce you to contractors in their network.</p>
+                <p><strong>Your role:</strong> Handle the entire sales call, build, and delivery.</p>
+                <p><strong>Commission:</strong> 10&ndash;15% of monthly retainer, paid as long as the client stays. On a $1,000/mo client, they earn $100&ndash;$150/mo passively.</p>
+                <p><strong>Best for:</strong> Marketing agencies, business coaches, trade association leaders, commercial real estate agents who know contractors.</p>
+              </div>
+            </div>
+            <div class="bg-white rounded-xl border-2 border-purple-200 p-4">
+              <h4 class="font-bold text-sm text-purple-700 mb-2">Model B: White-Label Reseller</h4>
+              <p class="text-xs text-gray-700 mb-2">They sell AI phone agents under <em>their</em> brand. You build and manage everything behind the scenes.</p>
+              <div class="text-xs text-gray-700 space-y-1">
+                <p><strong>Their role:</strong> Sell, bill the client, own the relationship.</p>
+                <p><strong>Your role:</strong> Build, deploy, monitor, optimize, report. Invisible to the end client.</p>
+                <p><strong>Pricing:</strong> Charge them wholesale ($400&ndash;$600/mo per client). They mark up to $800&ndash;$1,500 and keep the difference.</p>
+                <p><strong>Best for:</strong> Digital marketing agencies, GHL agencies who want to add voice AI, IT MSPs serving SMBs.</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl border border-gray-200 p-5 mb-4">
+            <h4 class="font-bold text-sm mb-3">White-Label Operational Requirements</h4>
+            <div class="space-y-2 text-sm text-gray-700">
+              <p class="check-item"><strong>Separate Twilio sub-accounts per reseller</strong> so their clients&rsquo; numbers and billing are isolated.</p>
+              <p class="check-item"><strong>Branded monthly reports</strong> &mdash; swap your logo for theirs in the n8n report template. Takes 5 minutes per partner to set up.</p>
+              <p class="check-item"><strong>SLA agreement:</strong> Commit to 99.5% uptime, 4-hour response on issues, 48-hour onboarding for new clients. Put it in writing.</p>
+              <p class="check-item"><strong>Minimum commitment:</strong> Require 3+ clients within 90 days. One-off resellers aren&rsquo;t worth the onboarding overhead.</p>
+              <p class="check-item"><strong>Communication channel:</strong> Dedicated Slack channel per reseller partner. They tag you when they close a deal; you handle build and go-live.</p>
+            </div>
+          </div>
+          <div class="callout callout-tip p-4">
+            <p class="font-semibold text-blue-800 text-sm mb-1">When to Start This</p>
+            <p class="text-sm text-blue-700">Don&rsquo;t white-label until you have 8+ direct clients and your delivery is under 4 hours per onboarding. White-label clients have someone else&rsquo;s brand on the line &mdash; quality problems get amplified because the reseller loses trust in <em>you</em>. Nail direct delivery first, then scale through partners.</p>
+          </div>
         </section>
 
         <!-- ==================== AGENTIC AI SERVICES ==================== -->
@@ -4715,6 +4969,79 @@ Questions? Reply to this email or text me at [YOUR NUMBER].
             </div>
           </div>
 
+          <h3 class="text-lg font-bold mt-8 mb-4">Competitor Deep Dive: What They Actually Deliver</h3>
+          <p class="text-sm text-gray-700 mb-3">Know your competitors cold. Prospects will Google before they call you. Here&rsquo;s what they&rsquo;ll find, what each competitor actually delivers, and where they fall short. Use this intel on every sales call.</p>
+          <div class="space-y-4 mb-6">
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h4 class="font-bold text-sm">Smith.ai</h4>
+                <span class="text-xs font-bold text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">$240&ndash;$900/mo</span>
+              </div>
+              <div class="text-xs text-gray-700 space-y-1">
+                <p><strong>What they sell:</strong> Virtual receptionists (humans) + AI-assisted answering. Per-call pricing ($6&ndash;$12/call). Also offer outbound calls, lead qualification, appointment booking.</p>
+                <p><strong>Their strengths:</strong> Established brand (10+ years), real humans available as backup, integrations with 30+ CRMs, free spam blocking.</p>
+                <p><strong>Their weaknesses:</strong> Expensive at volume (30 calls/day = $5,400/mo). Humans are inconsistent across shifts. No niche specialization &mdash; same receptionist handles law firms, HVAC, and dentists. No bilingual at the lower tiers. Setup fees of $0 but high per-call pricing makes it unpredictable for contractors with variable volume.</p>
+                <p><strong>Your edge:</strong> Fixed monthly pricing (predictable for contractors). Your AI is custom-trained for their specific trade. 24/7 with zero quality variance. At 30 calls/day, you&rsquo;re 5x cheaper.</p>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h4 class="font-bold text-sm">Ruby Receptionists</h4>
+                <span class="text-xs font-bold text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">$235&ndash;$1,640/mo</span>
+              </div>
+              <div class="text-xs text-gray-700 space-y-1">
+                <p><strong>What they sell:</strong> US-based virtual receptionists. Minute-based plans (50&ndash;500 min/mo). Live chat add-on. No AI &mdash; all human.</p>
+                <p><strong>Their strengths:</strong> Excellent human call quality, strong brand, good mobile app for real-time notifications.</p>
+                <p><strong>Their weaknesses:</strong> Not 24/7 on cheaper plans (Mon&ndash;Fri 5am&ndash;9pm PT). Overage charges ($2.20/min) destroy budgets on busy months. Receptionists take messages but don&rsquo;t book appointments into the contractor&rsquo;s calendar. No Spanish option. No AI &mdash; pure labor cost, doesn&rsquo;t scale.</p>
+                <p><strong>Your edge:</strong> True 24/7 including weekends and holidays. Appointments booked automatically. No overage charges. Bilingual standard.</p>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h4 class="font-bold text-sm">Dialzara / Generic AI Voice Startups</h4>
+                <span class="text-xs font-bold text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">$29&ndash;$199/mo</span>
+              </div>
+              <div class="text-xs text-gray-700 space-y-1">
+                <p><strong>What they sell:</strong> Self-service AI phone agents. Contractor signs up, configures via a dashboard, plugs in their phone number. Some offer templates for different industries.</p>
+                <p><strong>Their strengths:</strong> Low price, fast signup, some have decent templates.</p>
+                <p><strong>Their weaknesses:</strong> DIY setup &mdash; contractors are non-technical and won&rsquo;t do it. Generic prompts that don&rsquo;t understand trade-specific language. No ongoing optimization (nobody&rsquo;s listening to calls and fixing scripts). No integration with booking, SMS follow-up, or CRM. Support is a help desk ticket, not a partner who knows your business.</p>
+                <p><strong>Your edge:</strong> Done-for-you. Custom-built. Ongoing optimization based on real call data. Full pipeline integration (answer &rarr; qualify &rarr; book &rarr; follow up &rarr; report). You&rsquo;re an outsourced operations partner, not a tool login.</p>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h4 class="font-bold text-sm">GoHighLevel Agencies (White-Label AI)</h4>
+                <span class="text-xs font-bold text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">$297&ndash;$497/mo</span>
+              </div>
+              <div class="text-xs text-gray-700 space-y-1">
+                <p><strong>What they sell:</strong> Full CRM + website + AI chat + missed-call text-back. White-labeled under a brand name. Some include AI phone agents via GHL&rsquo;s Conversation AI.</p>
+                <p><strong>Their strengths:</strong> All-in-one platform. Client gets a login with their branding. Built-in reputation management, email marketing, pipeline tracking. Huge ecosystem of agencies reselling the same platform.</p>
+                <p><strong>Their weaknesses:</strong> Voice AI quality is mediocre (GHL&rsquo;s native AI is behind Vapi). Clients get overwhelmed by the CRM dashboard they never asked for. Over-promise on features, under-deliver on execution. Most GHL agencies are one-person shops who set-and-forget &mdash; no optimization, no reporting, no call review. High monthly cost for features the contractor doesn&rsquo;t use.</p>
+                <p><strong>Your edge:</strong> Your voice agent quality is superior (Vapi + ElevenLabs vs. GHL native). You&rsquo;re focused on the one thing that matters most: answering the phone. You don&rsquo;t overwhelm them with a CRM they won&rsquo;t use. You actively manage and optimize. And you&rsquo;re typically cheaper for the core service.</p>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <div class="flex items-center justify-between mb-2">
+                <h4 class="font-bold text-sm">Traditional Answering Services (AnswerConnect, MAP, etc.)</h4>
+                <span class="text-xs font-bold text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">$300&ndash;$1,500/mo</span>
+              </div>
+              <div class="text-xs text-gray-700 space-y-1">
+                <p><strong>What they sell:</strong> Human operators in a call center answer calls using a script. Take messages, sometimes do basic dispatching.</p>
+                <p><strong>Their strengths:</strong> Humans handle complex calls well. Established industry with proven track record. Some contractors have used them for years and trust the model.</p>
+                <p><strong>Their weaknesses:</strong> $1&ndash;$3 per minute adds up fast. Quality varies by shift and operator. Hold times during peak hours. No booking, no follow-up, no SMS, no data &mdash; just a message slip. They&rsquo;re a cost center, not a revenue tool.</p>
+                <p><strong>Your edge:</strong> Zero hold time. Instant booking. SMS follow-up. Monthly reports with revenue-impact data. And 50&ndash;70% cheaper at the same call volume. You turn the phone from a cost center into a revenue engine.</p>
+              </div>
+            </div>
+          </div>
+          <div class="callout callout-protip p-4 mb-6">
+            <p class="font-semibold text-sm mb-1">How to Use This on Sales Calls</p>
+            <p class="text-sm">Never trash-talk competitors &mdash; it makes you look desperate. Instead, ask: &ldquo;What have you tried before?&rdquo; or &ldquo;Have you looked at any other solutions?&rdquo; Then calmly address their specific option using the weaknesses above. The strongest move is the live demo: &ldquo;Let me show you what ours sounds like, and you can decide for yourself.&rdquo;</p>
+          </div>
+
           <h3 class="text-lg font-bold mt-8 mb-4">What to Say When They Mention a Competitor</h3>
           <div class="bg-white rounded-xl border border-gray-200 p-5 mb-6">
             <div class="space-y-3 text-sm text-gray-700">
@@ -4929,6 +5256,102 @@ SAFETY SCRIPT:
 
 UPSELL PROMPT (after booking standard service):
 "Just so you know, we're also seeing a lot of customers adding EV charger installations and panel upgrades. If that's something you've been thinking about, our tech can provide a quote while they're there."</code></div>
+
+          <h3 class="text-lg font-bold mt-10 mb-3">Emergency Escalation Playbook</h3>
+          <p class="text-sm text-gray-700 mb-3">When a real emergency call hits your AI agent &mdash; gas leak, flooding, no heat in winter, sparking wires &mdash; the agent must handle it differently than a normal appointment request. Get this wrong once and you lose the client (and potentially face liability). Configure this during onboarding and test it before go-live.</p>
+
+          <div class="bg-red-50 rounded-xl border-2 border-red-300 p-5 mb-4">
+            <h4 class="font-bold text-sm text-red-700 mb-3">Emergency Detection: What the AI Listens For</h4>
+            <p class="text-xs text-gray-700 mb-3">Add these trigger phrases to the agent&rsquo;s system prompt. When the AI detects an emergency, it switches to the emergency script below instead of the normal booking flow.</p>
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div>
+                <p class="text-xs font-bold text-red-700 mb-1">HVAC Triggers</p>
+                <p class="text-xs text-gray-700">&ldquo;gas leak&rdquo; &middot; &ldquo;smell gas&rdquo; &middot; &ldquo;no heat&rdquo; (winter) &middot; &ldquo;no AC&rdquo; (summer, 95&deg;+) &middot; &ldquo;carbon monoxide&rdquo; &middot; &ldquo;furnace won&rsquo;t turn on&rdquo; &middot; &ldquo;flooding from AC unit&rdquo;</p>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-red-700 mb-1">Plumbing Triggers</p>
+                <p class="text-xs text-gray-700">&ldquo;burst pipe&rdquo; &middot; &ldquo;flooding&rdquo; &middot; &ldquo;water everywhere&rdquo; &middot; &ldquo;sewer backup&rdquo; &middot; &ldquo;no water&rdquo; &middot; &ldquo;water heater leaking&rdquo; &middot; &ldquo;toilet overflowing and won&rsquo;t stop&rdquo;</p>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-red-700 mb-1">Electrical Triggers</p>
+                <p class="text-xs text-gray-700">&ldquo;sparks&rdquo; &middot; &ldquo;burning smell&rdquo; &middot; &ldquo;exposed wires&rdquo; &middot; &ldquo;outlet smoking&rdquo; &middot; &ldquo;power out&rdquo; (partial) &middot; &ldquo;water near electrical&rdquo;</p>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-red-700 mb-1">General Triggers</p>
+                <p class="text-xs text-gray-700">&ldquo;emergency&rdquo; &middot; &ldquo;urgent&rdquo; &middot; &ldquo;right now&rdquo; &middot; &ldquo;dangerous&rdquo; &middot; &ldquo;someone could get hurt&rdquo; &middot; &ldquo;kids in the house&rdquo; (with any hazard)</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="prompt-block mb-4"><button class="copy-btn">Copy</button><code>EMERGENCY ESCALATION — SYSTEM PROMPT ADDITION
+(Add this block to every client's agent prompt)
+
+## EMERGENCY HANDLING
+If the caller describes any of the following situations, switch
+to emergency mode immediately:
+- Gas leak / smell of gas
+- Active flooding or burst pipe
+- Electrical sparks, burning smell, or exposed wires
+- No heat with outside temperature below 40°F
+- No AC with outside temperature above 95°F
+- Carbon monoxide alarm sounding
+- Sewer backup into living space
+
+EMERGENCY SCRIPT:
+"I understand this is urgent and I want to make sure you're safe.
+
+[If gas leak or CO alarm]: First, please get everyone out of the
+house and call 911 from outside. Do not use light switches.
+
+[If electrical sparks/fire]: If you can safely reach your breaker
+box, turn off the breaker for that area. If you see smoke, get
+everyone out and call 911.
+
+[If flooding]: If safe, turn off your main water shut-off valve.
+It's usually near your water meter or where the main line enters.
+
+I'm going to get [BUSINESS NAME] on the line right now. Please
+stay on the phone."
+
+AFTER SAFETY INSTRUCTIONS:
+1. Attempt warm transfer to client's emergency number: [NUMBER]
+2. If no answer after 4 rings, try backup number: [BACKUP]
+3. If no answer on backup, tell the caller:
+   "I wasn't able to reach [OWNER NAME] directly, but I've sent
+   them an urgent text and email with your information. They
+   typically respond to emergencies within [X] minutes. Can I
+   confirm your callback number?"
+4. Send URGENT SMS to client: "🚨 EMERGENCY: [Caller Name] at
+   [Address] — [Issue]. Call them ASAP: [Phone]"
+5. Send URGENT email with same info
+6. Log the call as priority:emergency in Supabase</code></div>
+
+          <div class="bg-white rounded-xl border border-gray-200 p-5 mb-4">
+            <h4 class="font-bold text-sm mb-3">n8n Emergency Workflow</h4>
+            <div class="space-y-2 text-sm text-gray-700">
+              <p class="check-item"><strong>Trigger:</strong> Vapi webhook with <code>call_type: "emergency"</code> (set via tool call in the agent prompt).</p>
+              <p class="check-item"><strong>Step 1:</strong> Send high-priority SMS to client&rsquo;s cell via Twilio (use priority queue: <code>contentRetention=discard</code>, <code>validityPeriod=300</code>).</p>
+              <p class="check-item"><strong>Step 2:</strong> Send email to client with subject &ldquo;URGENT: Emergency call from [Caller Name]&rdquo;.</p>
+              <p class="check-item"><strong>Step 3:</strong> Log to Supabase <code>calls</code> table with <code>priority='emergency'</code> and <code>status='awaiting_response'</code>.</p>
+              <p class="check-item"><strong>Step 4:</strong> Set a 15-minute delay node, then check if client responded (Supabase status update). If not, send a follow-up SMS: &ldquo;Reminder: emergency call 15 min ago. [Caller Name]: [Issue]. Call them: [Phone].&rdquo;</p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl border border-gray-200 p-5 mb-4">
+            <h4 class="font-bold text-sm mb-3">Setup During Onboarding (Critical)</h4>
+            <div class="space-y-2 text-sm text-gray-700">
+              <p class="check-item"><strong>Collect the emergency number</strong> from the intake form. Confirm: &ldquo;Is this the cell phone that&rsquo;s always on you, even at 2am?&rdquo;</p>
+              <p class="check-item"><strong>Collect a backup number</strong> (partner, office manager, on-call tech). The AI tries both before giving up.</p>
+              <p class="check-item"><strong>Test the warm transfer</strong> before go-live. Call the demo agent, say &ldquo;I smell gas,&rdquo; and verify it correctly attempts the transfer to the client&rsquo;s cell.</p>
+              <p class="check-item"><strong>Test the fallback path</strong> &mdash; let the emergency number ring to voicemail. Verify the urgent SMS and email arrive within 10 seconds.</p>
+              <p class="check-item"><strong>Set expectations with the client:</strong> &ldquo;Your agent handles emergencies by trying to reach you immediately. If you don&rsquo;t answer, it takes the caller&rsquo;s info and sends you an urgent text. You should respond within 15 minutes.&rdquo;</p>
+            </div>
+          </div>
+
+          <div class="callout callout-warning p-4">
+            <p class="font-semibold text-red-800 text-sm mb-1">Liability Note</p>
+            <p class="text-sm text-red-700">Your contract&rsquo;s limitation of liability clause covers this, but always tell callers to call 911 first for life-threatening situations. The AI should never tell someone to wait for the contractor if there&rsquo;s a fire, gas leak, or CO alarm. Safety instructions first, then business routing.</p>
+          </div>
         </section>
 
         <!-- ==================== TOOLS COMPARISON ==================== -->
@@ -5716,6 +6139,75 @@ Reply to this email or call me anytime.
 
 — Paola, Colibri Code</code></div>
           </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">Monthly Review Call Script (Day 30 / 60 / 90)</h3>
+          <p class="text-sm text-gray-700 mb-3">This is the call that keeps clients. Reports prove value; the <em>call</em> proves you care. Paola leads; Mike listens in on Day 30 in case there are technical questions. Keep it to 15 minutes.</p>
+          <div class="prompt-block"><button class="copy-btn">Copy</button><code>MONTHLY REVIEW CALL — SCRIPT
+
+[Before the call: pull their report numbers. Know them cold.]
+
+OPENING (1 min)
+"Hey [NAME], thanks for hopping on. I just want to walk you
+through last month's numbers and see how everything's going
+on your end. Should take about 15 minutes."
+
+RESULTS WALK-THROUGH (5 min)
+"So here's what your agent did in [MONTH]:
+ - Answered [X] total calls
+ - [Y] of those were after hours — calls that would've gone
+   to voicemail before
+ - Booked [Z] appointments automatically
+ - Captured [W] new leads
+
+Based on your average job value of $[AVG], that's roughly
+$[REVENUE] in revenue your agent helped protect."
+
+[Pause. Let them react. They usually say "wow" here.]
+
+FEEDBACK CHECK (3 min)
+"Have you noticed anything that didn't sound right, or any
+calls where the agent could've done better?"
+
+[If they have feedback — write it down, promise to fix it
+this week. If not: "That's great to hear."]
+
+"Are your customers saying anything about it? Any feedback
+from your team?"
+
+HEALTH CHECK (2 min)
+"Just a couple quick things:
+ - Is the notification system working well for you? Getting
+   texts/emails promptly?
+ - Any services you've added or seasonal changes coming up
+   that we should update the agent for?"
+
+[Update the agent if needed after the call.]
+
+EXPANSION (2 min — Day 60+ only, skip on Day 30)
+"One thing I noticed in your data: [SPECIFIC OBSERVATION].
+
+[Pick ONE that matches their situation:]
+ - "You're getting a lot of after-hours calls. Have you
+    thought about adding text follow-ups for those callers?"
+ - "I see about [X]% of your calls are in Spanish. We can
+    add a bilingual agent for those — same price."
+ - "You've got [X] past customers in the database. Want us
+    to run a reactivation campaign before [SEASON]?"
+
+No pressure at all — just something to think about."
+
+CLOSE (2 min)
+"Anything else on your mind? ... Great. I'll send you the
+full report by email today. We'll check in again next month.
+
+Oh, and one more thing — if you know any other [TRADE] owners
+who are still losing calls to voicemail, I'd love an intro.
+We'll knock $250 off your next invoice for anyone who signs up.
+
+Thanks [NAME], talk soon!"</code></div>
+          <div class="callout callout-tip p-3 mt-3">
+            <p class="text-xs text-blue-700"><strong>Timing tip:</strong> Schedule review calls on Tuesdays or Wednesdays, 9&ndash;11am in the client&rsquo;s timezone. Mondays are hectic, Fridays people check out. Send a calendar invite with a 15-min block the week before so they don&rsquo;t forget.</p>
+          </div>
         </section>
 
         <!-- ==================== CLIENT OFFBOARDING ==================== -->
@@ -5774,6 +6266,19 @@ Colibri Code</code></div>
             <p class="text-sm text-blue-700">Before you accept the cancellation, offer one save play: a free month, a lower tier, or a pause. If they decline, accept gracefully. Never beg or guilt-trip &mdash; contractors talk to each other, and your reputation matters more than one month&rsquo;s revenue.</p>
           </div>
         </section>
+
+        <div class="quiz-card mb-8 view-section hidden" data-view="growth" id="quiz-m7" data-quiz="m7">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="value-tag">Knowledge Check</span>
+            <span class="text-sm font-bold text-purple-900">Module 7 Quiz</span>
+          </div>
+          <p class="text-sm text-gray-700 mb-3">A client's health scorecard drops from 10 to 6 over two months. They haven't complained. What should you do?</p>
+          <button class="quiz-option" data-correct="false" onclick="checkQuiz(this)">Wait for the next scheduled monthly review call — they seem fine since they haven't complained</button>
+          <button class="quiz-option" data-correct="true" onclick="checkQuiz(this)">Call the owner this week — a silent drop is more dangerous than a vocal complaint</button>
+          <button class="quiz-option" data-correct="false" onclick="checkQuiz(this)">Send them a discount offer to lock in another 3 months</button>
+          <div class="quiz-feedback correct">Exactly. Most churn is silent — clients don't cancel because they're angry, they cancel because they forgot why they're paying. A score drop from 10 to 6 means something changed. Call now, diagnose the issue, and fix it before they cancel.</div>
+          <div class="quiz-feedback incorrect">Waiting lets the problem compound, and unsolicited discounts signal weakness. The right move is a proactive call: "Hey, I noticed [specific signal]. What's going on?" Catching a drop early saves the client. Waiting until they cancel is too late.</div>
+        </div>
 
         <!-- ==================== DAILY/WEEKLY RITUALS ==================== -->
         <section id="rituals" class="mb-16 view-section hidden" data-view="reference">
@@ -6430,6 +6935,44 @@ Talk soon,
             </div>
           </div>
 
+          <h3 class="text-lg font-bold mt-8 mb-4">Stripe Setup &amp; Recurring Billing</h3>
+          <p class="text-sm text-gray-700 mb-3">Stripe is your payment backbone. Set it up once and every client gets professional invoicing with automatic recurring charges. No chasing checks.</p>
+          <div class="bg-white rounded-xl border border-gray-200 p-5 mb-4">
+            <h4 class="font-bold text-sm mb-3">Initial Stripe Configuration</h4>
+            <div class="space-y-2 text-sm text-gray-700">
+              <p class="check-item"><strong>Create Stripe account</strong> at stripe.com under Colibri Code LLC. Use your EIN, US business address (registered agent), and Mercury bank for payouts.</p>
+              <p class="check-item"><strong>Set payout schedule to weekly</strong> (Settings &rarr; Payouts &rarr; Payout Schedule). Daily creates noise; monthly leaves you cash-strapped.</p>
+              <p class="check-item"><strong>Enable Stripe Tax</strong> (Products &rarr; Tax). Wyoming has no state income tax, but you still need to track revenue for federal. Stripe auto-generates 1099 data.</p>
+              <p class="check-item"><strong>Add your branding:</strong> Logo, brand color, support email (support@colibricode.com). This shows on all invoices and the customer portal.</p>
+              <p class="check-item"><strong>Enable the Customer Portal</strong> (Settings &rarr; Customer Portal). Clients can update their own card info when it expires &mdash; saves you a support ticket.</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl border border-gray-200 p-5 mb-4">
+            <h4 class="font-bold text-sm mb-3">Per-Client Billing Setup</h4>
+            <div class="space-y-2 text-sm text-gray-700">
+              <p class="check-item"><strong>Create a Product</strong> for each service tier: &ldquo;AI Phone Agent &mdash; Starter ($697/mo)&rdquo;, &ldquo;AI Phone Agent &mdash; Growth ($997/mo)&rdquo;, etc. You only create products once; reuse them for every client.</p>
+              <p class="check-item"><strong>Send a one-time Invoice</strong> for the setup fee. Invoices &rarr; Create Invoice &rarr; add client email &rarr; add setup fee line item &rarr; Send. They pay with a link.</p>
+              <p class="check-item"><strong>Create a Subscription</strong> for the monthly retainer. Subscriptions &rarr; Create &rarr; select customer &rarr; select product &rarr; set billing anchor to the 1st of month. Start date = go-live date.</p>
+              <p class="check-item"><strong>Enable Smart Retries</strong> (Settings &rarr; Subscriptions &rarr; Manage Failed Payments &rarr; Smart Retries ON). Stripe will automatically retry failed charges 3 times over 7 days before marking it failed.</p>
+              <p class="check-item"><strong>Set dunning emails</strong> (Settings &rarr; Subscriptions &rarr; Manage Failed Payments &rarr; Send Emails ON). Stripe emails the client automatically when their card fails. This handles 80% of payment issues without you doing anything.</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl border border-gray-200 p-5 mb-4">
+            <h4 class="font-bold text-sm mb-3">Failed Payment Automation (n8n)</h4>
+            <p class="text-sm text-gray-700 mb-3">Stripe&rsquo;s built-in dunning handles most cases, but for clients who still haven&rsquo;t paid after retries, automate your escalation.</p>
+            <div class="space-y-2 text-sm text-gray-700">
+              <p class="check-item"><strong>Webhook trigger:</strong> In n8n, create a webhook node listening to Stripe event <code>invoice.payment_failed</code>. Stripe sends this every time a charge fails.</p>
+              <p class="check-item"><strong>Day 1 (auto):</strong> Stripe retries + sends dunning email. You do nothing.</p>
+              <p class="check-item"><strong>Day 5 (n8n):</strong> If still unpaid, n8n sends Paola a Slack/SMS alert: &ldquo;[Client Name] payment failed 5 days ago. Card on file: ending [XXXX]. Action needed.&rdquo;</p>
+              <p class="check-item"><strong>Day 10 (Paola):</strong> Personal text to client using the late-payment templates from the Client Communications section.</p>
+              <p class="check-item"><strong>Day 15 (both):</strong> Service pause per your contract terms. See the <a href="#client-comms" class="text-blue-600 underline">Client Comms templates</a> for exact wording.</p>
+            </div>
+          </div>
+          <div class="callout callout-warning p-4 mb-6">
+            <p class="font-semibold text-red-800 text-sm mb-1">Stripe Fees to Know</p>
+            <p class="text-sm text-red-700">2.9% + $0.30 per successful charge. On a $1,000/mo client, that&rsquo;s $29.30/mo to Stripe. On $10K MRR, you&rsquo;re paying ~$293/mo in processing fees. This is already factored into the P&amp;L projections above. <strong>Never</strong> eat the fee &mdash; it&rsquo;s a cost of doing business, not a discount to the client.</p>
+          </div>
+
           <h3 class="text-lg font-bold mt-8 mb-4">Startup Investment Summary</h3>
           <div class="grid sm:grid-cols-3 gap-4">
             <div class="bg-white rounded-xl border-2 border-emerald-200 p-5 text-center">
@@ -6829,6 +7372,19 @@ Talk soon,
             </div>
           </div>
         </section>
+
+        <div class="quiz-card mb-8 view-section hidden" data-view="reference" id="quiz-m8" data-quiz="m8">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="value-tag">Knowledge Check</span>
+            <span class="text-sm font-bold text-purple-900">Module 8 Quiz</span>
+          </div>
+          <p class="text-sm text-gray-700 mb-3">A client's Stripe payment fails. Smart Retries don't recover it after 7 days. What's the correct escalation order?</p>
+          <button class="quiz-option" data-correct="false" onclick="checkQuiz(this)">Immediately pause their service and send the Day 15 final notice</button>
+          <button class="quiz-option" data-correct="false" onclick="checkQuiz(this)">Wait another 2 weeks — Stripe might recover it eventually</button>
+          <button class="quiz-option" data-correct="true" onclick="checkQuiz(this)">Day 5: friendly text reminder → Day 10: firm follow-up → Day 15: service pause with written notice</button>
+          <div class="quiz-feedback correct">Right. The graduated approach (friendly → firm → pause) preserves the relationship while protecting your revenue. Jumping to a pause burns trust. Waiting too long teaches clients they can pay whenever. The 5-10-15 cadence is the sweet spot — see the Client Comms section for word-for-word templates.</div>
+          <div class="quiz-feedback incorrect">Immediate pauses damage relationships, and passive waiting trains clients to pay late. The right pattern is a graduated escalation: friendly text (Day 5), firm follow-up (Day 10), then service pause with written notice (Day 15). Each step uses the templates from the Client Communications section.</div>
+        </div>
 
 
         <!-- ==================== COURSE SALES PAGE ==================== -->
@@ -7537,14 +8093,14 @@ and any edge cases I should handle (missing fields, duplicate calls, after-hours
 (function() {
   var views = {
     home: ['explain','quiz-m1','quickstart','overview','situation'],
-    setup: ['business','niche','services','stack','accounts','roles'],
-    build: ['week1','week2','week3','week4','demo-env'],
-    launch: ['week5-6','week7-8','month3','month4-6'],
+    setup: ['business','niche','services','stack','accounts','roles','quiz-m2'],
+    build: ['week1','week2','week3','week4','demo-env','quiz-m3'],
+    launch: ['week5-6','week7-8','month3','month4-6','quiz-m4'],
     sales: ['leadgen','pipeline','email-infra','missed-call-audit','referral-partners','agency-website','onboarding','discovery-framework','scripts','quiz-m5'],
     tech: ['tech-delivery','tech-implementation','phone-setup','ghl','agentic-ai','agent-scripts','tools-compare','quiz-m6','voice-platforms','backups-security','troubleshooting'],
-    growth: ['economics','expansion','retention','competition','milestones','case-studies','seasonal','client-success','client-offboarding'],
+    growth: ['economics','expansion','retention','competition','milestones','case-studies','seasonal','client-success','client-offboarding','quiz-m7'],
     ai: ['ai-overview','ai-build','ai-clients','ai-research','ai-agents','ai-prompts','quiz-m9'],
-    reference: ['legal','rituals','client-comms','financials','bookkeeping','faq','mistakes-budget','resources','glossary'],
+    reference: ['legal','rituals','client-comms','financials','bookkeeping','faq','mistakes-budget','resources','glossary','quiz-m8'],
     course: ['course-sales']
   };
 
