@@ -5250,7 +5250,7 @@ already be taken. Want the audit report either way? It's free."</code></div>
 // This is what you send to the Anthropic API
 
 {
-  "model": "claude-sonnet-4-20250514",
+  "model": "claude-sonnet-4-6-20250220",
   "max_tokens": 1024,
   "system": "You are a dispatch coordinator for an HVAC company. Your job is to assign incoming service requests to the optimal technician. Consider: tech skills, current location, drive time, availability, and customer priority. Always explain your reasoning.",
   "tools": [
@@ -5820,25 +5820,48 @@ AFTER SAFETY INSTRUCTIONS:
 
         <section id="voice-platforms" class="mb-16 view-section hidden" data-view="tech">
           <h2 class="text-2xl font-extrabold mb-4">Voice AI Platform Showdown: Vapi vs Everyone</h2>
-          <p class="text-gray-700 leading-relaxed mb-6">This is the most important technical decision you'll make. The wrong platform means bad call quality, angry customers, and churned clients. Here's every option with honest pros and cons.</p>
+          <p class="text-gray-700 leading-relaxed mb-6">This is the most important technical decision you'll make. The wrong platform means bad call quality, angry customers, and churned clients. Here's every option with honest pros and cons. <em>Last updated June 2026.</em></p>
+
+          <div class="bg-red-50 border-2 border-red-300 rounded-xl p-4 mb-6">
+            <p class="font-bold text-red-800 text-sm mb-1">Model Deprecation Alert (June 15, 2026)</p>
+            <p class="text-sm text-red-700">Anthropic deprecated the original <code>claude-3-opus</code>, <code>claude-3-sonnet</code>, <code>claude-3-haiku</code>, and <code>claude-opus-4</code> / <code>claude-sonnet-4</code> model IDs. If your voice agent's LLM is set to any of these, it will stop working. Migrate now:</p>
+            <ul class="text-sm text-red-700 mt-2 space-y-1 ml-4">
+              <li>&bull; For voice calls (speed matters): use <code>claude-haiku-4-5-20251001</code> ($1/$5 per MTok) &mdash; best latency-to-quality ratio</li>
+              <li>&bull; For complex conversations: use <code>claude-sonnet-4-6</code> ($3/$15 per MTok)</li>
+              <li>&bull; Budget alternative: OpenAI <code>o4-mini</code> ($0.55/$2.20 per MTok) or <code>gpt-5.4-mini</code> ($0.75/$4.50) &mdash; test latency on Vapi before committing</li>
+            </ul>
+          </div>
 
           <div class="overflow-x-auto mb-6">
             <table class="w-full text-xs border border-gray-200 rounded-lg overflow-hidden">
               <thead class="bg-gray-100"><tr><th class="text-left px-2 py-2 font-semibold">Platform</th><th class="text-left px-2 py-2 font-semibold">Cost/Min</th><th class="text-left px-2 py-2 font-semibold">Voice Quality</th><th class="text-left px-2 py-2 font-semibold">Latency</th><th class="text-left px-2 py-2 font-semibold">Best For</th><th class="text-left px-2 py-2 font-semibold">Gotchas</th></tr></thead>
               <tbody class="divide-y divide-gray-100 bg-white">
-                <tr class="bg-blue-50"><td class="px-2 py-2 font-bold text-blue-700">Vapi.ai</td><td class="px-2 py-2">$0.05-0.11/min</td><td class="px-2 py-2">9/10</td><td class="px-2 py-2">~800ms</td><td class="px-2 py-2">Agencies, custom builds</td><td class="px-2 py-2">Steeper learning curve, API-first</td></tr>
-                <tr><td class="px-2 py-2 font-semibold">Retell AI</td><td class="px-2 py-2">$0.07-0.15/min</td><td class="px-2 py-2">8.5/10</td><td class="px-2 py-2">~600ms</td><td class="px-2 py-2">Quick prototypes, demos</td><td class="px-2 py-2">Less customizable, smaller community</td></tr>
-                <tr><td class="px-2 py-2 font-semibold">Bland AI</td><td class="px-2 py-2">$0.07-0.12/min</td><td class="px-2 py-2">8/10</td><td class="px-2 py-2">~700ms</td><td class="px-2 py-2">Simple inbound/outbound</td><td class="px-2 py-2">Enterprise-focused, less agency tooling</td></tr>
-                <tr><td class="px-2 py-2 font-semibold">Synthflow</td><td class="px-2 py-2">$0.08-0.14/min</td><td class="px-2 py-2">7.5/10</td><td class="px-2 py-2">~900ms</td><td class="px-2 py-2">No-code users, quick setup</td><td class="px-2 py-2">Limited LLM choice, less flexible</td></tr>
-                <tr><td class="px-2 py-2 font-semibold">Air AI</td><td class="px-2 py-2">$0.11-0.25/min</td><td class="px-2 py-2">7/10</td><td class="px-2 py-2">~1.2s</td><td class="px-2 py-2">Outbound sales calls</td><td class="px-2 py-2">Expensive, black-box pricing, less reliable</td></tr>
-                <tr><td class="px-2 py-2 font-semibold">GHL Conversational AI</td><td class="px-2 py-2">Included in plan</td><td class="px-2 py-2">6/10</td><td class="px-2 py-2">~1.5s</td><td class="px-2 py-2">GHL-only shops</td><td class="px-2 py-2">Limited, can't compete with dedicated platforms</td></tr>
+                <tr class="bg-blue-50"><td class="px-2 py-2 font-bold text-blue-700">Vapi.ai</td><td class="px-2 py-2">$0.05/min + BYO LLM/TTS</td><td class="px-2 py-2">9/10</td><td class="px-2 py-2">~500-800ms</td><td class="px-2 py-2">Agencies, custom builds</td><td class="px-2 py-2">API-first; real all-in cost $0.13-0.30/min. New: Simulations (test calls with AI), QA monitoring, SIP support.</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Retell AI</td><td class="px-2 py-2">$0.07+/min (no platform fee)</td><td class="px-2 py-2">8.5/10</td><td class="px-2 py-2">~600ms</td><td class="px-2 py-2">Fast prototyping, demos</td><td class="px-2 py-2">$40M+ ARR, growing fast. Added ChatGPT integration. Cheapest at low volume. Less customizable than Vapi.</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Bland AI</td><td class="px-2 py-2">$0.12-0.14/min (tiered plans)</td><td class="px-2 py-2">8/10</td><td class="px-2 py-2">~700ms</td><td class="px-2 py-2">Simple inbound/outbound</td><td class="px-2 py-2">Restructured pricing Dec 2025 to tiers (free Start at $0.14/min, Build $299/mo at $0.12/min). "Norm" no-code builder is good.</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Synthflow</td><td class="px-2 py-2">~$0.12/min (agency $1,250/mo)</td><td class="px-2 py-2">7.5/10</td><td class="px-2 py-2">~900ms</td><td class="px-2 py-2">No-code, white-label</td><td class="px-2 py-2">"Business in a box" approach. Being undercut by Trillet ($299/mo, ~$0.09/min).</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">GHL Voice AI</td><td class="px-2 py-2">~$0.16/min all-in</td><td class="px-2 py-2">7.5/10</td><td class="px-2 py-2">~800ms</td><td class="px-2 py-2">GHL-only agencies</td><td class="px-2 py-2">Improved dramatically in 2026 (outbound, 19 languages, better TTS). Requires $497/mo plan to rebill. Decent but less flexible than Vapi.</td></tr>
               </tbody>
             </table>
           </div>
 
           <div class="callout callout-action p-4 mb-6">
-            <p class="font-semibold text-blue-800 text-sm mb-1">Our Pick: Vapi — Here's Why</p>
-            <p class="text-sm text-blue-700">Vapi is the best choice for an agency model because: (1) You bring your own LLM (Claude/GPT-4), so you control quality and cost. (2) It integrates with n8n via webhooks — your entire workflow stays in your hands. (3) The per-minute pricing means you only pay for actual usage, not per-agent seats. (4) Bilingual support works out of the box — just set the language model to handle Spanish. (5) It's what the majority of successful AI agencies run on (large community = better troubleshooting). The alternatives are either more expensive, less flexible, or less proven.</p>
+            <p class="font-semibold text-blue-800 text-sm mb-1">Our Pick: Vapi — Here's Why (Still True in June 2026)</p>
+            <p class="text-sm text-blue-700">Vapi is the best choice for an agency model because: (1) You bring your own LLM (Haiku 4.5 / Sonnet 4.6), so you control quality and cost. (2) It integrates with n8n via webhooks &mdash; your entire workflow stays in your hands. (3) Per-minute pricing = you only pay for actual usage. (4) Bilingual works out of the box. (5) Largest agency community = best troubleshooting. (6) <strong>New in 2026:</strong> Simulations let you run automated test calls against your agent before deploying &mdash; huge for QA. The QA monitoring dashboard flags problem calls in real time. SIP trunking is now available for enterprise clients.</p>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">TTS Voice Options (June 2026)</h3>
+          <p class="text-sm text-gray-700 mb-3">The voice your agent speaks with matters more than most people think. Here are the options that work with Vapi:</p>
+          <div class="overflow-x-auto mb-6">
+            <table class="w-full text-xs border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-2 py-2 font-semibold">TTS Provider</th><th class="text-left px-2 py-2 font-semibold">Latency</th><th class="text-left px-2 py-2 font-semibold">Quality</th><th class="text-left px-2 py-2 font-semibold">Notes</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr class="bg-blue-50"><td class="px-2 py-2 font-bold text-blue-700">ElevenLabs v3</td><td class="px-2 py-2">~120ms</td><td class="px-2 py-2">9.5/10</td><td class="px-2 py-2">Best emotional expressiveness. v3 (March 2026) was a big leap. Two new models announced June 1. The default choice.</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Cartesia Sonic 3.5</td><td class="px-2 py-2">82ms</td><td class="px-2 py-2">9/10</td><td class="px-2 py-2">Now GA. Fastest TTFA in the industry. 57 voices across 11 locales. Great for latency-sensitive calls.</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Deepgram Aura</td><td class="px-2 py-2">~100ms</td><td class="px-2 py-2">8/10</td><td class="px-2 py-2">Cheapest per character. Good for high-volume, cost-sensitive deployments.</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Azure TTS / MAI-Voice-2</td><td class="px-2 py-2">~150ms</td><td class="px-2 py-2">8.5/10</td><td class="px-2 py-2">New June 2026: 15 languages, emotional control, voice cloning from 5-60s clips. Enterprise-grade.</td></tr>
+              </tbody>
+            </table>
           </div>
 
           <h3 class="text-lg font-bold mt-8 mb-4">Real Cost Math: What a Client's Calls Actually Cost You</h3>
@@ -5856,7 +5879,7 @@ AFTER SAFETY INSTRUCTIONS:
                   </tbody>
                 </table>
               </div>
-              <p class="text-xs text-gray-500 mt-2">Assumes Vapi at $0.07/min avg, Twilio at $0.0085/min + $1/number, Claude Haiku for most calls with Sonnet fallback for complex queries.</p>
+              <p class="text-xs text-gray-500 mt-2">Assumes Vapi at $0.05/min platform + ~$0.03-0.05/min LLM (Haiku 4.5) + ~$0.02/min TTS, Twilio at $0.0085/min + $1/number. Total all-in: ~$0.10-0.13/min. Use Sonnet 4.6 fallback for complex queries only.</p>
             </div>
           </div>
 
@@ -5864,12 +5887,13 @@ AFTER SAFETY INSTRUCTIONS:
           <div class="bg-white rounded-xl border border-gray-200 p-5">
             <div class="space-y-2 text-sm text-gray-700">
               <p><strong>The pitch:</strong> GoHighLevel SaaS Pro ($497/mo) lets you white-label GHL as your own CRM and charge clients for it. You become a "SaaS company" overnight.</p>
-              <p><strong>The reality check:</strong></p>
+              <p><strong>The reality check (updated June 2026):</strong></p>
               <ul class="space-y-1 ml-4 text-sm">
-                <li>&#x2022; At $497/mo, you need 5+ clients on GHL sub-accounts at $97/mo just to break even</li>
-                <li>&#x2022; GHL's AI features (Conversational AI, workflow AI) are improving but still behind Vapi for voice quality</li>
-                <li>&#x2022; The CRM features are genuinely useful — pipeline management, appointment scheduling, text campaigns</li>
-                <li>&#x2022; Many agencies start with $97/mo plan (3 sub-accounts) and upgrade to $297 (unlimited) at 4+ clients</li>
+                <li>&bull; At $497/mo, you need 5+ clients on GHL sub-accounts at $97/mo just to break even</li>
+                <li>&bull; GHL Voice AI improved dramatically in 2026: outbound calling, 19 languages, better TTS, ~$0.16/min all-in. It's now a real competitor to Vapi for simpler use cases</li>
+                <li>&bull; The AI Employee suite (Voice AI, Conversation AI, Reviews AI, Content AI, Funnel AI) is solid for agencies who want an all-in-one platform</li>
+                <li>&bull; <strong>You need the $497/mo plan to rebill AI usage to clients</strong> &mdash; this is the core margin mechanic for GHL-based agencies</li>
+                <li>&bull; New: AI Builder Analytics Sub Agent answers "how's this workflow performing?" in plain language</li>
               </ul>
               <div class="mt-3 bg-amber-50 rounded-lg p-3">
                 <p class="text-xs text-amber-800"><strong>Our recommendation:</strong> Start with no GHL. Use n8n + Supabase + Cal.com for the first 3-5 clients. It's free and you control everything. Once you have 5+ clients asking for a "dashboard" or "CRM portal," get GHL at $297/mo. The $497 SaaS Pro only makes sense when you have 10+ clients and want to charge a platform fee. Don't let the GHL YouTube ecosystem pressure you into spending $497/mo before you have clients paying you.</p>
@@ -5942,6 +5966,16 @@ AFTER SAFETY INSTRUCTIONS:
             </div>
           </div>
 
+          <h3 class="text-lg font-bold mt-8 mb-4">Real-World Supply-Chain Lesson: The Vapi Incident (June 3, 2026)</h3>
+          <div class="bg-amber-50 rounded-xl border border-amber-200 p-5 mb-6">
+            <p class="text-sm text-gray-700 mb-3">On June 3, 2026, a malicious supply-chain worm compromised Vapi's GitHub repos and npm packages (including <code>@vapi-ai/server-sdk</code>, 408K+ monthly downloads). Malicious code was pushed using an unexpired access token. Vapi rolled it back within hours and confirmed no customer data was leaked &mdash; but the lesson is real:</p>
+            <div class="space-y-2 text-sm text-gray-700">
+              <p class="check-item"><strong>Pin your dependency versions.</strong> Don't auto-update npm/pip packages in production. Lock to known-good versions and update intentionally.</p>
+              <p class="check-item"><strong>Monitor vendor status pages.</strong> Bookmark <code>status.vapi.ai</code>, <code>status.twilio.com</code>, and <code>status.supabase.com</code>. Check them first when something breaks &mdash; before blaming your own code.</p>
+              <p class="check-item"><strong>Your stack portability is your insurance.</strong> If you own the phone number (Twilio), the prompts (your repo), the data (Supabase), and the workflows (n8n), you can swap any one vendor in 1-2 days. If you're locked into a single platform, you're one incident from a fire drill.</p>
+            </div>
+          </div>
+
           <h3 class="text-lg font-bold mt-8 mb-4">VPS Security Basics</h3>
           <div class="bg-white rounded-xl border border-gray-200 p-5">
             <p class="text-sm text-gray-700 mb-3">Your Hetzner VPS runs n8n and potentially other services. Lock it down.</p>
@@ -5977,7 +6011,7 @@ sudo dpkg-reconfigure -plow unattended-upgrades</code></div>
               <div class="text-xs text-gray-700 space-y-1">
                 <p><strong>Check Vapi latency settings:</strong> Dashboard &rarr; Agent &rarr; Advanced &rarr; ensure &ldquo;Response Delay&rdquo; is under 800ms.</p>
                 <p><strong>Try a different TTS voice:</strong> Some ElevenLabs voices have more natural cadence. Test &ldquo;Rachel,&rdquo; &ldquo;Josh,&rdquo; or &ldquo;Bella.&rdquo;</p>
-                <p><strong>Verify LLM selection:</strong> Use Haiku for speed-critical responses, Sonnet for quality-critical conversations. Opus is overkill and adds latency.</p>
+                <p><strong>Verify LLM selection:</strong> Use Haiku 4.5 for speed-critical responses, Sonnet 4.6 for quality-critical conversations. Opus/Fable are overkill and add latency. Also try o4-mini &mdash; cheapest and competitive on speed.</p>
                 <p><strong>Check VPS CPU usage:</strong> SSH in and run <code>htop</code>. If CPU is pegged at 100%, your VPS is too small or something else is consuming resources.</p>
               </div>
             </div>
@@ -6138,6 +6172,17 @@ curl -I https://your-n8n-domain.com/webhook-test/test</code></div>
                 <p class="check-item"><strong>Customer data:</strong> Store securely (Supabase with Row Level Security). Don't share one client's data with another. Basic hygiene, but put it in writing.</p>
                 <p class="check-item"><strong>TCPA compliance for SMS:</strong> You must have consent to text someone. Inbound callers give implied consent by calling. For outbound campaigns (reactivation), client must confirm they have prior business relationship.</p>
                 <p class="check-item"><strong>GDPR:</strong> Doesn't apply to your US clients' US customers. But as a Germany-based business, be aware of it for your own data practices and European prospects (if you expand later).</p>
+              </div>
+            </div>
+
+            <div class="bg-red-50 rounded-xl border-2 border-red-200 p-5">
+              <h3 class="font-bold text-sm text-red-800 mb-3">2026 Compliance Updates (Action Required)</h3>
+              <div class="space-y-2 text-sm text-gray-700">
+                <p class="check-item"><strong>Colorado AI Act (effective June 30, 2026):</strong> First comprehensive US state law targeting "high-risk" AI systems. Requires reasonable care to prevent algorithmic discrimination, impact assessments, and consumer disclosures. Your voice agents qualify if they make decisions about service delivery. Practical impact: <em>always disclose the AI</em>, document what the agent can and cannot decide, and keep humans in the loop for anything beyond booking/routing.</p>
+                <p class="check-item"><strong>California SB 243 (effective Jan 1, 2026):</strong> Human-like chatbots and voice bots must disclose they're not human. <strong>Private right of action at $1,000+ per violation.</strong> Your agents already self-identify &mdash; keep it that way in every script, both languages. Never remove the AI disclosure, even if a client asks you to.</p>
+                <p class="check-item"><strong>FCC consent revocation rule (effective Apr 2025):</strong> Consumers can revoke consent with any reasonable phrase ("stop," "cancel," "don't call me"). Must honor within 10 days. Your n8n STOP-handler should catch variants, not just the literal word "STOP." Use Claude to classify opt-out intent on every inbound reply.</p>
+                <p class="check-item"><strong>June 2 Executive Order (AI Innovation & Security):</strong> Federal agencies must harden AI cybersecurity within 30 days. Not directly applicable to SMB agencies, but signals tightening enforcement. Stay compliant now &mdash; don't wait for it to trickle down.</p>
+                <p class="check-item"><strong>States to watch:</strong> Utah (AI disclosure in high-risk interactions), Washington (recurring disclosure, private right of action), Maine (similar). The trend is clear: disclosure requirements are expanding, not shrinking. Build it into every agent from Day 1 and it becomes a sales advantage: "compliance done-for-you."</p>
               </div>
             </div>
           </div>
@@ -8156,6 +8201,26 @@ Talk soon,
             </table>
           </div>
           <p class="text-xs text-gray-500 mt-2">Prices are mid-2026 ballparks and change often &mdash; verify at signup. The whole AI stack above runs roughly <strong>$120&ndash;260/month</strong>, most of which you only add once clients are paying.</p>
+
+          <h3 class="text-lg font-bold mt-8 mb-3">LLM API Pricing Quick Reference (June 2026)</h3>
+          <p class="text-sm text-gray-700 mb-3">These are the models you'll actually use in your voice agents and automations. Prices are per million tokens (input / output). Both providers offer ~50% batch discounts and ~90% cached-input discounts.</p>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Model</th><th class="text-left px-3 py-2 font-semibold">Input / Output</th><th class="text-left px-3 py-2 font-semibold">Best For</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white text-gray-700">
+                <tr class="bg-blue-50"><td class="px-3 py-2 font-bold text-blue-700">Claude Haiku 4.5</td><td class="px-3 py-2">$1 / $5</td><td class="px-3 py-2">Voice agent LLM (default). Best latency-to-quality for real-time calls.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Claude Sonnet 4.6</td><td class="px-3 py-2">$3 / $15</td><td class="px-3 py-2">Complex conversations, fallback for Haiku. Proposals and SOPs via API.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Claude Opus 4.8</td><td class="px-3 py-2">$5 / $25</td><td class="px-3 py-2">Your own research / coding. Too expensive and slow for client-facing calls.</td></tr>
+                <tr class="bg-emerald-50"><td class="px-3 py-2 font-bold text-emerald-700">OpenAI o4-mini</td><td class="px-3 py-2">$0.55 / $2.20</td><td class="px-3 py-2">Cheapest capable model. Test it vs. Haiku for voice &mdash; if latency works, ~45% cost savings.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">GPT-5.4 mini</td><td class="px-3 py-2">$0.75 / $4.50</td><td class="px-3 py-2">Budget alternative. Good for parsing/classification tasks in n8n (email parsing, intent detection).</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">GPT-5.5</td><td class="px-3 py-2">$5 / $30</td><td class="px-3 py-2">OpenAI's flagship. 52% fewer hallucinations. Use for high-stakes content if you prefer OpenAI.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout callout-cost p-4 mt-3">
+            <p class="font-semibold text-amber-800 text-sm mb-1">Deprecated Model IDs (as of June 15, 2026)</p>
+            <p class="text-sm text-amber-700">The original <code>claude-3-opus</code>, <code>claude-3-sonnet</code>, <code>claude-3-haiku</code>, <code>claude-opus-4</code>, and <code>claude-sonnet-4</code> API model IDs are now deprecated and will stop working. If you see these in any Vapi agent config or n8n HTTP node, update immediately to the IDs above. Also: OpenAI retired GPT-5.2 on June 12 and will retire o3 on August 26.</p>
+          </div>
         </section>
 
         <!-- ai-build -->
@@ -8572,6 +8637,20 @@ Research what changed in the last 3 months:
 For each: what it is, why it matters to a 2-person agency, and
 a one-line recommended action. Rank by revenue impact. Cite
 sources.</code></div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">June 2026 Micro-Updates (This Week)</h3>
+          <div class="bg-white rounded-xl border border-gray-200 p-5 mb-6">
+            <div class="space-y-2 text-sm text-gray-700">
+              <p class="check-item"><strong>Claude Fable 5 launched (June 9):</strong> Anthropic's most capable model. 1M context, 128K output. Too expensive and has safety classifiers that could interrupt conversations &mdash; do NOT use for voice agents. Keep Haiku 4.5 for calls, Sonnet 4.6 for complex tasks. Fable is useful for <em>your own</em> research and content generation.</p>
+              <p class="check-item"><strong>Claude Opus 4 / Sonnet 4 IDs deprecated (June 15):</strong> If any agent or workflow uses old model IDs, migrate to <code>claude-haiku-4-5-20251001</code> or <code>claude-sonnet-4-6</code> immediately. See the <a href="#voice-platforms" class="text-blue-600 hover:underline">deprecation alert</a> in Voice Platforms.</p>
+              <p class="check-item"><strong>Vapi supply chain incident (June 3):</strong> npm packages compromised via stolen access token; rolled back same day, no data leaked. Pin your dependency versions and read the <a href="#backups-security" class="text-blue-600 hover:underline">security lesson</a> we added.</p>
+              <p class="check-item"><strong>Twilio "Conversation Layer" (SIGNAL 2026):</strong> Three new products GA &mdash; Conversation Orchestrator (routing + human-AI handoffs), Conversation Memory (persistent context), and Conversation Intelligence (real-time sentiment + escalation triggers). Not needed yet at your scale, but ConversationRelay is worth watching if you outgrow Vapi's telephony.</p>
+              <p class="check-item"><strong>Claude for Small Business (May 13):</strong> Anthropic launched 15 agentic workflows for SMBs with connectors to QuickBooks, PayPal, HubSpot, and Slack. This is a potential <em>competitor</em> for simple automations &mdash; but it sells to the business directly, not through agencies. It validates the market and doesn't replace the custom voice agent + campaign work you sell. Monitor it.</p>
+              <p class="check-item"><strong>Cartesia Sonic 3.5 now GA:</strong> 82ms time-to-first-audio, #2 on the Artificial Analysis TTS leaderboard. Test it in Vapi as an ElevenLabs alternative for clients where latency matters most &mdash; it's noticeably faster.</p>
+              <p class="check-item"><strong>Colorado AI Act effective June 30:</strong> First comprehensive US state AI law. Details in the updated <a href="#legal" class="text-blue-600 hover:underline">Legal section</a>.</p>
+              <p class="check-item"><strong>OpenAI o4-mini at $0.55/$2.20 per MTok:</strong> Cheapest capable model on the market. Worth benchmarking against Haiku 4.5 ($1/$5) for voice &mdash; if latency is comparable on Vapi, you save ~45% on LLM costs per call.</p>
+            </div>
+          </div>
 
           <div class="callout callout-protip p-4 mt-6">
             <p class="font-semibold text-sm mb-1">The Meta-Rule</p>
