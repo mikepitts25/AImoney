@@ -124,6 +124,8 @@
 
     /* Pro tip callout */
     .callout-protip { border-color: #f59e0b; background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); }
+    .callout-cost { border-color: #d97706; background: linear-gradient(135deg, #fffbeb 0%, #fef9e8 100%); }
+    .callout-script { border-color: #8b5cf6; background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%); }
 
     /* Course value tag */
     .value-tag { display: inline-flex; align-items: center; gap: 0.25rem; background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); color: #78350f; padding: 0.25rem 0.625rem; border-radius: 9999px; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; }
@@ -280,7 +282,7 @@
           <p class="mt-3 text-lg text-gray-500">The complete, step-by-step system to build a $10K/month AI automation agency from scratch &mdash; even part-time, even from overseas. Now with a full AI Leverage module.</p>
           <div class="mt-4 flex flex-wrap gap-2 text-xs">
             <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full font-semibold">9 Modules</span>
-            <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full font-semibold">67 Lessons</span>
+            <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full font-semibold">68 Lessons</span>
             <span class="bg-purple-50 text-purple-700 px-3 py-1 rounded-full font-semibold">Templates Included</span>
             <span class="bg-amber-50 text-amber-700 px-3 py-1 rounded-full font-semibold">Copy-Paste Scripts</span>
           </div>
@@ -389,9 +391,9 @@
               </div>
               <h3 class="font-bold text-sm text-gray-900">Sales &amp; Clients</h3>
             </div>
-            <p class="text-xs text-gray-500 mb-3">Lead gen, pipeline, cold email setup, Missed Call Audit, referral partners, scripts</p>
+            <p class="text-xs text-gray-500 mb-3">Lead gen, pipeline, cold email, Missed Call Audit, referral partners, content engine, scripts</p>
             <div class="text-[10px] font-bold text-gray-400 uppercase mb-1">Module 5</div>
-            <div class="text-xs text-blue-600 font-semibold">9 lessons &rarr;</div>
+            <div class="text-xs text-blue-600 font-semibold">10 lessons &rarr;</div>
           </div>
 
           <div class="dash-card" onclick="showView('tech')">
@@ -493,6 +495,11 @@
             </div>
             <div class="text-xs font-semibold text-slate-300 uppercase tracking-wide mb-2">What You'll Learn</div>
             <ul class="module-objectives"><li>Explain the AI receptionist business model in 2 minutes</li><li>Identify your 4 competitive advantages</li><li>Map the complete 6-month timeline</li><li>Complete the Quick Start checklist prioritization</li><li>Run the 21-Day Money Sprint to a first paying client</li></ul>
+          </div>
+
+          <div class="bg-amber-50 rounded-xl border border-amber-200 p-4 mb-6 text-sm">
+            <p class="font-semibold text-amber-800 mb-1">New to agency jargon?</p>
+            <p class="text-amber-700">Terms like <strong>MRR</strong>, <strong>ARPU</strong>, <strong>A2P 10DLC</strong>, <strong>SIP Trunk</strong>, and <strong>RLS</strong> are used throughout this course. Jump to the <a href="#glossary" class="font-semibold text-blue-600 hover:underline">Glossary</a> anytime you hit an unfamiliar acronym &mdash; every term is explained in plain English.</p>
           </div>
 
           <div class="bg-white rounded-2xl border-2 border-blue-200 p-6 sm:p-8">
@@ -1507,7 +1514,7 @@ order of payment. Want me to hold today's spot for an hour?"</code></div>
               <p><strong>Supabase</strong> = a spreadsheet on steroids. It stores all your data — every call, every lead, every client. You can pull reports from it. Free for your scale.</p>
               <p><strong>Hetzner VPS</strong> = a rented computer that runs 24/7 in the cloud. It's where n8n lives. You'll never see it physically — you access it through your browser. $5/month.</p>
               <p><strong>Smartlead</strong> = an email sending tool designed for outreach. It sends your cold emails, warms up your email addresses so they don't go to spam, and tracks who opens/replies.</p>
-              <p><strong>LLM</strong> = "Large Language Model" — the AI that understands language. Claude and GPT-4 are LLMs. When we say "LLM cost" we mean the cost of the AI thinking during calls.</p>
+              <p><strong>LLM</strong> = "Large Language Model" — the AI that understands language. Claude (Haiku 4.5, Sonnet 4.6) and GPT-5.x are LLMs. When we say "LLM cost" we mean the cost of the AI thinking during calls.</p>
               <p><strong>TTS / STT</strong> = "Text to Speech" / "Speech to Text." TTS is how the AI turns its written response into a voice. STT is how it understands what the caller said. Both happen inside Vapi automatically.</p>
               <p><strong>Webhook</strong> = an automatic notification between tools. When a call ends in Vapi, it sends a webhook (a little data packet) to n8n saying "hey, a call just happened, here's the info." n8n then does something with it. You set this up once and it runs forever.</p>
               <p><strong>API key</strong> = a password that lets one tool talk to another. When Mike sets up Vapi to use Claude, he copies an API key from Anthropic into Vapi. It's how tools authenticate with each other.</p>
@@ -2727,10 +2734,10 @@ Applications without a Loom video will not be reviewed.</code></div>
             <div class="flex flex-wrap gap-2 mb-3">
               <span class="module-badge badge-time"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> 3 hours</span>
               <span class="module-badge badge-difficulty">Intermediate</span>
-              <span class="module-badge badge-lessons">9 Lessons</span>
+              <span class="module-badge badge-lessons">10 Lessons</span>
             </div>
             <div class="text-xs font-semibold text-slate-300 uppercase tracking-wide mb-2">What You'll Learn</div>
-            <ul class="module-objectives"><li>Build a multi-channel lead generation system</li><li>Set up cold email infrastructure that avoids spam</li><li>Run the Missed Call Audit to create urgency</li><li>Master the discovery call and demo script</li><li>Create proposals that close at 40%+ rate</li><li>Onboard new clients in under 48 hours</li><li>Qualify prospects with a structured discovery call framework</li></ul>
+            <ul class="module-objectives"><li>Build a multi-channel lead generation system</li><li>Set up cold email infrastructure that avoids spam</li><li>Run the Missed Call Audit to create urgency</li><li>Master the discovery call and demo script</li><li>Create proposals that close at 40%+ rate</li><li>Onboard new clients in under 48 hours</li><li>Qualify prospects with a structured discovery call framework</li><li>Run a content marketing engine that turns posts into pipeline</li></ul>
           </div>
 
           <div class="mb-6 pb-3 border-b-2 border-amber-200 mt-20">
@@ -3461,6 +3468,170 @@ a partnership. Here's my calendar: [CAL.COM LINK]
           </div>
         </section>
 
+        <!-- ==================== CONTENT MARKETING ENGINE ==================== -->
+        <section id="content-engine" class="mb-16 view-section hidden" data-view="sales">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="value-tag">Inbound Lead Machine</span>
+          </div>
+          <h2 class="text-2xl font-extrabold mb-4">The Content Marketing Engine: Turn Posts Into Pipeline</h2>
+          <p class="text-gray-700 leading-relaxed mb-6">Cold calls and cold email get you started. Content gets you found. A simple, repeatable posting system across LinkedIn, Facebook Groups, TikTok/Reels, and optionally a Substack newsletter turns you from "who are you?" to "I've been following you &mdash; let's talk." The best part: <strong>AI does 80% of the work</strong>. You supply 20 minutes of thinking and Claude generates a week of content.</p>
+
+          <div class="callout callout-action p-4 mb-6">
+            <p class="font-semibold text-blue-800 text-sm mb-1">When to Start This</p>
+            <p class="text-sm text-blue-700">Not Day 1 &mdash; the phone is your Day 1 channel. Start the content engine in <strong>Week 3-4</strong> once you have a working demo and ideally one client result. Content without proof is just noise; content with proof is a magnet.</p>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">The Weekly Content System (90 Minutes Total)</h3>
+          <p class="text-sm text-gray-700 mb-3">Every Monday morning, one person runs this system. By Monday afternoon, the whole week's content is scheduled. Here's the repeatable process:</p>
+          <div class="bg-white rounded-xl border border-gray-200 p-5 mb-6">
+            <div class="space-y-2 text-sm text-gray-700">
+              <p class="check-item"><strong>Step 1 &mdash; Capture one insight (5 min):</strong> What happened this week? A client result, a call recording highlight, a stat you found, a mistake you made, a question a prospect asked. Write one sentence. That's your "seed."</p>
+              <p class="check-item"><strong>Step 2 &mdash; Generate the content batch (15 min):</strong> Feed the seed to Claude using the prompt below. It generates: 2 LinkedIn posts, 3 short-form video scripts (TikTok/Reels), 2 Facebook Group comments, and 1 newsletter paragraph. Review and tweak &mdash; don't publish AI output raw.</p>
+              <p class="check-item"><strong>Step 3 &mdash; Record 2-3 short videos (20 min):</strong> Talking head, phone in hand, show the AI agent in action. Under 60 seconds each. Film vertically. No editing needed &mdash; raw and authentic outperforms polished in this niche. One take, post it.</p>
+              <p class="check-item"><strong>Step 4 &mdash; Schedule everything (10 min):</strong> Use Buffer (free for 3 channels) or just the native schedulers. LinkedIn: Tue + Thu. TikTok/Reels: Mon + Wed + Fri. Facebook Groups: engage when relevant, don't force a schedule.</p>
+              <p class="check-item"><strong>Step 5 &mdash; Engage for 5 min/day:</strong> Reply to every comment. DM anyone who engages twice. "Thanks for the comment &mdash; do you deal with missed calls at your shop?" turns a like into a conversation. This is where content actually converts.</p>
+            </div>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">The AI Content Generator Prompt</h3>
+          <div class="prompt-block"><button class="copy-btn">Copy</button><code>WEEKLY CONTENT BATCH — PROMPT
+
+I run an AI automation agency that sells AI phone agents to
+home service businesses (HVAC, plumbing, electrical). My
+agency is called [NAME].
+
+This week's content seed:
+"[PASTE YOUR ONE-SENTENCE INSIGHT — e.g., 'Client's AI agent
+booked 6 after-hours appointments this week that would have
+been missed calls']"
+
+Generate a content batch:
+
+1. TWO LINKEDIN POSTS (each 100-150 words)
+   - Post A: Tell the story behind the insight. Open with a
+     hook line. End with a soft CTA ("DM me if you want to
+     see how this works").
+   - Post B: Turn it into a contrarian take or data point.
+     Open with a surprising stat or question.
+
+2. THREE SHORT-FORM VIDEO SCRIPTS (TikTok/Instagram Reels)
+   - Each under 45 seconds when read at normal pace
+   - Hook in the first line (pattern interrupt)
+   - Show don't tell: "Watch what happens when I call this
+     HVAC company at 9pm..."
+   - End with CTA: "Link in bio" or "Comment DEMO"
+
+3. TWO FACEBOOK GROUP COMMENTS (for contractor groups)
+   - Not pitches — value-first responses to common complaints
+     like "I keep missing calls" or "Angi leads never answer"
+   - End with an offer to share more info, not a link
+
+4. ONE NEWSLETTER PARAGRAPH (for Substack/email list)
+   - 3-4 sentences. The insight + the takeaway + link to
+     book a demo
+
+Match my tone: direct, no-BS, conversational. I talk to
+blue-collar business owners, not marketers. No jargon.</code></div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">The 7 Content Pillars (Rotate Weekly)</h3>
+          <p class="text-sm text-gray-700 mb-3">Never wonder "what should I post?" again. Every piece of content fits one of these seven angles. Rotate through them and you never repeat yourself:</p>
+          <div class="overflow-x-auto mb-6">
+            <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Pillar</th><th class="text-left px-3 py-2 font-semibold">Example Hook</th><th class="text-left px-3 py-2 font-semibold">Format</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr><td class="px-3 py-2 font-semibold">The Live Test</td><td class="px-3 py-2">"I called 20 HVAC companies in Houston at 6pm. 17 went to voicemail. Here's what that costs them..."</td><td class="px-3 py-2">Video (call on speaker) or LinkedIn post with data</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Client Result</td><td class="px-3 py-2">"Our AI agent booked 23 appointments for a plumber in Dallas last month. Setup took 2 days."</td><td class="px-3 py-2">Case study post, carousel, or short video</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Behind the Build</td><td class="px-3 py-2">"Here's exactly how I built an AI phone agent in 4 hours (screen recording)"</td><td class="px-3 py-2">TikTok/Reel walkthrough, or LinkedIn writeup</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Industry Data</td><td class="px-3 py-2">"78% of customers go with whoever responds first. The average contractor calls back in 4 hours."</td><td class="px-3 py-2">Stat-led LinkedIn post or short-form video</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Myth Buster</td><td class="px-3 py-2">"'AI can't handle real customer calls.' I heard this last week. Then I played this recording..."</td><td class="px-3 py-2">Video with call playback, or thread</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">The Warning</td><td class="px-3 py-2">"ChatGPT recommends your competitor, not you. I checked. Here's the screenshot."</td><td class="px-3 py-2">Screenshot post (ties into <a href="#ai-search-geo" class="text-blue-600 hover:underline">GEO service</a>)</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Personal / Process</td><td class="px-3 py-2">"We run this agency part-time from Germany serving US clients. Here's our daily schedule."</td><td class="px-3 py-2">Relatable story, builds trust and curiosity</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">Platform-Specific Playbooks</h3>
+          <div class="grid sm:grid-cols-2 gap-4 mb-6">
+            <div class="bg-blue-50 rounded-xl border border-blue-200 p-5">
+              <h4 class="font-bold text-sm text-blue-800 mb-2">LinkedIn (Your #1 Channel)</h4>
+              <div class="space-y-1 text-sm text-gray-700">
+                <p class="check-item">Post 2x/week (Tue + Thu, 8-10am Eastern)</p>
+                <p class="check-item">Profile headline: "I build AI phone agents for [trade] companies | They answer 24/7 so you don't miss jobs"</p>
+                <p class="check-item">Connect with 10 contractor owners per day (use Sales Navigator free trial to filter by title + industry + city)</p>
+                <p class="check-item">Comment on 5 contractor posts per day before posting your own &mdash; the algorithm rewards engagement</p>
+                <p class="check-item">Templates are in <a href="#scripts" class="text-blue-600 hover:underline">Scripts &amp; Templates</a></p>
+              </div>
+            </div>
+            <div class="bg-rose-50 rounded-xl border border-rose-200 p-5">
+              <h4 class="font-bold text-sm text-rose-800 mb-2">TikTok / Instagram Reels</h4>
+              <div class="space-y-1 text-sm text-gray-700">
+                <p class="check-item">Post 3x/week. Under 60 seconds. Vertical.</p>
+                <p class="check-item">The "call the AI live" video format goes viral in this niche &mdash; record yourself calling the demo agent on speaker, show the booking confirmation pop up</p>
+                <p class="check-item">Use trending audio when it fits, but talking-head with captions works fine</p>
+                <p class="check-item">Bio link: Cal.com demo page. Pin your best video.</p>
+                <p class="check-item">Hashtags: #AIagency #AIautomation #HVACbusiness #contractorlife #missedcalls</p>
+              </div>
+            </div>
+            <div class="bg-indigo-50 rounded-xl border border-indigo-200 p-5">
+              <h4 class="font-bold text-sm text-indigo-800 mb-2">Facebook Groups</h4>
+              <div class="space-y-1 text-sm text-gray-700">
+                <p class="check-item">Join 15+ groups: "HVAC Contractors," "Plumbing Business Owners," "Home Service Pros," etc.</p>
+                <p class="check-item">Never pitch directly. Wait for posts like "I keep missing calls" or "anyone use an answering service?" &mdash; then comment with value</p>
+                <p class="check-item">Offer the free Missed Call Audit: "I'll call your business 3 times this week and send you a report on what happens. Free, no pitch."</p>
+                <p class="check-item">Post your own questions: "HVAC owners &mdash; how many after-hours calls do you get per week?" Data collection + engagement bait</p>
+              </div>
+            </div>
+            <div class="bg-amber-50 rounded-xl border border-amber-200 p-5">
+              <h4 class="font-bold text-sm text-amber-800 mb-2">Email Newsletter (Optional, Month 3+)</h4>
+              <div class="space-y-1 text-sm text-gray-700">
+                <p class="check-item">Substack or Beehiiv (both free to start). One email per week, 3-5 paragraphs.</p>
+                <p class="check-item">Repurpose your best LinkedIn post + add a client result + end with a CTA</p>
+                <p class="check-item">Collect emails via a lead magnet: "Free Report: How Many Calls Is Your Business Missing?" (the Missed Call Audit as a downloadable PDF)</p>
+                <p class="check-item">Grow the list by adding a subscribe link to your email signature, Carrd page, and LinkedIn featured section</p>
+                <p class="check-item">At 200+ subscribers, this becomes your most reliable demo-booking channel</p>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">The Repurposing Machine (One Idea = 7 Pieces)</h3>
+          <div class="bg-white rounded-xl border border-gray-200 p-5 mb-6">
+            <p class="text-sm text-gray-700 mb-3">You never need 7 ideas per week. You need <strong>one good idea</strong> and a system to repurpose it:</p>
+            <div class="space-y-1 text-sm text-gray-700">
+              <p>1. <strong>Seed idea</strong> (e.g., "client's AI caught 11 after-hours calls this week")</p>
+              <p>2. <strong>LinkedIn post</strong> (the story version, 150 words)</p>
+              <p>3. <strong>TikTok/Reel #1</strong> ("watch what happens when I call this HVAC company at 10pm")</p>
+              <p>4. <strong>TikTok/Reel #2</strong> (the data angle: "contractors lose $45K/year from missed calls")</p>
+              <p>5. <strong>Facebook Group comment</strong> (wait for someone to complain about missed calls, reply with the insight)</p>
+              <p>6. <strong>Newsletter paragraph</strong> (weekly roundup: "This week's win...")</p>
+              <p>7. <strong>Cold email P.S. line</strong> ("P.S. We just helped a [city] HVAC company catch 11 after-hours calls in one week")</p>
+            </div>
+            <p class="text-sm text-gray-700 mt-3">The AI Content Generator prompt above does steps 2-6 automatically. You add step 7 to your Smartlead sequences manually.</p>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">Short-Form Video: The 3 Formats That Work</h3>
+          <div class="bg-white rounded-xl border border-gray-200 p-5 mb-6">
+            <div class="space-y-3 text-sm text-gray-700">
+              <div>
+                <p class="font-bold">Format 1: The Live Call Demo (highest conversion)</p>
+                <p class="text-xs text-gray-500 mt-1">Record yourself calling your AI agent on speakerphone. Show the phone screen. Let viewers hear the AI answer, ask questions, and book an appointment. End: "This runs 24/7 for $500/month. Link in bio."</p>
+              </div>
+              <div>
+                <p class="font-bold">Format 2: The Missed Call Exposé</p>
+                <p class="text-xs text-gray-500 mt-1">"I called 10 [plumbing] companies in [city] at 5:30pm. 7 went to voicemail. If you're one of them..." Show the call log on screen. This is Missed Call Audit content that doubles as marketing.</p>
+              </div>
+              <div>
+                <p class="font-bold">Format 3: The Before/After</p>
+                <p class="text-xs text-gray-500 mt-1">Split screen: left side "Before: missed call, voicemail, dead lead." Right side: "After: AI answers, books appointment, sends confirmation text." Works as a Reel or a LinkedIn carousel.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout callout-protip p-4">
+            <p class="font-semibold text-sm mb-1">The Content Compound Effect</p>
+            <p class="text-sm">Content doesn't replace outbound &mdash; it multiplies it. When a cold prospect gets your email, they Google you. If they find LinkedIn posts with real results, TikToks of the AI in action, and a newsletter with client testimonials, you've already built trust before the demo. The agencies charging $1,500/mo+ for AI voice agents are the ones that look credible online. 90 minutes a week for 3 months builds that credibility permanently.</p>
+          </div>
+        </section>
+
         <!-- ==================== CLIENT ONBOARDING SOP ==================== -->
         <section id="onboarding" class="mb-16 view-section hidden" data-view="sales">
           <h2 class="text-2xl font-extrabold mb-4">Client Onboarding SOP (Step-by-Step)</h2>
@@ -3733,7 +3904,7 @@ build. Questions? Reply to this email or text Paola at [NUMBER].</code></div>
               <h4 class="font-bold text-sm text-rose-700 mb-2">Phase 5: Trial Close (2 min)</h4>
               <div class="text-sm text-gray-700 space-y-2">
                 <p>&ldquo;Based on what you&rsquo;re telling me, this could save you $[AMOUNT] a month in missed jobs. Want us to set this up for you this week?&rdquo;</p>
-                <p><strong>If yes:</strong> &ldquo;Great, I&rsquo;ll send you a short intake form today and we&rsquo;ll have your agent live in 48 hours.&rdquo;</p>
+                <p><strong>If yes:</strong> &ldquo;Great, I&rsquo;ll send you a short intake form today and we&rsquo;ll have your agent live in 48 hours.&rdquo; &rarr; Send the <a href="#scripts" class="text-blue-600 underline">proposal template</a> within 1 hour.</p>
                 <p><strong>If not sure:</strong> &ldquo;Totally fair. How about a free 1-week trial? We set it up, you see the results, and decide after that. No commitment.&rdquo;</p>
                 <p><strong>If no:</strong> &ldquo;No problem at all. Mind if I follow up in a month? Things might change during busy season.&rdquo;</p>
               </div>
@@ -4151,9 +4322,31 @@ Questions? Reply to this email or text me at [YOUR NUMBER].
             <p class="font-semibold text-cyan-800 text-sm mb-2">Plain English: Phone Setup Explained</p>
             <div class="text-xs text-cyan-900 space-y-2">
               <p><strong>Call forwarding</strong> = the client keeps their phone number. They just set their phone to forward missed calls to your AI number. Like saying "if I don't answer, send the call here." Takes 5 minutes to set up. This is what you do for every new client.</p>
-              <p><strong>Number porting</strong> = moving the client's actual phone number to Twilio so you control it directly. The calls go straight to AI — no forwarding delay. But it takes 1-3 weeks and the client has to sign paperwork. Only do this for committed long-term clients.</p>
+              <p><strong>Number porting</strong> = moving the client's actual phone number to Twilio so you control it directly. The calls go straight to AI &mdash; no forwarding delay. But it takes 1-3 weeks and the client has to sign paperwork. Only do this for committed long-term clients.</p>
               <p><strong>A2P 10DLC</strong> = the government and phone carriers require businesses to register before sending text messages. Without registration, your texts get blocked. It's like getting a license plate for your SMS. Register Colibri Code LLC once, and you can send texts for all clients.</p>
-              <p><strong>What Paola needs to know:</strong> When you're onboarding a client, just tell them: "We'll set up a new number in your area code. You forward your missed calls to it — takes 5 minutes on your phone. Nothing else changes for you."</p>
+              <p><strong>What Paola needs to know:</strong> When you're onboarding a client, just tell them: "We'll set up a new number in your area code. You forward your missed calls to it &mdash; takes 5 minutes on your phone. Nothing else changes for you."</p>
+            </div>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">Twilio ConversationRelay &mdash; The Future of Voice AI on Twilio</h3>
+          <div class="bg-white rounded-xl border-2 border-blue-200 p-5 mb-4">
+            <p class="text-sm text-gray-700 mb-3">Twilio announced three new Conversation products at SIGNAL 2026, now GA. These are Twilio-native alternatives to using Vapi as a middleware layer. <strong>You don&rsquo;t need them yet</strong>, but understand what they are so you can evaluate them as your agency scales.</p>
+            <div class="space-y-4 text-sm text-gray-700">
+              <div class="bg-blue-50 rounded-lg p-3">
+                <p class="font-bold text-blue-800 mb-1">Conversation Orchestrator</p>
+                <p>Routes calls between AI agents and human agents in real time. Think of it as a traffic controller: AI handles routine calls, and the orchestrator seamlessly transfers to a human when the AI hits its limits &mdash; with full context carried over. Useful when your clients want &ldquo;AI first, human backup&rdquo; without callers noticing the handoff.</p>
+              </div>
+              <div class="bg-blue-50 rounded-lg p-3">
+                <p class="font-bold text-blue-800 mb-1">Conversation Memory</p>
+                <p>Persistent context across calls. If a customer called last Tuesday about a leaking faucet, the AI remembers that on the next call &mdash; no need to repeat themselves. Stores structured data (name, address, service history) and unstructured notes. Today you build this yourself with Supabase lookups in n8n; Conversation Memory does it natively inside Twilio.</p>
+              </div>
+              <div class="bg-blue-50 rounded-lg p-3">
+                <p class="font-bold text-blue-800 mb-1">Conversation Intelligence</p>
+                <p>Real-time call analytics: sentiment detection, keyword spotting, escalation triggers. If a caller says &ldquo;I want to cancel&rdquo; or sounds frustrated, Intelligence flags it and can auto-trigger a transfer or alert. Replaces manual call review and lets you build smarter reports for clients.</p>
+              </div>
+            </div>
+            <div class="callout callout-action p-3 mt-4">
+              <p class="text-xs text-blue-700"><strong>When to evaluate:</strong> If you outgrow Vapi&rsquo;s telephony (10+ concurrent calls, need HIPAA compliance, or want to cut out the middleware layer), ConversationRelay + these products let you build Vapi-equivalent functionality directly on Twilio. The tradeoff: more engineering work, but lower per-minute costs at scale and full data sovereignty. Revisit at the 15-client mark.</p>
             </div>
           </div>
           <h3 class="text-lg font-bold mt-8 mb-4">A2P 10DLC Registration (CRITICAL for SMS)</h3>
@@ -4237,7 +4430,8 @@ Questions? Reply to this email or text me at [YOUR NUMBER].
 
           <div class="callout callout-action p-4 mt-6">
             <p class="font-semibold text-blue-800 text-sm mb-1">When to Add GHL</p>
-            <p class="text-sm text-blue-700"><strong>Not Day 1.</strong> Start with the lean stack (n8n + Vapi + Twilio). Add GHL when you have 3-5 clients and the $97/mo is easily justified. The SaaS Pro ($497/mo) makes sense at 10+ clients when you want to white-label. GHL <em>supplements</em> your AI voice agent — it doesn't replace Vapi/n8n for the actual AI calling.</p>
+            <p class="text-sm text-blue-700"><strong>Not Day 1.</strong> Start with the lean stack (n8n + Vapi + Twilio). Add GHL when you have 3-5 clients and the $97/mo is easily justified. The SaaS Pro ($497/mo) makes sense at 10+ clients when you want to white-label. GHL <em>supplements</em> your AI voice agent &mdash; it doesn&rsquo;t replace Vapi/n8n for the actual AI calling.</p>
+            <p class="text-sm text-blue-700 mt-2">&#x2192; See the <a href="#voice-platforms" class="font-semibold underline">Voice Platforms Deep Dive</a> for how GHL&rsquo;s AI Employee suite ($0.16/min, requires $497/mo plan to rebill) compares to Vapi, Bland, and Retell — including the detailed pricing and feature comparison table.</p>
           </div>
 
           <div class="callout callout-plain p-4 mt-6">
@@ -5784,7 +5978,7 @@ AFTER SAFETY INSTRUCTIONS:
                 <tr><td class="px-3 py-2 font-semibold">Voice AI</td><td class="px-3 py-2">Vapi ($0.05/min + LLM)</td><td class="px-3 py-2">Bland.ai ($0.09/min all-in)</td><td class="px-3 py-2">Retell.ai ($0.07/min)</td><td class="px-3 py-2">If Vapi pricing changes or you need specific integrations</td></tr>
                 <tr><td class="px-3 py-2 font-semibold">Telephony</td><td class="px-3 py-2">Twilio ($1/no + usage)</td><td class="px-3 py-2">Vonage</td><td class="px-3 py-2">Telnyx (cheaper)</td><td class="px-3 py-2">Telnyx is 20-40% cheaper at volume</td></tr>
                 <tr><td class="px-3 py-2 font-semibold">Automation</td><td class="px-3 py-2">n8n (self-hosted, free)</td><td class="px-3 py-2">Make.com ($9-16/mo)</td><td class="px-3 py-2">Zapier ($20+/mo)</td><td class="px-3 py-2">If you want hosted/no-devops; Make is cheaper than Zapier</td></tr>
-                <tr><td class="px-3 py-2 font-semibold">LLM</td><td class="px-3 py-2">Claude API (Anthropic)</td><td class="px-3 py-2">OpenAI GPT-4</td><td class="px-3 py-2">Groq (fast, cheap)</td><td class="px-3 py-2">Groq for low-latency; GPT-4o for function calling</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">LLM</td><td class="px-3 py-2">Claude API (Haiku 4.5)</td><td class="px-3 py-2">OpenAI GPT-5.4 mini / o4-mini</td><td class="px-3 py-2">Groq (fast, cheap)</td><td class="px-3 py-2">Groq for low-latency; o4-mini for budget; Haiku 4.5 for quality</td></tr>
                 <tr><td class="px-3 py-2 font-semibold">Cold Email</td><td class="px-3 py-2">Smartlead ($39/mo)</td><td class="px-3 py-2">Instantly ($97/mo)</td><td class="px-3 py-2">Lemlist ($59/mo)</td><td class="px-3 py-2">Instantly at 5+ clients for higher volume limits</td></tr>
                 <tr><td class="px-3 py-2 font-semibold">Lead Data</td><td class="px-3 py-2">Apollo.io (free tier)</td><td class="px-3 py-2">Clay.com ($149/mo)</td><td class="px-3 py-2">ZoomInfo (enterprise)</td><td class="px-3 py-2">Clay when you need waterfall enrichment (95%+ email find rate)</td></tr>
                 <tr><td class="px-3 py-2 font-semibold">CRM</td><td class="px-3 py-2">Supabase (free)</td><td class="px-3 py-2">GoHighLevel ($97+)</td><td class="px-3 py-2">HubSpot (free tier)</td><td class="px-3 py-2">GHL at 3-5 clients when you need client-facing features</td></tr>
@@ -5898,6 +6092,25 @@ AFTER SAFETY INSTRUCTIONS:
               <div class="mt-3 bg-amber-50 rounded-lg p-3">
                 <p class="text-xs text-amber-800"><strong>Our recommendation:</strong> Start with no GHL. Use n8n + Supabase + Cal.com for the first 3-5 clients. It's free and you control everything. Once you have 5+ clients asking for a "dashboard" or "CRM portal," get GHL at $297/mo. The $497 SaaS Pro only makes sense when you have 10+ clients and want to charge a platform fee. Don't let the GHL YouTube ecosystem pressure you into spending $497/mo before you have clients paying you.</p>
               </div>
+            </div>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">Vapi Simulations: Test Your Agent Before It Talks to Real Customers</h3>
+          <div class="bg-white rounded-xl border-2 border-blue-200 p-5 mb-6">
+            <p class="text-sm text-gray-700 mb-3">Vapi launched <strong>Simulations</strong> in 2026 &mdash; AI-powered test calls that stress-test your agent before it goes live. This is the single biggest QA upgrade for agencies: instead of manually calling your agent 20 times, you define scenarios and the system runs them automatically. Use it:</p>
+            <div class="space-y-2 text-sm text-gray-700">
+              <p class="check-item"><strong>Before every go-live:</strong> Vapi Dashboard &rarr; your agent &rarr; Simulations tab. Create 5-8 scenarios that cover your client's reality:</p>
+              <p class="text-xs text-gray-500 ml-6 mb-1">&bull; Standard booking request during business hours</p>
+              <p class="text-xs text-gray-500 ml-6 mb-1">&bull; After-hours emergency ("my pipe burst")</p>
+              <p class="text-xs text-gray-500 ml-6 mb-1">&bull; Spanish-language caller</p>
+              <p class="text-xs text-gray-500 ml-6 mb-1">&bull; Angry/confused caller who interrupts</p>
+              <p class="text-xs text-gray-500 ml-6 mb-1">&bull; Caller asking about pricing the agent shouldn't quote</p>
+              <p class="text-xs text-gray-500 ml-6 mb-1">&bull; Caller asking to speak to a human</p>
+              <p class="check-item"><strong>After every script change:</strong> Re-run your simulation suite. Catches regressions you'd miss manually.</p>
+              <p class="check-item"><strong>Pair with QA Monitoring:</strong> Vapi's new monitoring dashboard flags live calls with low scores, long pauses, or hang-ups. Set up alerts &rarr; n8n webhook &rarr; Slack/email notification. Review flagged calls weekly.</p>
+            </div>
+            <div class="callout callout-tip p-3 mt-3">
+              <p class="text-xs text-blue-700"><strong>Sell this as a feature:</strong> "Before we go live, we run your agent through 8 different test scenarios — angry callers, emergencies, Spanish speakers, weird questions. We don't ship until it passes every one." Clients love hearing this; it builds trust that you're not just flipping a switch.</p>
             </div>
           </div>
         </section>
@@ -6189,7 +6402,7 @@ curl -I https://your-n8n-domain.com/webhook-test/test</code></div>
 
           <h3 class="text-lg font-bold mt-8 mb-4">Sample Contract Outline (Copy &amp; Customize)</h3>
           <div class="prompt-block">
-            <button class="copy-btn" onclick="copyCode(this)">Copy</button>SERVICES AGREEMENT &#x2014; [Client Business Name]
+            <button class="copy-btn">Copy</button><code>SERVICES AGREEMENT &#x2014; [Client Business Name]
 Provider: Colibri Code LLC
 Client: [Client Business Name], [Client Name]
 Date: [Date]
@@ -6235,7 +6448,7 @@ Signed: _________________________ Date: __________
         [Client Name]
 
 Signed: _________________________ Date: __________
-        Colibri Code LLC</div>
+        Colibri Code LLC</code></div>
 
           <div class="callout callout-tip p-4 mt-4">
             <p class="font-semibold text-blue-800 text-sm mb-1">Pro Tip: Keep It Simple</p>
@@ -7704,28 +7917,290 @@ Talk soon,
           <div class="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-xl border-2 border-purple-200 p-5 mb-6">
             <div class="flex items-center gap-2 mb-3">
               <span class="value-tag">Bonus</span>
-              <h4 class="font-bold text-sm text-purple-800">Downloadable Templates &amp; Resources</h4>
+              <h4 class="font-bold text-sm text-purple-800">Copy-Paste Templates &amp; Resources</h4>
             </div>
-            <p class="text-sm text-gray-600 mb-3">These files are included with the course. Import them directly into your tools.</p>
-            <div class="grid sm:grid-cols-2 gap-2 text-sm">
-              <div class="bg-white rounded-lg p-3 border border-purple-100">
-                <p class="font-bold text-xs text-purple-700">01-vapi-system-prompt.md</p>
-                <p class="text-xs text-gray-500">Production Vapi agent script with bilingual support</p>
-              </div>
-              <div class="bg-white rounded-lg p-3 border border-purple-100">
-                <p class="font-bold text-xs text-purple-700">02-n8n-workflows.md</p>
-                <p class="text-xs text-gray-500">4 complete n8n workflow architectures</p>
-              </div>
-              <div class="bg-white rounded-lg p-3 border border-purple-100">
-                <p class="font-bold text-xs text-purple-700">03-supabase-schema.sql</p>
-                <p class="text-xs text-gray-500">Full database schema, ready to run</p>
-              </div>
-              <div class="bg-white rounded-lg p-3 border border-purple-100">
-                <p class="font-bold text-xs text-purple-700">04-twilio-setup-checklist.md</p>
-                <p class="text-xs text-gray-500">Step-by-step phone setup with A2P 10DLC</p>
-              </div>
-            </div>
+            <p class="text-sm text-gray-600 mb-3">Production-ready templates. Click the copy button on each block and paste directly into your tools.</p>
           </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">01 &mdash; Vapi System Prompt (Production)</h3>
+          <p class="text-sm text-gray-600 mb-3">Paste this into Vapi &rarr; Assistants &rarr; System Prompt. Replace the bracketed values with client details.</p>
+          <div class="prompt-block"><button class="copy-btn">Copy</button><code>You are the AI receptionist for [CLIENT_BUSINESS_NAME], a [TRADE_TYPE] company in [CITY, STATE].
+
+IDENTITY:
+- Your name is [AGENT_NAME] (e.g., "Sarah")
+- You work for [CLIENT_BUSINESS_NAME]
+- You sound friendly, professional, and confident — never robotic
+- You speak English. If the caller speaks Spanish, switch to Spanish seamlessly.
+
+CORE TASK: Answer incoming calls, determine what the caller needs, and book an appointment or collect a message.
+
+GREETING: "Thanks for calling [CLIENT_BUSINESS_NAME], this is [AGENT_NAME]. How can I help you today?"
+
+CALL FLOW:
+1. Greet the caller warmly
+2. Ask what service they need
+3. Collect: caller name, phone number, address, brief description of the issue
+4. If EMERGENCY (gas leak, flooding, no heat in winter, electrical fire):
+   - Say: "That sounds urgent. Let me connect you with [OWNER_NAME] right now."
+   - Transfer to [OWNER_PHONE]
+5. If ROUTINE (maintenance, quote, non-urgent repair):
+   - Book an appointment using the calendar tool
+   - Confirm date, time, and service needed
+   - Say: "You're all set! [CLIENT_BUSINESS_NAME] will see you on [DATE] at [TIME]."
+6. If AFTER-HOURS or no slots available:
+   - Collect their info and say: "I'll have [OWNER_NAME] call you back first thing tomorrow morning."
+   - Save the message via the webhook
+
+TRANSFER RULES:
+- Transfer to [OWNER_PHONE] ONLY for: emergencies, existing customer complaints, price negotiations, or if the caller explicitly asks for a human
+- Never transfer for: scheduling, general questions, service inquiries, hours/directions
+
+INFORMATION YOU KNOW:
+- Business hours: [HOURS, e.g., "Monday-Friday 7AM-6PM, Saturday 8AM-2PM"]
+- Services offered: [LIST_SERVICES]
+- Service area: [COVERAGE_AREA]
+- Typical response time: [e.g., "same-day for emergencies, 1-2 days for routine"]
+
+RULES:
+- Never make up prices. Say: "Pricing depends on the specific job. We can give you an exact quote at the appointment."
+- Never diagnose problems. Say: "Our technician will take a look and let you know exactly what's going on."
+- If asked about competitors, stay neutral: "I can only speak to our services, but I'm happy to help you get scheduled."
+- Keep responses under 2 sentences when possible. Be concise.
+- Always confirm the spelling of their name and repeat the phone number back.</code></div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">02 &mdash; n8n Call Handler Workflow (Importable JSON)</h3>
+          <p class="text-sm text-gray-600 mb-3">In n8n: Menu &rarr; Import from URL/Clipboard &rarr; paste this JSON. Then update the Supabase credentials and notification phone number.</p>
+          <div class="prompt-block"><button class="copy-btn">Copy</button><code>{
+  "name": "Vapi Call Handler — Post-Call Pipeline",
+  "nodes": [
+    {
+      "parameters": { "httpMethod": "POST", "path": "vapi-webhook", "responseMode": "onReceived" },
+      "name": "Webhook — Vapi End-of-Call",
+      "type": "n8n-nodes-base.webhook",
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "conditions": { "string": [{ "value1": "={{ $json.message.type }}", "value2": "end-of-call-report", "operation": "equal" }] }
+      },
+      "name": "Filter — End of Call Only",
+      "type": "n8n-nodes-base.if",
+      "position": [470, 300]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            { "name": "caller_phone", "value": "={{ $json.message.call.customer.number }}" },
+            { "name": "caller_name", "value": "={{ $json.message.artifact.extractedName || 'Unknown' }}" },
+            { "name": "summary", "value": "={{ $json.message.artifact.summary }}" },
+            { "name": "transcript", "value": "={{ $json.message.artifact.transcript }}" },
+            { "name": "call_duration", "value": "={{ $json.message.durationSeconds }}" },
+            { "name": "status", "value": "={{ $json.message.artifact.extractedAppointment ? 'booked' : 'needs_followup' }}" }
+          ]
+        }
+      },
+      "name": "Set — Extract Call Data",
+      "type": "n8n-nodes-base.set",
+      "position": [700, 250]
+    },
+    {
+      "parameters": {
+        "operation": "insert",
+        "tableId": "calls",
+        "fieldsToSend": "autoMapInputData"
+      },
+      "name": "Supabase — Save Call",
+      "type": "n8n-nodes-base.supabase",
+      "position": [930, 250]
+    },
+    {
+      "parameters": {
+        "fromNumber": "+1YOURTWILIONUMBER",
+        "toNumber": "+1OWNERPHONENUMBER",
+        "message": "=New call from {{ $node['Set — Extract Call Data'].json.caller_name }} ({{ $node['Set — Extract Call Data'].json.caller_phone }}). Status: {{ $node['Set — Extract Call Data'].json.status }}. Summary: {{ $node['Set — Extract Call Data'].json.summary }}"
+      },
+      "name": "Twilio — Notify Owner",
+      "type": "n8n-nodes-base.twilio",
+      "position": [1160, 250]
+    },
+    {
+      "parameters": {
+        "conditions": { "string": [{ "value1": "={{ $node['Set — Extract Call Data'].json.status }}", "value2": "needs_followup", "operation": "equal" }] }
+      },
+      "name": "If — Needs Follow-up",
+      "type": "n8n-nodes-base.if",
+      "position": [1160, 450]
+    },
+    {
+      "parameters": { "unit": "hours", "amount": 1 },
+      "name": "Wait — 1 Hour",
+      "type": "n8n-nodes-base.wait",
+      "position": [1390, 450]
+    },
+    {
+      "parameters": {
+        "fromNumber": "+1YOURTWILIONUMBER",
+        "toNumber": "={{ $node['Set — Extract Call Data'].json.caller_phone }}",
+        "message": "Hi {{ $node['Set — Extract Call Data'].json.caller_name }}, thanks for calling [BUSINESS_NAME]! We'll have someone reach out shortly. Reply STOP to opt out."
+      },
+      "name": "Twilio — Follow-up SMS",
+      "type": "n8n-nodes-base.twilio",
+      "position": [1620, 450]
+    }
+  ],
+  "connections": {
+    "Webhook — Vapi End-of-Call": { "main": [[{ "node": "Filter — End of Call Only", "type": "main", "index": 0 }]] },
+    "Filter — End of Call Only": { "main": [[{ "node": "Set — Extract Call Data", "type": "main", "index": 0 }]] },
+    "Set — Extract Call Data": { "main": [[{ "node": "Supabase — Save Call", "type": "main", "index": 0 }, { "node": "If — Needs Follow-up", "type": "main", "index": 0 }]] },
+    "Supabase — Save Call": { "main": [[{ "node": "Twilio — Notify Owner", "type": "main", "index": 0 }]] },
+    "If — Needs Follow-up": { "main": [[{ "node": "Wait — 1 Hour", "type": "main", "index": 0 }]] },
+    "Wait — 1 Hour": { "main": [[{ "node": "Twilio — Follow-up SMS", "type": "main", "index": 0 }]] }
+  }
+}</code></div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">03 &mdash; Supabase Schema (SQL)</h3>
+          <p class="text-sm text-gray-600 mb-3">Supabase &rarr; SQL Editor &rarr; New Query &rarr; paste &rarr; Run. Creates all tables for multi-tenant call tracking.</p>
+          <div class="prompt-block"><button class="copy-btn">Copy</button><code>-- =============================================
+-- Colibri Code Agency — Supabase Schema
+-- Run this in: Supabase → SQL Editor → New Query
+-- =============================================
+
+-- Clients table (one row per paying client)
+CREATE TABLE IF NOT EXISTS clients (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  business_name TEXT NOT NULL,
+  owner_name TEXT NOT NULL,
+  owner_phone TEXT NOT NULL,
+  owner_email TEXT,
+  trade_type TEXT NOT NULL DEFAULT 'HVAC',
+  twilio_number TEXT,
+  vapi_assistant_id TEXT,
+  plan TEXT NOT NULL DEFAULT 'starter' CHECK (plan IN ('starter','growth','premium')),
+  mrr INTEGER NOT NULL DEFAULT 0,
+  status TEXT NOT NULL DEFAULT 'active' CHECK (status IN ('active','paused','churned')),
+  onboarded_at TIMESTAMPTZ DEFAULT NOW(),
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Calls table (every AI-handled call)
+CREATE TABLE IF NOT EXISTS calls (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  client_id UUID REFERENCES clients(id) ON DELETE CASCADE,
+  caller_phone TEXT NOT NULL,
+  caller_name TEXT,
+  summary TEXT,
+  transcript TEXT,
+  call_duration INTEGER DEFAULT 0,
+  status TEXT NOT NULL DEFAULT 'completed' CHECK (status IN ('completed','transferred','voicemail','missed','booked','needs_followup')),
+  appointment_date TIMESTAMPTZ,
+  follow_up_sent BOOLEAN DEFAULT FALSE,
+  vapi_call_id TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Messages table (SMS sent/received)
+CREATE TABLE IF NOT EXISTS messages (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  client_id UUID REFERENCES clients(id) ON DELETE CASCADE,
+  direction TEXT NOT NULL CHECK (direction IN ('inbound','outbound')),
+  to_number TEXT NOT NULL,
+  from_number TEXT NOT NULL,
+  body TEXT NOT NULL,
+  status TEXT DEFAULT 'sent',
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Monthly reports (auto-generated stats per client)
+CREATE TABLE IF NOT EXISTS monthly_reports (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  client_id UUID REFERENCES clients(id) ON DELETE CASCADE,
+  month DATE NOT NULL,
+  total_calls INTEGER DEFAULT 0,
+  appointments_booked INTEGER DEFAULT 0,
+  calls_transferred INTEGER DEFAULT 0,
+  avg_call_duration INTEGER DEFAULT 0,
+  follow_ups_sent INTEGER DEFAULT 0,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  UNIQUE(client_id, month)
+);
+
+-- Row Level Security (RLS) — isolate client data
+ALTER TABLE calls ENABLE ROW LEVEL SECURITY;
+ALTER TABLE messages ENABLE ROW LEVEL SECURITY;
+ALTER TABLE monthly_reports ENABLE ROW LEVEL SECURITY;
+
+-- Index for fast lookups
+CREATE INDEX IF NOT EXISTS idx_calls_client ON calls(client_id, created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_calls_phone ON calls(caller_phone);
+CREATE INDEX IF NOT EXISTS idx_messages_client ON messages(client_id, created_at DESC);
+
+-- View: Dashboard stats per client (use in n8n reports)
+CREATE OR REPLACE VIEW client_stats AS
+SELECT
+  c.id AS client_id,
+  c.business_name,
+  COUNT(cl.id) AS total_calls,
+  COUNT(CASE WHEN cl.status = 'booked' THEN 1 END) AS appointments,
+  COUNT(CASE WHEN cl.status = 'transferred' THEN 1 END) AS transfers,
+  ROUND(AVG(cl.call_duration)) AS avg_duration_sec
+FROM clients c
+LEFT JOIN calls cl ON cl.client_id = c.id
+  AND cl.created_at >= DATE_TRUNC('month', NOW())
+GROUP BY c.id, c.business_name;</code></div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">04 &mdash; Twilio Setup Checklist</h3>
+          <p class="text-sm text-gray-600 mb-3">Follow this step-by-step. Do it in Week 1 &mdash; A2P registration takes days to approve.</p>
+          <div class="prompt-block"><button class="copy-btn">Copy</button><code>TWILIO SETUP CHECKLIST — Colibri Code LLC
+==========================================
+
+ACCOUNT SETUP (Day 1):
+[ ] Create Twilio account at twilio.com/try-twilio
+[ ] Upgrade from trial ($20 initial credit is enough)
+[ ] Note your Account SID and Auth Token (Settings → General)
+[ ] Enable 2FA on your Twilio account
+
+BUY YOUR FIRST NUMBER (Day 1):
+[ ] Phone Numbers → Buy a Number
+[ ] Select client's area code (local presence matters)
+[ ] Ensure Voice + SMS capabilities are checked
+[ ] Cost: $1.15/mo per number + usage
+
+CONNECT TO VAPI (Day 1):
+[ ] Vapi Dashboard → Phone Numbers → Import from Twilio
+[ ] Enter: Account SID, Auth Token, Phone Number
+[ ] Vapi auto-configures the webhook on the Twilio number
+[ ] Test: call the number — Vapi should answer
+
+A2P 10DLC REGISTRATION (Day 1 — takes 1-5 days to approve):
+[ ] Messaging → Trust Hub → Customer Profiles → Create
+[ ] Business type: Sole Proprietor or Standard
+[ ] Enter: Colibri Code LLC, EIN, business address, website
+[ ] Brand registration fee: $4 one-time
+[ ] Create Campaign: use case "Customer Care" or "Mixed"
+[ ] Campaign description: "Appointment confirmations, call
+    follow-ups, and service notifications for home service clients"
+[ ] Campaign fee: $15 one-time
+[ ] Link your Twilio phone numbers to the campaign
+[ ] Wait for approval (check Trust Hub status daily)
+
+PER-CLIENT SETUP (15 minutes each):
+[ ] Buy a number in client's area code
+[ ] Import to Vapi, assign to client's assistant
+[ ] Add number to your existing A2P campaign
+[ ] Configure call forwarding on client's phone:
+    - iPhone: Settings → Phone → Call Forwarding → ON → enter Twilio #
+    - Android: Phone app → Settings → Call Forwarding → enter Twilio #
+    - Landline: dial *72 + Twilio number
+[ ] Test: call client's number, let it ring → should forward to AI
+[ ] Test: trigger a follow-up SMS from n8n → should deliver
+
+MONTHLY COSTS PER CLIENT:
+- Phone number: $1.15/mo
+- Inbound calls: $0.0085/min (~$2.50 for 300 min)
+- Outbound SMS: $0.0079/msg (~$4 for 500 msgs)
+- Total Twilio cost: ~$8-15/client/month</code></div>
 <h2 class="text-2xl font-extrabold mb-4">Resources &amp; Learning Path</h2>
           <p class="text-gray-700 leading-relaxed mb-6">Everything you need to learn, organized by when you need it. Don&#x2019;t try to watch everything at once &#x2014; follow the phases.</p>
 
@@ -7860,7 +8335,7 @@ Talk soon,
             <p class="text-lg text-purple-200 max-w-2xl mx-auto mb-6">Build a $10K/month AI automation agency selling AI phone agents to home service businesses. Step-by-step. Copy-paste templates. No fluff.</p>
             <div class="flex flex-wrap justify-center gap-3 mb-8">
               <span class="module-badge badge-time text-sm px-3 py-1">9 Modules</span>
-              <span class="module-badge badge-lessons text-sm px-3 py-1">67 Lessons</span>
+              <span class="module-badge badge-lessons text-sm px-3 py-1">68 Lessons</span>
               <span class="module-badge badge-difficulty text-sm px-3 py-1">Templates + Scripts</span>
             </div>
             <div class="sales-price mb-2">$497</div>
@@ -7893,7 +8368,7 @@ Talk soon,
             <div class="course-card">
               <div class="text-2xl mb-2">&#x1F4B0;</div>
               <h3 class="font-bold text-sm mb-1">Module 5: Sales & Clients</h3>
-              <p class="text-xs text-gray-500">Multi-channel lead gen, cold email infrastructure, the Missed Call Audit, the discovery-call framework, proposals, onboarding SOPs. 9 lessons, 3 hours.</p>
+              <p class="text-xs text-gray-500">Multi-channel lead gen, cold email infrastructure, the Missed Call Audit, the Content Marketing Engine (LinkedIn + TikTok + newsletters), the discovery-call framework, proposals, onboarding SOPs. 10 lessons, 3 hours.</p>
             </div>
             <div class="course-card">
               <div class="text-2xl mb-2">&#x2699;&#xFE0F;</div>
@@ -8095,7 +8570,7 @@ Talk soon,
           <!-- CTA -->
           <div class="bg-gradient-to-r from-blue-600 to-purple-700 rounded-2xl p-8 text-center text-white">
             <h2 class="text-2xl font-extrabold mb-2">Ready to Build Your AI Agency?</h2>
-            <p class="text-blue-100 mb-4">9 modules. 63 lessons. Every template, script, and workflow you need.</p>
+            <p class="text-blue-100 mb-4">9 modules. 68 lessons. Every template, script, and workflow you need.</p>
             <div class="sales-price mb-1" style="font-size:2.5rem">$497</div>
             <p class="text-blue-200 text-xs mb-6">One-time. Lifetime access. 30-day guarantee.</p>
             <button onclick="showView('home')" class="bg-white text-blue-700 font-bold px-8 py-3 rounded-xl hover:bg-blue-50 transition-all text-sm">Start Module 1 &rarr;</button>
@@ -8114,10 +8589,13 @@ Talk soon,
             <div class="p-4"><p class="font-bold text-sm text-blue-700">CAC</p><p class="text-sm text-gray-600">Customer Acquisition Cost. How much it costs to get one new client. Your target: under $200 (mostly time, not money).</p></div>
             <div class="p-4"><p class="font-bold text-sm text-blue-700">CRM</p><p class="text-sm text-gray-600">Customer Relationship Management. Software to track leads and client interactions. You use Supabase (free) or GoHighLevel ($97-$297/mo).</p></div>
             <div class="p-4"><p class="font-bold text-sm text-blue-700">Cold Email Warmup</p><p class="text-sm text-gray-600">Process of gradually building reputation for new email domains. Send small volumes of "good" emails for 2 weeks before outreach. Tools: Smartlead auto-warmup.</p></div>
+            <div class="p-4"><p class="font-bold text-sm text-blue-700">DBR (Database Reactivation)</p><p class="text-sm text-gray-600">AI-powered SMS campaign to a business&rsquo;s dormant customer list. Re-engages past customers who haven&rsquo;t booked in 6-12+ months. A zero-risk front-door offer to land new clients. See <a href="#database-reactivation" class="text-blue-600 hover:underline">Database Reactivation</a>.</p></div>
             <div class="p-4"><p class="font-bold text-sm text-blue-700">Discovery Call</p><p class="text-sm text-gray-600">A 20-30 minute call with a prospect to understand their business, pain points, and qualify them. This is where you diagnose their problem before prescribing your solution.</p></div>
-            <div class="p-4"><p class="font-bold text-sm text-blue-700">GHL (GoHighLevel)</p><p class="text-sm text-gray-600">All-in-one CRM and marketing platform popular with agencies. $97-$297/mo. Optional — you can start without it using Supabase + n8n.</p></div>
+            <div class="p-4"><p class="font-bold text-sm text-blue-700">GEO (Generative Engine Optimization)</p><p class="text-sm text-gray-600">Getting a client&rsquo;s business recommended by AI search engines (ChatGPT, Perplexity, Google AI Overviews). The 2026 evolution of SEO. See <a href="#ai-search-geo" class="text-blue-600 hover:underline">AI Search Visibility</a>.</p></div>
+            <div class="p-4"><p class="font-bold text-sm text-blue-700">GHL (GoHighLevel)</p><p class="text-sm text-gray-600">All-in-one CRM and marketing platform popular with agencies. $97-$497/mo. Optional &mdash; you can start without it using Supabase + n8n. See <a href="#ghl" class="text-blue-600 hover:underline">GHL section</a> and <a href="#voice-platforms" class="text-blue-600 hover:underline">Voice Platforms comparison</a>.</p></div>
             <div class="p-4"><p class="font-bold text-sm text-blue-700">IVR</p><p class="text-sm text-gray-600">Interactive Voice Response. The old "Press 1 for sales, press 2 for support" phone trees. What we replace with natural AI conversation.</p></div>
             <div class="p-4"><p class="font-bold text-sm text-blue-700">LTV</p><p class="text-sm text-gray-600">Lifetime Value. Total revenue from a client over their entire relationship. At $1,000/mo with 18-month average retention = $18,000 LTV.</p></div>
+            <div class="p-4"><p class="font-bold text-sm text-blue-700">MCP (Model Context Protocol)</p><p class="text-sm text-gray-600">Open standard (now under Linux Foundation) that lets AI models connect to external tools &mdash; databases, APIs, calendars &mdash; through a universal interface. Like USB-C for AI. Enables the agentic workflows you sell. See <a href="#agentic-ai" class="text-blue-600 hover:underline">Agentic AI</a>.</p></div>
             <div class="p-4"><p class="font-bold text-sm text-blue-700">MRR</p><p class="text-sm text-gray-600">Monthly Recurring Revenue. Your predictable monthly income from all active client subscriptions.</p></div>
             <div class="p-4"><p class="font-bold text-sm text-blue-700">Missed Call Audit</p><p class="text-sm text-gray-600">Your proprietary sales tool. Call a prospect's business, let it ring, and use the experience (voicemail, no answer) as proof they need your service. Detailed in Module 5.</p></div>
             <div class="p-4"><p class="font-bold text-sm text-blue-700">n8n</p><p class="text-sm text-gray-600">Open-source workflow automation tool (like Zapier, but self-hosted and free). Your central automation hub connecting Vapi, Twilio, Supabase, and everything else.</p></div>
@@ -8695,7 +9173,7 @@ sources.</code></div>
     setup: ['business','niche','services','stack','accounts','roles','quiz-m2'],
     build: ['week1','week2','week3','week4','demo-env','quiz-m3'],
     launch: ['week5-6','week7-8','month3','month4-6','quiz-m4'],
-    sales: ['leadgen','pipeline','email-infra','missed-call-audit','referral-partners','agency-website','onboarding','discovery-framework','scripts','quiz-m5'],
+    sales: ['leadgen','pipeline','email-infra','missed-call-audit','referral-partners','agency-website','content-engine','onboarding','discovery-framework','scripts','quiz-m5'],
     tech: ['tech-delivery','tech-implementation','phone-setup','ghl','agentic-ai','agent-scripts','tools-compare','quiz-m6','voice-platforms','backups-security','troubleshooting'],
     growth: ['economics','expansion','speed-to-lead','database-reactivation','ai-search-geo','retention','competition','milestones','case-studies','seasonal','client-success','client-offboarding','quiz-m7'],
     ai: ['ai-overview','ai-build','ai-clients','ai-research','ai-agents','ai-prompts','trends-2026','quiz-m9'],
