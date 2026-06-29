@@ -3298,6 +3298,16 @@ Should I set this up for you?&rdquo;</code></div>
             </div>
           </div>
 
+          <div class="callout callout-cost p-4 mt-6">
+            <p class="font-semibold text-amber-800 text-sm mb-1">2026 stats to put in the video and the follow-up</p>
+            <p class="text-sm text-amber-700">The reason this lands isn&rsquo;t the tech &mdash; it&rsquo;s the math. Drop these numbers on contractors: HVAC/plumbing businesses miss <strong>27-74% of calls</strong>; the average missed call is worth ~<strong>$1,200</strong>; <strong>85% of callers who hit voicemail never call back</strong>; a contractor missing 5-10 calls/week loses <strong>$45K-$120K/year</strong>. And the kicker for outbound: cold AI-written email is dead (73% delete it on sight), but a recording of <em>their own line</em> going to voicemail is undeniable, personal proof &mdash; the highest-converting opener that exists for this niche. Lead with the leak, never with the features.</p>
+          </div>
+
+          <div class="callout callout-tip p-4 mt-4">
+            <p class="font-semibold text-blue-800 text-sm mb-1">Scale it: let your AI place the after-hours call</p>
+            <p class="text-sm text-blue-700">Instead of dialing every prospect by hand, point a Vapi outbound agent at your prospect list to place a single after-hours &ldquo;test&rdquo; call to each published number, and log which ones went to voicemail/no-answer in Supabase. You wake up to a ranked list of the hottest prospects (the ones who clearly miss calls) plus the recording you&rsquo;ll reference in your opener: &ldquo;I called your line at 7:14pm last night and got voicemail &mdash; here&rsquo;s what your AI front desk would have said instead.&rdquo; Keep it to a brief, polite single call (no repeat dialing) to stay on the right side of the <a href="#legal" class="underline">consent rules</a>.</p>
+          </div>
+
           <h3 class="text-lg font-bold mt-8 mb-4">The Loom Video Script</h3>
           <div class="prompt-block"><button class="copy-btn">Copy</button><code>LOOM VIDEO SCRIPT (2 minutes)
 
@@ -4357,11 +4367,18 @@ Questions? Reply to this email or text me at [YOUR NUMBER].
           <div class="bg-white rounded-xl border-2 border-blue-200 p-5">
             <h4 class="font-bold text-sm text-blue-700 mb-3">Step-by-Step Registration (Do This in Week 1)</h4>
             <div class="space-y-2 text-sm text-gray-700">
-              <p class="check-item"><strong>Step 1: Register your Brand</strong> &mdash; Twilio Console &rarr; Messaging &rarr; Trust Hub &rarr; A2P Brand Registration. Enter: Colibri Code LLC, your EIN (or SSN if no EIN), business address, website. Cost: one-time $4 fee.</p>
+              <p class="check-item"><strong>Step 1: Register your Brand</strong> &mdash; Twilio Console &rarr; Messaging &rarr; Trust Hub &rarr; A2P Brand Registration. Enter: Colibri Code LLC, your EIN (or SSN if no EIN), business address, website. Cost: one-time ~$4-4.50 fee (standard brand vetting runs ~$41.50 if required).</p>
               <p class="check-item"><strong>Step 2: Create a Campaign</strong> &mdash; Trust Hub &rarr; A2P Campaigns. Use case: &ldquo;Mixed&rdquo; or &ldquo;Customer Care.&rdquo; Describe: &ldquo;Appointment confirmations, call follow-ups, and service notifications on behalf of home service businesses.&rdquo;</p>
               <p class="check-item"><strong>Step 3: Link your Twilio numbers</strong> &mdash; Associate each phone number with the campaign. One campaign can cover all client numbers.</p>
               <p class="check-item"><strong>Step 4: Wait for approval</strong> &mdash; Takes 1-5 business days. You&rsquo;ll get a &ldquo;trust score&rdquo; determining throughput. Small businesses typically get 15 msg/sec. Plenty.</p>
               <p class="check-item"><strong>Step 5: For each new client number</strong> &mdash; Add it to your existing campaign (2 minutes). No need to re-register.</p>
+            </div>
+            <div class="callout callout-warning p-3 mt-3">
+              <p class="font-semibold text-red-800 text-xs mb-1">NEW (effective June 30, 2026): Privacy Policy + Terms URLs are now mandatory</p>
+              <p class="text-xs text-red-700">Every A2P campaign registration now <strong>requires</strong> two new fields: a public <code>PrivacyPolicyUrl</code> and a <code>TermsAndConditionsUrl</code>. Submissions without them get a hard <strong>400 error</strong> &mdash; registration simply fails. The privacy policy must be a live HTTPS page that states SMS opt-in data isn&rsquo;t shared/sold, names the messaging program, and specifies message frequency (T-Mobile rejects pages that don&rsquo;t). <strong>Build one reusable compliant privacy + terms page now</strong> (host it on your agency site) and point every client campaign at it &mdash; or host a per-client page if they prefer their own brand. Existing campaigns keep running, but any edit triggers the new validator.</p>
+            </div>
+            <div class="callout callout-tip p-3 mt-3">
+              <p class="text-xs text-blue-700"><strong>Carrier fee note (2026):</strong> T-Mobile added a ~$0.0025/message pass-through fee on Jan 19, 2026. At your volumes it&rsquo;s trivial (~$1-2/client/mo), but build it into your minute/SMS cost model. <strong>Virginia SB 1339</strong> also requires honoring SMS opt-outs for 10 years &mdash; keep STOP suppression permanent, never reuse a number across brands (that&rsquo;s an &ldquo;evasion&rdquo; violation, up to $1,000/incident on T-Mobile).</p>
             </div>
           </div>
           <div class="bg-white rounded-xl border border-gray-200 p-5 mt-4">
@@ -4508,6 +4525,40 @@ Questions? Reply to this email or text me at [YOUR NUMBER].
           </div>
           <p class="text-xs text-gray-500 mt-2">* Database Reactivation (B) is per-campaign, not monthly. All other prices are monthly recurring. "Your Cost" is the variable cost per client — fixed costs (VPS, Smartlead, etc.) are in the overhead table below.</p>
 
+          <!-- 2026 PRICING MODELS -->
+          <h3 class="text-lg font-bold mt-10 mb-4">The 2026 Pricing Playbook: How the Best Agencies Structure the Deal</h3>
+          <p class="text-sm text-gray-700 mb-4">Flat retainers still work, but in 2026 the agencies winning the skeptical contractors (and only ~50% of contractors trust AI per ServiceTitan&rsquo;s 2026 survey) use three upgrades to the basic model. Each one either closes a hesitant buyer or expands revenue without a price-increase conversation.</p>
+
+          <div class="bg-white rounded-xl border-2 border-emerald-300 p-5 mb-4">
+            <h4 class="font-bold text-emerald-800 mb-2">1. Hybrid: Base Retainer + Per-Booking Bonus</h4>
+            <p class="text-sm text-gray-700 mb-2">Pure pay-per-booking is a trap &mdash; one runaway month of call volume wipes your margin. The 2026 standard is a <strong>hybrid</strong>: keep your retainer as the floor, then layer a small per-outcome fee on top.</p>
+            <div class="bg-emerald-50 rounded-lg p-3 text-sm text-gray-700 space-y-1">
+              <p><strong>Structure:</strong> &ldquo;$1,000/mo includes the first 20 booked jobs, then $25 per booked appointment after that.&rdquo;</p>
+              <p><strong>Pricing rule:</strong> price each outcome at <strong>2.5&ndash;3.5&times; your blended cost</strong> per booking so it survives your worst (90th-percentile) cost month.</p>
+              <p><strong>Why it wins:</strong> aligns your pay with their revenue (kills the trust objection), and captures upside in HVAC summer / plumbing winter exactly when contractors are happiest to pay.</p>
+            </div>
+            <p class="text-xs text-red-700 mt-2"><strong>Guardrails (don&rsquo;t skip):</strong> define &ldquo;booked&rdquo; precisely (calendar event created + caller confirmed, not just a transferred call), add a monthly spend cap, and give the client a live dashboard so billing is never an honor-system fight.</p>
+          </div>
+
+          <div class="bg-white rounded-xl border border-gray-200 p-5 mb-4">
+            <h4 class="font-bold text-gray-800 mb-2">2. Tiered Minute Bundles + Overage (Expanding Recurring Revenue)</h4>
+            <p class="text-sm text-gray-700 mb-2">Turn a flat retainer into an account that grows on its own. Include a minute allowance, charge for overage, and offer seasonal tiers so clients self-upgrade instead of you renegotiating.</p>
+            <div class="bg-gray-50 rounded-lg p-3 text-sm text-gray-700 space-y-1">
+              <p><strong>Example:</strong> &ldquo;$1,200/mo includes 1,000 AI minutes; overage at $0.35/min; minutes roll over one month.&rdquo; Your real all-in cost is ~$0.10&ndash;$0.13/min, so you hold 85&ndash;90% margin on the base and still profit on overage.</p>
+              <p><strong>Seasonal tiers:</strong> Standard / Peak-Season / Multi-Location &mdash; a contractor heading into summer upgrades themselves.</p>
+            </div>
+            <p class="text-xs text-amber-700 mt-2"><strong>The 2026 lesson:</strong> uncapped usage quietly destroys margins and causes bill-shock churn. Capped/guardrailed plans + a transparency dashboard are what sustain 70%+ margins. Always show the usage dashboard &mdash; bill-shock is the #1 cause of churn in usage models this year.</p>
+          </div>
+
+          <div class="bg-white rounded-xl border border-gray-200 p-5 mb-4">
+            <h4 class="font-bold text-gray-800 mb-2">3. The 30-Day Booked-Jobs Guarantee (Risk Reversal)</h4>
+            <p class="text-sm text-gray-700 mb-2">The single fastest way to crack the contractor trust gap: <strong>&ldquo;If your AI doesn&rsquo;t book at least [X] jobs in the first 30 days, that month is free.&rdquo;</strong> You already know your conversion math, so the risk to you is tiny &mdash; but to a skeptical contractor it removes the entire reason to say no. As one 2026 operator put it: &ldquo;if you aren&rsquo;t offering a guarantee, someone else will.&rdquo;</p>
+          </div>
+
+          <div class="callout callout-tool p-4 mb-4">
+            <p class="font-semibold text-emerald-800 text-sm mb-1">The Moat: Integrate Into Their Field-Service Calendar</p>
+            <p class="text-sm text-emerald-700">&ldquo;Answering the phone&rdquo; is now commoditized at $49/mo by a dozen apps. What contractors will pay $1,000+ for is <strong>booking the job directly into the software they already run</strong> &mdash; ServiceTitan, Housecall Pro, or Jobber. Make FSM-calendar integration the headline capability in every proposal: &ldquo;Your AI doesn&rsquo;t just take a message &mdash; it books the appointment straight into ServiceTitan, with the customer, address, and job type already filled in.&rdquo; That integration is the line between you and the $49 tier, and it&rsquo;s what makes you genuinely hard to rip out. (Connect via the platform&rsquo;s API through n8n, or via <a href="#voice-platforms" class="underline">MCP</a> where available.)</p>
+          </div>
 
           <h3 class="text-lg font-bold mt-8 mb-4">Competitor Pricing Anchor (Use This on Sales Calls)</h3>
           <p class="text-sm text-gray-700 mb-3">When a prospect says &ldquo;that&rsquo;s expensive,&rdquo; show them what alternatives cost. You&rsquo;re the cheapest AND the most capable option.</p>
@@ -4721,11 +4772,11 @@ Questions? Reply to this email or text me at [YOUR NUMBER].
 
             <div class="bg-white rounded-xl border border-gray-200 p-5">
               <div class="flex items-center justify-between mb-2">
-                <h4 class="font-bold text-sm">C: Google Review Automation</h4>
-                <span class="text-xs font-bold text-emerald-600">+$200/mo</span>
+                <h4 class="font-bold text-sm">C: Review &amp; Reputation Management</h4>
+                <span class="text-xs font-bold text-emerald-600">+$200-600/mo</span>
               </div>
-              <p class="text-xs text-gray-600">After every completed job, AI texts the customer asking for a Google review with a direct link. Negative feedback gets routed to the owner privately first. Grows their rating from 4.2 → 4.8 in months.</p>
-              <p class="text-xs text-gray-500 mt-2"><strong>Your cost:</strong> ~$3/mo in SMS. <strong>Build time:</strong> 45 min n8n workflow.</p>
+              <p class="text-xs text-gray-600">Start with review requests (AI texts a Google review link after every job, routes negative feedback to the owner first). In 2026, sell the <strong>full version</strong>: AI also <em>drafts on-brand replies to every review</em> (sentiment-aware), monitors across Google/Yelp/Facebook, and intercepts 1-3 star reviews for service recovery. Reputation now drives both the Google 3-pack AND AI recommendations.</p>
+              <p class="text-xs text-gray-500 mt-2"><strong>Your cost:</strong> ~$3-15/mo (SMS + white-label tool like ReviewGrower/Birdeye). <strong>Build time:</strong> 45 min (basic) to 2 hrs (full). <strong>2026 note:</strong> standalone ORM retainers run $300-1,500/mo &mdash; price the full version accordingly.</p>
             </div>
 
             <div class="bg-white rounded-xl border border-gray-200 p-5">
@@ -5978,7 +6029,7 @@ AFTER SAFETY INSTRUCTIONS:
                 <tr><td class="px-3 py-2 font-semibold">Voice AI</td><td class="px-3 py-2">Vapi ($0.05/min + LLM)</td><td class="px-3 py-2">Bland.ai ($0.09/min all-in)</td><td class="px-3 py-2">Retell.ai ($0.07/min)</td><td class="px-3 py-2">If Vapi pricing changes or you need specific integrations</td></tr>
                 <tr><td class="px-3 py-2 font-semibold">Telephony</td><td class="px-3 py-2">Twilio ($1/no + usage)</td><td class="px-3 py-2">Vonage</td><td class="px-3 py-2">Telnyx (cheaper)</td><td class="px-3 py-2">Telnyx is 20-40% cheaper at volume</td></tr>
                 <tr><td class="px-3 py-2 font-semibold">Automation</td><td class="px-3 py-2">n8n (self-hosted, free)</td><td class="px-3 py-2">Make.com ($9-16/mo)</td><td class="px-3 py-2">Zapier ($20+/mo)</td><td class="px-3 py-2">If you want hosted/no-devops; Make is cheaper than Zapier</td></tr>
-                <tr><td class="px-3 py-2 font-semibold">LLM</td><td class="px-3 py-2">Claude API (Haiku 4.5)</td><td class="px-3 py-2">OpenAI GPT-5.4 mini / o4-mini</td><td class="px-3 py-2">Groq (fast, cheap)</td><td class="px-3 py-2">Groq for low-latency; o4-mini for budget; Haiku 4.5 for quality</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">LLM</td><td class="px-3 py-2">Claude API (Haiku 4.5)</td><td class="px-3 py-2">OpenAI GPT-5.4 Nano / mini</td><td class="px-3 py-2">Groq (fast, cheap)</td><td class="px-3 py-2">Groq for low-latency; GPT-5.4 Nano for budget; Haiku 4.5 for quality</td></tr>
                 <tr><td class="px-3 py-2 font-semibold">Cold Email</td><td class="px-3 py-2">Smartlead ($39/mo)</td><td class="px-3 py-2">Instantly ($97/mo)</td><td class="px-3 py-2">Lemlist ($59/mo)</td><td class="px-3 py-2">Instantly at 5+ clients for higher volume limits</td></tr>
                 <tr><td class="px-3 py-2 font-semibold">Lead Data</td><td class="px-3 py-2">Apollo.io (free tier)</td><td class="px-3 py-2">Clay.com ($149/mo)</td><td class="px-3 py-2">ZoomInfo (enterprise)</td><td class="px-3 py-2">Clay when you need waterfall enrichment (95%+ email find rate)</td></tr>
                 <tr><td class="px-3 py-2 font-semibold">CRM</td><td class="px-3 py-2">Supabase (free)</td><td class="px-3 py-2">GoHighLevel ($97+)</td><td class="px-3 py-2">HubSpot (free tier)</td><td class="px-3 py-2">GHL at 3-5 clients when you need client-facing features</td></tr>
@@ -6022,7 +6073,7 @@ AFTER SAFETY INSTRUCTIONS:
             <ul class="text-sm text-red-700 mt-2 space-y-1 ml-4">
               <li>&bull; For voice calls (speed matters): use <code>claude-haiku-4-5-20251001</code> ($1/$5 per MTok) &mdash; best latency-to-quality ratio</li>
               <li>&bull; For complex conversations: use <code>claude-sonnet-4-6</code> ($3/$15 per MTok)</li>
-              <li>&bull; Budget alternative: OpenAI <code>o4-mini</code> ($0.55/$2.20 per MTok) or <code>gpt-5.4-mini</code> ($0.75/$4.50) &mdash; test latency on Vapi before committing</li>
+              <li>&bull; Budget alternative: OpenAI <code>gpt-5.4-nano</code> ($0.20/$1.25 per MTok &mdash; the new cheap default) or <code>gpt-5.4-mini</code> ($0.75/$4.50) &mdash; test latency on Vapi before committing</li>
             </ul>
           </div>
 
@@ -6030,8 +6081,8 @@ AFTER SAFETY INSTRUCTIONS:
             <table class="w-full text-xs border border-gray-200 rounded-lg overflow-hidden">
               <thead class="bg-gray-100"><tr><th class="text-left px-2 py-2 font-semibold">Platform</th><th class="text-left px-2 py-2 font-semibold">Cost/Min</th><th class="text-left px-2 py-2 font-semibold">Voice Quality</th><th class="text-left px-2 py-2 font-semibold">Latency</th><th class="text-left px-2 py-2 font-semibold">Best For</th><th class="text-left px-2 py-2 font-semibold">Gotchas</th></tr></thead>
               <tbody class="divide-y divide-gray-100 bg-white">
-                <tr class="bg-blue-50"><td class="px-2 py-2 font-bold text-blue-700">Vapi.ai</td><td class="px-2 py-2">$0.05/min + BYO LLM/TTS</td><td class="px-2 py-2">9/10</td><td class="px-2 py-2">~500-800ms</td><td class="px-2 py-2">Agencies, custom builds</td><td class="px-2 py-2">API-first; real all-in cost $0.13-0.30/min. New: Simulations (test calls with AI), QA monitoring, SIP support.</td></tr>
-                <tr><td class="px-2 py-2 font-semibold">Retell AI</td><td class="px-2 py-2">$0.07+/min (no platform fee)</td><td class="px-2 py-2">8.5/10</td><td class="px-2 py-2">~600ms</td><td class="px-2 py-2">Fast prototyping, demos</td><td class="px-2 py-2">$40M+ ARR, growing fast. Added ChatGPT integration. Cheapest at low volume. Less customizable than Vapi.</td></tr>
+                <tr class="bg-blue-50"><td class="px-2 py-2 font-bold text-blue-700">Vapi.ai</td><td class="px-2 py-2">$0.05/min + BYO LLM/TTS</td><td class="px-2 py-2">9/10</td><td class="px-2 py-2">~500-800ms</td><td class="px-2 py-2">Agencies, custom builds</td><td class="px-2 py-2">API-first; real all-in cost $0.13-0.30/min. 2026: Simulations, Monitoring (4 monitor classes incl. Compliance), native MCP, SIP. Raised $50M Series B (1B+ calls) &mdash; well-funded.</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Retell AI</td><td class="px-2 py-2">$0.07+/min (no platform fee)</td><td class="px-2 py-2">8.5/10</td><td class="px-2 py-2">~600ms</td><td class="px-2 py-2">Fast prototyping, demos, failover</td><td class="px-2 py-2">Cheapest at low volume. <strong>Automatic LLM/TTS provider fallback</strong> (ElevenLabs/OpenAI/Cartesia/PlayHT) &mdash; 99.99% uptime story Vapi doesn't match out of the box. New "Fast Tier" (1.5-2&times; rate, lower latency), MCP node (Salesforce/HubSpot/Calendly), native Cal.com. Keep it documented as your second-source failover.</td></tr>
                 <tr><td class="px-2 py-2 font-semibold">Bland AI</td><td class="px-2 py-2">$0.12-0.14/min (tiered plans)</td><td class="px-2 py-2">8/10</td><td class="px-2 py-2">~700ms</td><td class="px-2 py-2">Simple inbound/outbound</td><td class="px-2 py-2">Restructured pricing Dec 2025 to tiers (free Start at $0.14/min, Build $299/mo at $0.12/min). "Norm" no-code builder is good.</td></tr>
                 <tr><td class="px-2 py-2 font-semibold">Synthflow</td><td class="px-2 py-2">~$0.12/min (agency $1,250/mo)</td><td class="px-2 py-2">7.5/10</td><td class="px-2 py-2">~900ms</td><td class="px-2 py-2">No-code, white-label</td><td class="px-2 py-2">"Business in a box" approach. Being undercut by Trillet ($299/mo, ~$0.09/min).</td></tr>
                 <tr><td class="px-2 py-2 font-semibold">GHL Voice AI</td><td class="px-2 py-2">~$0.16/min all-in</td><td class="px-2 py-2">7.5/10</td><td class="px-2 py-2">~800ms</td><td class="px-2 py-2">GHL-only agencies</td><td class="px-2 py-2">Improved dramatically in 2026 (outbound, 19 languages, better TTS). Requires $497/mo plan to rebill. Decent but less flexible than Vapi.</td></tr>
@@ -6041,21 +6092,52 @@ AFTER SAFETY INSTRUCTIONS:
 
           <div class="callout callout-action p-4 mb-6">
             <p class="font-semibold text-blue-800 text-sm mb-1">Our Pick: Vapi — Here's Why (Still True in June 2026)</p>
-            <p class="text-sm text-blue-700">Vapi is the best choice for an agency model because: (1) You bring your own LLM (Haiku 4.5 / Sonnet 4.6), so you control quality and cost. (2) It integrates with n8n via webhooks &mdash; your entire workflow stays in your hands. (3) Per-minute pricing = you only pay for actual usage. (4) Bilingual works out of the box. (5) Largest agency community = best troubleshooting. (6) <strong>New in 2026:</strong> Simulations let you run automated test calls against your agent before deploying &mdash; huge for QA. The QA monitoring dashboard flags problem calls in real time. SIP trunking is now available for enterprise clients.</p>
+            <p class="text-sm text-blue-700">Vapi is the best choice for an agency model because: (1) You bring your own LLM (Haiku 4.5 / Sonnet 4.6), so you control quality and cost. (2) It integrates with n8n via webhooks &mdash; your entire workflow stays in your hands. (3) Per-minute pricing = you only pay for actual usage. (4) Bilingual works out of the box. (5) Largest agency community = best troubleshooting. (6) <strong>New in 2026:</strong> Simulations let you run automated test calls against your agent before deploying &mdash; huge for QA. The Monitoring product adds four monitor classes (Effectiveness, Compliance, Technical, Infrastructure) &mdash; set a <strong>Compliance monitor to flag any call where the AI-disclosure line was skipped</strong>, which directly de-risks the TCPA/disclosure exposure in the Legal section. Native MCP support now lets agents reach CRMs/calendars without bespoke webhooks. SIP trunking is available for enterprise clients.</p>
           </div>
 
-          <h3 class="text-lg font-bold mt-8 mb-4">TTS Voice Options (June 2026)</h3>
+          <h3 class="text-lg font-bold mt-8 mb-4">TTS Voice Options (late June 2026)</h3>
           <p class="text-sm text-gray-700 mb-3">The voice your agent speaks with matters more than most people think. Here are the options that work with Vapi:</p>
           <div class="overflow-x-auto mb-6">
             <table class="w-full text-xs border border-gray-200 rounded-lg overflow-hidden">
-              <thead class="bg-gray-100"><tr><th class="text-left px-2 py-2 font-semibold">TTS Provider</th><th class="text-left px-2 py-2 font-semibold">Latency</th><th class="text-left px-2 py-2 font-semibold">Quality</th><th class="text-left px-2 py-2 font-semibold">Notes</th></tr></thead>
+              <thead class="bg-gray-100"><tr><th class="text-left px-2 py-2 font-semibold">TTS Provider</th><th class="text-left px-2 py-2 font-semibold">Latency (TTFA)</th><th class="text-left px-2 py-2 font-semibold">Quality</th><th class="text-left px-2 py-2 font-semibold">Notes</th></tr></thead>
               <tbody class="divide-y divide-gray-100 bg-white">
-                <tr class="bg-blue-50"><td class="px-2 py-2 font-bold text-blue-700">ElevenLabs v3</td><td class="px-2 py-2">~120ms</td><td class="px-2 py-2">9.5/10</td><td class="px-2 py-2">Best emotional expressiveness. v3 (March 2026) was a big leap. Two new models announced June 1. The default choice.</td></tr>
-                <tr><td class="px-2 py-2 font-semibold">Cartesia Sonic 3.5</td><td class="px-2 py-2">82ms</td><td class="px-2 py-2">9/10</td><td class="px-2 py-2">Now GA. Fastest TTFA in the industry. 57 voices across 11 locales. Great for latency-sensitive calls.</td></tr>
+                <tr class="bg-blue-50"><td class="px-2 py-2 font-bold text-blue-700">ElevenLabs v3 / Flash v2.5</td><td class="px-2 py-2">~120ms / ~75ms</td><td class="px-2 py-2">9.5/10</td><td class="px-2 py-2">Best emotional expressiveness. Flash v2.5 is the low-latency variant. The default quality choice.</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Cartesia Sonic Turbo</td><td class="px-2 py-2">~40ms</td><td class="px-2 py-2">9/10</td><td class="px-2 py-2"><strong>New faster tier</strong> than Sonic 3.5 (~82ms). Same vendor &mdash; flip to Turbo if a contractor says the bot feels laggy. Near-free latency upgrade.</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Cartesia Sonic 3.5</td><td class="px-2 py-2">82ms</td><td class="px-2 py-2">9/10</td><td class="px-2 py-2">GA. 94 voices across 17 locales (expanded 2026). Great for latency-sensitive bilingual calls.</td></tr>
                 <tr><td class="px-2 py-2 font-semibold">Deepgram Aura</td><td class="px-2 py-2">~100ms</td><td class="px-2 py-2">8/10</td><td class="px-2 py-2">Cheapest per character. Good for high-volume, cost-sensitive deployments.</td></tr>
-                <tr><td class="px-2 py-2 font-semibold">Azure TTS / MAI-Voice-2</td><td class="px-2 py-2">~150ms</td><td class="px-2 py-2">8.5/10</td><td class="px-2 py-2">New June 2026: 15 languages, emotional control, voice cloning from 5-60s clips. Enterprise-grade.</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Rime Coda</td><td class="px-2 py-2">sub-100ms</td><td class="px-2 py-2">8.5/10</td><td class="px-2 py-2">Newer entrant tuned for natural conversational cadence. Worth A/B testing for the "sounds human" factor.</td></tr>
               </tbody>
             </table>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">The 2026 Shift: Speech-to-Text Now Detects When the Caller Stops Talking</h3>
+          <p class="text-sm text-gray-700 mb-3">The most underrated upgrade of 2026 isn't a prettier voice &mdash; it's <strong>end-of-turn detection moving into the STT model itself</strong>. Old pipelines needed a separate VAD (voice-activity detector) to guess when the caller finished a sentence; that guesswork is what causes the bot to interrupt people or leave awkward pauses. New STT models do it natively, shaving 200-600ms off every response. That's the difference between "feels like a robot" and "felt like a person" in a demo.</p>
+          <div class="overflow-x-auto mb-4">
+            <table class="w-full text-xs border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-2 py-2 font-semibold">STT Provider</th><th class="text-left px-2 py-2 font-semibold">Cost</th><th class="text-left px-2 py-2 font-semibold">Why it matters</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr class="bg-emerald-50"><td class="px-2 py-2 font-bold text-emerald-700">Deepgram Flux</td><td class="px-2 py-2">$0.0065/min (EN), $0.0078/min (multilingual)</td><td class="px-2 py-2"><strong>First conversational STT with built-in end-of-turn detection</strong> (median EOT &lt;300ms, no external VAD). Available in Vapi. Removes a whole component and saves real latency at trivial cost.</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Cartesia Ink-2</td><td class="px-2 py-2">usage-based</td><td class="px-2 py-2">New streaming STT with built-in turn detection + noise-robust transcription (great for noisy job-site callers). Pairs with Sonic for a single-vendor STT+TTS stack &mdash; fewer moving parts.</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">ElevenLabs Scribe v2 Realtime</td><td class="px-2 py-2">usage-based</td><td class="px-2 py-2">Sub-150ms, 90+ languages, ~2.3% word error rate. Strong accuracy+latency combo if you want ElevenLabs end-to-end.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout callout-action p-4 mb-6">
+            <p class="font-semibold text-blue-800 text-sm mb-1">Two newer architectures to know (don't default to them yet)</p>
+            <div class="text-sm text-blue-700 space-y-2">
+              <p><strong>Speech-to-speech (OpenAI Realtime-2, in Vapi since May 7).</strong> One model does STT + reasoning + TTS in a single pass &mdash; lower latency, more natural turn-taking. But ~$0.30/min all-in (vs. your ~$0.10-0.13 Cartesia+Haiku pipeline), and in Vapi it <strong>doesn't support knowledge bases or custom voice cloning</strong> (voices limited to Cedar/Marin). For a branded contractor receptionist that must quote service areas and pricing, that's a dealbreaker today. Treat it as a premium tier to test, not the default.</p>
+              <p><strong>Gemini 3.1 Flash Live (audio-to-audio, ~960ms TTFT).</strong> Google's speech-to-speech option, also in Vapi. Cheaper than Realtime-2 but slower first-token than a tuned Cartesia path. Worth a benchmark, not a switch.</p>
+            </div>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">Cost Lever: Cache Your System Prompt and Cut LLM Cost ~90%</h3>
+          <div class="callout callout-cost p-4 mb-6">
+            <p class="text-sm text-amber-800 mb-2">Your receptionist's system prompt is large (identity, hours, service area, pricing rules, transfer logic) and <em>identical on every call</em>. Anthropic prompt caching reads a cached prefix at <strong>~0.1&times; the normal input price (≈90% off)</strong> after the first call. This is free money you're probably leaving on the table.</p>
+            <div class="text-sm text-amber-700 space-y-1">
+              <p class="check-item"><strong>How:</strong> Put the stable system prompt + business knowledge <em>before</em> the <code>cache_control</code> breakpoint, and the live call transcript <em>after</em> it. Every turn after the first reads the cached prefix at 1/10th the cost.</p>
+              <p class="check-item"><strong>Batch the offline work:</strong> overnight call-transcript summaries, lead scoring, and CRM enrichment don't need to be real-time. Run them through the <strong>Batch API at 50% off</strong> (Haiku 4.5 batch = $0.50/$2.50). Stack caching + batch and offline jobs cost almost nothing.</p>
+              <p class="check-item"><strong>Keep the live call path on Haiku 4.5</strong> (or test GPT-5.4 Nano) &mdash; never batch the real-time conversation, only the after-the-fact analysis.</p>
+            </div>
           </div>
 
           <h3 class="text-lg font-bold mt-8 mb-4">Real Cost Math: What a Client's Calls Actually Cost You</h3>
@@ -6224,7 +6306,7 @@ sudo dpkg-reconfigure -plow unattended-upgrades</code></div>
               <div class="text-xs text-gray-700 space-y-1">
                 <p><strong>Check Vapi latency settings:</strong> Dashboard &rarr; Agent &rarr; Advanced &rarr; ensure &ldquo;Response Delay&rdquo; is under 800ms.</p>
                 <p><strong>Try a different TTS voice:</strong> Some ElevenLabs voices have more natural cadence. Test &ldquo;Rachel,&rdquo; &ldquo;Josh,&rdquo; or &ldquo;Bella.&rdquo;</p>
-                <p><strong>Verify LLM selection:</strong> Use Haiku 4.5 for speed-critical responses, Sonnet 4.6 for quality-critical conversations. Opus/Fable are overkill and add latency. Also try o4-mini &mdash; cheapest and competitive on speed.</p>
+                <p><strong>Verify LLM selection:</strong> Use Haiku 4.5 for speed-critical responses, Sonnet 4.6 for quality-critical conversations. Opus/Fable are overkill and add latency. Also try GPT-5.4 Nano ($0.20/$1.25) &mdash; the new budget pick, competitive on speed.</p>
                 <p><strong>Check VPS CPU usage:</strong> SSH in and run <code>htop</code>. If CPU is pegged at 100%, your VPS is too small or something else is consuming resources.</p>
               </div>
             </div>
@@ -6390,13 +6472,22 @@ curl -I https://your-n8n-domain.com/webhook-test/test</code></div>
 
             <div class="bg-red-50 rounded-xl border-2 border-red-200 p-5">
               <h3 class="font-bold text-sm text-red-800 mb-3">2026 Compliance Updates (Action Required)</h3>
-              <div class="space-y-2 text-sm text-gray-700">
-                <p class="check-item"><strong>Colorado AI Act (effective June 30, 2026):</strong> First comprehensive US state law targeting "high-risk" AI systems. Requires reasonable care to prevent algorithmic discrimination, impact assessments, and consumer disclosures. Your voice agents qualify if they make decisions about service delivery. Practical impact: <em>always disclose the AI</em>, document what the agent can and cannot decide, and keep humans in the loop for anything beyond booking/routing.</p>
-                <p class="check-item"><strong>California SB 243 (effective Jan 1, 2026):</strong> Human-like chatbots and voice bots must disclose they're not human. <strong>Private right of action at $1,000+ per violation.</strong> Your agents already self-identify &mdash; keep it that way in every script, both languages. Never remove the AI disclosure, even if a client asks you to.</p>
-                <p class="check-item"><strong>FCC consent revocation rule (effective Apr 2025):</strong> Consumers can revoke consent with any reasonable phrase ("stop," "cancel," "don't call me"). Must honor within 10 days. Your n8n STOP-handler should catch variants, not just the literal word "STOP." Use Claude to classify opt-out intent on every inbound reply.</p>
-                <p class="check-item"><strong>June 2 Executive Order (AI Innovation & Security):</strong> Federal agencies must harden AI cybersecurity within 30 days. Not directly applicable to SMB agencies, but signals tightening enforcement. Stay compliant now &mdash; don't wait for it to trickle down.</p>
-                <p class="check-item"><strong>States to watch:</strong> Utah (AI disclosure in high-risk interactions), Washington (recurring disclosure, private right of action), Maine (similar). The trend is clear: disclosure requirements are expanding, not shrinking. Build it into every agent from Day 1 and it becomes a sales advantage: "compliance done-for-you."</p>
+              <div class="callout callout-tip p-3 mb-3">
+                <p class="text-xs text-blue-700"><strong>The one rule that covers 80% of your risk:</strong> have every agent <strong>say it's an AI at the start of the call</strong>, in both languages, on every call. That single line satisfies Utah's safe harbor, California's AB 2905 expectation, and the emerging national baseline. Then add a recorded-call notice. Everything below is detail on top of those two habits.</p>
               </div>
+              <div class="space-y-2 text-sm text-gray-700">
+                <p class="check-item"><strong>Utah AI Policy Act (amended, in force; extended to July 2027):</strong> A business using generative AI to talk to consumers must disclose it's AI <em>when asked</em> &mdash; but there's a <strong>safe harbor</strong>: if your agent <em>clearly states it's not human at the outset and throughout</em>, you're exempt from enforcement. Penalty up to $2,500/violation. <strong>Do this in every state</strong> &mdash; it's the cheapest, highest-leverage compliance step you have.</p>
+                <p class="check-item"><strong>California AB 2905 (in force since Jan 1, 2025):</strong> Any prerecorded/autodialed call using an <em>AI-generated voice</em> must disclose &mdash; before the AI voice is used &mdash; that an artificial voice follows, plus the nature of the call and contact info. This hits ordinary AI-voice <em>outbound</em> calling (distinct from SB 243). For any outbound AI-voice campaign into California, lead with that disclosure.</p>
+                <p class="check-item"><strong>California SB 243 (effective Jan 1, 2026) &mdash; know the scope:</strong> This law targets <em>companion / social</em> chatbots (AI built for ongoing emotional relationships), <strong>not</strong> a transactional receptionist/scheduler. Your AI receptionist almost certainly falls outside it &mdash; don't over-scope. The receptionist-relevant California rule is AB 2905 above. (Same for WA HB 2225, OR SB 1546, TN SB 1580, NY's chatbot law &mdash; all companion-bot laws.)</p>
+                <p class="check-item"><strong>Colorado AI Act &mdash; date corrected:</strong> Originally slated for 2026, it was <strong>delayed to Jan 1, 2027</strong> (SB 189, signed May 14, 2026) <em>and</em> enforcement was <strong>paused by a federal court in April 2026</strong> (xAI suit + DOJ intervention). Don't build compliance work against a 2026 date. Monitor it &mdash; status is fluid.</p>
+                <p class="check-item"><strong>Call-recording consent (11 all-party states: CA, DE, FL, IL, MD, MA, MT, NV, NH, PA, WA):</strong> AI transcription doesn't change this &mdash; the law targets the act of recording. Play an audible "this call is recorded" notice at the start of every recorded call. One 2026 settlement ran <strong>$4.2M for ~5,000 calls</strong> recorded without consent.</p>
+                <p class="check-item"><strong>Illinois BIPA &mdash; voiceprint risk:</strong> Voiceprints are protected biometric data; statutory damages <strong>$1,000&ndash;$5,000 per person, per instance.</strong> Don't generate or store voice embeddings/voiceprints unless you have explicit written consent and a retention/deletion policy. Standard transcription is fine; voice "fingerprinting" is the trap.</p>
+                <p class="check-item"><strong>FCC consent revocation rule (effective Apr 2025):</strong> Consumers can revoke consent with any reasonable phrase ("stop," "cancel," "don't call me"). Must honor within 10 days. Your n8n STOP-handler should catch variants, not just the literal word "STOP." Use Claude to classify opt-out intent on every inbound reply.</p>
+                <p class="check-item"><strong>FCC AI-robocall rule still pending:</strong> The proposed rule to <em>require</em> AI-call disclosure + affirmative consent is still an NPRM (not final as of mid-2026). The operative federal rule remains the Feb 2024 ruling that AI voices are "artificial" under the TCPA. Keep documented prior express written consent for any AI-voice outbound marketing, and confirm your telephony vendor is RMD-listed + STIR/SHAKEN compliant (get it in writing).</p>
+                <p class="check-item"><strong>SMS/10DLC 2026 changes:</strong> T-Mobile added a per-message pass-through fee (~$0.0025/msg) on Jan 19, 2026 &mdash; budget it or pass it through. <strong>Virginia SB 1339</strong> (in force 2026) requires honoring SMS opt-outs for <strong>10 years</strong> &mdash; keep a permanent suppression list, never reuse it. Carriers now <em>hard-block</em> unregistered traffic (T-Mobile penalties up to $10,000/violation).</p>
+                <p class="check-item"><strong>Federal preemption backdrop:</strong> The June 2, 2026 EO, a DOJ AI Litigation Task Force, and the "Great American AI Act" draft (June 4, 2026) are all trying to preempt state AI laws &mdash; but <em>none has passed</em>. State laws remain enforceable now (except where courts paused them, like Colorado). Don't strip compliance based on EO talk; executive orders don't preempt state law without Congress.</p>
+              </div>
+              <p class="text-xs text-gray-500 mt-3 italic">This is a fast-moving area and not legal advice &mdash; confirm specifics with counsel before relying on any single rule. The two habits in the blue box are safe in every state regardless of how the litigation shakes out.</p>
             </div>
           </div>
 
@@ -8680,24 +8771,26 @@ MONTHLY COSTS PER CLIENT:
           </div>
           <p class="text-xs text-gray-500 mt-2">Prices are mid-2026 ballparks and change often &mdash; verify at signup. The whole AI stack above runs roughly <strong>$120&ndash;260/month</strong>, most of which you only add once clients are paying.</p>
 
-          <h3 class="text-lg font-bold mt-8 mb-3">LLM API Pricing Quick Reference (June 2026)</h3>
-          <p class="text-sm text-gray-700 mb-3">These are the models you'll actually use in your voice agents and automations. Prices are per million tokens (input / output). Both providers offer ~50% batch discounts and ~90% cached-input discounts.</p>
+          <h3 class="text-lg font-bold mt-8 mb-3">LLM API Pricing Quick Reference (late June 2026)</h3>
+          <p class="text-sm text-gray-700 mb-3">These are the models you'll actually use in your voice agents and automations. Prices are per million tokens (input / output). Both providers offer ~50% batch discounts and ~90% cached-input discounts &mdash; see the <a href="#voice-platforms" class="text-blue-600 hover:underline">cost-lever note</a> on caching your system prompt.</p>
           <div class="overflow-x-auto">
             <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
               <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Model</th><th class="text-left px-3 py-2 font-semibold">Input / Output</th><th class="text-left px-3 py-2 font-semibold">Best For</th></tr></thead>
               <tbody class="divide-y divide-gray-100 bg-white text-gray-700">
-                <tr class="bg-blue-50"><td class="px-3 py-2 font-bold text-blue-700">Claude Haiku 4.5</td><td class="px-3 py-2">$1 / $5</td><td class="px-3 py-2">Voice agent LLM (default). Best latency-to-quality for real-time calls.</td></tr>
+                <tr class="bg-blue-50"><td class="px-3 py-2 font-bold text-blue-700">Claude Haiku 4.5</td><td class="px-3 py-2">$1 / $5</td><td class="px-3 py-2">Voice agent LLM (default). Best latency-to-quality for real-time calls. Batch: $0.50 / $2.50.</td></tr>
                 <tr><td class="px-3 py-2 font-semibold">Claude Sonnet 4.6</td><td class="px-3 py-2">$3 / $15</td><td class="px-3 py-2">Complex conversations, fallback for Haiku. Proposals and SOPs via API.</td></tr>
                 <tr><td class="px-3 py-2 font-semibold">Claude Opus 4.8</td><td class="px-3 py-2">$5 / $25</td><td class="px-3 py-2">Your own research / coding. Too expensive and slow for client-facing calls.</td></tr>
-                <tr class="bg-emerald-50"><td class="px-3 py-2 font-bold text-emerald-700">OpenAI o4-mini</td><td class="px-3 py-2">$0.55 / $2.20</td><td class="px-3 py-2">Cheapest capable model. Test it vs. Haiku for voice &mdash; if latency works, ~45% cost savings.</td></tr>
-                <tr><td class="px-3 py-2 font-semibold">GPT-5.4 mini</td><td class="px-3 py-2">$0.75 / $4.50</td><td class="px-3 py-2">Budget alternative. Good for parsing/classification tasks in n8n (email parsing, intent detection).</td></tr>
-                <tr><td class="px-3 py-2 font-semibold">GPT-5.5</td><td class="px-3 py-2">$5 / $30</td><td class="px-3 py-2">OpenAI's flagship. 52% fewer hallucinations. Use for high-stakes content if you prefer OpenAI.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Claude Fable 5</td><td class="px-3 py-2">$10 / $50</td><td class="px-3 py-2">Anthropic's most capable model. Overkill for everything you do &mdash; ignore unless you hit a genuinely hard offline analysis. Never on the call path.</td></tr>
+                <tr class="bg-emerald-50"><td class="px-3 py-2 font-bold text-emerald-700">GPT-5.4 Nano</td><td class="px-3 py-2">$0.20 / $1.25</td><td class="px-3 py-2">New cheapest capable model (replaces o4-mini as the budget pick). Ideal for intent classification, post-call extraction, SMS drafting in n8n.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">GPT-5.4 mini</td><td class="px-3 py-2">$0.75 / $4.50</td><td class="px-3 py-2">Budget alternative for parsing/classification. Test vs. Haiku for voice if latency holds.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Gemini 3.1 Flash-Lite</td><td class="px-3 py-2">$0.25 / $1.50</td><td class="px-3 py-2">Google's cheapest current-gen. Strong cheap text-brain candidate; Flash Live variant does audio-to-audio (~960ms TTFT).</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">GPT-5.5</td><td class="px-3 py-2">$5 / $30</td><td class="px-3 py-2">OpenAI's flagship. Use for high-stakes content if you prefer OpenAI.</td></tr>
               </tbody>
             </table>
           </div>
           <div class="callout callout-cost p-4 mt-3">
-            <p class="font-semibold text-amber-800 text-sm mb-1">Deprecated Model IDs (as of June 15, 2026)</p>
-            <p class="text-sm text-amber-700">The original <code>claude-3-opus</code>, <code>claude-3-sonnet</code>, <code>claude-3-haiku</code>, <code>claude-opus-4</code>, and <code>claude-sonnet-4</code> API model IDs are now deprecated and will stop working. If you see these in any Vapi agent config or n8n HTTP node, update immediately to the IDs above. Also: OpenAI retired GPT-5.2 on June 12 and will retire o3 on August 26.</p>
+            <p class="font-semibold text-amber-800 text-sm mb-1">Deprecated / changed model IDs (verify before quoting clients)</p>
+            <p class="text-sm text-amber-700">The original <code>claude-3-*</code>, <code>claude-opus-4</code>, and <code>claude-sonnet-4</code> IDs are deprecated &mdash; migrate any Vapi/n8n configs to current IDs. On the OpenAI side, the GPT-5 / 5.1 / 5-mini / 5-nano line was replaced by the <strong>GPT-5.4 / 5.5 family</strong>, and <strong>o4-mini's price moved</strong> (OpenAI now lists ~$1.10 input, not the old $0.55) &mdash; GPT-5.4 Nano is the new cheap default. Re-check any pricing on the provider's own page before putting it in a client proposal; these move every few weeks.</p>
           </div>
         </section>
 
@@ -9071,7 +9164,7 @@ and any edge cases I should handle (missing fields, duplicate calls, after-hours
               <tbody class="divide-y divide-gray-100 bg-white">
                 <tr><td class="px-3 py-2 font-semibold">FCC: AI voices = TCPA "artificial voices"</td><td class="px-3 py-2">Outbound AI voice calls need prior express consent. $500-1,500 per call in statutory damages.</td><td class="px-3 py-2">Inbound answering: low risk. Outbound AI calls: only to people who submitted a request or replied YES. Never to cold lists.</td></tr>
                 <tr><td class="px-3 py-2 font-semibold">FCC revocation rule (Apr 2025)</td><td class="px-3 py-2">Consumers can revoke consent by any reasonable phrase ("stop," "cancel," "no more"); honor within 10 days.</td><td class="px-3 py-2">Your n8n STOP-handling should catch variants, not just "STOP." Claude classifies opt-out intent on every inbound reply.</td></tr>
-                <tr><td class="px-3 py-2 font-semibold">State AI disclosure laws (CA SB 243 from Jan 2026; CO, UT, WA following)</td><td class="px-3 py-2">Human-like bots must disclose they're not human; California allows private lawsuits at $1,000+ per violation.</td><td class="px-3 py-2">Your agents already self-identify as AI assistants &mdash; keep it that way, in every script, in both languages. Make "the AI always says it's an AI" a selling point: compliance done-for-you.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">State AI disclosure laws (Utah safe harbor; CA AB 2905 for AI voice)</td><td class="px-3 py-2">Utah: self-identify as AI at the outset = safe harbor. CA AB 2905: outbound AI-voice calls must disclose the artificial voice up front. (Companion-bot laws like CA SB 243 / WA / OR generally <em>don't</em> apply to a receptionist.)</td><td class="px-3 py-2">Your agents already self-identify as AI assistants &mdash; keep it that way, in every script, in both languages. Make "the AI always says it's an AI" a selling point: compliance done-for-you.</td></tr>
               </tbody>
             </table>
           </div>
@@ -9116,17 +9209,20 @@ For each: what it is, why it matters to a 2-person agency, and
 a one-line recommended action. Rank by revenue impact. Cite
 sources.</code></div>
 
-          <h3 class="text-lg font-bold mt-8 mb-4">June 2026 Micro-Updates (This Week)</h3>
+          <h3 class="text-lg font-bold mt-8 mb-4">Late June 2026 Micro-Updates (Latest)</h3>
           <div class="bg-white rounded-xl border border-gray-200 p-5 mb-6">
+            <div class="callout callout-warning p-3 mb-3">
+              <p class="text-xs text-red-700"><strong>&#9888; Act before June 30:</strong> Twilio A2P 10DLC campaign registration now <em>requires</em> a public Privacy Policy URL and Terms &amp; Conditions URL &mdash; submissions without them hard-fail with a 400 error. Build a reusable compliant policy page now. Details in <a href="#phone-setup" class="text-blue-600 hover:underline">Phone Setup</a>.</p>
+            </div>
             <div class="space-y-2 text-sm text-gray-700">
-              <p class="check-item"><strong>Claude Fable 5 launched (June 9):</strong> Anthropic's most capable model. 1M context, 128K output. Too expensive and has safety classifiers that could interrupt conversations &mdash; do NOT use for voice agents. Keep Haiku 4.5 for calls, Sonnet 4.6 for complex tasks. Fable is useful for <em>your own</em> research and content generation.</p>
-              <p class="check-item"><strong>Claude Opus 4 / Sonnet 4 IDs deprecated (June 15):</strong> If any agent or workflow uses old model IDs, migrate to <code>claude-haiku-4-5-20251001</code> or <code>claude-sonnet-4-6</code> immediately. See the <a href="#voice-platforms" class="text-blue-600 hover:underline">deprecation alert</a> in Voice Platforms.</p>
-              <p class="check-item"><strong>Vapi supply chain incident (June 3):</strong> npm packages compromised via stolen access token; rolled back same day, no data leaked. Pin your dependency versions and read the <a href="#backups-security" class="text-blue-600 hover:underline">security lesson</a> we added.</p>
-              <p class="check-item"><strong>Twilio "Conversation Layer" (SIGNAL 2026):</strong> Three new products GA &mdash; Conversation Orchestrator (routing + human-AI handoffs), Conversation Memory (persistent context), and Conversation Intelligence (real-time sentiment + escalation triggers). Not needed yet at your scale, but ConversationRelay is worth watching if you outgrow Vapi's telephony.</p>
-              <p class="check-item"><strong>Claude for Small Business (May 13):</strong> Anthropic launched 15 agentic workflows for SMBs with connectors to QuickBooks, PayPal, HubSpot, and Slack. This is a potential <em>competitor</em> for simple automations &mdash; but it sells to the business directly, not through agencies. It validates the market and doesn't replace the custom voice agent + campaign work you sell. Monitor it.</p>
-              <p class="check-item"><strong>Cartesia Sonic 3.5 now GA:</strong> 82ms time-to-first-audio, #2 on the Artificial Analysis TTS leaderboard. Test it in Vapi as an ElevenLabs alternative for clients where latency matters most &mdash; it's noticeably faster.</p>
-              <p class="check-item"><strong>Colorado AI Act effective June 30:</strong> First comprehensive US state AI law. Details in the updated <a href="#legal" class="text-blue-600 hover:underline">Legal section</a>.</p>
-              <p class="check-item"><strong>OpenAI o4-mini at $0.55/$2.20 per MTok:</strong> Cheapest capable model on the market. Worth benchmarking against Haiku 4.5 ($1/$5) for voice &mdash; if latency is comparable on Vapi, you save ~45% on LLM costs per call.</p>
+              <p class="check-item"><strong>Speech-to-speech is here (OpenAI Realtime-2 in Vapi, May 7):</strong> One model does STT + reasoning + TTS &mdash; lower latency, more natural turn-taking. But ~$0.30/min (vs. your ~$0.10-0.13 pipeline) and in Vapi it loses knowledge-base + custom-voice support. A premium tier to test, not your default. <a href="#voice-platforms" class="text-blue-600 hover:underline">Details</a>.</p>
+              <p class="check-item"><strong>End-of-turn detection moved into STT (Deepgram Flux):</strong> First conversational STT with built-in turn detection (no separate VAD), ~$0.0065/min. Shaves 200-600ms off responses &mdash; the cheapest "sounds human" upgrade available. Also new: Cartesia <strong>Ink-2</strong> STT and <strong>Sonic Turbo</strong> TTS (~40ms).</p>
+              <p class="check-item"><strong>OpenAI lineup churned &mdash; o4-mini is no longer the cheap default:</strong> The GPT-5/5.1/mini/nano line was replaced by the GPT-5.4/5.5 family. <strong>GPT-5.4 Nano ($0.20/$1.25)</strong> is the new cheapest capable model; o4-mini's price rose (~$1.10 input). Re-baseline your per-call cost. <a href="#ai-overview" class="text-blue-600 hover:underline">Updated pricing table</a>.</p>
+              <p class="check-item"><strong>Cache your system prompt:</strong> Anthropic prompt caching reads your (identical-every-call) receptionist system prompt at ~90% off after the first call; Batch API is 50% off for offline summaries/scoring. Easy margin you&rsquo;re probably leaving on the table. <a href="#voice-platforms" class="text-blue-600 hover:underline">How-to</a>.</p>
+              <p class="check-item"><strong>Vapi raised a $50M Series B (1B+ calls):</strong> Reassurance for your platform-risk story after the June 3 npm incident. Its new Monitoring product can flag calls where the AI-disclosure line was skipped &mdash; compliance automation built in.</p>
+              <p class="check-item"><strong>Vertical AI for trades is the breakout category:</strong> Avoca hit a <strong>$1B valuation</strong> building AI agents for HVAC/plumbing/roofing (calls, scheduling, estimate follow-up); Rebar raised $14M for AI HVAC quoting. This <em>validates</em> your exact market &mdash; but they sell direct/enterprise; your edge is local trust + done-for-you delivery to small contractors.</p>
+              <p class="check-item"><strong>Colorado AI Act delayed &amp; paused (correction):</strong> Now effective Jan 1, 2027 (SB 189, May 14) and currently court-paused. Earlier "June 30, 2026" guidance is outdated &mdash; don't build against it. <a href="#legal" class="text-blue-600 hover:underline">Updated Legal section</a>.</p>
+              <p class="check-item"><strong>Claude Fable 5 (June 9):</strong> Anthropic&rsquo;s most capable model ($10/$50). Too expensive/slow for voice and its always-on safety classifiers can interrupt &mdash; keep Haiku 4.5 for calls, Sonnet 4.6 for complex tasks. Old <code>claude-opus-4</code>/<code>claude-sonnet-4</code> IDs are deprecated; migrate any configs.</p>
             </div>
           </div>
 
