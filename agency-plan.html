@@ -219,6 +219,10 @@
         <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
         AI Leverage
       </button>
+      <button onclick="showView('scale')" class="nav-item" data-nav="scale">
+        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+        Scale &amp; Streams
+      </button>
 
       <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-5 mb-1 px-3">Reference</div>
       <button onclick="showView('reference')" class="nav-item" data-nav="reference">
@@ -281,8 +285,8 @@
           <h1 class="text-3xl sm:text-4xl font-extrabold leading-tight">AI Agency Blueprint</h1>
           <p class="mt-3 text-lg text-gray-500">The complete, step-by-step system to build a $10K/month AI automation agency from scratch &mdash; even part-time, even from overseas. Now with a full AI Leverage module.</p>
           <div class="mt-4 flex flex-wrap gap-2 text-xs">
-            <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full font-semibold">9 Modules</span>
-            <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full font-semibold">68 Lessons</span>
+            <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full font-semibold">10 Modules</span>
+            <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full font-semibold">75 Lessons</span>
             <span class="bg-purple-50 text-purple-700 px-3 py-1 rounded-full font-semibold">Templates Included</span>
             <span class="bg-amber-50 text-amber-700 px-3 py-1 rounded-full font-semibold">Copy-Paste Scripts</span>
           </div>
@@ -317,7 +321,7 @@
               <div class="text-[10px] text-slate-400 uppercase">Quizzes Passed</div>
             </div>
             <div>
-              <div class="text-xl font-bold stat-counter" id="stat-modules">0/9</div>
+              <div class="text-xl font-bold stat-counter" id="stat-modules">0/10</div>
               <div class="text-[10px] text-slate-400 uppercase">Modules Done</div>
             </div>
           </div>
@@ -441,6 +445,18 @@
             </div>
             <p class="text-xs text-gray-500 mb-3">Build tools with AI, AI lead-gen, automated Missed Call Audit, Hermes/OpenClaw, prompt library, 2026 trends radar</p>
             <div class="text-[10px] font-bold text-gray-400 uppercase mb-1">Module 9</div>
+            <div class="text-xs text-blue-600 font-semibold">7 lessons &rarr;</div>
+          </div>
+
+          <div class="dash-card" onclick="showView('scale')">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-8 h-8 rounded-lg bg-teal-100 flex items-center justify-center text-teal-600">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+              </div>
+              <h3 class="font-bold text-sm text-gray-900">Scale &amp; Streams</h3>
+            </div>
+            <p class="text-xs text-gray-500 mb-3">Nine income streams, productized delivery, hiring ladder, channel economics, cheat sheets, tool directory, exit paths</p>
+            <div class="text-[10px] font-bold text-gray-400 uppercase mb-1">Module 10</div>
             <div class="text-xs text-blue-600 font-semibold">7 lessons &rarr;</div>
           </div>
         </div>
@@ -5807,6 +5823,10 @@ already be taken. Want the audit report either way? It's free."</code></div>
               </div>
             </div>
           </div>
+
+          <div class="callout-action mt-6">
+            <p class="text-sm"><strong>What comes after these milestones?</strong> Module 10: Scale &amp; Streams — nine income streams stacked in order, productized delivery that triples your client ceiling, the hiring ladder, acquisition-channel economics, and your three exit paths. <button onclick="showView('scale')" class="text-blue-600 font-semibold underline" style="background:none;border:none;padding:0;cursor:pointer;">Open Module 10 &rarr;</button></p>
+          </div>
         </section>
 
         <!-- ==================== AI AGENT SCRIPT LIBRARY ==================== -->
@@ -9247,6 +9267,476 @@ sources.</code></div>
           <div class="quiz-feedback incorrect">Not safe. AI voice cold-calling breaks the TCPA ($500&ndash;$1,500/call), AI SDRs are overpriced and generic, and giving an autonomous agent your live credentials is a security risk. The safe play: Outscraper &rarr; Claude on reviews &rarr; Twilio hang-up audit &rarr; compliant cold email.</div>
         </div>
 
+        <!-- ==================== MODULE 10: SCALE & INCOME STREAMS ==================== -->
+        <section id="revenue-streams" class="mb-16 view-section hidden" data-view="scale">
+          <div class="module-header">
+            <div class="module-number">10</div>
+            <h2 class="text-xl font-extrabold mb-1">Scale &amp; Income Streams</h2>
+            <p class="text-sm text-slate-300 mb-3">Turn one service into a revenue stack: nine income streams, productized delivery, a hiring ladder, acquisition-channel economics, cheat sheets, the master tool directory, and your exit options</p>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="module-badge badge-time"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> 4 hours</span>
+              <span class="module-badge badge-difficulty">Advanced</span>
+              <span class="module-badge badge-lessons">7 Lessons</span>
+            </div>
+            <div class="text-xs font-semibold text-slate-300 uppercase tracking-wide mb-2">What You'll Learn</div>
+            <ul class="module-objectives"><li>Stack nine income streams in the right order (and when each unlocks)</li><li>Productize delivery so one operator can run 15-20 clients</li><li>Hire on triggers, not vibes: the VA-to-team ladder</li><li>Compare acquisition channels by real cost-per-client</li><li>Use one-page cheat sheets for pricing, costs, objections, and KPIs</li><li>Pick tools fast with the master directory</li><li>Choose your endgame: lifestyle agency, vertical SaaS, or sale</li></ul>
+          </div>
+
+          <h2 class="text-2xl font-extrabold mb-4">The Revenue Stack: Nine Income Streams, One Asset Base</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">A single-service agency is fragile: one churn wave or one platform price change and your month is ruined. A scalable agency layers income streams that all <strong>reuse the same assets</strong> — your prospect list, your Vapi templates, your n8n workflows, your client relationships. Nothing here requires building a second business. Each stream is the same business, monetized again.</p>
+
+          <div class="callout-warning mb-6">
+            <p class="text-sm"><strong>The two rules of stacking:</strong> (1) Never add a stream until the previous one runs without you thinking about it — a half-systemized stream is a liability, not income. (2) Every new stream must reuse an asset you already have. If it needs a new audience, new tooling, AND new skills, it's a different business wearing your logo.</p>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">The Nine Streams at a Glance</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-2 py-2 font-semibold">#</th><th class="text-left px-2 py-2 font-semibold">Stream</th><th class="text-left px-2 py-2 font-semibold">Realistic Revenue</th><th class="text-left px-2 py-2 font-semibold">Unlocks When</th><th class="text-left px-2 py-2 font-semibold">Scalability</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr class="bg-blue-50"><td class="px-2 py-2 font-bold" colspan="5">Tier 1: Client Services (Months 1-6) — trade time for recurring revenue</td></tr>
+                <tr><td class="px-2 py-2">1</td><td class="px-2 py-2 font-semibold">Core AI receptionist retainers</td><td class="px-2 py-2">$500-1,500/mo per client</td><td class="px-2 py-2">Day 1 — this is the business</td><td class="px-2 py-2">★★★☆☆ capped by delivery capacity</td></tr>
+                <tr><td class="px-2 py-2">2</td><td class="px-2 py-2 font-semibold">Setup fees</td><td class="px-2 py-2">$1,500-5,000 one-time per client</td><td class="px-2 py-2">Day 1 — charge from client #1</td><td class="px-2 py-2">★★☆☆☆ one-time, but funds growth</td></tr>
+                <tr><td class="px-2 py-2">3</td><td class="px-2 py-2 font-semibold">Expansion add-ons (ARPU growth)</td><td class="px-2 py-2">+$200-800/mo per client</td><td class="px-2 py-2">Month 2 of each client relationship</td><td class="px-2 py-2">★★★★☆ no new sales cost</td></tr>
+                <tr><td class="px-2 py-2">4</td><td class="px-2 py-2 font-semibold">Performance bonuses (per-booking)</td><td class="px-2 py-2">+$15-40 per booked job</td><td class="px-2 py-2">Once tracking is trustworthy (Month 2-3)</td><td class="px-2 py-2">★★★★☆ grows with client success</td></tr>
+                <tr class="bg-amber-50"><td class="px-2 py-2 font-bold" colspan="5">Tier 2: Leverage Streams (Months 6-12) — same assets, new buyers</td></tr>
+                <tr><td class="px-2 py-2">5</td><td class="px-2 py-2 font-semibold">Campaign revenue (reactivation, seasonal)</td><td class="px-2 py-2">$250-1,500 per campaign, 2-4x/yr per client</td><td class="px-2 py-2">5+ clients with customer databases</td><td class="px-2 py-2">★★★☆☆ recurring-ish, project-shaped</td></tr>
+                <tr><td class="px-2 py-2">6</td><td class="px-2 py-2 font-semibold">Affiliate &amp; referral commissions</td><td class="px-2 py-2">$50-500/mo passive, grows with referrals</td><td class="px-2 py-2">You have an audience or client base to recommend to</td><td class="px-2 py-2">★★★★☆ zero delivery cost</td></tr>
+                <tr><td class="px-2 py-2">7</td><td class="px-2 py-2 font-semibold">Paid audits &amp; consulting</td><td class="px-2 py-2">$500-2,500 per engagement</td><td class="px-2 py-2">You have case studies proving expertise</td><td class="px-2 py-2">★★☆☆☆ pure time-for-money, but great lead-gen</td></tr>
+                <tr class="bg-emerald-50"><td class="px-2 py-2 font-bold" colspan="5">Tier 3: Detached-from-Time Streams (Month 12+) — income without delivery hours</td></tr>
+                <tr><td class="px-2 py-2">8</td><td class="px-2 py-2 font-semibold">Digital products (templates, playbooks, community)</td><td class="px-2 py-2">$500-5,000/mo at modest audience size</td><td class="px-2 py-2">Documented systems + proof it works</td><td class="px-2 py-2">★★★★★ sell the same thing infinitely</td></tr>
+                <tr><td class="px-2 py-2">9</td><td class="px-2 py-2 font-semibold">White-label / productized platform</td><td class="px-2 py-2">$200-500/mo per sub-agency or SaaS seat</td><td class="px-2 py-2">Your delivery system is fully templated</td><td class="px-2 py-2">★★★★★ this is the path to a sellable company</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="text-lg font-bold mt-10 mb-4">Stream-by-Stream: How Each One Actually Works</h3>
+
+          <div class="space-y-4">
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-sm mb-1 text-blue-700">Streams 1-3: The Core Engine (covered in Modules 5-7)</h4>
+              <p class="text-sm text-gray-700">Retainers, setup fees, and add-ons are your foundation — the Master Profit Matrix in Module 7 prices every item. The scaling insight: <strong>ARPU beats client count.</strong> Going from 10 clients at $800 to 10 clients at $1,400 (core + 2 add-ons) is +$6,000 MRR with zero new sales calls, zero new onboarding, and near-zero new cost. Review every client account quarterly and ask: which add-on solves a problem they complained about this quarter?</p>
+            </div>
+
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-sm mb-1 text-blue-700">Stream 4: Performance Bonuses — Get Paid for Outcomes</h4>
+              <p class="text-sm text-gray-700 mb-2">Once your Supabase call log reliably distinguishes "booked job" from "message taken," offer a lower base + per-booking bonus (Module 7's 2026 Pricing Playbook). At 30 bookings/month × $25, that's +$750/mo from a client who feels like they're paying less risk. <strong>Rule: only offer this where you control the calendar integration</strong> — if bookings happen off-system, you can't invoice what you can't prove.</p>
+            </div>
+
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-sm mb-1 text-amber-700">Stream 5: Campaign Revenue — the Seasonal Cash Machine</h4>
+              <p class="text-sm text-gray-700">Database Reactivation (Module 7) isn't just a pilot offer — run it as a <strong>calendar product</strong>: spring AC tune-up campaign, fall furnace-check campaign, January maintenance-plan push. Each campaign is ~1 hour of work on templates you already built, billed at $250-500 flat or 10-15% of revenue generated. Five clients × three campaigns/year × $400 = $6,000/year of found money on top of retainers.</p>
+            </div>
+
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-sm mb-1 text-amber-700">Stream 6: Affiliate &amp; Referral Commissions — Get Paid to Recommend</h4>
+              <p class="text-sm text-gray-700 mb-2">You will constantly recommend software to clients and to other agency operators. Sign up for the affiliate programs first (rates verified mid-2026):</p>
+              <ul class="text-sm text-gray-700 space-y-1 list-disc pl-5">
+                <li><strong>GoHighLevel:</strong> 40% recurring ($39-199/mo per referred account) plus 5% tier-2 on your referrals' referrals. Two or three referrals covers your own GHL bill forever.</li>
+                <li><strong>Housecall Pro:</strong> up to <strong>$1,000 per referred contractor</strong> — and you're already telling FSM-less clients to get one so your agent can book into a real calendar. This is money you're currently leaving on the table.</li>
+                <li><strong>Cold-email tools:</strong> Smartlead 20-35% recurring, Instantly 20-40% recurring — natural fit when other operators ask how you do outreach.</li>
+                <li><strong>Others in your stack:</strong> Vapi ~15%, CallRail 15% for 36 months, Apollo 15-20% for year one.</li>
+                <li><strong>Cross-referrals with your partner network:</strong> the bookkeepers, web designers, and marketing agencies from Module 5's referral-partner section should pay you 10-20% for clients you send them — formalize it both directions.</li>
+              </ul>
+              <p class="text-xs text-gray-500 mt-2">Disclose affiliate relationships to clients when you recommend a tool you earn from. It costs you nothing and protects the trust that your whole business runs on.</p>
+            </div>
+
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-sm mb-1 text-amber-700">Stream 7: Paid Audits — Charge for What You Now Give Away</h4>
+              <p class="text-sm text-gray-700">The free Missed Call Audit (Module 5) stays free — it's your foot in the door. But once you have case studies, sell the <strong>full "Revenue Leak Audit" at $500-1,500</strong>: 30 days of call tracking, response-time analysis on their web forms, review-sentiment mining, and a written report with dollar figures. Credit the fee toward setup if they sign. Paid audits filter for serious buyers and pay you to do your own sales discovery.</p>
+            </div>
+
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-sm mb-1 text-emerald-700">Stream 8: Digital Products — Sell the System Itself</h4>
+              <p class="text-sm text-gray-700 mb-2">Everything you build to run your agency is a product for the <em>next</em> operator: your n8n workflow library, your Vapi assistant prompts, your onboarding checklists, your cold-email sequences. The market is real — operators pay $50-300 for proven template packs and $30-100/mo for communities where working operators share numbers. Your options, in order of effort:</p>
+              <ul class="text-sm text-gray-700 space-y-1 list-disc pl-5">
+                <li><strong>n8n workflow / prompt template packs</strong> ($19-99 one-time): sold via Gumroad (10% fee) or n8n template marketplaces. Best use: cheap templates as a lead-gen funnel into "want it installed? that's $500."</li>
+                <li><strong>GHL snapshots</strong> ($97-497 one-time on GHL's official App Marketplace): if you run GHL, your configured contractor sub-account IS the product — package it once, sell it repeatedly to other agencies in your vertical.</li>
+                <li><strong>The playbook/course</strong> ($297-997): this very document, productized — Module "Course Sales Page" already exists for this.</li>
+                <li><strong>Paid community</strong> ($49-79/mo is the proven sweet spot on Skool; platform costs $99/mo): only once you have an audience. 50 members at $69 = ~$3.5K/mo, but it's a content treadmill — treat it as a real product, not passive income.</li>
+              </ul>
+              <p class="text-xs text-gray-500 mt-2">Sequencing matters: sell templates only after they've produced results for YOUR clients. "Here's the workflow that books 40 jobs/month for my HVAC clients" sells itself; theory doesn't.</p>
+            </div>
+
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-sm mb-1 text-emerald-700">Stream 9: White-Label &amp; Productized Platform — Other Agencies Resell YOU</h4>
+              <p class="text-sm text-gray-700 mb-2">Once delivery is fully templated, you can serve two new buyers:</p>
+              <ul class="text-sm text-gray-700 space-y-1 list-disc pl-5">
+                <li><strong>Marketing agencies without AI capability:</strong> hundreds of web-design and SEO shops have contractor clients asking about AI. You deliver the voice agent under their brand; they bill the client $1,200, pay you $500-700/mo per account. You do zero sales — they bring the clients.</li>
+                <li><strong>GHL SaaS Mode:</strong> GoHighLevel's Agency Pro tier ($497/mo, verified 2026) lets you resell the whole platform (CRM + your AI workflows + phone, with markup rebilling) as your own branded software. Standard tiering: $97/$297/$497 per client per month — ten SaaS clients at $297 is ~$2.9K/mo against a flat $497 platform cost. This converts agency work into software revenue, the highest-multiple revenue you can own (see Exit Paths below).</li>
+                <li><strong>White-label the voice layer itself:</strong> Vapi has no native reseller mode — agencies use wrapper platforms (e.g., VoiceAIWrapper, ~$79-499/mo) to give sub-clients a branded portal on top of your Vapi/Retell builds. Synthflow sells a no-code agency plan (~$1,400/mo, unlimited white-label sub-accounts with Stripe rebilling) — only worth it once you have enough sub-accounts to clear the fixed cost.</li>
+                <li><strong>Overflow subcontracting:</strong> in busy months, other AI agencies will pay you per-deployment to build for them ($500-1,000/build) — join the operator communities where this work gets traded.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="callout-protip mt-6">
+            <p class="text-sm"><strong>The 12-month revenue-stack target for a 2-person shop:</strong> 12 core clients ($12K) + add-on ARPU (+$4K) + performance bonuses (+$1.5K) + campaigns (+$500/mo averaged) + affiliates (+$300) = <strong>~$18K MRR at 80%+ margin</strong>, before any digital product or white-label revenue. Every piece of that reuses assets built for stream #1.</p>
+          </div>
+        </section>
+
+        <section id="productize" class="mb-16 view-section hidden" data-view="scale">
+          <h2 class="text-2xl font-extrabold mb-4">Productize or Stall: Systemize Delivery</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">The difference between an agency stuck at 6 clients and one cruising at 20 isn't talent or hours — it's whether delivery is <strong>a product with a spec</strong> or a custom project every time. Custom delivery means every client is a snowflake; productized delivery means every client is the same build with different variables.</p>
+
+          <h3 class="text-lg font-bold mt-6 mb-4">The Capacity Math (Why This Is Non-Negotiable)</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Delivery style</th><th class="text-right px-3 py-2 font-semibold">Setup per client</th><th class="text-right px-3 py-2 font-semibold">Maintenance per client</th><th class="text-right px-3 py-2 font-semibold">Max clients per operator*</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr><td class="px-3 py-2">Ad-hoc (build from scratch, custom everything)</td><td class="px-3 py-2 text-right">10-15 hrs</td><td class="px-3 py-2 text-right">3-4 hrs/mo</td><td class="px-3 py-2 text-right font-bold text-red-600">~8</td></tr>
+                <tr><td class="px-3 py-2">Templated (golden stack + config variables)</td><td class="px-3 py-2 text-right">4-6 hrs</td><td class="px-3 py-2 text-right">1 hr/mo</td><td class="px-3 py-2 text-right font-bold text-emerald-600">~20</td></tr>
+                <tr><td class="px-3 py-2">Templated + monitoring automation + VA on tickets</td><td class="px-3 py-2 text-right">3-4 hrs</td><td class="px-3 py-2 text-right">20 min/mo</td><td class="px-3 py-2 text-right font-bold text-emerald-600">40+</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-xs text-gray-500 mt-2">* Assumes ~25 hrs/week on delivery (the rest goes to sales and admin). At $1,200 ARPU, the jump from 8 to 20 clients is the jump from $9.6K to $24K MRR — same hours.</p>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">Build the Golden Stack (Your Master Templates)</h3>
+          <p class="text-sm text-gray-700 mb-3">One master version of everything, versioned like software. When you improve the master, roll the improvement out to every client. Build these once, in order:</p>
+          <div class="space-y-2">
+            <p class="check-item"><strong>Master Vapi assistant template (v1.0).</strong> Your best receptionist prompt with ALL variables marked: {{company_name}}, {{trade}}, {{service_area}}, {{hours}}, {{emergency_criteria}}, {{booking_rules}}. New client = fill 15 variables, not write 500 lines.</p>
+            <p class="check-item"><strong>n8n workflow library.</strong> Export your proven workflows (call logging, SMS follow-up, calendar booking, review request, escalation alert) as templates. New client = import + swap credentials + test.</p>
+            <p class="check-item"><strong>Onboarding-in-a-box.</strong> One intake form (Tally/Typeform) that captures every variable the templates need, a kickoff-call agenda, a go-live checklist, and a pre-written welcome email sequence. Client fills the form; you configure from it.</p>
+            <p class="check-item"><strong>Client dashboard template.</strong> The Supabase + HTML dashboard from Module 3, cloneable per client in 30 minutes. Same layout for everyone — a client asking "how do I read this?" means the template needs fixing, not the client.</p>
+            <p class="check-item"><strong>Proposal &amp; contract templates.</strong> Three tiers, pre-priced from the Master Profit Matrix, with e-sign (PandaDoc free tier or GHL documents). Quote any prospect in under 15 minutes.</p>
+            <p class="check-item"><strong>Test-call script pack.</strong> The same 10 test scenarios (emergency, after-hours booking, price shopper, angry caller, Spanish speaker...) run against every new deployment before go-live. Quality becomes a checklist, not a feeling.</p>
+          </div>
+
+          <div class="callout-tip mt-4 mb-6">
+            <p class="text-sm"><strong>Version your templates.</strong> Keep a changelog: "Master Assistant v1.4 — added better objection handling for price shoppers, fixed double-booking edge case." When v1.5 ships, schedule 20 minutes per client to roll it out. Clients experience this as "my agent keeps getting smarter" — which is exactly the retention story you want in the monthly report.</p>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">The SOP Library: Write It the Second Time</h3>
+          <p class="text-sm text-gray-700 mb-3">Rule: the <strong>second</strong> time you do anything, write the SOP while you do it (screen-record with Loom, have AI turn the transcript into steps). The first time you're figuring it out; the second time you're proving it repeats. These ten SOPs cover 90% of operations:</p>
+          <div class="grid sm:grid-cols-2 gap-2">
+            <p class="check-item">SOP 1: New client onboarding (intake → go-live)</p>
+            <p class="check-item">SOP 2: Vapi assistant deployment &amp; configuration</p>
+            <p class="check-item">SOP 3: Phone number provisioning + A2P registration</p>
+            <p class="check-item">SOP 4: Pre-launch test-call QA (the 10 scenarios)</p>
+            <p class="check-item">SOP 5: Monthly client report generation</p>
+            <p class="check-item">SOP 6: Troubleshooting: agent not answering / latency / wrong transfers</p>
+            <p class="check-item">SOP 7: Lead-list building &amp; enrichment (for the VA)</p>
+            <p class="check-item">SOP 8: Cold-email campaign setup &amp; warm-up</p>
+            <p class="check-item">SOP 9: Billing: invoicing, failed payments, plan changes</p>
+            <p class="check-item">SOP 10: Client offboarding &amp; data handover</p>
+          </div>
+
+          <div class="callout-action mt-6">
+            <p class="text-sm"><strong>The productization test:</strong> could a smart stranger deploy a new client using only your SOPs and templates, without asking you anything? Until the answer is yes, you don't have a scalable agency — you have a job with extra steps. This same test is what makes the business <em>sellable</em> later (see Exit Paths).</p>
+          </div>
+        </section>
+
+        <section id="team-scaling" class="mb-16 view-section hidden" data-view="scale">
+          <h2 class="text-2xl font-extrabold mb-4">The Hiring Ladder: Grow the Team on Triggers, Not Vibes</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">Hire when a specific, measurable pain appears — never because revenue hit a round number and hiring "feels like the next step." Each hire below pays for itself with the hours or revenue it frees up. The golden rule: <strong>document → delegate → automate.</strong> You can't delegate what isn't documented (that's why the SOP library comes first), and you shouldn't hire for what software can do.</p>
+
+          <h3 class="text-lg font-bold mt-6 mb-4">Hire in This Order</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-2 py-2 font-semibold">Hire</th><th class="text-left px-2 py-2 font-semibold">Trigger (hire when...)</th><th class="text-right px-2 py-2 font-semibold">Cost</th><th class="text-left px-2 py-2 font-semibold">What they take off your plate</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr><td class="px-2 py-2 font-semibold">1. Lead-gen VA (part-time, PH/LatAm)</td><td class="px-2 py-2">You spend 5+ hrs/week on list building &amp; enrichment</td><td class="px-2 py-2 text-right">$400-700/mo</td><td class="px-2 py-2">Prospect lists, data enrichment, CRM hygiene, review mining (SOP 7)</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">2. Delivery tech (contractor)</td><td class="px-2 py-2">12+ clients, or onboarding backlog &gt; 2 weeks</td><td class="px-2 py-2 text-right">$15-25/hr or $150-250/deployment</td><td class="px-2 py-2">Deployments from your templates, test-call QA, tier-1 support tickets (SOPs 2-6)</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">3. Appointment setter (commission)</td><td class="px-2 py-2">Demo calendar has empty slots and you have proven scripts</td><td class="px-2 py-2 text-right">$50-100 per held demo (or base + commission)</td><td class="px-2 py-2">Cold calls, follow-up sequences, demo booking (Module 5 scripts)</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">4. Account manager</td><td class="px-2 py-2">20+ clients, or monthly check-ins start slipping</td><td class="px-2 py-2 text-right">$1,500-3,000/mo (part→full time)</td><td class="px-2 py-2">Monthly reports, check-in calls, upsell conversations, churn saves</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">5. Ops manager / integrator</td><td class="px-2 py-2">$50K+ MRR and YOU are the bottleneck on everything</td><td class="px-2 py-2 text-right">$4-7K/mo</td><td class="px-2 py-2">Runs the whole delivery org; you keep vision, sales strategy, product</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-xs text-gray-500 mt-2">Hire #1 with the paid-test-task process from Module 4 (the $25 test task). Keep everyone a contractor as long as legally sensible; convert your best people once volume is stable.</p>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">What the Org Looks Like at Each Milestone</h3>
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <div class="text-xs font-bold text-blue-600 uppercase mb-1">$10K MRR</div>
+              <h4 class="font-bold text-sm mb-2">You Two + One VA</h4>
+              <p class="text-xs text-gray-600 leading-relaxed">Mike: sales + delivery. Paola: onboarding + client comms + QA. VA: lists and CRM hygiene. ~$700/mo total payroll. Margin: ~80%. Everything else is templates doing the work.</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <div class="text-xs font-bold text-emerald-600 uppercase mb-1">$30K MRR (~25 clients)</div>
+              <h4 class="font-bold text-sm mb-2">Founders Off the Tools</h4>
+              <p class="text-xs text-gray-600 leading-relaxed">+ Delivery tech doing all deployments, + setter filling the calendar. Mike: closes and owns partnerships. Paola: account management + team QA. Payroll ~$4-6K/mo. Margin: ~65-70%. Founders touch clients, not configs.</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <div class="text-xs font-bold text-purple-600 uppercase mb-1">$100K MRR (~70-80 clients)</div>
+              <h4 class="font-bold text-sm mb-2">A Real Company</h4>
+              <p class="text-xs text-gray-600 leading-relaxed">Ops manager runs delivery (2-3 techs), AM owns retention, 1-2 setters + marketing spend fill pipeline. Payroll ~$25-35K/mo. Margin: ~55-60%. Founders own strategy, product (SaaS-ification?), and the exit decision.</p>
+            </div>
+          </div>
+
+          <div class="callout-warning mt-6 mb-6">
+            <p class="text-sm"><strong>Keep sales and client relationships in founder hands the longest.</strong> Delivery is templated — anyone competent can run your SOPs. But trust is why contractors stay, and in the early years YOU are the product's warranty. Delegate the keyboard work first, the relationship work last.</p>
+          </div>
+
+          <div class="callout-tool">
+            <p class="text-sm"><strong>White-label works in both directions on the ladder.</strong> Under capacity? Take overflow deployment work from bigger AI agencies at $500-1,000/build (instant revenue, zero sales cost). Over capacity? Subcontract YOUR overflow to a vetted operator before service quality dips — a $300 subcontracted deployment beats a churned $1,200/mo client every time.</p>
+          </div>
+        </section>
+
+        <section id="marketing-machine" class="mb-16 view-section hidden" data-view="scale">
+          <h2 class="text-2xl font-extrabold mb-4">The Customer Acquisition Machine: Channel Economics</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">Module 5 gives you the tactics (cold email, audits, referral partners, content). This lesson gives you the <strong>economics</strong> — what a client actually costs from each channel, so you invest deliberately instead of doing a little of everything. The metric that matters: <strong>CAC vs LTV.</strong> At $1,200 ARPU and 18-month average retention, one client is worth ~$21,600. That means you can rationally spend $1,000+ to acquire a client — most beginners are irrationally cheap here.</p>
+
+          <h3 class="text-lg font-bold mt-6 mb-4">Cost Per Client, by Channel</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-2 py-2 font-semibold">Channel</th><th class="text-right px-2 py-2 font-semibold">Real cost per client*</th><th class="text-left px-2 py-2 font-semibold">Time to first client</th><th class="text-left px-2 py-2 font-semibold">Scales?</th><th class="text-left px-2 py-2 font-semibold">Use it when</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr class="bg-emerald-50"><td class="px-2 py-2 font-semibold">Referrals from happy clients</td><td class="px-2 py-2 text-right">$0-300 (referral reward)</td><td class="px-2 py-2">After client #3-5</td><td class="px-2 py-2">With client base</td><td class="px-2 py-2">Always — engineer it, don't wait for it (ask at every monthly report)</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Missed Call Audit + Loom (Module 5)</td><td class="px-2 py-2 text-right">~$50-150 in time/tools</td><td class="px-2 py-2">2-4 weeks</td><td class="px-2 py-2">Semi (your hours)</td><td class="px-2 py-2">Months 1-6: highest close rate per hour of any cold channel</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Cold email at volume</td><td class="px-2 py-2 text-right">$200-500</td><td class="px-2 py-2">3-6 weeks (after warm-up)</td><td class="px-2 py-2">Yes</td><td class="px-2 py-2">Always-on background channel; feeds the audit motion</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Referral partners (bookkeepers, web shops, suppliers)</td><td class="px-2 py-2 text-right">$120-360 (10-15% of yr-1 fees or flat $250-500)</td><td class="px-2 py-2">1-3 months to build, then compounding</td><td class="px-2 py-2">Yes</td><td class="px-2 py-2">Month 2+: one good partner = 1-2 warm intros/month forever</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Local FB groups + community presence</td><td class="px-2 py-2 text-right">~$0 + consistency</td><td class="px-2 py-2">1-2 months</td><td class="px-2 py-2">No (but cheap)</td><td class="px-2 py-2">Months 1-3 while cold channels warm up</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Trade shows / association meetings</td><td class="px-2 py-2 text-right">$300-800 (booth-free: just attend)</td><td class="px-2 py-2">Same day to 2 months</td><td class="px-2 py-2">Semi</td><td class="px-2 py-2">Month 3+: bring the live demo — an AI answering calls at a PHCC chapter meeting sells itself</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Google Ads ("AI receptionist for plumbers")</td><td class="px-2 py-2 text-right">$500-1,500</td><td class="px-2 py-2">2-6 weeks</td><td class="px-2 py-2">Yes</td><td class="px-2 py-2">Month 6+: only with a landing page, a demo line, and close-rate data</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Facebook/IG ads to contractors</td><td class="px-2 py-2 text-right">$800-2,000</td><td class="px-2 py-2">1-3 months</td><td class="px-2 py-2">Yes</td><td class="px-2 py-2">Month 6+: retarget site visitors with the demo video first (cheapest win)</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Content/SEO/GEO (Module 5 + 7)</td><td class="px-2 py-2 text-right">Low $ but 6-12 mo lag</td><td class="px-2 py-2">6-12 months</td><td class="px-2 py-2">Yes (compounds)</td><td class="px-2 py-2">Start month 1 (one asset/week), harvest year 2</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-xs text-gray-500 mt-2">* Fully loaded: tool costs + ad spend + your time at $50/hr. Your numbers will differ — the point is to TRACK them. Add a "source" field to every deal in your pipeline from day 1.</p>
+
+          <div class="callout-cost mt-4 mb-6">
+            <p class="text-sm"><strong>The LTV:CAC guardrail.</strong> Target LTV:CAC above 5:1 while small (you need the cash flow), and never accept below 3:1. At ~$21K LTV almost every channel above clears the bar — which means the real constraint is <strong>your hours, not money</strong>. That's the argument for hiring the setter and buying ads sooner than feels comfortable.</p>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">The Flywheel: How Channels Feed Each Other</h3>
+          <div class="bg-white rounded-xl border border-gray-200 p-5 mb-6">
+            <ol class="text-sm text-gray-700 space-y-2 list-decimal pl-5">
+              <li><strong>Client wins</strong> (booked-job numbers from the dashboard) become <strong>case studies</strong> — one per client, written by AI from your monthly report in 20 minutes.</li>
+              <li>Case studies power <strong>content</strong> (Module 5's content engine) and make <strong>cold email</strong> convert 2-3x better ("we book 40 extra jobs/month for an HVAC shop in Charlotte" beats any feature list).</li>
+              <li>Content builds the audience that makes <strong>paid ads</strong> retargeting work and gives <strong>referral partners</strong> something credible to forward.</li>
+              <li>Every happy client gets asked for a <strong>referral</strong> at the month-3 report (with a $250 reward or a free month), feeding the top of the loop.</li>
+            </ol>
+            <p class="text-xs text-gray-500 mt-3">The flywheel's fuel is documented results. If your dashboard can't show booked jobs per client, fix that before spending a dollar on ads.</p>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-4">The 90-Day Marketing Calendar (Repeat Quarterly)</h3>
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <div class="text-xs font-bold text-blue-600 uppercase mb-1">Days 1-30: Volume</div>
+              <p class="text-xs text-gray-600 leading-relaxed">Fill the machine: 500 new prospects listed &amp; enriched, cold-email sequences running, 10 audit Looms/week, 2 FB group value posts/week, 1 content asset/week. Book: 8-12 demos.</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <div class="text-xs font-bold text-emerald-600 uppercase mb-1">Days 31-60: Relationships</div>
+              <p class="text-xs text-gray-600 leading-relaxed">Layer the compounding channels: pitch 5 referral partners, attend 1 trade association meeting with the live demo, publish 2 case studies, ask every active client for 1 referral. Book: 10-15 demos.</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <div class="text-xs font-bold text-purple-600 uppercase mb-1">Days 61-90: Double Down</div>
+              <p class="text-xs text-gray-600 leading-relaxed">Read the source data in your pipeline. Kill the worst channel, double the budget/hours on the best one, and test ONE new channel (ads, a second city, a second trade). Reset and repeat.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="cheat-sheets" class="mb-16 view-section hidden" data-view="scale">
+          <h2 class="text-2xl font-extrabold mb-4">Cheat Sheets: The One-Page References</h2>
+          <p class="text-gray-700 leading-relaxed mb-6">Everything you need mid-call or mid-build, condensed. Print this lesson (top-bar print button) and keep it next to your desk.</p>
+
+          <h3 class="text-lg font-bold mb-3">💰 Pricing at a Glance</h3>
+          <div class="overflow-x-auto mb-2">
+            <table class="w-full text-xs border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-2 py-2 font-semibold">Tier</th><th class="text-right px-2 py-2 font-semibold">Setup</th><th class="text-right px-2 py-2 font-semibold">Monthly</th><th class="text-left px-2 py-2 font-semibold">Includes</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr><td class="px-2 py-2 font-semibold">Starter — "Never Miss a Call"</td><td class="px-2 py-2 text-right">$1,500</td><td class="px-2 py-2 text-right font-bold">$800</td><td class="px-2 py-2">AI receptionist 24/7, booking, SMS confirmations, monthly report</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Growth (most popular)</td><td class="px-2 py-2 text-right">$2,500</td><td class="px-2 py-2 text-right font-bold">$1,200</td><td class="px-2 py-2">Starter + speed-to-lead + review automation + quote follow-up</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Scale</td><td class="px-2 py-2 text-right">$3,500-5,000</td><td class="px-2 py-2 text-right font-bold">$1,500+</td><td class="px-2 py-2">Growth + bilingual + campaigns + dashboard + priority support</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-xs text-gray-500 mb-6">Anchor high, discount setup (never the monthly). Per-booking variant: drop base ~30%, add $20-30/booked job. Full logic: Module 7.</p>
+
+          <h3 class="text-lg font-bold mb-3">🧮 Cost-Per-Call Math (30-Second Version)</h3>
+          <div class="bg-white rounded-xl border border-gray-200 p-5 mb-2">
+            <p class="text-sm text-gray-700 mb-2">A typical Vapi receptionist call costs <strong>$0.10-0.20/minute all-in</strong>:</p>
+            <ul class="text-xs text-gray-600 space-y-1 list-disc pl-5">
+              <li>Voice platform (Vapi base): ~$0.05/min &middot; STT (Deepgram): ~$0.01/min &middot; LLM (GPT-5.4 mini / Haiku 4.5 class): ~$0.01-0.03/min &middot; TTS (Cartesia/11L): ~$0.02-0.07/min &middot; Telephony (Twilio): ~$0.01/min</li>
+            </ul>
+            <p class="text-sm text-gray-700 mt-2">Average call ~3 min → <strong>~$0.45/call</strong>. Client at 150 calls/mo → <strong>~$40-70/mo cost vs $800+ billed</strong>. When quoting heavy-volume clients: estimate minutes × $0.15, then add 30% buffer.</p>
+          </div>
+          <p class="text-xs text-gray-500 mb-6">Cache your system prompt (Module 6 cost levers) and this drops further. Re-verify per-unit prices on vendor pages before quoting big accounts.</p>
+
+          <h3 class="text-lg font-bold mb-3">🔧 Stack Picker: If X, Use Y</h3>
+          <div class="overflow-x-auto mb-6">
+            <table class="w-full text-xs border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-2 py-2 font-semibold">Situation</th><th class="text-left px-2 py-2 font-semibold">Default pick</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr><td class="px-2 py-2">Standard voice receptionist build</td><td class="px-2 py-2 font-semibold">Vapi + Deepgram + Cartesia + GPT-5.4 mini (or Haiku 4.5)</td></tr>
+                <tr><td class="px-2 py-2">Client wants everything in one platform / you resell SaaS</td><td class="px-2 py-2 font-semibold">GoHighLevel (Voice AI + CRM + SaaS mode)</td></tr>
+                <tr><td class="px-2 py-2">Complex multi-step reasoning on calls (quoting, triage)</td><td class="px-2 py-2 font-semibold">Sonnet 4.6 on the voice path; Opus/Fable for offline analysis</td></tr>
+                <tr><td class="px-2 py-2">Automation between tools</td><td class="px-2 py-2 font-semibold">n8n self-hosted (cost) / Make (speed to build)</td></tr>
+                <tr><td class="px-2 py-2">Cold email at volume</td><td class="px-2 py-2 font-semibold">Smartlead + MillionVerifier + Outscraper lists</td></tr>
+                <tr><td class="px-2 py-2">Cheapest acceptable bulk/offline LLM work</td><td class="px-2 py-2 font-semibold">GPT-5.4 Nano or Haiku 4.5 Batch (50% off)</td></tr>
+                <tr><td class="px-2 py-2">Scheduling without client's FSM</td><td class="px-2 py-2 font-semibold">Cal.com; with FSM: integrate ServiceTitan/Jobber/Housecall directly</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="text-lg font-bold mb-3">🛡️ Objection Killers (One-Liners)</h3>
+          <div class="prompt-block mb-6">
+            <button class="copy-btn">Copy</button>
+            <code>"It's too expensive" → "One recovered job pays for the month. You told me your average ticket is $[X] — the AI catches [3-5]+ missed calls a week."
+
+"AI will annoy my customers" → "Fair worry. Listen to this call [play recording]. Also: which annoys them more — this, or voicemail at 7pm when their AC is out?"
+
+"I already have an answering service" → "They take messages. This books jobs into your calendar and texts the customer a confirmation — want to see the difference on your own missed calls?"
+
+"I need to think about it" → "Totally fine. While you think, let's run it on after-hours calls only — you'll have real numbers instead of a guess in 2 weeks."
+
+"What if it makes a mistake?" → "It transfers anything it's unsure about to a human, and you get every transcript. Your current voicemail makes a 'mistake' on 100% of missed calls."
+
+"We're too small for this" → "Small is exactly who this is for — you can't afford a $40K/year receptionist. $800/mo gets you one that never sleeps."
+
+"Can I try it first?" → "Yes — 30-day guarantee: if it doesn't book you at least [N] jobs in month one, you don't pay."
+
+"I don't trust AI with my customers" → "Neither did [reference client]. Call them. Also, you'll hear every call recording — total transparency from day one."</code>
+          </div>
+
+          <h3 class="text-lg font-bold mb-3">📊 KPI Benchmarks: Green / Yellow / Red</h3>
+          <div class="overflow-x-auto mb-6">
+            <table class="w-full text-xs border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-2 py-2 font-semibold">Metric</th><th class="text-right px-2 py-2 font-semibold text-emerald-600">Green</th><th class="text-right px-2 py-2 font-semibold text-amber-600">Yellow</th><th class="text-right px-2 py-2 font-semibold text-red-600">Red — act now</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr><td class="px-2 py-2">AI answer rate (of inbound calls)</td><td class="px-2 py-2 text-right">&gt;97%</td><td class="px-2 py-2 text-right">93-97%</td><td class="px-2 py-2 text-right">&lt;93%</td></tr>
+                <tr><td class="px-2 py-2">Call → booked appointment rate</td><td class="px-2 py-2 text-right">&gt;35%</td><td class="px-2 py-2 text-right">25-35%</td><td class="px-2 py-2 text-right">&lt;25%</td></tr>
+                <tr><td class="px-2 py-2">Escalation/transfer rate</td><td class="px-2 py-2 text-right">10-20%</td><td class="px-2 py-2 text-right">20-35%</td><td class="px-2 py-2 text-right">&gt;35% (prompt problem)</td></tr>
+                <tr><td class="px-2 py-2">Monthly client churn</td><td class="px-2 py-2 text-right">&lt;3%</td><td class="px-2 py-2 text-right">3-5%</td><td class="px-2 py-2 text-right">&gt;5%</td></tr>
+                <tr><td class="px-2 py-2">Cold email reply rate (positive)</td><td class="px-2 py-2 text-right">&gt;2%</td><td class="px-2 py-2 text-right">1-2%</td><td class="px-2 py-2 text-right">&lt;1% (fix list or angle)</td></tr>
+                <tr><td class="px-2 py-2">Demo → close rate</td><td class="px-2 py-2 text-right">&gt;30%</td><td class="px-2 py-2 text-right">15-30%</td><td class="px-2 py-2 text-right">&lt;15% (fix demo or qualify harder)</td></tr>
+                <tr><td class="px-2 py-2">Net MRR growth per month</td><td class="px-2 py-2 text-right">&gt;10%</td><td class="px-2 py-2 text-right">3-10%</td><td class="px-2 py-2 text-right">&lt;3%</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="text-lg font-bold mb-3">⚖️ Compliance in Five Bullets</h3>
+          <div class="bg-white rounded-xl border border-gray-200 p-5 mb-6">
+            <ul class="text-sm text-gray-700 space-y-1.5 list-disc pl-5">
+              <li>The AI <strong>identifies itself as AI</strong> at call start and says calls are recorded — covers ~80% of state-law risk (and Utah's safe harbor).</li>
+              <li><strong>Never AI-cold-call.</strong> TCPA treats AI as "artificial voice": $500-1,500 per call. Outbound AI only to existing customers with consent.</li>
+              <li>SMS: registered <strong>A2P 10DLC</strong> brand/campaign, privacy policy + T&amp;Cs URLs on file, honor STOP instantly.</li>
+              <li><strong>No voiceprints/biometrics</strong> — keep Illinois BIPA out of your life.</li>
+              <li>Contract: client owns their data; you disclose AI vendors; not legal advice — full detail in Module 8 Legal.</li>
+            </ul>
+          </div>
+
+          <h3 class="text-lg font-bold mb-3">🗓️ Weekly Ops Rhythm (Steady State)</h3>
+          <div class="overflow-x-auto mb-2">
+            <table class="w-full text-xs border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-2 py-2 font-semibold">Day</th><th class="text-left px-2 py-2 font-semibold">Block</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr><td class="px-2 py-2 font-semibold">Mon</td><td class="px-2 py-2">Pipeline review + send week's outreach batch; check weekend call logs for all clients</td></tr>
+                <tr><td class="px-2 py-2">Tue</td><td class="px-2 py-2">Demos + sales calls (batch them); afternoon: deployments</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Wed</td><td class="px-2 py-2">Delivery day: builds, template improvements, QA test calls</td></tr>
+                <tr><td class="px-2 py-2">Thu</td><td class="px-2 py-2">Demos + follow-ups; partner/referral touchpoints</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Fri</td><td class="px-2 py-2">Client health check (KPI table above), 1 content asset, plan next week; monthly reports in week 1 of month</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-xs text-gray-500">Full daily rituals and comms cadence: Module 8.</p>
+        </section>
+
+        <section id="tool-directory" class="mb-16 view-section hidden" data-view="scale">
+          <h2 class="text-2xl font-extrabold mb-4">Master Tool Directory: Pick Fast, Pay Little</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">Every tool you'll realistically need, by category, with the <strong>default pick bolded</strong>. Rule of thumb: start on free/cheapest tiers, upgrade only when a limit actually hurts. Prices are mid-2026 and move often — verify before budgeting a big account.</p>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-2 py-2 font-semibold">Category</th><th class="text-left px-2 py-2 font-semibold">Tool</th><th class="text-left px-2 py-2 font-semibold">Price (approx)</th><th class="text-left px-2 py-2 font-semibold">Pick it when</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr class="bg-blue-50"><td class="px-2 py-2 font-bold" colspan="4">Voice AI</td></tr>
+                <tr><td class="px-2 py-2">Voice platform</td><td class="px-2 py-2 font-bold">Vapi</td><td class="px-2 py-2">~$0.05/min + providers</td><td class="px-2 py-2">Default: most control, best tooling (simulations, monitoring, MCP)</td></tr>
+                <tr><td class="px-2 py-2">Voice platform</td><td class="px-2 py-2">Retell AI</td><td class="px-2 py-2">~$0.07/min bundled</td><td class="px-2 py-2">Want provider fallback + simpler pricing</td></tr>
+                <tr><td class="px-2 py-2">Voice platform</td><td class="px-2 py-2">Synthflow</td><td class="px-2 py-2">from ~$29/mo + min</td><td class="px-2 py-2">No-code build or white-label program</td></tr>
+                <tr><td class="px-2 py-2">White-label wrapper</td><td class="px-2 py-2">VoiceAIWrapper</td><td class="px-2 py-2">~$79-499/mo</td><td class="px-2 py-2">Give sub-clients/partner agencies a branded portal over your Vapi/Retell builds (Stream 9)</td></tr>
+                <tr><td class="px-2 py-2">STT</td><td class="px-2 py-2 font-bold">Deepgram (Flux)</td><td class="px-2 py-2">~$0.0065/min</td><td class="px-2 py-2">Default: built-in end-of-turn detection = faster feel</td></tr>
+                <tr><td class="px-2 py-2">TTS</td><td class="px-2 py-2 font-bold">Cartesia Sonic</td><td class="px-2 py-2">~$0.02-0.04/min</td><td class="px-2 py-2">Default: ~40-80ms latency; ElevenLabs when voice quality closes deals</td></tr>
+                <tr class="bg-blue-50"><td class="px-2 py-2 font-bold" colspan="4">LLMs (details &amp; prices: Module 6 pricing table)</td></tr>
+                <tr><td class="px-2 py-2">Voice-path LLM</td><td class="px-2 py-2 font-bold">GPT-5.4 mini / Haiku 4.5</td><td class="px-2 py-2">$0.75-1/M in</td><td class="px-2 py-2">Default receptionist brain: fast + cheap</td></tr>
+                <tr><td class="px-2 py-2">Heavy reasoning</td><td class="px-2 py-2">Sonnet 4.6 / Opus 4.8</td><td class="px-2 py-2">$3-5/M in</td><td class="px-2 py-2">Complex call flows; offline analysis, proposals, reports</td></tr>
+                <tr><td class="px-2 py-2">Bulk/offline</td><td class="px-2 py-2">GPT-5.4 Nano / Haiku Batch</td><td class="px-2 py-2">$0.20-0.50/M in</td><td class="px-2 py-2">Review mining, list enrichment, transcript tagging</td></tr>
+                <tr class="bg-blue-50"><td class="px-2 py-2 font-bold" colspan="4">Telephony &amp; SMS</td></tr>
+                <tr><td class="px-2 py-2">Numbers/SMS</td><td class="px-2 py-2 font-bold">Twilio</td><td class="px-2 py-2">$1.15/number, ~$0.008/SMS</td><td class="px-2 py-2">Default; register A2P 10DLC before sending anything</td></tr>
+                <tr><td class="px-2 py-2">Call tracking</td><td class="px-2 py-2">CallRail</td><td class="px-2 py-2">from ~$45/mo</td><td class="px-2 py-2">Client wants attribution ("which ad made the phone ring")</td></tr>
+                <tr class="bg-blue-50"><td class="px-2 py-2 font-bold" colspan="4">Automation &amp; Data</td></tr>
+                <tr><td class="px-2 py-2">Workflows</td><td class="px-2 py-2 font-bold">n8n (self-hosted)</td><td class="px-2 py-2">~$10-20/mo VPS, unlimited runs</td><td class="px-2 py-2">Default: cost scales with clients, not per-task fees</td></tr>
+                <tr><td class="px-2 py-2">Workflows</td><td class="px-2 py-2">Make / Zapier</td><td class="px-2 py-2">$10-30/mo per tier</td><td class="px-2 py-2">Speed of building &gt; unit cost, or client-owned account</td></tr>
+                <tr><td class="px-2 py-2">Database</td><td class="px-2 py-2 font-bold">Supabase</td><td class="px-2 py-2">Free → $25/mo</td><td class="px-2 py-2">Default: call logs, dashboards, client data</td></tr>
+                <tr class="bg-blue-50"><td class="px-2 py-2 font-bold" colspan="4">Lead Gen &amp; Outreach</td></tr>
+                <tr><td class="px-2 py-2">Scraping</td><td class="px-2 py-2 font-bold">Outscraper</td><td class="px-2 py-2">~$0.002/result</td><td class="px-2 py-2">Default: Google Maps → prospect lists with phones/reviews</td></tr>
+                <tr><td class="px-2 py-2">Enrichment</td><td class="px-2 py-2">Apollo.io</td><td class="px-2 py-2">Free tier → $49/mo</td><td class="px-2 py-2">Need owner names/emails beyond Maps data</td></tr>
+                <tr><td class="px-2 py-2">Cold email</td><td class="px-2 py-2 font-bold">Smartlead</td><td class="px-2 py-2">~$39/mo</td><td class="px-2 py-2">Default sender + warm-up; Instantly is the alternative</td></tr>
+                <tr><td class="px-2 py-2">Verification</td><td class="px-2 py-2">MillionVerifier</td><td class="px-2 py-2">~$37/10K</td><td class="px-2 py-2">Always verify before sending — protect your domains</td></tr>
+                <tr><td class="px-2 py-2">Video</td><td class="px-2 py-2 font-bold">Loom</td><td class="px-2 py-2">Free → $15/mo</td><td class="px-2 py-2">Audit videos + SOP recording (both core motions)</td></tr>
+                <tr class="bg-blue-50"><td class="px-2 py-2 font-bold" colspan="4">CRM, Scheduling, Client-Facing</td></tr>
+                <tr><td class="px-2 py-2">CRM/all-in-one</td><td class="px-2 py-2 font-bold">GoHighLevel</td><td class="px-2 py-2">$97-297/mo ($497 for SaaS mode)</td><td class="px-2 py-2">Default once you have 3+ clients; also your white-label vehicle</td></tr>
+                <tr><td class="px-2 py-2">Scheduling</td><td class="px-2 py-2 font-bold">Cal.com</td><td class="px-2 py-2">Free → $15/user/mo</td><td class="px-2 py-2">Default booking layer; API-first, plugs into Vapi</td></tr>
+                <tr><td class="px-2 py-2">FSM integration</td><td class="px-2 py-2">ServiceTitan / Jobber / Housecall Pro</td><td class="px-2 py-2">client already pays</td><td class="px-2 py-2">Book directly into the client's real calendar = your moat</td></tr>
+                <tr><td class="px-2 py-2">Intake forms</td><td class="px-2 py-2 font-bold">Tally</td><td class="px-2 py-2">Free → $29/mo</td><td class="px-2 py-2">Onboarding-in-a-box intake forms</td></tr>
+                <tr><td class="px-2 py-2">Proposals/e-sign</td><td class="px-2 py-2">PandaDoc / GHL docs</td><td class="px-2 py-2">Free tier / included</td><td class="px-2 py-2">3-tier proposals with e-signature</td></tr>
+                <tr class="bg-blue-50"><td class="px-2 py-2 font-bold" colspan="4">Money &amp; Back Office</td></tr>
+                <tr><td class="px-2 py-2">Billing</td><td class="px-2 py-2 font-bold">Stripe</td><td class="px-2 py-2">2.9% + 30&cent;</td><td class="px-2 py-2">Default: subscriptions, usage-based invoices, ACH for big accounts</td></tr>
+                <tr><td class="px-2 py-2">Bookkeeping</td><td class="px-2 py-2">Wave / QuickBooks</td><td class="px-2 py-2">Free / ~$35/mo</td><td class="px-2 py-2">Wave until complexity forces QB (Module 8)</td></tr>
+                <tr><td class="px-2 py-2">Digital product sales</td><td class="px-2 py-2">Gumroad / Lemon Squeezy</td><td class="px-2 py-2">~5-10% of sales</td><td class="px-2 py-2">Selling template packs (Stream 8) with zero setup</td></tr>
+                <tr><td class="px-2 py-2">Community</td><td class="px-2 py-2">Skool</td><td class="px-2 py-2">~$99/mo</td><td class="px-2 py-2">Paid community once you have an audience</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout-cost mt-4">
+            <p class="text-sm"><strong>Total fixed stack at steady state: ~$250-450/mo</strong> (GHL + Smartlead + VPS + Supabase + misc) — everything else is variable cost that scales with billable client usage. If your fixed tooling creeps past $600/mo, audit it: something is a subscription you stopped using.</p>
+          </div>
+        </section>
+
+        <section id="exit-paths" class="mb-16 view-section hidden" data-view="scale">
+          <h2 class="text-2xl font-extrabold mb-4">The Endgame: Extend, Productize, or Sell</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">You don't have to decide today, but you should <strong>build like you've decided</strong> — because the habits that make an agency sellable (clean books, contracts, SOPs, low owner-dependence) also make it a better business to own. Three honest paths:</p>
+
+          <div class="space-y-4 mb-6">
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-sm mb-1 text-blue-700">Path A: The Lifestyle Agency (most likely, totally legitimate)</h4>
+              <p class="text-sm text-gray-700">Stay at 20-40 clients, $25-50K MRR, 70-80% margin, 2 founders + 2-3 contractors. No investors, no org chart, $250-450K/year of owner earnings with real freedom. The revenue stack (Streams 1-7) is designed to max this path. The trap to avoid: hiring into complexity you don't need because "growth" sounds mandatory. It isn't.</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-sm mb-1 text-emerald-700">Path B: Productize into Vertical SaaS (the venture path)</h4>
+              <p class="text-sm text-gray-700 mb-2">The market has already validated this: <strong>Avoca</strong> (AI voice/chat for HVAC, plumbing, roofing) raised $125M at a <strong>$1B valuation in April 2026</strong> after passing 8-figure ARR; <strong>Rebar</strong> raised $14M (March 2026) for AI quoting in commercial trades; YC-backed <strong>Sameday AI</strong> does exactly your service as software. They started where you are: solving one niche's phone problem. The playbook: (1) niche hard into ONE trade, (2) turn your golden stack into self-serve software — GHL SaaS mode is the training-wheels version ($297-497/mo per seat, rebilling automated), a real product is the full version, (3) let software margins and churn math replace service margins. Signals you're ready: clients onboard without calls, your templates haven't needed custom work in months, and prospects ask "can I just log in and set it up?"</p>
+              <p class="text-xs text-gray-500">Why bother: micro-SaaS trades at a median ~3.9x SDE on acquisition marketplaces (with top-quartile SaaS far higher), and healthy churn/NRR numbers multiply that again — versus ~2.5-3.5x SDE for a service agency. Same dollar of profit, very different exit.</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-sm mb-1 text-purple-700">Path C: Sell the Agency</h4>
+              <p class="text-sm text-gray-700 mb-2">Small agencies trade at roughly <strong>2.5-3.5x SDE</strong> (seller's discretionary earnings) per 2026 M&amp;A data — and 70%+ retainer-based revenue adds one to two full turns to the multiple versus project shops. At $30K MRR with 75% margin (~$270K SDE), that's a realistic <strong>$650K-950K exit</strong>. What moves the multiple up:</p>
+              <ul class="text-xs text-gray-600 space-y-1 list-disc pl-5">
+                <li><strong>Recurring % and contracts:</strong> month-to-month is fine to sell clients, but 12-month agreements sell the <em>company</em> better</li>
+                <li><strong>Churn under 3%/mo</strong> with 24+ months of clean data proving it (each point of monthly churn you cut is worth roughly 15-25% more valuation)</li>
+                <li><strong>Owner independence:</strong> the buyer asks "what happens when you leave?" — your SOP library and team ARE the answer</li>
+                <li><strong>Clean books from day 1:</strong> separate accounts, real P&amp;L (Module 8 bookkeeping), no personal expenses through the LLC</li>
+                <li><strong>Concentration risk:</strong> no client over 15% of revenue</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="callout-protip mb-6">
+            <p class="text-sm"><strong>The month-1 decisions that determine the year-3 exit:</strong> use written agreements (even simple ones), keep the books clean, log every client's numbers in one system, and write SOPs as you go. Sellability isn't a project you do before selling — it's a byproduct of running the business like it's already for sale.</p>
+          </div>
+
+          <div class="callout-action">
+            <p class="text-sm"><strong>Annual founder ritual (put it in the calendar):</strong> every January, spend one afternoon answering three questions with real numbers: (1) If we changed nothing, is this a business we want in 5 years? (2) What would a buyer pay today, and what's the #1 thing suppressing that number? (3) Which ONE stream from this module do we add this year? Then get back to work.</p>
+          </div>
+        </section>
+
+        <div class="quiz-card mb-8 view-section hidden" data-view="scale" id="quiz-m10" data-quiz="m10">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="value-tag">Knowledge Check</span>
+            <span class="text-sm font-bold text-purple-900">Module 10 Quiz</span>
+          </div>
+          <p class="text-sm text-gray-700 mb-3">You're at 8 clients and $9K MRR, working near capacity. A friend suggests launching a paid community, and a marketing agency asks about white-labeling your service. What does the Revenue Stack say to do first?</p>
+          <button class="quiz-option" data-correct="false" onclick="checkQuiz(this)">Launch the paid community — it's the most scalable stream, so start it earliest</button>
+          <button class="quiz-option" data-correct="true" onclick="checkQuiz(this)">Neither yet: template your delivery and grow ARPU with add-ons first — new streams only unlock once the current one runs without you</button>
+          <button class="quiz-option" data-correct="false" onclick="checkQuiz(this)">Say yes to both — more income streams always means more resilience</button>
+          <div class="quiz-feedback correct">Right. At 8 clients with ad-hoc delivery you're capacity-capped — the highest-ROI moves are the golden stack (doubles your client ceiling) and add-on ARPU (revenue with zero new sales). White-label and community are Tier 3 streams: they multiply a SYSTEM, and multiplying a bottleneck just breaks it faster.</div>
+          <div class="quiz-feedback incorrect">Tempting, but the stacking rules say: never add a stream until the previous one runs without you, and every stream must reuse existing assets. At 8 clients near capacity, delivery isn't systemized yet — templating and ARPU growth come first. Tier 3 streams multiply systems, not hustle.</div>
+        </div>
+
+
       <!-- View navigation (prev/next) -->
       <div id="view-nav" class="hidden mt-12 mb-4 flex items-center justify-between">
         <button id="prev-btn" class="view-nav-btn" onclick="navPrev()">
@@ -9273,6 +9763,7 @@ sources.</code></div>
     tech: ['tech-delivery','tech-implementation','phone-setup','ghl','agentic-ai','agent-scripts','tools-compare','quiz-m6','voice-platforms','backups-security','troubleshooting'],
     growth: ['economics','expansion','speed-to-lead','database-reactivation','ai-search-geo','retention','competition','milestones','case-studies','seasonal','client-success','client-offboarding','quiz-m7'],
     ai: ['ai-overview','ai-build','ai-clients','ai-research','ai-agents','ai-prompts','trends-2026','quiz-m9'],
+    scale: ['revenue-streams','productize','team-scaling','marketing-machine','cheat-sheets','tool-directory','exit-paths','quiz-m10'],
     reference: ['legal','rituals','client-comms','financials','bookkeeping','faq','mistakes-budget','resources','glossary','quiz-m8'],
     course: ['course-sales']
   };
@@ -9287,11 +9778,12 @@ sources.</code></div>
     tech: 'Module 6: Tech Deep Dives',
     growth: 'Module 7: Growth & Money',
     ai: 'Module 9: AI Leverage',
+    scale: 'Module 10: Scale & Streams',
     reference: 'Module 8: Resources',
     course: 'Course Overview'
   };
 
-  var viewOrder = ['dashboard','home','setup','build','launch','sales','tech','growth','ai','reference'];
+  var viewOrder = ['dashboard','home','setup','build','launch','sales','tech','growth','ai','scale','reference'];
   var currentView = 'dashboard';
 
   function showView(key) {
@@ -9526,17 +10018,18 @@ sources.</code></div>
 
     // Module completion (approximate based on sections)
     var modulesDone = 0;
-    if (pct >= 11) modulesDone++;
-    if (pct >= 22) modulesDone++;
-    if (pct >= 33) modulesDone++;
-    if (pct >= 44) modulesDone++;
-    if (pct >= 55) modulesDone++;
-    if (pct >= 66) modulesDone++;
-    if (pct >= 77) modulesDone++;
-    if (pct >= 88) modulesDone++;
+    if (pct >= 10) modulesDone++;
+    if (pct >= 20) modulesDone++;
+    if (pct >= 30) modulesDone++;
+    if (pct >= 40) modulesDone++;
+    if (pct >= 50) modulesDone++;
+    if (pct >= 60) modulesDone++;
+    if (pct >= 70) modulesDone++;
+    if (pct >= 80) modulesDone++;
+    if (pct >= 90) modulesDone++;
     if (pct >= 98) modulesDone++;
     var statModules = document.getElementById('stat-modules');
-    if (statModules) statModules.textContent = modulesDone + '/9';
+    if (statModules) statModules.textContent = modulesDone + '/10';
   }
 
   // Quiz logic
