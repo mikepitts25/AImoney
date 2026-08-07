@@ -26,6 +26,14 @@
     .warn { background: #fef2f2; border-left-color: #ef4444; }
     .tip { background: #ecfdf5; border-left-color: #10b981; }
     .info { background: #eff6ff; border-left-color: #3b82f6; }
+    .day-done-btn { margin-left:auto; font-size:0.7rem; font-weight:700; padding:0.3rem 0.7rem; border-radius:9999px; border:1.5px solid #cbd5e1; background:#fff; color:#64748b; cursor:pointer; transition:all .15s; white-space:nowrap; }
+    .day-done-btn:hover { border-color:#10b981; color:#059669; }
+    .day-done-btn.done { background:#10b981; border-color:#10b981; color:#fff; }
+    .day-done-btn.done::before { content:"\2713 "; }
+    #days-progress { position:sticky; top:56px; z-index:35; background:#fff; border-bottom:1px solid #e5e7eb; padding:0.5rem 1rem; display:flex; align-items:center; gap:0.75rem; font-size:0.75rem; }
+    #days-progress .bar { flex:1; height:8px; background:#e5e7eb; border-radius:9999px; overflow:hidden; }
+    #days-progress .fill { height:100%; background:linear-gradient(90deg,#2563eb,#10b981); width:0%; transition:width .3s; }
+    @media print { #days-progress, .day-done-btn { display:none !important; } }
     .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #2563eb, #d946ef); z-index: 9999; }
     .day-badge { display: inline-flex; align-items: center; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
     .mike { background: #dbeafe; color: #1e40af; }
@@ -44,6 +52,11 @@
     </div>
   </nav>
 
+  <div id="days-progress">
+    <span class="font-bold text-gray-700 whitespace-nowrap"><span id="days-done">0</span>/<span id="days-total">0</span> days done</span>
+    <div class="bar"><div class="fill" id="days-fill"></div></div>
+    <button type="button" onclick="if(confirm('Reset day progress?')){localStorage.removeItem('agencyStepsProgress');location.reload();}" style="background:none;border:none;color:#94a3b8;cursor:pointer;font-size:0.65rem;">reset</button>
+  </div>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <div class="lg:grid lg:grid-cols-[220px_1fr] lg:gap-10">
 
@@ -83,6 +96,7 @@
             <span class="day-badge both">Both</span>
             <h2 class="text-2xl font-extrabold">Day 1 — Business Setup</h2>
             <span class="text-sm text-gray-500">~3-4 hours</span>
+            <button class="day-done-btn" data-day="day1" type="button">Mark day complete</button>
           </div>
 
           <h3 class="font-bold mt-6 mb-3">1.1 Choose Your Agency Name</h3>
@@ -179,6 +193,7 @@ Host: @  |  Type: MX  |  Value: ALT4.ASPMX.L.GOOGLE.COM.  |  Priority: 10</div>
             <span class="day-badge mike">Mike</span>
             <h2 class="text-2xl font-extrabold">Day 2 — Tech Account Setup</h2>
             <span class="text-sm text-gray-500">~4-5 hours</span>
+            <button class="day-done-btn" data-day="day2-mike" type="button">Mark day complete</button>
           </div>
 
           <h3 class="font-bold mt-6 mb-3">2M.1 Spin Up Hetzner VPS &amp; Install n8n</h3>
@@ -187,7 +202,7 @@ Host: @  |  Type: MX  |  Value: ALT4.ASPMX.L.GOOGLE.COM.  |  Priority: 10</div>
             <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Go to <a href="https://console.hetzner.cloud" class="text-blue-600 underline">console.hetzner.cloud</a> → create a new project. Name it "agency".</p>
             <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>Click "Add Server". Configure:</p>
             <p class="substep text-sm text-gray-600 mt-1">Location: pick the one closest to you (e.g., Ashburn for US East)</p>
-            <p class="substep text-sm text-gray-600">Image: Ubuntu 22.04</p>
+            <p class="substep text-sm text-gray-600">Image: Ubuntu 24.04 LTS</p>
             <p class="substep text-sm text-gray-600">Type: Shared vCPU → CX22 (2 vCPU, 4 GB RAM) — $4.85/month</p>
             <p class="substep text-sm text-gray-600">Networking: leave defaults (public IPv4 + IPv6)</p>
             <p class="substep text-sm text-gray-600">SSH Key: click "Add SSH Key" if you have one. If you don't know what that is, skip it and use password authentication instead</p>
@@ -366,6 +381,7 @@ CREATE TABLE call_logs (
             <span class="day-badge wife">Paola</span>
             <h2 class="text-2xl font-extrabold">Day 2 — Paola's Outreach Setup</h2>
             <span class="text-sm text-gray-500">~3-4 hours</span>
+            <button class="day-done-btn" data-day="day2-wife" type="button">Mark day complete</button>
           </div>
 
           <h3 class="font-bold mt-6 mb-3">2W.1 Set Up Smartlead</h3>
@@ -440,6 +456,7 @@ CREATE TABLE call_logs (
             <span class="day-badge mike">Mike</span>
             <h2 class="text-2xl font-extrabold">Day 3 — Learn n8n (Hands-On)</h2>
             <span class="text-sm text-gray-500">~5 hours</span>
+            <button class="day-done-btn" data-day="day3" type="button">Mark day complete</button>
           </div>
 
           <h3 class="font-bold mt-6 mb-3">3.1 n8n Crash Course — Watch &amp; Follow Along</h3>
@@ -506,6 +523,7 @@ curl -X POST http://YOUR_IP:5678/webhook-test/test-hook \
             <span class="day-badge mike">Mike</span>
             <h2 class="text-2xl font-extrabold">Day 4 — Learn Vapi &amp; Connect to n8n</h2>
             <span class="text-sm text-gray-500">~5 hours</span>
+            <button class="day-done-btn" data-day="day4" type="button">Mark day complete</button>
           </div>
 
           <h3 class="font-bold mt-6 mb-3">4.1 Vapi Fundamentals</h3>
@@ -597,6 +615,7 @@ Rules:
             <span class="day-badge mike">Mike</span>
             <h2 class="text-2xl font-extrabold">Day 5 — Build the Full Demo Voice Agent</h2>
             <span class="text-sm text-gray-500">~5-6 hours</span>
+            <button class="day-done-btn" data-day="day5" type="button">Mark day complete</button>
           </div>
 
           <h3 class="font-bold mt-6 mb-3">5.1 Refine the Vapi Assistant Script</h3>
@@ -667,6 +686,7 @@ Rules:
             <span class="day-badge mike">Mike</span>
             <h2 class="text-2xl font-extrabold">Day 6 — Build n8n Post-Call Workflows</h2>
             <span class="text-sm text-gray-500">~5 hours</span>
+            <button class="day-done-btn" data-day="day6" type="button">Mark day complete</button>
           </div>
 
           <h3 class="font-bold mt-6 mb-3">6.1 Build the Main Call Handler Workflow</h3>
@@ -714,6 +734,7 @@ Notes: {{ $json.notes }}
             <span class="day-badge both">Both</span>
             <h2 class="text-2xl font-extrabold">Day 7 — Test, Fix, Record Demo</h2>
             <span class="text-sm text-gray-500">~4-5 hours</span>
+            <button class="day-done-btn" data-day="day7" type="button">Mark day complete</button>
           </div>
 
           <h3 class="font-bold mt-6 mb-3">7.1 Paola Tests as Different Callers (1-2 hours)</h3>
@@ -761,6 +782,7 @@ Notes: {{ $json.notes }}
             <span class="day-badge mike">Mike</span>
             <h2 class="text-2xl font-extrabold">Day 8 — Build Follow-Up SMS Automation</h2>
             <span class="text-sm text-gray-500">~4 hours</span>
+            <button class="day-done-btn" data-day="day8" type="button">Mark day complete</button>
           </div>
           <div class="step-box">
             <p class="text-sm text-gray-700"><span class="step-num">1</span>In n8n → new workflow: "Lead Follow-Up Sequence".</p>
@@ -779,6 +801,7 @@ Notes: {{ $json.notes }}
             <span class="day-badge mike">Mike</span>
             <h2 class="text-2xl font-extrabold">Day 9 — Build Review Request Automation</h2>
             <span class="text-sm text-gray-500">~3 hours</span>
+            <button class="day-done-btn" data-day="day9" type="button">Mark day complete</button>
           </div>
           <div class="step-box">
             <p class="text-sm text-gray-700"><span class="step-num">1</span>New n8n workflow: "Review Request Sequence".</p>
@@ -798,6 +821,7 @@ Thank you! 🙏</div>
             <span class="day-badge both">Both</span>
             <h2 class="text-2xl font-extrabold">Day 10 — Full End-to-End Test</h2>
             <span class="text-sm text-gray-500">~3 hours</span>
+            <button class="day-done-btn" data-day="day10" type="button">Mark day complete</button>
           </div>
           <div class="step-box">
             <p class="text-sm text-gray-700"><span class="step-num">1</span>Reset: delete all test data in Supabase (leads, call_logs). Fresh start.</p>
@@ -815,6 +839,7 @@ Thank you! 🙏</div>
             <span class="day-badge mike">Mike</span>
             <h2 class="text-2xl font-extrabold">Day 11 — Create Cloneable Templates</h2>
             <span class="text-sm text-gray-500">~4 hours</span>
+            <button class="day-done-btn" data-day="day11" type="button">Mark day complete</button>
           </div>
           <div class="step-box">
             <p class="text-sm text-gray-700"><span class="step-num">1</span><strong>Vapi:</strong> Go to your working assistant. Click "Duplicate" or export the JSON config. Save this as "TEMPLATE - HVAC Agent". When you get a new client, you'll duplicate this and change: business name, services, hours, first message.</p>
@@ -839,6 +864,7 @@ Thank you! 🙏</div>
             <span class="day-badge wife">Paola</span>
             <h2 class="text-2xl font-extrabold">Day 12 — Final Outreach Prep</h2>
             <span class="text-sm text-gray-500">~4 hours</span>
+            <button class="day-done-btn" data-day="day12" type="button">Mark day complete</button>
           </div>
           <div class="step-box">
             <p class="text-sm text-gray-700"><span class="step-num">1</span><strong>Check Smartlead warmup health.</strong> Log in → Email Accounts → check each account's warmup stats. You want: open rate 40%+, spam rate under 2%. If any account is underperforming, check the DNS records for that domain.</p>
@@ -867,6 +893,7 @@ Thank you! 🙏</div>
             <span class="day-badge both">Both</span>
             <h2 class="text-2xl font-extrabold">Day 13 — Sales Rehearsal</h2>
             <span class="text-sm text-gray-500">~3 hours</span>
+            <button class="day-done-btn" data-day="day13" type="button">Mark day complete</button>
           </div>
           <div class="step-box">
             <p class="text-sm text-gray-700"><span class="step-num">1</span><strong>Role-play the demo call 3 times.</strong> Paola plays the HVAC owner, Mike pitches. Then swap. Then do it together as you would on a real call.</p>
@@ -887,6 +914,7 @@ Thank you! 🙏</div>
             <span class="day-badge both">Both</span>
             <h2 class="text-2xl font-extrabold">Day 14 — Rest &amp; Final Review</h2>
             <span class="text-sm text-gray-500">~1-2 hours</span>
+            <button class="day-done-btn" data-day="day14" type="button">Mark day complete</button>
           </div>
           <div class="step-box">
             <p class="text-sm text-gray-700"><span class="step-num">1</span>Take the morning off. Seriously. You've been grinding for 2 weeks.</p>
@@ -910,6 +938,7 @@ Thank you! 🙏</div>
             <span class="day-badge both">Both</span>
             <h2 class="text-2xl font-extrabold">Day 15 — GO LIVE</h2>
             <span class="text-sm text-gray-500">Full day</span>
+            <button class="day-done-btn" data-day="day15" type="button">Mark day complete</button>
           </div>
           <div class="step-box" style="border-left-color: #059669; background: #ecfdf5;">
             <p class="text-sm text-green-800 font-bold">This is the day everything starts. Follow the daily schedule from the main plan. Here's the morning:</p>
@@ -937,6 +966,32 @@ Thank you! 🙏</div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  // ---- persisted day completion ----
+  var SP_KEY='agencyStepsProgress';
+  function spLoad(){ try{return JSON.parse(localStorage.getItem(SP_KEY)||'{}');}catch(e){return {};} }
+  function spSave(d){ try{localStorage.setItem(SP_KEY,JSON.stringify(d));}catch(e){} }
+  var dayBtns=document.querySelectorAll('.day-done-btn');
+  function renderDays(){
+    var d=spLoad(), done=0;
+    dayBtns.forEach(function(b){
+      var k=b.getAttribute('data-day');
+      if(d[k]){ b.classList.add('done'); b.textContent='Day complete'; done++; }
+      else { b.classList.remove('done'); b.textContent='Mark day complete'; }
+    });
+    var t=document.getElementById('days-total'), n=document.getElementById('days-done'), f=document.getElementById('days-fill');
+    if(t) t.textContent=dayBtns.length;
+    if(n) n.textContent=done;
+    if(f) f.style.width=(dayBtns.length?(done/dayBtns.length)*100:0)+'%';
+  }
+  dayBtns.forEach(function(b){
+    b.addEventListener('click',function(){
+      var d=spLoad(), k=b.getAttribute('data-day');
+      if(d[k]) delete d[k]; else d[k]=true;
+      spSave(d); renderDays();
+    });
+  });
+  renderDays();
+
   var pb = document.getElementById('progress-bar');
   if (pb) window.addEventListener('scroll', function() {
     var s = window.scrollY, d = document.documentElement.scrollHeight - window.innerHeight;
