@@ -146,11 +146,28 @@
     .sales-price { font-size: 3.5rem; font-weight: 900; background: linear-gradient(135deg, #fbbf24, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .guarantee-badge { background: linear-gradient(135deg, #ecfdf5, #d1fae5); border: 2px solid #34d399; border-radius: 1rem; }
 
+    .readiness-opt { flex: 1; padding: 0.4rem 0.5rem; border: 1.5px solid #e2e8f0; border-radius: 0.5rem; background: white; cursor: pointer; font-size: 0.7rem; font-weight: 600; color: #64748b; transition: all 0.15s; }
+    .readiness-opt:hover { border-color: #93c5fd; color: #2563eb; }
+    .readiness-opt.selected { background: #2563eb; border-color: #2563eb; color: white; }
+    .readiness-q { padding-bottom: 0.75rem; border-bottom: 1px solid #f1f5f9; }
+    .readiness-q:last-child { border-bottom: none; padding-bottom: 0; }
+
     @media print {
       #sidebar, #topbar, #sidebar-overlay, .view-nav, .section-subnav, #dashboard { display: none !important; }
       .view-section { display: block !important; }
-      .day-card { break-inside: avoid; }
-      body { font-size: 10pt; }
+      .day-card, .dash-card, table, .callout, .prompt-block, .quiz-card { break-inside: avoid; }
+      section { break-after: page; }
+      section:last-of-type { break-after: auto; }
+      body { font-size: 10pt; background: white !important; }
+      .lg\:ml-60 { margin-left: 0 !important; }
+      main { max-width: 100% !important; padding: 0 !important; }
+      h2 { break-after: avoid; }
+      h3 { break-after: avoid; }
+      .copy-btn { display: none !important; }
+      a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8pt; color: #666; word-break: break-all; }
+      input[type="text"], input[type="date"] { border: none !important; border-bottom: 1px solid #999 !important; }
+      .module-header { background: #f8fafc !important; color: #000 !important; -webkit-print-color-adjust: exact; }
+      .module-header p, .module-header li { color: #333 !important; }
     }
   </style>
 </head>
@@ -290,7 +307,7 @@
           <p class="mt-3 text-lg text-gray-500">The complete, step-by-step system to build a $10K/month AI automation agency from scratch &mdash; even part-time, even from overseas. Now with a full AI Leverage module.</p>
           <div class="mt-4 flex flex-wrap gap-2 text-xs">
             <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full font-semibold">10 Modules</span>
-            <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full font-semibold">79 Lessons</span>
+            <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full font-semibold">81 Lessons</span>
             <span class="bg-purple-50 text-purple-700 px-3 py-1 rounded-full font-semibold">Templates Included</span>
             <span class="bg-amber-50 text-amber-700 px-3 py-1 rounded-full font-semibold">Copy-Paste Scripts</span>
           </div>
@@ -353,7 +370,7 @@
             </div>
             <p class="text-xs text-gray-500 mb-3">What this is, quick start checklist, the 21-Day Money Sprint, overview, your advantages</p>
             <div class="text-[10px] font-bold text-gray-400 uppercase mb-1">Module 1</div>
-            <div class="text-xs text-blue-600 font-semibold">5 lessons &rarr;</div>
+            <div class="text-xs text-blue-600 font-semibold">6 lessons &rarr;</div>
           </div>
 
           <div class="dash-card" onclick="showView('setup')">
@@ -401,7 +418,7 @@
             </div>
             <p class="text-xs text-gray-500 mb-3">Lead gen, pipeline, the Follow-Up Machine, cold email, Missed Call Audit, referral partners, content engine, scripts</p>
             <div class="text-[10px] font-bold text-gray-400 uppercase mb-1">Module 5</div>
-            <div class="text-xs text-blue-600 font-semibold">11 lessons &rarr;</div>
+            <div class="text-xs text-blue-600 font-semibold">12 lessons &rarr;</div>
           </div>
 
           <div class="dash-card" onclick="showView('tech')">
@@ -503,6 +520,214 @@
       <div id="section-subnav" class="section-subnav hidden mb-6 pb-4 border-b border-gray-200"></div>
 
       <!-- All section content -->
+        <!-- ==================== COMMAND CENTER (START HERE) ==================== -->
+        <section id="command-center" class="mb-16 view-section hidden" data-view="home">
+          <div class="module-header">
+            <div class="module-number">★</div>
+            <h2 class="text-xl font-extrabold mb-1">The Command Center</h2>
+            <p class="text-sm text-slate-300 mb-3">One screen with every number that must never contradict itself, your 90-day contract, and the weekly scorecard that decides whether this works. When any other lesson disagrees with this page, <strong>this page wins.</strong></p>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="module-badge badge-time"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> 15 minutes</span>
+              <span class="module-badge badge-difficulty">Read first</span>
+              <span class="module-badge badge-lessons">Verified 17 Jul 2026</span>
+            </div>
+          </div>
+
+          <!-- FIRST 15 MINUTES -->
+          <h3 class="text-lg font-bold mb-3">Your First 15 Minutes (do this before reading anything else)</h3>
+          <div class="grid sm:grid-cols-3 gap-4 mb-8">
+            <div class="bg-white rounded-xl border-2 border-blue-200 p-5">
+              <div class="text-xs font-bold text-blue-600 uppercase mb-1">Minute 0-5</div>
+              <h4 class="font-bold text-sm mb-2">Score yourselves</h4>
+              <p class="text-xs text-gray-600 leading-relaxed">Take the Readiness Score below. It tells you which of the five dimensions is weakest, and that dimension is where you start &mdash; not Module 1, page 1.</p>
+            </div>
+            <div class="bg-white rounded-xl border-2 border-emerald-200 p-5">
+              <div class="text-xs font-bold text-emerald-600 uppercase mb-1">Minute 5-10</div>
+              <h4 class="font-bold text-sm mb-2">Sign the 90-day contract</h4>
+              <p class="text-xs text-gray-600 leading-relaxed">Both names, a start date, and the four weekly minimums. Written goals reported to a named partner roughly double completion (Matthews, Dominican University).</p>
+            </div>
+            <div class="bg-white rounded-xl border-2 border-amber-200 p-5">
+              <div class="text-xs font-bold text-amber-600 uppercase mb-1">Minute 10-15</div>
+              <h4 class="font-bold text-sm mb-2">Ship one real thing</h4>
+              <p class="text-xs text-gray-600 leading-relaxed">Call one contractor's after-hours line and write down what happened. That single voicemail is the proof asset your entire first sale is built on. <a href="#missed-call-audit" class="text-blue-600 hover:underline">The audit method &rarr;</a></p>
+            </div>
+          </div>
+
+          <!-- THE ONE PRICING LADDER -->
+          <h3 class="text-lg font-bold mb-2">The One Pricing Ladder (canonical &mdash; quote nothing else)</h3>
+          <p class="text-sm text-gray-700 mb-3">Every price anywhere in this course belongs to this ladder. The two numbers in the Monthly column are the same offer at two stages of your credibility: charge the left number until you have a written case study, then charge the right number to every <em>new</em> client.</p>
+          <div class="overflow-x-auto mb-2">
+            <table class="w-full text-xs border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Tier</th><th class="text-right px-3 py-2 font-semibold">Setup</th><th class="text-right px-3 py-2 font-semibold">Monthly (launch &rarr; established)</th><th class="text-left px-3 py-2 font-semibold">What's included</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr class="bg-amber-50"><td class="px-3 py-2 font-bold">Founding Client <span class="text-[10px] font-normal">(clients 1-3 only)</span></td><td class="px-3 py-2 text-right font-bold">$497</td><td class="px-3 py-2 text-right font-bold">$497/mo</td><td class="px-3 py-2">Core receptionist. Deliberately cheap &mdash; you are buying testimonials and recordings, not profit. Expires after client #3.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Starter</td><td class="px-3 py-2 text-right">$1,500</td><td class="px-3 py-2 text-right font-bold">$500 &rarr; $800</td><td class="px-3 py-2">AI receptionist 24/7, booking, SMS confirmations, monthly report. 1,000 AI minutes included.</td></tr>
+                <tr class="bg-emerald-50"><td class="px-3 py-2 font-bold">&ldquo;Never Miss a Call&rdquo; Bundle <span class="text-[10px] font-normal">(most popular)</span></td><td class="px-3 py-2 text-right font-bold">$2,500</td><td class="px-3 py-2 text-right font-bold">$1,000 &rarr; $1,200</td><td class="px-3 py-2">Starter + lead follow-up + review automation. 1,500 minutes included.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Scale</td><td class="px-3 py-2 text-right">$3,500-5,000</td><td class="px-3 py-2 text-right font-bold">$1,500+</td><td class="px-3 py-2">Bundle + bilingual + outbound campaigns + dashboard + priority support. 3,000 minutes included.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="grid sm:grid-cols-3 gap-3 mb-8">
+            <div class="callout callout-cost p-3"><p class="text-xs"><strong>Minutes, always.</strong> Never say &ldquo;unlimited.&rdquo; Overage is $0.35/min (your cost ~$0.13/min). Unlimited is how you lose money on the one client who advertises on the radio.</p></div>
+            <div class="callout callout-tip p-3"><p class="text-xs"><strong>Grandfather rule.</strong> Existing clients keep their rate forever. That&rsquo;s why founding clients happily give you case studies and referrals &mdash; they know what they have.</p></div>
+            <div class="callout callout-protip p-3"><p class="text-xs"><strong>Raise the price, not the discount.</strong> Discount the setup fee if you must. Never discount the monthly &mdash; it&rsquo;s the number that compounds.</p></div>
+          </div>
+
+          <!-- NUMBERS SOURCE OF TRUTH -->
+          <h3 class="text-lg font-bold mb-2">The Numbers That Are Actually True (cite these, and only these)</h3>
+          <p class="text-sm text-gray-700 mb-3">Contractors Google your claims. Most stats circulating in the AI-receptionist world are vendor arithmetic or tiny unnamed studies &mdash; if you quote one and it collapses, you lose the room. These are the defensible ones, with who published them and when.</p>
+          <div class="overflow-x-auto mb-3">
+            <table class="w-full text-xs border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Use this number</th><th class="text-left px-3 py-2 font-semibold">Source</th><th class="text-left px-3 py-2 font-semibold">Where you use it</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr><td class="px-3 py-2"><strong>Only 52% of home-services calls are answered by a person</strong> (65% if the phone rings &gt;15s, 73% &gt;30s)</td><td class="px-3 py-2">Invoca, 2026 &mdash; analysis of 70M calls</td><td class="px-3 py-2">The opening line of every audit Loom and cold email</td></tr>
+                <tr><td class="px-3 py-2"><strong>46% of home-services phone leads convert</strong>; 41% for calls referred from ChatGPT</td><td class="px-3 py-2">Invoca, 2026</td><td class="px-3 py-2">ROI math &mdash; this is the &ldquo;booking rate&rdquo; input</td></tr>
+                <tr><td class="px-3 py-2"><strong>Only 17% of HVAC pros respond to a lead within the hour</strong> &mdash; slowest of any trade</td><td class="px-3 py-2">Jobber, 2026 Home Service Economic Report</td><td class="px-3 py-2">Speed-to-Lead pitch (use instead of the 2007 &ldquo;21x&rdquo; stat)</td></tr>
+                <tr><td class="px-3 py-2"><strong>~25% of residential contractors currently use AI</strong>, while 74% see it as an efficiency gain</td><td class="px-3 py-2">ServiceTitan contractor survey, 2026 (n≈1,000)</td><td class="px-3 py-2">Market-timing slide: early, but no longer novel</td></tr>
+                <tr><td class="px-3 py-2"><strong>~$522B</strong> US home improvement &amp; repair spending (annualized, late 2026)</td><td class="px-3 py-2">Harvard Joint Center for Housing Studies (LIRA)</td><td class="px-3 py-2">Market-size framing in proposals</td></tr>
+                <tr><td class="px-3 py-2"><strong>~120,000 HVAC firms, ~129,000 plumbers, ~262,000 electricians</strong> in the US</td><td class="px-3 py-2">IBISWorld, 2026</td><td class="px-3 py-2">Territory math &mdash; your reachable universe</td></tr>
+                <tr><td class="px-3 py-2"><strong>2 of 3 specialty-trade firms with employees earn under $1M/yr</strong></td><td class="px-3 py-2">US Census / SUSB</td><td class="px-3 py-2">Why you target 1-8 truck shops, not enterprises</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout callout-warning mb-8">
+            <p class="text-sm"><strong>Stop using these three (they will not survive a skeptical owner):</strong> &ldquo;62% of calls go unanswered&rdquo; (traces to a 2024 study of 85 businesses), &ldquo;every missed call costs $1,200&rdquo; (vendor arithmetic, no study), and &ldquo;respond in 5 minutes and you&rsquo;re 21x more likely to qualify&rdquo; (Oldroyd/MIT Sloan for InsideSales.com, <em>2007</em>). The honest version is stronger anyway: <em>&ldquo;I called your line at 7:14pm last night. Here&rsquo;s the recording.&rdquo;</em> First-party evidence beats any statistic. <strong>Best practice:</strong> never quote a number about the client&rsquo;s business that you can pull from the client&rsquo;s own call log instead.</p>
+          </div>
+
+          <!-- 90 DAY CONTRACT -->
+          <h3 class="text-lg font-bold mb-2">The Mike + Paola 90-Day Contract</h3>
+          <p class="text-sm text-gray-700 mb-3">Self-paced material completes at 10-20%; scheduled, accountable programs complete at 64%+. The entire difference is a date, a named partner, and a weekly review. This is that mechanism &mdash; fill it in, it saves automatically.</p>
+          <div class="bg-white rounded-2xl border-2 border-slate-800 p-6 mb-4">
+            <div class="grid sm:grid-cols-3 gap-4 mb-5">
+              <div>
+                <label class="block text-[10px] font-bold text-gray-400 uppercase mb-1">Start date</label>
+                <input type="date" data-persist="cc-start" class="w-full text-sm border border-gray-300 rounded-lg px-3 py-2">
+              </div>
+              <div>
+                <label class="block text-[10px] font-bold text-gray-400 uppercase mb-1">90-day review date</label>
+                <input type="date" data-persist="cc-review" class="w-full text-sm border border-gray-300 rounded-lg px-3 py-2">
+              </div>
+              <div>
+                <label class="block text-[10px] font-bold text-gray-400 uppercase mb-1">Target by day 90</label>
+                <input type="text" data-persist="cc-target" placeholder="e.g. 5 paying clients / $4K MRR" class="w-full text-sm border border-gray-300 rounded-lg px-3 py-2">
+              </div>
+            </div>
+            <p class="text-sm font-semibold mb-2">We commit to these weekly minimums, every week, regardless of how we feel:</p>
+            <div class="space-y-2 mb-5">
+              <p class="check-item"><strong>150 cold emails sent</strong> (Mike) &mdash; the pipeline never goes dark, even in a delivery-heavy week</p>
+              <p class="check-item"><strong>5 Missed Call Audit Looms recorded</strong> (Mike) &mdash; the highest close-rate hour you have</p>
+              <p class="check-item"><strong>2 referral-partner conversations</strong> (Paola) &mdash; bookkeepers, supply houses, web shops</p>
+              <p class="check-item"><strong>1 Friday scorecard filled in together</strong> (Both) &mdash; 30 minutes, non-negotiable, the whole system depends on it</p>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-4 mb-4">
+              <div>
+                <label class="block text-[10px] font-bold text-gray-400 uppercase mb-1">Signed &mdash; Mike</label>
+                <input type="text" data-persist="cc-sig-mike" placeholder="Type your name" class="w-full text-sm border border-gray-300 rounded-lg px-3 py-2">
+              </div>
+              <div>
+                <label class="block text-[10px] font-bold text-gray-400 uppercase mb-1">Signed &mdash; Paola</label>
+                <input type="text" data-persist="cc-sig-paola" placeholder="Type your name" class="w-full text-sm border border-gray-300 rounded-lg px-3 py-2">
+              </div>
+            </div>
+            <div class="callout callout-warning p-3">
+              <p class="text-xs"><strong>The consequence clause (write it down or it isn't real):</strong> if we miss the weekly minimums two weeks in a row, we cancel <input type="text" data-persist="cc-consequence" placeholder="the thing you'd hate to lose — a trip, a subscription, a weekend" class="border-b border-red-300 bg-transparent px-1 text-xs w-64"> and do a full reset session that Sunday.</p>
+            </div>
+          </div>
+
+          <!-- IMPLEMENTATION INTENTIONS -->
+          <h3 class="text-lg font-bold mb-2">When/Then Commitments</h3>
+          <p class="text-sm text-gray-700 mb-3">&ldquo;I&rsquo;ll do outreach this week&rdquo; fails. &ldquo;When I finish coffee Tuesday at 8am, I will send 25 HVAC emails&rdquo; works &mdash; implementation intentions are one of the best-evidenced habit mechanisms in psychology (Gollwitzer &amp; Sheeran meta-analysis, 94 tests). Write four. Be embarrassingly specific about the time and place.</p>
+          <div class="bg-white rounded-xl border border-gray-200 p-5 mb-8 space-y-3">
+            <div class="flex flex-col sm:flex-row gap-2 items-start sm:items-center text-sm">
+              <span class="font-semibold text-gray-500 w-14 flex-shrink-0">When</span>
+              <input type="text" data-persist="ii-1-when" placeholder="Monday 7:30am, at the kitchen table" class="flex-1 w-full text-sm border border-gray-300 rounded-lg px-3 py-2">
+              <span class="font-semibold text-gray-500 flex-shrink-0">I will</span>
+              <input type="text" data-persist="ii-1-then" placeholder="load 50 new prospects into Smartlead" class="flex-1 w-full text-sm border border-gray-300 rounded-lg px-3 py-2">
+            </div>
+            <div class="flex flex-col sm:flex-row gap-2 items-start sm:items-center text-sm">
+              <span class="font-semibold text-gray-500 w-14 flex-shrink-0">When</span>
+              <input type="text" data-persist="ii-2-when" placeholder="Tuesday + Thursday 3pm" class="flex-1 w-full text-sm border border-gray-300 rounded-lg px-3 py-2">
+              <span class="font-semibold text-gray-500 flex-shrink-0">I will</span>
+              <input type="text" data-persist="ii-2-then" placeholder="record 3 audit Looms before checking email" class="flex-1 w-full text-sm border border-gray-300 rounded-lg px-3 py-2">
+            </div>
+            <div class="flex flex-col sm:flex-row gap-2 items-start sm:items-center text-sm">
+              <span class="font-semibold text-gray-500 w-14 flex-shrink-0">When</span>
+              <input type="text" data-persist="ii-3-when" placeholder="Wednesday after dinner" class="flex-1 w-full text-sm border border-gray-300 rounded-lg px-3 py-2">
+              <span class="font-semibold text-gray-500 flex-shrink-0">I will</span>
+              <input type="text" data-persist="ii-3-then" placeholder="message 2 referral partners" class="flex-1 w-full text-sm border border-gray-300 rounded-lg px-3 py-2">
+            </div>
+            <div class="flex flex-col sm:flex-row gap-2 items-start sm:items-center text-sm">
+              <span class="font-semibold text-gray-500 w-14 flex-shrink-0">When</span>
+              <input type="text" data-persist="ii-4-when" placeholder="Friday 4pm, both of us, phones down" class="flex-1 w-full text-sm border border-gray-300 rounded-lg px-3 py-2">
+              <span class="font-semibold text-gray-500 flex-shrink-0">I will</span>
+              <input type="text" data-persist="ii-4-then" placeholder="fill in the weekly scorecard below" class="flex-1 w-full text-sm border border-gray-300 rounded-lg px-3 py-2">
+            </div>
+          </div>
+
+          <!-- WEEKLY SCORECARD -->
+          <h3 class="text-lg font-bold mb-2">The Friday Scorecard (30 minutes, both of you)</h3>
+          <p class="text-sm text-gray-700 mb-3">Every metric has exactly one owner. &ldquo;Both&rdquo; means nobody, so it appears only where the work is genuinely joint. If a number is in the red column two weeks running, that becomes next week's only priority &mdash; everything else waits.</p>
+          <div class="overflow-x-auto mb-3">
+            <table class="w-full text-xs border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Metric</th><th class="text-left px-3 py-2 font-semibold">Owner</th><th class="text-right px-3 py-2 font-semibold">Weekly target</th><th class="text-right px-3 py-2 font-semibold text-red-600">Red line</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr><td class="px-3 py-2">New prospects added &amp; enriched</td><td class="px-3 py-2"><span class="legend-dot bg-blue-600"></span> Mike</td><td class="px-3 py-2 text-right">50+</td><td class="px-3 py-2 text-right text-red-600">&lt;25</td></tr>
+                <tr><td class="px-3 py-2">Cold emails sent</td><td class="px-3 py-2"><span class="legend-dot bg-blue-600"></span> Mike</td><td class="px-3 py-2 text-right">150</td><td class="px-3 py-2 text-right text-red-600">&lt;75</td></tr>
+                <tr><td class="px-3 py-2">Audit Looms recorded</td><td class="px-3 py-2"><span class="legend-dot bg-blue-600"></span> Mike</td><td class="px-3 py-2 text-right">5</td><td class="px-3 py-2 text-right text-red-600">&lt;2</td></tr>
+                <tr><td class="px-3 py-2">Demos held (not booked &mdash; held)</td><td class="px-3 py-2"><span class="legend-dot bg-emerald-500"></span> Both</td><td class="px-3 py-2 text-right">3</td><td class="px-3 py-2 text-right text-red-600">0 two weeks running</td></tr>
+                <tr><td class="px-3 py-2">Referral-partner touches</td><td class="px-3 py-2"><span class="legend-dot bg-fuchsia-500"></span> Paola</td><td class="px-3 py-2 text-right">2</td><td class="px-3 py-2 text-right text-red-600">0</td></tr>
+                <tr><td class="px-3 py-2">Client calls QA-scored</td><td class="px-3 py-2"><span class="legend-dot bg-fuchsia-500"></span> Paola</td><td class="px-3 py-2 text-right">10/client</td><td class="px-3 py-2 text-right text-red-600">&lt;5</td></tr>
+                <tr><td class="px-3 py-2">Every open lead touched in last 7 days</td><td class="px-3 py-2"><span class="legend-dot bg-fuchsia-500"></span> Paola</td><td class="px-3 py-2 text-right">100%</td><td class="px-3 py-2 text-right text-red-600">any lead &gt;7 days cold</td></tr>
+                <tr class="bg-emerald-50"><td class="px-3 py-2 font-bold">MRR added this week</td><td class="px-3 py-2"><span class="legend-dot bg-emerald-500"></span> Both</td><td class="px-3 py-2 text-right font-bold">$500+</td><td class="px-3 py-2 text-right text-red-600">$0 for 3 weeks</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="prompt-block mb-8">
+            <button class="copy-btn">Copy</button>
+            <code>FRIDAY DEBRIEF — 30 MINUTES, PHONES DOWN
+
+Each of you answers out loud, no interrupting:
+1. What did I actually SHIP this week? (things that exist now, not things I worked on)
+2. Where did I get stuck, and what did I avoid because it felt uncomfortable?
+3. What is my ONE commitment for next week — with the day and time I'll do it?
+
+Then together, 10 minutes:
+4. Read the scorecard. Any metric in the red two weeks running becomes next week's only priority.
+5. Any client at risk? (quiet, complaining, usage dropping, invoice bounced)
+6. Update the pipeline: who's closest to signing, and what's the exact next action + date?
+7. One thing we'll STOP doing next week. There must be one.
+
+Rule: no strategy talk, no new ideas, no re-planning the business. This meeting is
+about what happened and what happens next. New ideas go in a parking-lot note for
+the monthly review.</code>
+          </div>
+
+          <!-- READINESS SCORE -->
+          <h3 class="text-lg font-bold mb-2">Agency Readiness Score</h3>
+          <p class="text-sm text-gray-700 mb-3">Take it today, again on day 21, and again on day 90. Your lowest dimension is where you work next &mdash; that beats reading modules in order.</p>
+          <div class="bg-white rounded-xl border border-gray-200 p-5 mb-3" id="readiness-card">
+            <div class="space-y-3" id="readiness-questions">
+              <div class="readiness-q" data-dim="Offer"><p class="text-sm font-semibold mb-1">Offer</p><p class="text-xs text-gray-500 mb-2">Could you state your price, what's included, and your guarantee out loud right now without checking?</p></div>
+              <div class="readiness-q" data-dim="Stack"><p class="text-sm font-semibold mb-1">Stack</p><p class="text-xs text-gray-500 mb-2">Is there a working AI agent answering a real phone number you own, today?</p></div>
+              <div class="readiness-q" data-dim="Pipeline"><p class="text-sm font-semibold mb-1">Pipeline</p><p class="text-xs text-gray-500 mb-2">Do you have 50+ qualified prospects with verified contact details and an active sequence?</p></div>
+              <div class="readiness-q" data-dim="Delivery"><p class="text-sm font-semibold mb-1">Delivery</p><p class="text-xs text-gray-500 mb-2">Could a stranger onboard a new client using only your written SOPs and templates?</p></div>
+              <div class="readiness-q" data-dim="Cash"><p class="text-sm font-semibold mb-1">Cash</p><p class="text-xs text-gray-500 mb-2">Do you know your monthly burn, your runway in months, and your break-even client count?</p></div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between">
+              <div>
+                <div class="text-3xl font-extrabold" id="readiness-score">0<span class="text-base text-gray-400">/100</span></div>
+                <div class="text-xs text-gray-500" id="readiness-label">Answer the five questions above</div>
+              </div>
+              <div class="text-right text-xs text-gray-500 max-w-[55%]" id="readiness-advice"></div>
+            </div>
+          </div>
+          <p class="text-xs text-gray-500 mb-8">Scoring: 0 = not started, 1 = partly, 2 = yes, confidently. 0-40 = Setup phase (Modules 2-3). 41-70 = Selling phase (Modules 4-5). 71-100 = Scaling phase (Modules 7 &amp; 10).</p>
+
+          <div class="callout callout-action">
+            <p class="text-sm"><strong>Where to go from here:</strong> if your Readiness Score is under 40, go to <button onclick="showView('setup')" class="text-blue-600 font-semibold underline" style="background:none;border:none;padding:0;cursor:pointer;">Module 2: Business Setup</button>. If you need revenue this month, go to the <a href="#fast-track" class="text-blue-600 hover:underline">21-Day Money Sprint</a>. If you already have a client, go to <button onclick="showView('growth')" class="text-blue-600 font-semibold underline" style="background:none;border:none;padding:0;cursor:pointer;">Module 7</button> and raise ARPU before chasing anyone new.</p>
+          </div>
+        </section>
+
 <section id="explain" class="mb-16 view-section hidden" data-view="home">
           <div class="module-header">
             <div class="module-number">1</div>
@@ -536,7 +761,7 @@
               <ul class="space-y-2 ml-4">
                 <li>• <strong>We charge:</strong> $500-$1,500/month per client (plus a one-time setup fee of $1,500-$3,000)</li>
                 <li>• <strong>It costs us:</strong> ~$50/month per client in software and phone costs</li>
-                <li>• <strong>That's a 90-95% profit margin.</strong> Once set up, it runs automatically 24/7</li>
+                <li>• <strong>That's an 80-90% gross margin</strong> (see the Command Center for the honest P&amp;L). Once set up, it runs 24/7</li>
                 <li>• <strong>Clients stay:</strong> because it saves them real money every single month — they see the numbers in reports we send</li>
               </ul>
 
@@ -630,7 +855,7 @@
               <span class="step-num step-paola">3</span>
               <div class="min-w-0">
                 <p class="text-sm font-semibold text-gray-900">Create outreach accounts + buy cold email domains</p>
-                <p class="text-xs text-gray-500">Sign up for Smartlead ($39/mo) and Apollo.io (free). Buy 3 extra domains on Namecheap ($10-15 each) for sending cold emails. Set them up in Smartlead to start warming.</p>
+                <p class="text-xs text-gray-500">Sign up for Smartlead ($39/mo) and Apollo.io (free tier works for research, but bulk CSV export of verified emails needs a paid plan &mdash; budget ~$49/mo once you scale past a few hundred leads, or pair the free tier with Outscraper). Buy 3 extra domains on Namecheap ($10-15 each) for sending cold emails. Set them up in Smartlead to start warming.</p>
                 <a href="#accounts" class="text-xs text-blue-600 hover:underline">Details → Outreach Tools</a>
               </div>
             </div>
@@ -1199,7 +1424,7 @@ order of payment. Want me to hold today's spot for an hour?"</code></div>
           <h3 class="text-lg font-bold mt-8 mb-4">3. What You Definitely Owe (US Taxes)</h3>
           <div class="bg-white rounded-xl border-2 border-amber-200 p-5">
             <div class="space-y-2 text-sm text-gray-700">
-              <p><strong>Self-employment tax: 15.3%</strong> (12.4% Social Security + 2.9% Medicare) on net self-employment income up to $168,600 (2026). This applies to both Mike and Paola's share of LLC profits. This is the biggest tax bite and there is no way around it.</p>
+              <p><strong>Self-employment tax: 15.3%</strong> (12.4% Social Security + 2.9% Medicare) on net self-employment income up to roughly $184,500 (2026 cap &mdash; verify the current year&rsquo;s figure with your CPA). This applies to both Mike and Paola's share of LLC profits. This is the biggest tax bite and there is no way around it.</p>
               <p><strong>Federal income tax: 10-37%</strong> progressive rates. At $50K net profit each (50/50 split), your effective federal rate is approximately 12-15%. At $100K each, approximately 18-22%.</p>
               <p><strong>FEIE (Foreign Earned Income Exclusion):</strong> May exclude up to ~$130,000 of earned income from federal income tax — potentially zeroing out your federal liability. FEIE does NOT reduce self-employment tax. SOFA eligibility is debated among tax pros, but many SOFA families successfully claim it using the Physical Presence Test (330 days outside the US). Worth discussing with a CPA.</p>
               <p><strong>State taxes:</strong> If LLC is registered in Wyoming, Nevada, or South Dakota — no state income tax. Register in a no-income-tax state.</p>
@@ -1877,7 +2102,7 @@ order of payment. Want me to hold today's spot for an hour?"</code></div>
                 </div>
 
                 <p class="check-item"><strong>Register domains at <a href="https://namecheap.com" class="text-blue-600 underline">Namecheap</a>.</strong> Buy your main agency domain + 3 cold email sending domains (see naming guide above). ~$10-12 each.</p>
-                <p class="check-item"><strong>Set up <a href="https://workspace.google.com" class="text-blue-600 underline">Google Workspace</a></strong> on your main agency domain. Create mike@youragency.com and paola@youragency.com. $6/user/month.</p>
+                <p class="check-item"><strong>Set up <a href="https://workspace.google.com" class="text-blue-600 underline">Google Workspace</a></strong> on your main agency domain. Create mike@youragency.com and paola@youragency.com. $7/user/month.</p>
                 <p class="check-item"><strong>Set up <a href="https://stripe.com" class="text-blue-600 underline">Stripe</a></strong> account under your agency name. This is how you'll invoice clients.</p>
                 <p class="check-item"><strong>Create a <a href="https://carrd.co" class="text-blue-600 underline">Carrd</a> landing page.</strong> One page: headline ("We help HVAC companies stop losing jobs to missed calls"), 3 bullet points of what you do, a "Book a Demo" button linking to Cal.com, and your email. That's it. 30 minutes max.</p>
                 <p class="check-item"><strong>Update both LinkedIn profiles.</strong> Headline: &ldquo;I help HVAC/plumbing companies capture every call with AI | Call Colibri&rdquo; (swap in whatever name you pick). Add the agency as your current position.</p>
@@ -1891,7 +2116,7 @@ order of payment. Want me to hold today's spot for an hour?"</code></div>
             <div class="day-card day-mike bg-white rounded-lg p-4 shadow-sm">
               <p class="text-xs font-bold text-blue-600 uppercase mb-1">Mike — 4-5 hours</p>
               <div class="space-y-2 text-sm text-gray-700">
-                <p class="check-item"><strong>Spin up Hetzner VPS.</strong> Go to <a href="https://hetzner.com/cloud" class="text-blue-600 underline">hetzner.com/cloud</a>. Create a CX22 server (2 vCPU, 4GB RAM, $5/mo). Choose Ubuntu 22.04. Save the IP address and root password.</p>
+                <p class="check-item"><strong>Spin up Hetzner VPS.</strong> Go to <a href="https://hetzner.com/cloud" class="text-blue-600 underline">hetzner.com/cloud</a>. Create a CX22 server (2 vCPU, 4GB RAM, $5/mo). Choose Ubuntu 24.04 LTS. Save the IP address and root password.</p>
                 <p class="check-item"><strong>Install n8n on the VPS.</strong> SSH into your server and run:
                   <div class="prompt-block mt-2 mb-2"><code>sudo apt update && sudo apt install -y docker.io docker-compose
 mkdir n8n && cd n8n
@@ -2755,7 +2980,7 @@ Applications without a Loom video will not be reviewed.</code></div>
             <div class="flex flex-wrap gap-2 mb-3">
               <span class="module-badge badge-time"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> 3 hours</span>
               <span class="module-badge badge-difficulty">Intermediate</span>
-              <span class="module-badge badge-lessons">11 Lessons</span>
+              <span class="module-badge badge-lessons">12 Lessons</span>
             </div>
             <div class="text-xs font-semibold text-slate-300 uppercase tracking-wide mb-2">What You'll Learn</div>
             <ul class="module-objectives"><li>Build a multi-channel lead generation system</li><li>Set up cold email infrastructure that avoids spam</li><li>Run the Missed Call Audit to create urgency</li><li>Master the discovery call and demo script</li><li>Create proposals that close at 40%+ rate</li><li>Onboard new clients in under 48 hours</li><li>Qualify prospects with a structured discovery call framework</li><li>Run a content marketing engine that turns posts into pipeline</li></ul>
@@ -3207,7 +3432,7 @@ Subject: I'll leave you alone (mostly)
 
 [Name], I'll stop chasing — you're clearly busy, which is honestly the whole point of what I do.
 
-I'll check in once in a while with anything useful I find for [trade] companies in [city]. Meanwhile, one number worth knowing: the average missed call for a company like yours is a ~$1,200 job walking to a competitor.
+I'll check in once in a while with anything useful I find for [trade] companies in [city]. Meanwhile, one number worth knowing: across 70 million calls, only about half of home-services calls get answered by a person (Invoca, 2026) — and the ones that ring past 30 seconds do far better. Yours went to voicemail at [TIME].
 
 When the phones get crazy this [season], I'm one text away.
 [Your name]</code>
@@ -3435,7 +3660,7 @@ When the phones get crazy this [season], I'm one text away.
 
           <div class="callout callout-cost p-4 mt-6">
             <p class="font-semibold text-amber-800 text-sm mb-1">2026 stats to put in the video and the follow-up</p>
-            <p class="text-sm text-amber-700">The reason this lands isn&rsquo;t the tech &mdash; it&rsquo;s the math. Drop these numbers on contractors: HVAC/plumbing businesses miss <strong>27-74% of calls</strong>; the average missed call is worth ~<strong>$1,200</strong>; <strong>85% of callers who hit voicemail never call back</strong>; a contractor missing 5-10 calls/week loses <strong>$45K-$120K/year</strong>. And the kicker for outbound: cold AI-written email is dead (73% delete it on sight), but a recording of <em>their own line</em> going to voicemail is undeniable, personal proof &mdash; the highest-converting opener that exists for this niche. Lead with the leak, never with the features.</p>
+            <p class="text-sm text-amber-700">The reason this lands isn&rsquo;t the tech &mdash; it&rsquo;s the math. Use only sourced numbers (see the <a href="#command-center" class="text-blue-700 underline">Command Center</a>): only <strong>52% of home-services calls are answered by a person</strong>, rising to 73% when the phone rings past 30 seconds (Invoca, 2026, 70M calls); <strong>46% of answered home-services phone leads convert</strong> (Invoca, 2026); only <strong>17% of HVAC pros respond to a lead within the hour</strong> (Jobber, 2026). Then do the arithmetic with <em>their</em> ticket size, not an internet average. And the kicker for outbound: cold AI-written email is dead (73% delete it on sight), but a recording of <em>their own line</em> going to voicemail is undeniable, personal proof &mdash; the highest-converting opener that exists for this niche. Lead with the leak, never with the features.</p>
           </div>
 
           <div class="callout callout-tip p-4 mt-4">
@@ -3982,6 +4207,128 @@ build. Questions? Reply to this email or text Paola at [NUMBER].</code></div>
         </section>
 
         <!-- ==================== DISCOVERY CALL FRAMEWORK ==================== -->
+        <section id="offer-system" class="mb-16 view-section hidden" data-view="sales">
+          <h2 class="text-2xl font-extrabold mb-4">The Offer &amp; Objection System (Frameworks, Not Just Scripts)</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">Scripts tell you what to say when the conversation goes as planned. Frameworks tell you what to do when it doesn't &mdash; which is most of the time. These four are the ones elite sales programs actually teach. Learn them once and every script in this course becomes something you can improvise from instead of read from.</p>
+
+          <!-- VALUE EQUATION -->
+          <h3 class="text-lg font-bold mt-8 mb-3">1. The Value Equation: Why They Say Yes</h3>
+          <p class="text-sm text-gray-700 mb-3">Alex Hormozi's framing, and still the dominant offer scaffold: <strong>Value = (Dream Outcome × Perceived Likelihood of Achievement) ÷ (Time Delay × Effort &amp; Sacrifice)</strong>. You almost never win by increasing the top of that fraction &mdash; every competitor promises more jobs. You win by <em>attacking the bottom</em>.</p>
+          <div class="overflow-x-auto mb-4">
+            <table class="w-full text-xs border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Lever</th><th class="text-left px-3 py-2 font-semibold">What the contractor is thinking</th><th class="text-left px-3 py-2 font-semibold">How you move it</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr><td class="px-3 py-2 font-semibold">Dream Outcome</td><td class="px-3 py-2">&ldquo;I want to stop losing jobs to the guy who picks up.&rdquo;</td><td class="px-3 py-2">Say it in <em>their</em> words, not yours. Never &ldquo;AI-powered omnichannel.&rdquo;</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Perceived Likelihood</td><td class="px-3 py-2">&ldquo;Sounds good, but will it work for MY shop?&rdquo;</td><td class="px-3 py-2">Recording of a same-trade call + a conditional guarantee + a named local reference. This is where you win or lose.</td></tr>
+                <tr class="bg-emerald-50"><td class="px-3 py-2 font-bold">Time Delay</td><td class="px-3 py-2">&ldquo;How long until this actually does something?&rdquo;</td><td class="px-3 py-2"><strong>Live in 48 hours.</strong> Book a first-win call within 2 days. Speed is your biggest edge over enterprise vendors with 6-week onboardings.</td></tr>
+                <tr class="bg-emerald-50"><td class="px-3 py-2 font-bold">Effort &amp; Sacrifice</td><td class="px-3 py-2">&ldquo;I don't have time to learn another system.&rdquo;</td><td class="px-3 py-2"><strong>&ldquo;You forward your phone. That's your entire job.&rdquo;</strong> Done-for-you is the product. Every extra step you remove raises the price you can charge.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout callout-protip mb-8">
+            <p class="text-sm"><strong>The one-sentence test.</strong> Before any call, finish this out loud: &ldquo;You stop losing $____ a month in missed calls, you're live in 48 hours, and all you do is forward your phone.&rdquo; If you can't fill the blank with a number from <em>their</em> business, you're not ready to pitch &mdash; go run the audit first.</p>
+          </div>
+
+          <!-- GUARANTEE MATRIX -->
+          <h3 class="text-lg font-bold mt-8 mb-3">2. The Guarantee Matrix: Pick the Right Risk Reversal</h3>
+          <p class="text-sm text-gray-700 mb-3">&ldquo;Money-back guarantee&rdquo; is the weakest thing you can offer, because it's what everyone says. There are four distinct types, and the right one depends on how much proof you have:</p>
+          <div class="grid sm:grid-cols-2 gap-4 mb-4">
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-sm mb-1">Unconditional</h4>
+              <p class="text-xs text-gray-600 leading-relaxed mb-2">&ldquo;30 days, full refund, no questions.&rdquo; Strongest converter, highest abuse risk. Functions as a free trial.</p>
+              <p class="text-xs text-blue-700"><strong>Use when:</strong> you're new and need the first 3 clients badly. Cap it at your setup fee, not the whole engagement.</p>
+            </div>
+            <div class="bg-white rounded-xl border-2 border-emerald-300 p-5">
+              <h4 class="font-bold text-sm mb-1">Conditional <span class="text-[10px] bg-emerald-100 text-emerald-700 px-1.5 py-0.5 rounded">YOUR DEFAULT</span></h4>
+              <p class="text-xs text-gray-600 leading-relaxed mb-2">&ldquo;If the AI doesn't book you at least [N] jobs in 30 days, the next month is free &mdash; provided your phone is forwarded and you answer transfers during business hours.&rdquo;</p>
+              <p class="text-xs text-emerald-700"><strong>Why it wins twice:</strong> the conditions ARE the onboarding checklist. It converts skeptics <em>and</em> forces the client behaviour that makes the service work.</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-sm mb-1">Anti-Guarantee</h4>
+              <p class="text-xs text-gray-600 leading-relaxed mb-2">&ldquo;All sales final &mdash; because I'm turning down anyone who isn't serious about answering their phone.&rdquo;</p>
+              <p class="text-xs text-blue-700"><strong>Use when:</strong> you have a waitlist and want to filter tire-kickers. Powerful, but only credible with proof behind it.</p>
+            </div>
+            <div class="bg-white rounded-xl border border-gray-200 p-5">
+              <h4 class="font-bold text-sm mb-1">Implied Performance</h4>
+              <p class="text-xs text-gray-600 leading-relaxed mb-2">&ldquo;Lower base + $25 per booked job &mdash; if it doesn't book, I don't get paid.&rdquo;</p>
+              <p class="text-xs text-blue-700"><strong>Use when:</strong> the client is price-anxious and you control the calendar integration so booking is provable.</p>
+            </div>
+          </div>
+          <div class="callout callout-warning mb-8">
+            <p class="text-sm"><strong>Never guarantee revenue, only activity you control.</strong> Guarantee <em>booked appointments</em>, never &ldquo;$X in new business&rdquo; &mdash; you don't control their pricing, their techs, or whether they show up. And write the conditions into the contract in plain English; a guarantee argued over email costs more than the refund.</p>
+          </div>
+
+          <!-- MISSED REVENUE WORKSHEET -->
+          <h3 class="text-lg font-bold mt-8 mb-3">3. The Missed-Revenue Worksheet (run this live, on every call)</h3>
+          <p class="text-sm text-gray-700 mb-3">The single highest-converting five minutes in the whole sale. Do the arithmetic <em>with them</em>, on their numbers, writing as you go. A number they helped calculate is a number they believe.</p>
+          <div class="prompt-block mb-3">
+            <button class="copy-btn">Copy</button>
+            <code>THE FIVE QUESTIONS (ask in this order, write the answers down)
+
+1. "Roughly how many calls come in a week?"                    → A = ______
+2. "Honestly, what portion get missed — after hours,
+    on a job, lunch, second calls while you're talking?"        → B = ______%
+   (If they say "we get them all," ask permission to test it live. You will win.)
+3. "When you DO reach someone, how often does it become a job?" → C = ______%
+   (Home-services average is ~46% — Invoca, 2026 — but use THEIR number.)
+4. "What's your average ticket on a job like that?"             → D = $______
+5. "So let's just multiply it out..."
+
+   A × 4.3 weeks × B × C × D = $__________ per month walking away
+
+THEN, AND ONLY THEN:
+"My service is $[price]. The gap between those two numbers is the entire
+conversation. Do you want me to close it, or do you want to keep testing
+whether it closes itself?"
+
+RULES:
+- Never inflate. If the honest number is small, say so: "That's $1,800/month —
+  worth fixing, but let's start you on the Starter tier, not the bundle."
+  Under-selling on the first call is how you get a client for five years.
+- Screenshot the math and paste it into the follow-up email the same day.</code>
+          </div>
+          <div class="callout callout-tip mb-8">
+            <p class="text-sm"><strong>Get their real data if you can.</strong> Ask them to pull the last 30 days from their phone system, CallRail, or FSM while you're on the call. Real call logs beat estimates &mdash; and the moment you're looking at their data together, you've stopped being a vendor and started being their consultant.</p>
+          </div>
+
+          <!-- SPICED -->
+          <h3 class="text-lg font-bold mt-8 mb-3">4. SPICED: The Discovery Spine</h3>
+          <p class="text-sm text-gray-700 mb-3">Use one discovery framework everywhere so both of you run the same call. SPICED is the modern SMB-length standard, and its fourth letter is the one most agencies skip &mdash; and the one that actually determines whether the deal closes this month or &ldquo;after the season.&rdquo;</p>
+          <div class="overflow-x-auto mb-3">
+            <table class="w-full text-xs border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Letter</th><th class="text-left px-3 py-2 font-semibold">Ask this</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr><td class="px-3 py-2 font-bold">S &mdash; Situation</td><td class="px-3 py-2">&ldquo;Who answers the phone right now &mdash; you, an office manager, an answering service? What happens after 5pm and on Sundays?&rdquo;</td></tr>
+                <tr><td class="px-3 py-2 font-bold">P &mdash; Pain</td><td class="px-3 py-2">&ldquo;When was the last time you found out about a job you lost because nobody picked up? Tell me what happened.&rdquo;</td></tr>
+                <tr><td class="px-3 py-2 font-bold">I &mdash; Impact</td><td class="px-3 py-2">The worksheet above. Quantify it in <em>their</em> dollars, out loud, together.</td></tr>
+                <tr class="bg-amber-50"><td class="px-3 py-2 font-bold">C &mdash; Critical Event</td><td class="px-3 py-2"><strong>&ldquo;What's coming that makes this urgent?&rdquo;</strong> For trades it's always seasonal: first heat wave, first freeze, storm season, a tech quitting, the office manager going on leave. <strong>No critical event = no deal this month.</strong> Find it or create one: &ldquo;July is your peak &mdash; do you want this running before it hits, or after?&rdquo;</td></tr>
+                <tr><td class="px-3 py-2 font-bold">D &mdash; Decision</td><td class="px-3 py-2">&ldquo;If this makes sense, is it just you deciding, or does anyone else weigh in? What would need to be true to start Monday?&rdquo;</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-xs text-gray-500 mb-8">Full question bank in the <a href="#discovery-framework" class="text-blue-600 hover:underline">Discovery Framework</a> lesson &mdash; map each existing question to its SPICED letter and you'll spot which letter you habitually skip. It's almost always Critical Event.</p>
+
+          <!-- LAER -->
+          <h3 class="text-lg font-bold mt-8 mb-3">5. LAER: The Objection Sequence</h3>
+          <p class="text-sm text-gray-700 mb-3">The US-standard objection sequence (Carew International), and the fix for the most common beginner mistake: answering an objection the second you hear it. Slow down by one step and your close rate climbs.</p>
+          <div class="grid sm:grid-cols-2 gap-4 mb-4">
+            <div class="bg-white rounded-xl border border-gray-200 p-4"><h4 class="font-bold text-xs mb-1 text-blue-700">L &mdash; Listen</h4><p class="text-xs text-gray-600">Let them finish completely. Then wait two more seconds. The real objection usually arrives in the second sentence, not the first.</p></div>
+            <div class="bg-white rounded-xl border border-gray-200 p-4"><h4 class="font-bold text-xs mb-1 text-blue-700">A &mdash; Acknowledge</h4><p class="text-xs text-gray-600">Label it, don't argue with it (Chris Voss's tactical empathy): <em>&ldquo;It sounds like you've been burned by an answering service before.&rdquo;</em> Then stop talking.</p></div>
+            <div class="bg-white rounded-xl border border-gray-200 p-4"><h4 class="font-bold text-xs mb-1 text-blue-700">E &mdash; Explore</h4><p class="text-xs text-gray-600">&ldquo;When you say it's too expensive &mdash; too expensive versus what?&rdquo; Nine times in ten, &ldquo;price&rdquo; is really risk, timing, or a bad past experience.</p></div>
+            <div class="bg-white rounded-xl border border-gray-200 p-4"><h4 class="font-bold text-xs mb-1 text-blue-700">R &mdash; Respond</h4><p class="text-xs text-gray-600">Only now. Answer the <em>real</em> objection you uncovered in Explore &mdash; which is usually not the one they opened with.</p></div>
+          </div>
+          <div class="callout callout-script mb-4">
+            <p class="text-sm mb-1 font-semibold">The stall-breaker (Sandler's negative reverse) &mdash; for &ldquo;let me think about it&rdquo;:</p>
+            <p class="text-sm italic">&ldquo;That's completely fair. Can I ask &mdash; is it that this isn't a priority right now, or that you're not convinced it'll work for a shop like yours? Because if it's the second one, that's on me and I can fix it in five minutes. If it's the first, I'll get out of your hair.&rdquo;</p>
+            <p class="text-xs text-gray-500 mt-2">Giving them permission to say no is what makes them say the truth. Then handle the real objection with LAER.</p>
+          </div>
+          <p class="text-xs text-gray-500 mb-4">Word-for-word answers to the eight objections you'll actually hear are in the <a href="#cheat-sheets" class="text-blue-600 hover:underline">Objection Killers cheat sheet</a>. Use LAER to decide <em>when</em> to deploy them &mdash; never at the first sentence.</p>
+
+          <div class="callout callout-action">
+            <p class="text-sm"><strong>Practice drill (do this before your first real demo):</strong> paste this into Claude &mdash; <em>&ldquo;Act as a skeptical 55-year-old HVAC owner with 4 trucks who's been pitched by three AI companies this month and thinks it'll sound robotic to his customers. I'm selling an AI receptionist. Push back hard, interrupt me, and don't be won over easily. Start the call.&rdquo;</em> Run it ten times. It costs pennies and it's the cheapest reps you will ever get.</p>
+          </div>
+        </section>
+
         <section id="discovery-framework" class="mb-16 view-section hidden" data-view="sales">
           <h2 class="text-2xl font-extrabold mb-4">Discovery Call Framework: Qualify, Diagnose, Close</h2>
           <p class="text-gray-700 leading-relaxed mb-6">A structured 17-minute call that qualifies the prospect, diagnoses their pain, and closes the trial. Follow this framework every time &mdash; consistency beats improvisation.</p>
@@ -5268,8 +5615,8 @@ Want me to switch it back on before the rush?
           <h3 class="text-lg font-bold mt-8 mb-4">Why This Sells Itself</h3>
           <div class="grid sm:grid-cols-3 gap-4 mb-6">
             <div class="bg-white rounded-xl border-2 border-emerald-200 p-5 text-center">
-              <div class="text-2xl font-extrabold text-emerald-600">21x</div>
-              <div class="text-xs text-gray-500 mt-1">More likely to qualify a lead when contacted within 5 minutes vs. 30 minutes (classic MIT/InsideSales lead-response research)</div>
+              <div class="text-2xl font-extrabold text-emerald-600">17%</div>
+              <div class="text-xs text-gray-500 mt-1">Of HVAC pros respond to a lead within the hour &mdash; the slowest of any trade (Jobber Home Service Economic Report, 2026). Speed is the gap you sell.</div>
             </div>
             <div class="bg-white rounded-xl border-2 border-blue-200 p-5 text-center">
               <div class="text-2xl font-extrabold text-blue-600">78%</div>
@@ -5807,7 +6154,7 @@ already be taken. Want the audit report either way? It's free."</code></div>
 // This is what you send to the Anthropic API
 
 {
-  "model": "claude-sonnet-4-6-20250220",
+  "model": "claude-sonnet-4-6",
   "max_tokens": 1024,
   "system": "You are a dispatch coordinator for an HVAC company. Your job is to assign incoming service requests to the optimal technician. Consider: tech skills, current location, drive time, availability, and customer priority. Always explain your reasoning.",
   "tools": [
@@ -6767,7 +7114,7 @@ free -h
 htop
 
 # Check if ports are open
-sudo netstat -tlnp | grep -E '80|443|5678'
+sudo ss -tlnp | grep -E '80|443|5678'
 
 # Test if n8n webhook is reachable from outside
 curl -I https://your-n8n-domain.com/webhook-test/test</code></div>
@@ -8797,7 +9144,7 @@ MONTHLY COSTS PER CLIENT:
             <p class="text-lg text-purple-200 max-w-2xl mx-auto mb-6">Build a $10K/month AI automation agency selling AI phone agents to home service businesses. Step-by-step. Copy-paste templates. No fluff.</p>
             <div class="flex flex-wrap justify-center gap-3 mb-8">
               <span class="module-badge badge-time text-sm px-3 py-1">10 Modules</span>
-              <span class="module-badge badge-lessons text-sm px-3 py-1">79 Lessons</span>
+              <span class="module-badge badge-lessons text-sm px-3 py-1">81 Lessons</span>
               <span class="module-badge badge-difficulty text-sm px-3 py-1">Templates + Scripts</span>
             </div>
             <div class="sales-price mb-2">$497</div>
@@ -8810,7 +9157,7 @@ MONTHLY COSTS PER CLIENT:
             <div class="course-card">
               <div class="text-2xl mb-2">&#x1F3AF;</div>
               <h3 class="font-bold text-sm mb-1">Module 1: Getting Started</h3>
-              <p class="text-xs text-gray-500">Understand the business model, your competitive advantages, the complete roadmap, the Quick Start checklist, and the 21-Day Money Sprint to your first paying client. 5 lessons, 1 hour.</p>
+              <p class="text-xs text-gray-500">Understand the business model, your competitive advantages, the complete roadmap, the Quick Start checklist, and the 21-Day Money Sprint to your first paying client. 6 lessons, 1 hour.</p>
             </div>
             <div class="course-card">
               <div class="text-2xl mb-2">&#x1F3E2;</div>
@@ -8830,7 +9177,7 @@ MONTHLY COSTS PER CLIENT:
             <div class="course-card">
               <div class="text-2xl mb-2">&#x1F4B0;</div>
               <h3 class="font-bold text-sm mb-1">Module 5: Sales & Clients</h3>
-              <p class="text-xs text-gray-500">Multi-channel lead gen, cold email infrastructure, the Missed Call Audit, the Follow-Up Machine (no-show recovery + not-now nurture), the Content Marketing Engine (LinkedIn + TikTok + newsletters), the discovery-call framework, proposals, onboarding SOPs. 11 lessons, 3 hours.</p>
+              <p class="text-xs text-gray-500">Multi-channel lead gen, cold email infrastructure, the Missed Call Audit, the Follow-Up Machine (no-show recovery + not-now nurture), the Content Marketing Engine (LinkedIn + TikTok + newsletters), the discovery-call framework, proposals, onboarding SOPs. 12 lessons, 3 hours.</p>
             </div>
             <div class="course-card">
               <div class="text-2xl mb-2">&#x2699;&#xFE0F;</div>
@@ -9037,7 +9384,7 @@ MONTHLY COSTS PER CLIENT:
           <!-- CTA -->
           <div class="bg-gradient-to-r from-blue-600 to-purple-700 rounded-2xl p-8 text-center text-white">
             <h2 class="text-2xl font-extrabold mb-2">Ready to Build Your AI Agency?</h2>
-            <p class="text-blue-100 mb-4">10 modules. 79 lessons. Every template, script, and workflow you need.</p>
+            <p class="text-blue-100 mb-4">10 modules. 81 lessons. Every template, script, and workflow you need.</p>
             <div class="sales-price mb-1" style="font-size:2.5rem">$497</div>
             <p class="text-blue-200 text-xs mb-6">One-time. Lifetime access. 30-day guarantee.</p>
             <button onclick="showView('home')" class="bg-white text-blue-700 font-bold px-8 py-3 rounded-xl hover:bg-blue-50 transition-all text-sm">Start Module 1 &rarr;</button>
@@ -10124,11 +10471,11 @@ sources.</code></div>
 <script>
 (function() {
   var views = {
-    home: ['explain','quiz-m1','quickstart','fast-track','overview','situation'],
+    home: ['command-center','explain','quiz-m1','quickstart','fast-track','overview','situation'],
     setup: ['business','niche','services','stack','accounts','roles','quiz-m2'],
     build: ['week1','week2','week3','week4','demo-env','quiz-m3'],
     launch: ['week5-6','week7-8','month3','month4-6','quiz-m4'],
-    sales: ['leadgen','pipeline','lead-nurture','email-infra','missed-call-audit','referral-partners','agency-website','content-engine','onboarding','discovery-framework','scripts','quiz-m5'],
+    sales: ['leadgen','pipeline','lead-nurture','email-infra','missed-call-audit','referral-partners','agency-website','content-engine','onboarding','offer-system','discovery-framework','scripts','quiz-m5'],
     tech: ['tech-delivery','tech-implementation','phone-setup','ghl','agentic-ai','agent-scripts','tools-compare','quiz-m6','voice-platforms','backups-security','troubleshooting'],
     growth: ['economics','expansion','speed-to-lead','database-reactivation','outbound-ai','ai-search-geo','google-agent-readiness','retention','client-lockin','competition','milestones','case-studies','seasonal','client-success','client-offboarding','quiz-m7'],
     ai: ['ai-overview','ai-build','ai-clients','ai-research','ai-agents','ai-prompts','trends-2026','quiz-m9'],
@@ -10295,6 +10642,88 @@ sources.</code></div>
 
   // Make showView global
   window.showView = showView;
+
+  // ============ COMMAND CENTER: persisted inputs ============
+  var CC_KEY = 'agencyCommandCenter';
+  function ccLoad() { try { return JSON.parse(localStorage.getItem(CC_KEY) || '{}'); } catch(e) { return {}; } }
+  function ccSave(d) { try { localStorage.setItem(CC_KEY, JSON.stringify(d)); } catch(e) {} }
+  (function initPersist() {
+    var data = ccLoad();
+    document.querySelectorAll('[data-persist]').forEach(function(el) {
+      var k = el.getAttribute('data-persist');
+      if (data[k] != null) el.value = data[k];
+      el.addEventListener('input', function() {
+        var d = ccLoad(); d[k] = el.value; ccSave(d);
+      });
+    });
+  })();
+
+  // ============ COMMAND CENTER: readiness score ============
+  (function initReadiness() {
+    var wrap = document.getElementById('readiness-questions');
+    if (!wrap) return;
+    var data = ccLoad();
+    var LABELS = ['Not started', 'Partly', 'Yes, confidently'];
+    wrap.querySelectorAll('.readiness-q').forEach(function(q) {
+      var dim = q.getAttribute('data-dim');
+      var row = document.createElement('div');
+      row.className = 'flex gap-2';
+      for (var i = 0; i < 3; i++) {
+        (function(val) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.textContent = LABELS[val];
+          b.className = 'readiness-opt';
+          b.setAttribute('data-val', val);
+          if (data['rd-' + dim] == String(val)) b.classList.add('selected');
+          b.addEventListener('click', function() {
+            var d = ccLoad(); d['rd-' + dim] = String(val); ccSave(d);
+            row.querySelectorAll('.readiness-opt').forEach(function(x) { x.classList.remove('selected'); });
+            b.classList.add('selected');
+            renderScore();
+          });
+          row.appendChild(b);
+        })(i);
+      }
+      q.appendChild(row);
+    });
+
+    function renderScore() {
+      var d = ccLoad();
+      var dims = ['Offer','Stack','Pipeline','Delivery','Cash'];
+      var answered = 0, total = 0, weakest = null, weakestVal = 99;
+      dims.forEach(function(dim) {
+        var raw = d['rd-' + dim];
+        if (raw == null) return;
+        answered++;
+        var v = parseInt(raw, 10);
+        total += v;
+        if (v < weakestVal) { weakestVal = v; weakest = dim; }
+      });
+      var scoreEl = document.getElementById('readiness-score');
+      var labelEl = document.getElementById('readiness-label');
+      var adviceEl = document.getElementById('readiness-advice');
+      if (answered < dims.length) {
+        scoreEl.innerHTML = '&mdash;<span class="text-base text-gray-400">/100</span>';
+        labelEl.textContent = 'Answered ' + answered + ' of 5';
+        adviceEl.textContent = '';
+        return;
+      }
+      var pct = Math.round((total / 10) * 100);
+      scoreEl.innerHTML = pct + '<span class="text-base text-gray-400">/100</span>';
+      var phase = pct <= 40 ? 'Setup phase' : (pct <= 70 ? 'Selling phase' : 'Scaling phase');
+      labelEl.textContent = phase;
+      var GO = {
+        Offer: 'Weakest: Offer. Lock the pricing ladder above and your guarantee before any more outreach.',
+        Stack: 'Weakest: Stack. Module 3 — get one agent answering one real number this week.',
+        Pipeline: 'Weakest: Pipeline. Module 5 — 50 prospects and a live sequence beat any new tooling.',
+        Delivery: 'Weakest: Delivery. Module 10 — write the SOPs before the next client, not after.',
+        Cash: 'Weakest: Cash. Module 7 — know your burn, runway, and break-even client count today.'
+      };
+      adviceEl.textContent = weakest ? GO[weakest] : '';
+    }
+    renderScore();
+  })();
 
   // Init: restore last view or show dashboard
   var saved;
