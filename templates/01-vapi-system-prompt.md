@@ -12,9 +12,9 @@
 | Setting | Value |
 |---|---|
 | **First Message** | `Hi, thanks for calling {{COMPANY_NAME}}! This is {{AGENT_NAME}}. How can I help you today?` |
-| **Model** | `gpt-4o` (recommended) or `gpt-4o-mini` (budget) |
-| **Voice Provider** | `11labs` |
-| **Voice ID** | `rachel` (female) or `josh` (male) — pick one that matches the brand |
+| **Model** | `claude-haiku-4-5` (recommended — best latency/quality for live calls) or `gpt-5.4-mini` (budget). Verify current IDs before deploying; model names change every few weeks. |
+| **Voice Provider** | `cartesia` (lowest latency, ~40-80ms) or `11labs` (most expressive) |
+| **Voice ID** | Cartesia Sonic 3.5 voice, or ElevenLabs `rachel`/`josh` — pick one that matches the brand |
 | **First Message Mode** | `assistant-speaks-first` |
 | **Max Duration** | `300` seconds (5 minutes) |
 | **End Call After Silence** | `8` seconds |

@@ -307,7 +307,7 @@
           <p class="mt-3 text-lg text-gray-500">The complete, step-by-step system to build a $10K/month AI automation agency from scratch &mdash; even part-time, even from overseas. Now with a full AI Leverage module.</p>
           <div class="mt-4 flex flex-wrap gap-2 text-xs">
             <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full font-semibold">10 Modules</span>
-            <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full font-semibold">81 Lessons</span>
+            <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full font-semibold">82 Lessons</span>
             <span class="bg-purple-50 text-purple-700 px-3 py-1 rounded-full font-semibold">Templates Included</span>
             <span class="bg-amber-50 text-amber-700 px-3 py-1 rounded-full font-semibold">Copy-Paste Scripts</span>
           </div>
@@ -2117,14 +2117,57 @@ order of payment. Want me to hold today's spot for an hour?"</code></div>
               <p class="text-xs font-bold text-blue-600 uppercase mb-1">Mike — 4-5 hours</p>
               <div class="space-y-2 text-sm text-gray-700">
                 <p class="check-item"><strong>Spin up Hetzner VPS.</strong> Go to <a href="https://hetzner.com/cloud" class="text-blue-600 underline">hetzner.com/cloud</a>. Create a CX22 server (2 vCPU, 4GB RAM, $5/mo). Choose Ubuntu 24.04 LTS. Save the IP address and root password.</p>
-                <p class="check-item"><strong>Install n8n on the VPS.</strong> SSH into your server and run:
-                  <div class="prompt-block mt-2 mb-2"><code>sudo apt update && sudo apt install -y docker.io docker-compose
-mkdir n8n && cd n8n
-# Create docker-compose.yml and start n8n
-# Follow: https://docs.n8n.io/hosting/installation/docker/</code></div>
+                <p class="check-item"><strong>Point a subdomain at the server FIRST.</strong> In your domain registrar&rsquo;s DNS, add an <code>A</code> record: <code>n8n.yourdomain.com</code> &rarr; your server IP. Do this before the next step &mdash; HTTPS certificates won&rsquo;t issue without it, and Vapi/Twilio webhooks refuse plain HTTP.</p>
+                <p class="check-item"><strong>Install n8n with automatic HTTPS.</strong> SSH in as root and paste this whole block. It ends with a URL you can open in a browser:
+                  <div class="prompt-block mt-2 mb-2"><button class="copy-btn">Copy</button><code># --- edit these two lines, then paste the whole block ---
+export N8N_HOST=n8n.yourdomain.com
+export N8N_EMAIL=you@yourdomain.com
+
+apt update &amp;&amp; apt upgrade -y
+curl -fsSL https://get.docker.com | sh          # installs Docker + Compose v2
+ufw allow OpenSSH &amp;&amp; ufw allow 80 &amp;&amp; ufw allow 443 &amp;&amp; ufw --force enable
+
+mkdir -p /opt/n8n &amp;&amp; cd /opt/n8n
+cat &gt; docker-compose.yml &lt;&lt;YAML
+services:
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports: ["80:80", "443:443"]
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+  n8n:
+    image: docker.n8n.io/n8nio/n8n
+    restart: unless-stopped
+    environment:
+      - N8N_HOST=\${N8N_HOST}
+      - WEBHOOK_URL=https://\${N8N_HOST}/
+      - N8N_PROTOCOL=https
+      - GENERIC_TIMEZONE=America/New_York
+      - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
+    volumes:
+      - n8n_data:/home/node/.n8n
+volumes:
+  caddy_data:
+  n8n_data:
+YAML
+
+cat &gt; Caddyfile &lt;&lt;CADDY
+${N8N_HOST} {
+  tls ${N8N_EMAIL}
+  reverse_proxy n8n:5678
+}
+CADDY
+
+N8N_HOST=$N8N_HOST docker compose up -d
+sleep 20 &amp;&amp; docker compose ps</code></div>
+                  <span class="text-xs text-gray-500">Done when: <code>docker compose ps</code> shows both containers &ldquo;running&rdquo;, and <strong>https://n8n.yourdomain.com</strong> loads the setup screen with a padlock. If the padlock is missing, DNS hasn&rsquo;t propagated &mdash; wait 10 minutes and run <code>docker compose restart caddy</code>.</span>
                 </p>
+                <p class="check-item"><strong>Set the n8n owner account immediately.</strong> The setup screen is public until you do &mdash; anyone who finds the URL first owns your automation server. Use a password manager, and turn on 2FA under Settings.</p>
                 <p class="check-item"><strong>Create <a href="https://vapi.ai" class="text-blue-600 underline">Vapi</a> account.</strong> Sign up, add a payment method. Get your API key from the dashboard.</p>
                 <p class="check-item"><strong>Create <a href="https://twilio.com" class="text-blue-600 underline">Twilio</a> account.</strong> Sign up, verify your phone number. Buy one local phone number ($1/mo). Get your Account SID and Auth Token.</p>
+                <p class="check-item"><strong class="text-red-700">Submit A2P 10DLC registration TODAY &mdash; this is the long pole.</strong> Register your Brand and one Campaign in Twilio Console &rarr; Messaging &rarr; Regulatory Compliance. Since June 30 2026 you <em>must</em> supply a public <strong>Privacy Policy URL and Terms &amp; Conditions URL</strong> or the submission hard-fails with a 400. Standard registration typically clears in days, but assume up to 2-3 weeks and plan around it. <strong>Do not send a single SMS before approval</strong> &mdash; unregistered traffic gets filtered and can damage the number. <a href="#phone-setup" class="text-blue-600 hover:underline">Full walkthrough</a></p>
                 <p class="check-item"><strong>Create <a href="https://console.anthropic.com" class="text-blue-600 underline">Anthropic</a> account.</strong> Get API key. Add $10 in credits to start.</p>
                 <p class="check-item"><strong>Create <a href="https://supabase.com" class="text-blue-600 underline">Supabase</a> project.</strong> Name it "agency-crm". You'll set up tables later.</p>
                 <p class="check-item"><strong>Create <a href="https://cal.com" class="text-blue-600 underline">Cal.com</a> account.</strong> Set up two event types: "15-min Demo Call" (for prospects) and "Client Appointment" (template for client booking).</p>
@@ -4502,7 +4545,7 @@ Want us to set this up for you this week?"</code></div>
             <div class="flex flex-wrap gap-2 mb-3">
               <span class="module-badge badge-time"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> 4 hours</span>
               <span class="module-badge badge-difficulty">Advanced</span>
-              <span class="module-badge badge-lessons">10 Lessons</span>
+              <span class="module-badge badge-lessons">11 Lessons</span>
             </div>
             <div class="text-xs font-semibold text-slate-300 uppercase tracking-wide mb-2">What You'll Learn</div>
             <ul class="module-objectives"><li>Configure Vapi + Twilio for production voice AI</li><li>Build n8n workflows for the complete call pipeline</li><li>Write AI agent scripts that sound natural</li><li>Understand when to offer agentic AI services</li><li>Compare and choose between competing platforms</li><li>Back up and secure your production infrastructure</li><li>Troubleshoot common technical issues quickly</li></ul>
@@ -4749,6 +4792,164 @@ Questions? Reply to this email or text me at [YOUR NUMBER].
         </section>
 
         <!-- ==================== PHONE SETUP & COMPLIANCE ==================== -->
+        <section id="build-kit" class="mb-16 view-section hidden" data-view="tech">
+          <h2 class="text-2xl font-extrabold mb-4">The Paste-Ready Build Kit</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">Everything above explains <em>how</em> the pieces fit. This lesson is the pieces themselves &mdash; the exact JSON that turns a chatbot that <em>talks</em> about appointments into an agent that actually <strong>books</strong> them. Copy these three artifacts in order and a real phone number books a real slot on a real calendar.</p>
+
+          <div class="callout callout-warning mb-6">
+            <p class="text-sm"><strong>The difference between a demo and a product is function calling.</strong> Without tools, your agent can only promise &ldquo;someone will call you back&rdquo; &mdash; which is exactly the voicemail experience the client is paying you to eliminate. The <code>book_appointment</code> schema below is the single most important 30 lines in this entire course.</p>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-3">Artifact 1: The Complete Vapi Assistant</h3>
+          <p class="text-sm text-gray-700 mb-3">POST this to <code>https://api.vapi.ai/assistant</code> with your private key, or paste the fields into the dashboard. Replace every <code>{{PLACEHOLDER}}</code>. Model and voice IDs drift &mdash; verify both on the vendor page before a client deploy.</p>
+          <div class="prompt-block mb-4">
+            <button class="copy-btn">Copy</button>
+            <code>{
+  "name": "{{COMPANY_NAME}} Receptionist",
+  "firstMessage": "Thanks for calling {{COMPANY_NAME}}, this is {{AGENT_NAME}}, an AI assistant. This call is recorded. How can I help you today?",
+  "firstMessageMode": "assistant-speaks-first",
+  "maxDurationSeconds": 420,
+  "silenceTimeoutSeconds": 20,
+  "backgroundSound": "office",
+  "model": {
+    "provider": "anthropic",
+    "model": "claude-haiku-4-5",
+    "temperature": 0.4,
+    "messages": [
+      { "role": "system", "content": "PASTE YOUR SYSTEM PROMPT HERE (see Agent Script Library)" }
+    ],
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "check_availability",
+          "description": "Check open appointment slots before offering a time. ALWAYS call this before promising any specific time to the caller.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "service_type": { "type": "string", "enum": ["repair", "maintenance", "estimate", "emergency"] },
+              "preferred_date": { "type": "string", "description": "ISO date, e.g. 2026-07-21" },
+              "time_preference": { "type": "string", "enum": ["morning", "afternoon", "first_available"] }
+            },
+            "required": ["service_type", "preferred_date"]
+          }
+        },
+        "server": { "url": "https://n8n.yourdomain.com/webhook/check-availability" }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "book_appointment",
+          "description": "Book the appointment ONLY after the caller has confirmed a specific slot returned by check_availability. Never invent a slot.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "customer_name":  { "type": "string" },
+              "phone":          { "type": "string", "description": "E.164, e.g. +19195551234" },
+              "address":        { "type": "string", "description": "Full service address including city and ZIP" },
+              "service_type":   { "type": "string", "enum": ["repair", "maintenance", "estimate", "emergency"] },
+              "problem_summary":{ "type": "string", "description": "One sentence in the caller's own words" },
+              "slot_start":     { "type": "string", "description": "ISO 8601 datetime returned by check_availability" },
+              "is_existing_customer": { "type": "boolean" }
+            },
+            "required": ["customer_name", "phone", "address", "service_type", "slot_start"]
+          }
+        },
+        "server": { "url": "https://n8n.yourdomain.com/webhook/book-appointment" }
+      },
+      {
+        "type": "transferCall",
+        "destinations": [
+          { "type": "number", "number": "{{OWNER_MOBILE_E164}}", "message": "This sounds urgent — let me get you to someone right now, please hold." }
+        ]
+      }
+    ]
+  },
+  "voice": { "provider": "cartesia", "voiceId": "{{CARTESIA_VOICE_ID}}", "model": "sonic-3.5" },
+  "transcriber": { "provider": "deepgram", "model": "flux", "language": "en" },
+  "analysisPlan": {
+    "summaryPrompt": "Summarize in 2 sentences: what the caller wanted and what was agreed.",
+    "structuredDataSchema": {
+      "type": "object",
+      "properties": {
+        "outcome": { "type": "string", "enum": ["booked", "message_taken", "transferred", "price_shopper", "wrong_number", "spam"] },
+        "service_type": { "type": "string" },
+        "urgency": { "type": "string", "enum": ["emergency", "same_week", "flexible"] },
+        "estimated_job_value": { "type": "number" }
+      }
+    }
+  },
+  "serverUrl": "https://n8n.yourdomain.com/webhook/vapi-events",
+  "serverMessages": ["end-of-call-report", "status-update", "tool-calls"],
+  "recordingEnabled": true,
+  "endCallPhrases": ["goodbye", "have a good one", "bye now"]
+}</code>
+          </div>
+          <div class="callout callout-tip mb-8">
+            <p class="text-sm"><strong>Why these specific settings:</strong> <code>temperature 0.4</code> keeps the agent from improvising prices. <code>maxDurationSeconds 420</code> caps a runaway call at about $0.55 of spend. <code>structuredDataSchema</code> is what fills your client dashboard and monthly report automatically &mdash; without it you're reading transcripts by hand at 20 clients. And the <code>firstMessage</code> contains both required disclosures (AI identity + recording) in one natural sentence, which is your entire compliance posture in most states.</p>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-3">Artifact 2: The Webhook Contract</h3>
+          <p class="text-sm text-gray-700 mb-3">This is what trips up every first build: Vapi calls <em>your</em> n8n webhook and waits for a specific response shape. Return anything else and the agent goes silent mid-call. Your n8n &ldquo;Respond to Webhook&rdquo; node must return exactly this:</p>
+          <div class="prompt-block mb-3">
+            <button class="copy-btn">Copy</button>
+            <code>// What Vapi SENDS to your webhook on a tool call:
+{
+  "message": {
+    "type": "tool-calls",
+    "toolCallList": [
+      {
+        "id": "call_abc123",
+        "function": { "name": "book_appointment", "arguments": { "customer_name": "Jane Doe", "...": "..." } }
+      }
+    ],
+    "call": { "id": "...", "customer": { "number": "+1919..." } }
+  }
+}
+
+// What your n8n workflow MUST return (Respond to Webhook node, JSON):
+{
+  "results": [
+    {
+      "toolCallId": "call_abc123",
+      "result": "Booked for Tuesday July 21 between 9 and 11 AM. Confirmation text sent."
+    }
+  ]
+}
+
+// RULES THAT SAVE YOU HOURS:
+// 1. toolCallId must be echoed back EXACTLY or Vapi ignores the response.
+// 2. "result" is a STRING the AI reads aloud — write it like a human sentence,
+//    not JSON. The caller hears this.
+// 3. Respond in under 3 seconds. Longer and the caller hears dead air.
+//    Put slow work (CRM sync, emails) AFTER the respond node, not before.
+// 4. On failure, still return a result string:
+//    "I couldn't confirm that slot — let me take a message instead."
+//    Never return an error object; the agent will freeze.</code>
+          </div>
+          <div class="callout callout-warning mb-8">
+            <p class="text-sm"><strong>Lock the webhook down before it goes live.</strong> A public n8n webhook that books appointments is a public API for anyone who finds the URL. Set a shared secret in Vapi (<code>server.secret</code>), then have your first n8n node reject any request whose <code>x-vapi-secret</code> header doesn&rsquo;t match. Rotate it per client, store it in the client&rsquo;s credential record.</p>
+          </div>
+
+          <h3 class="text-lg font-bold mt-8 mb-3">Artifact 3: The 10-Call Pre-Flight Test</h3>
+          <p class="text-sm text-gray-700 mb-3">Never hand a client a number you haven&rsquo;t attacked. Run all ten from your own phone and write the result next to each. Any fail = fix before go-live, no exceptions.</p>
+          <div class="grid sm:grid-cols-2 gap-2 mb-4">
+            <p class="check-item"><strong>1. Happy path:</strong> &ldquo;My AC stopped working&rdquo; &rarr; books a real slot, you receive the confirmation SMS</p>
+            <p class="check-item"><strong>2. Emergency:</strong> &ldquo;I smell gas&rdquo; &rarr; says call 911 first, then transfers immediately</p>
+            <p class="check-item"><strong>3. Price shopper:</strong> &ldquo;How much for a new furnace?&rdquo; &rarr; gives the range, does NOT invent a quote</p>
+            <p class="check-item"><strong>4. Out of area:</strong> ZIP 90 minutes away &rarr; politely declines, takes a message</p>
+            <p class="check-item"><strong>5. Existing customer:</strong> &ldquo;I need to reschedule Thursday&rdquo; &rarr; handles or transfers cleanly</p>
+            <p class="check-item"><strong>6. Spanish speaker:</strong> switches language and still books</p>
+            <p class="check-item"><strong>7. Interruption:</strong> talk over the agent mid-sentence &rarr; it stops and listens</p>
+            <p class="check-item"><strong>8. Noise:</strong> call from a car with windows down / jobsite noise &rarr; still transcribes</p>
+            <p class="check-item"><strong>9. Angry caller:</strong> &ldquo;Third time I&rsquo;ve called!&rdquo; &rarr; de-escalates, escalates to human</p>
+            <p class="check-item"><strong>10. Silence:</strong> say nothing for 20 seconds &rarr; ends gracefully, no infinite loop</p>
+          </div>
+          <div class="callout callout-action">
+            <p class="text-sm"><strong>Keep the recordings.</strong> Save every pre-flight call to a folder named after the client. Test #1 becomes the demo clip you send the next prospect in that trade, and the full set is your proof if a client ever says &ldquo;it never worked properly.&rdquo; Re-run all ten after any prompt change &mdash; a one-word edit can break booking in a way you won&rsquo;t notice for a week.</p>
+          </div>
+        </section>
+
         <section id="phone-setup" class="mb-16 view-section hidden" data-view="tech">
           <h2 class="text-2xl font-extrabold mb-4">Phone Setup & SMS Compliance</h2>
           <p class="text-gray-700 leading-relaxed mb-6">The #1 question clients ask: "What happens to my phone number?" Here are the three options, when to use each, and the SMS compliance you must handle.</p>
@@ -9144,7 +9345,7 @@ MONTHLY COSTS PER CLIENT:
             <p class="text-lg text-purple-200 max-w-2xl mx-auto mb-6">Build a $10K/month AI automation agency selling AI phone agents to home service businesses. Step-by-step. Copy-paste templates. No fluff.</p>
             <div class="flex flex-wrap justify-center gap-3 mb-8">
               <span class="module-badge badge-time text-sm px-3 py-1">10 Modules</span>
-              <span class="module-badge badge-lessons text-sm px-3 py-1">81 Lessons</span>
+              <span class="module-badge badge-lessons text-sm px-3 py-1">82 Lessons</span>
               <span class="module-badge badge-difficulty text-sm px-3 py-1">Templates + Scripts</span>
             </div>
             <div class="sales-price mb-2">$497</div>
@@ -9384,7 +9585,7 @@ MONTHLY COSTS PER CLIENT:
           <!-- CTA -->
           <div class="bg-gradient-to-r from-blue-600 to-purple-700 rounded-2xl p-8 text-center text-white">
             <h2 class="text-2xl font-extrabold mb-2">Ready to Build Your AI Agency?</h2>
-            <p class="text-blue-100 mb-4">10 modules. 81 lessons. Every template, script, and workflow you need.</p>
+            <p class="text-blue-100 mb-4">10 modules. 82 lessons. Every template, script, and workflow you need.</p>
             <div class="sales-price mb-1" style="font-size:2.5rem">$497</div>
             <p class="text-blue-200 text-xs mb-6">One-time. Lifetime access. 30-day guarantee.</p>
             <button onclick="showView('home')" class="bg-white text-blue-700 font-bold px-8 py-3 rounded-xl hover:bg-blue-50 transition-all text-sm">Start Module 1 &rarr;</button>
@@ -10476,7 +10677,7 @@ sources.</code></div>
     build: ['week1','week2','week3','week4','demo-env','quiz-m3'],
     launch: ['week5-6','week7-8','month3','month4-6','quiz-m4'],
     sales: ['leadgen','pipeline','lead-nurture','email-infra','missed-call-audit','referral-partners','agency-website','content-engine','onboarding','offer-system','discovery-framework','scripts','quiz-m5'],
-    tech: ['tech-delivery','tech-implementation','phone-setup','ghl','agentic-ai','agent-scripts','tools-compare','quiz-m6','voice-platforms','backups-security','troubleshooting'],
+    tech: ['tech-delivery','tech-implementation','build-kit','phone-setup','ghl','agentic-ai','agent-scripts','tools-compare','quiz-m6','voice-platforms','backups-security','troubleshooting'],
     growth: ['economics','expansion','speed-to-lead','database-reactivation','outbound-ai','ai-search-geo','google-agent-readiness','retention','client-lockin','competition','milestones','case-studies','seasonal','client-success','client-offboarding','quiz-m7'],
     ai: ['ai-overview','ai-build','ai-clients','ai-research','ai-agents','ai-prompts','trends-2026','quiz-m9'],
     scale: ['revenue-streams','productize','team-scaling','marketing-machine','cheat-sheets','tool-directory','exit-paths','quiz-m10'],
