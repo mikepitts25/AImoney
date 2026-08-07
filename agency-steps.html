@@ -146,7 +146,7 @@ Host: @  |  Type: MX  |  Value: ALT4.ASPMX.L.GOOGLE.COM.  |  Priority: 10</div>
           <h3 class="font-bold mt-8 mb-3">1.4 Set Up Stripe</h3>
           <div class="step-box">
             <p class="text-sm text-gray-700"><span class="step-num">1</span>Go to <a href="https://stripe.com" class="text-blue-600 underline">stripe.com</a> → "Start now" → create account with your agency email.</p>
-            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Business type: "Individual/Sole proprietorship" (until you form an LLC).</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Business type: <strong>Business / LLC</strong> &mdash; you already have Colibri Code LLC, so use the LLC, its EIN and your US business address. Do <em>not</em> pick Individual/Sole proprietorship and do not enter an SSN; that contradicts the LLC + EIN + Mercury path in the main plan and is the wrong entity for a non-US-resident owner.</p>
             <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>Business name: your agency name. Industry: "IT Services" or "Computer Software".</p>
             <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>Enter your personal details (legal name, SSN, DOB, address). Stripe requires this for payment processing compliance.</p>
             <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span>Add your bank account for payouts.</p>
@@ -233,7 +233,7 @@ services:
       - N8N_BASIC_AUTH_PASSWORD=CHANGE_THIS_PASSWORD
       - N8N_HOST=YOUR_IP_ADDRESS
       - N8N_PORT=5678
-      - N8N_PROTOCOL=http
+      - N8N_PROTOCOL=https
       - GENERIC_TIMEZONE=America/New_York
     volumes:
       - n8n_data:/home/node/.n8n
@@ -247,7 +247,7 @@ YAML</div>
             <p class="text-sm text-gray-700 mt-2"><span class="step-num">11</span>Once logged in, click around the interface. Create a blank workflow. Drag a node. Delete it. Just get familiar with the UI. You'll build real workflows on Days 3-4.</p>
           </div>
           <div class="step-box warn">
-            <p class="text-sm text-red-800"><strong>Security note:</strong> Right now n8n is running on plain HTTP. For production, you should set up HTTPS with a domain name and Let's Encrypt. This is fine for learning/testing this week. You'll harden it before going live with clients.</p>
+            <p class="text-sm text-red-800"><strong>STOP &mdash; do not mark Day 2 complete yet.</strong> n8n is on plain HTTP right now, and that is <em>not</em> good enough even for testing: Vapi and Twilio webhooks refuse plain HTTP, so this exact setup fails silently on Day 4-5 with no error message to read. Before continuing, point a subdomain at this server and re-run the install using the Caddy + Let&rsquo;s Encrypt block in the main plan (Module 3, Week 1). <strong>Day 2 is complete only when <code>https://n8n.yourdomain.com</code> loads with a padlock.</strong> <a href="agency-plan.html" class="underline">Open the main plan &rarr;</a></p>
           </div>
 
           <h3 class="font-bold mt-8 mb-3">2M.2 Create Vapi Account</h3>
@@ -944,8 +944,8 @@ Thank you! 🙏</div>
             <p class="text-sm text-green-800 font-bold">This is the day everything starts. Follow the daily schedule from the main plan. Here's the morning:</p>
             <p class="text-sm text-green-800 mt-3"><span class="step-num" style="background:#059669">1</span>8:00 AM — Paola: log into Smartlead. Activate the campaign. Emails start flowing.</p>
             <p class="text-sm text-green-800 mt-2"><span class="step-num" style="background:#059669">2</span>8:30 AM — Mike: check n8n, Vapi, and Supabase. Everything green? Good.</p>
-            <p class="text-sm text-green-800 mt-2"><span class="step-num" style="background:#059669">3</span>9:00 AM — Paola: open your phone call tracker. Pick up the phone. Call company #1 on your Google Maps list. Leave the voicemail. Send the email. Log the result. Move to #2. Repeat 10 times.</p>
-            <p class="text-sm text-green-800 mt-2"><span class="step-num" style="background:#059669">4</span>11:00 AM — Paola: check Smartlead for any replies. Respond to every reply within 1 hour.</p>
+            <p class="text-sm text-green-800 mt-2"><span class="step-num" style="background:#059669">3</span>3:00 PM CET (9:00 AM ET) — Paola: open your phone call tracker. Pick up the phone. Call company #1 on your Google Maps list. Leave the voicemail. Send the email. Log the result. Move to #2. Repeat 10 times.</p>
+            <p class="text-sm text-green-800 mt-2"><span class="step-num" style="background:#059669">4</span>5:00 PM CET (11:00 AM ET) — Paola: check Smartlead for any replies. Respond to every reply within 1 hour.</p>
             <p class="text-sm text-green-800 mt-2"><span class="step-num" style="background:#059669">5</span>12:00 PM — Lunch together. Compare notes. How did the calls go? Any replies yet?</p>
             <p class="text-sm text-green-800 mt-2"><span class="step-num" style="background:#059669">6</span>1:00 PM — Continue. Mike: customize a Loom for any hot leads. Paola: follow up on any positive replies.</p>
             <p class="text-sm text-green-800 mt-2"><span class="step-num" style="background:#059669">7</span>4:00 PM — Paola: write your first LinkedIn post (use the template from the main plan). Post it.</p>
