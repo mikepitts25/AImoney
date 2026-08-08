@@ -10017,6 +10017,24 @@ MONTHLY COSTS PER CLIENT:
             <p class="font-semibold text-amber-800 text-sm mb-1">Deprecated / changed model IDs (verify before quoting clients)</p>
             <p class="text-sm text-amber-700">The original <code>claude-3-*</code>, <code>claude-opus-4</code>, and <code>claude-sonnet-4</code> IDs are deprecated &mdash; migrate any Vapi/n8n configs to current IDs. On the OpenAI side, the GPT-5 / 5.1 / 5-mini / 5-nano line was replaced by the <strong>GPT-5.4 / 5.5 family</strong>, and <strong>o4-mini's price moved</strong> (OpenAI now lists ~$1.10 input, not the old $0.55) &mdash; GPT-5.4 Nano is the new cheap default. July 2026 churn: OpenAI shipped the GPT-5.6 family (Jul 9) and shuts down gpt-5-codex, o3-deep-research and ~a dozen other aliases on Jul 23 &mdash; grep your n8n workflows for stale model IDs. Anthropic launched Sonnet 5 (Jun 30). Re-check any pricing on the provider's own page before putting it in a client proposal; these move every few weeks.</p>
           </div>
+
+          <h3 class="text-lg font-bold mt-10 mb-3">AI Spend Governance (do this before you hand any tool a key)</h3>
+          <p class="text-sm text-gray-700 mb-3">This module tells you to give API keys to n8n, to Lovable, and to autonomous agents. A leaked or looping key is the one way this business can lose real money overnight &mdash; a runaway agent can burn a month of profit in an afternoon. Five rules, ten minutes to set up:</p>
+          <div class="overflow-x-auto mb-3">
+            <table class="w-full text-xs border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Rule</th><th class="text-left px-3 py-2 font-semibold">How</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr><td class="px-3 py-2 font-semibold">One key per system, never shared</td><td class="px-3 py-2">Separate keys named <code>n8n-prod</code>, <code>vapi-prod</code>, <code>lovable-dev</code>, <code>scratch</code>. When something misbehaves you revoke one key, not your whole business.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Hard monthly caps on every key</td><td class="px-3 py-2">Anthropic and OpenAI both support spend limits. Set them at <strong>3&times; your expected monthly usage</strong> &mdash; high enough not to break a client call, low enough that a loop cannot drain the account.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Billing alerts at 50 / 80 / 100%</td><td class="px-3 py-2">To both of your phones, not just Mike&rsquo;s. An alert only Mike sees while he is at his day job is not an alert.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Never give an autonomous agent a production key</td><td class="px-3 py-2">Agents that browse or self-loop get the <code>scratch</code> key with a $20 cap. If it needs production access, you run it yourself and watch it.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Rotate on every offboard</td><td class="px-3 py-2">VA leaves, contractor finishes, laptop lost &mdash; rotate that key the same day. Keys live in the shared vault, never in a doc, never in a Slack message.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout callout-cost mb-8">
+            <p class="text-sm"><strong>Your sanity number:</strong> at 10 clients your entire AI spend should sit around <strong>$60-150/month</strong>. If a bill arrives at $400 with the same client count, something is looping &mdash; check n8n execution history for a workflow retrying, and check whether a test agent got left running. Look at the API dashboard every Friday during the scorecard; it takes 30 seconds and it has caught more runaway spend than any alert.</p>
+          </div>
         </section>
 
         <!-- ai-build -->
@@ -10337,7 +10355,76 @@ and any edge cases I should handle (missing fields, duplicate calls, after-hours
             <p class="font-semibold text-emerald-800 text-sm mb-1">Pro move</p>
             <p class="text-sm text-emerald-700">Save these as saved prompts / a Claude Project so Paola and Mike both reuse the exact same wording. Consistency is what makes a 2-person team feel like a system.</p>
           </div>
-        </section>
+        
+          <h3 class="text-lg font-bold mt-10 mb-3">The Two Delivery Prompts (these defend the retainer)</h3>
+          <p class="text-sm text-gray-700 mb-3">Every other prompt here helps you <em>build</em>. These two are the ones you run every week for every client &mdash; they are the difference between an agent that quietly degrades and one the client feels getting better.</p>
+
+          <h4 class="font-bold text-sm mb-2">Prompt A &mdash; Client Voice-Agent System Prompt Generator</h4>
+          <p class="text-xs text-gray-500 mb-2">Paste the completed intake form in place of the bracket. Output goes straight into the Vapi assistant. Cuts a 45-minute writing job to about five minutes and keeps every client on the same tested structure.</p>
+          <div class="prompt-block mb-5">
+            <button class="copy-btn">Copy</button>
+            <code>You are writing a production system prompt for a Vapi voice receptionist for a US home-services contractor. Use the intake data below.
+
+[PASTE COMPLETED INTAKE FORM]
+
+Produce ONLY the system prompt, ready to paste. It must contain, in this order:
+
+1. IDENTITY: agent name, company, and an explicit AI self-identification plus a
+   recorded-call notice in the first spoken line. If asked "are you a real person?"
+   the agent answers plainly that it is an AI. This is a contract term — never omit it.
+2. SCOPE: services offered, service area by city/ZIP, business hours, and what
+   counts as an after-hours emergency for THIS trade.
+3. BEHAVIOR: warm and brief (1-2 sentences per turn), never invent prices — quote
+   only the ranges given, never promise a technician arrival time that is not a real
+   calendar slot, and always capture name, phone, address and the problem in the
+   caller's own words.
+4. EMERGENCY PATH: exact trigger phrases for this trade. For gas smell, carbon
+   monoxide, sparking or active flooding: instruct the caller to call 911 first if
+   there is danger, then transfer immediately.
+5. TOOL USE: call check_availability before offering any time; call book_appointment
+   only after the caller confirms a slot that tool returned. Never invent a slot.
+6. EDGE CASES: price shopper, out-of-area caller, existing customer rescheduling,
+   angry caller, Spanish speaker, wrong number, silence.
+7. CLOSING: confirm the booking back to the caller and tell them a confirmation text
+   is coming.
+
+Rules: plain language, no marketing copy, no emoji. Under 700 words. Mark anything
+you had to assume with [ASSUMPTION] so I can verify it before deploying.</code>
+          </div>
+
+          <h4 class="font-bold text-sm mb-2">Prompt B &mdash; Weekly Call QA Scorer (Paola&rsquo;s Friday hour)</h4>
+          <p class="text-xs text-gray-500 mb-2">Run against 10 transcripts per client per week. Produces the tuning list <em>and</em> the wins you paste into the monthly report &mdash; which is the same evidence that makes renewal automatic.</p>
+          <div class="prompt-block mb-4">
+            <button class="copy-btn">Copy</button>
+            <code>You are auditing an AI receptionist for a home-services contractor. Below are this
+week's call transcripts.
+
+[PASTE 10 TRANSCRIPTS]
+
+Score EACH call 0-2 on these six criteria (0 = failed, 1 = partial, 2 = clean):
+  1. Disclosed it is an AI and that the call is recorded
+  2. Captured name, phone, address and the problem
+  3. Booked a real slot, or took a message with a clear reason it could not book
+  4. Stayed inside approved price ranges — flag any invented number as an automatic 0
+  5. Handled emergencies correctly (safety instruction first, then transfer)
+  6. Sounded natural — no loops, no talking over the caller, no dead air
+
+Then output exactly four sections:
+
+FAILURES — every call scoring 0 on any criterion, with the quoted line that failed
+  and the one-sentence prompt change that fixes it. Order by how much money it cost.
+PATTERNS — anything appearing in 3+ calls. These are prompt problems, not one-offs.
+WINS — the two best moments, quoted verbatim, ready to paste into the monthly report.
+TUNING LIST — at most 3 prompt edits for this week, highest impact first. Never more
+  than 3: changing everything at once means you learn nothing from the next batch.
+
+Be harsh. A call that "sounded fine" but did not book and did not explain why is a
+failure, not a pass.</code>
+          </div>
+          <div class="callout callout-tip mb-2">
+            <p class="text-sm"><strong>Why this is the retention engine:</strong> re-run the 10-call pre-flight after every tuning change, then tell the client what you improved in their monthly report. &ldquo;Your agent got better again this month, here&rsquo;s the recording&rdquo; is the sentence that makes cancelling feel like a downgrade. It costs cents in API spend and about an hour of Paola&rsquo;s week.</p>
+          </div>
+</section>
 
         <!-- ==================== 2026 TRENDS RADAR ==================== -->
         <section id="trends-2026" class="mb-16 view-section hidden" data-view="ai">
