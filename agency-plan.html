@@ -595,6 +595,25 @@
             <span class="text-xs text-slate-300" id="cc-day-sub"></span>
           </div>
 
+          <!-- THIS WEEK BOARD -->
+          <h3 class="text-lg font-bold mb-2">This Week&rsquo;s Two Blocks (the answer to &ldquo;what do I do right now?&rdquo;)</h3>
+          <p class="text-sm text-gray-700 mb-3">You each get roughly <strong>7-10 hours a week</strong> around the day job &mdash; call it 90 minutes on weekday mornings plus one longer weekend block. That is the real budget, so plan in 90-minute units, not in &ldquo;days.&rdquo; Write one commitment each on Monday; it saves automatically and stays until you change it.</p>
+          <div class="grid sm:grid-cols-2 gap-4 mb-3">
+            <div class="bg-white rounded-xl border-2 border-blue-200 p-5">
+              <div class="text-xs font-bold text-blue-600 uppercase mb-2"><span class="legend-dot bg-blue-600"></span> Mike &mdash; this week&rsquo;s 90-minute block</div>
+              <input type="text" data-persist="wk-mike" placeholder="e.g. Load 50 HVAC prospects + send the week's first 75 emails" class="w-full text-sm border border-gray-300 rounded-lg px-3 py-2 mb-2">
+              <p class="text-xs text-gray-500">Default if you are unsure: whatever the Readiness Score below names as your weakest dimension. If the pipeline is empty, it is always prospects and outreach &mdash; never a new build.</p>
+            </div>
+            <div class="bg-white rounded-xl border-2 border-fuchsia-200 p-5">
+              <div class="text-xs font-bold text-fuchsia-600 uppercase mb-2"><span class="legend-dot bg-fuchsia-500"></span> Paola &mdash; this week&rsquo;s 90-minute block</div>
+              <input type="text" data-persist="wk-paola" placeholder="e.g. Score 10 calls, message 2 referral partners" class="w-full text-sm border border-gray-300 rounded-lg px-3 py-2 mb-2">
+              <p class="text-xs text-gray-500">Default if you are unsure: score this week&rsquo;s client calls, then two referral-partner touches. If a client signed this week, the handoff and 10-call test come first.</p>
+            </div>
+          </div>
+          <div class="callout callout-tip mb-8">
+            <p class="text-sm"><strong>Stop-when rules, so a half-finished block is never a disaster:</strong> a build block ends when the thing you started <em>answers or sends</em> &mdash; not when it is perfect. An outreach block ends when the batch is sent, even if the list is shorter than planned. Write down the next single action before you close the laptop; that is what you open with next time.</p>
+          </div>
+
           <!-- PICK YOUR TRACK -->
           <h3 class="text-lg font-bold mb-2">Pick Your Track (do this once, then ignore the other one)</h3>
           <p class="text-sm text-gray-700 mb-3">Three different calendars in this course each claim &ldquo;Day 1,&rdquo; and they disagree on purpose &mdash; they are two different strategies, not two descriptions of the same one. Choose by one question: <strong>do you need revenue this month, or do you have runway?</strong> Then follow only that column and treat the other one&rsquo;s day numbers as if they don&rsquo;t exist.</p>
@@ -604,14 +623,14 @@
               <h4 class="font-bold text-sm mb-2">Sell First (21-Day Money Sprint)</h4>
               <p class="text-xs text-gray-600 leading-relaxed mb-2"><strong>Choose if:</strong> you need cash this month, or a paying client is the only thing that will keep you both motivated.</p>
               <p class="text-xs text-gray-600 leading-relaxed mb-2"><strong>The rule:</strong> nothing gets built unless a prospect asked for it or paid for it. You sell from Day 3 with a demo, not a finished product.</p>
-              <p class="text-xs text-gray-700"><strong>Your path:</strong> the <a href="#fast-track" class="text-blue-600 hover:underline">21-Day Sprint</a>, plus <em>only</em> Days 1, 2, 5 and 7 of the click-by-click steps page (accounts, server, demo agent, test). Skip its Days 3-4 and 8-14 until a client is paying.</p>
+              <p class="text-xs text-gray-700"><strong>Your path:</strong> the <a href="#fast-track" class="text-blue-600 hover:underline">21-Day Sprint</a>, plus <a href="agency-steps.html" class="text-blue-600 hover:underline"><strong>Days 1, 2, 4, 5 and 7</strong> of the click-by-click steps page &nearr;</a> &mdash; accounts, server, Vapi agent, refine, test. That is the smallest set that actually produces a callable demo: Day 5 refines what Day 4 builds, and Day 7 tests the Day 4 webhook. Skip Days 3, 6 and 8-14 until a client is paying.</p>
             </div>
             <div class="bg-white rounded-xl border-2 border-blue-300 p-5">
               <div class="text-xs font-bold text-blue-600 uppercase mb-1">Track B</div>
               <h4 class="font-bold text-sm mb-2">Build First (Full 15-Day Build)</h4>
               <p class="text-xs text-gray-600 leading-relaxed mb-2"><strong>Choose if:</strong> you have 2-3 months of runway and would rather walk into the first sales call with everything already working.</p>
               <p class="text-xs text-gray-600 leading-relaxed mb-2"><strong>The cost:</strong> roughly 55-60 hours of building before you speak to a single prospect. That is the trade you are making &mdash; go in knowing it.</p>
-              <p class="text-xs text-gray-700"><strong>Your path:</strong> the click-by-click steps page, Days 1-15 in order, then Module 5 for outreach.</p>
+              <p class="text-xs text-gray-700"><strong>Your path:</strong> <a href="agency-steps.html" class="text-blue-600 hover:underline">the click-by-click steps page, Days 1-15 in order &nearr;</a>, then Module 5 for outreach.</p>
             </div>
           </div>
           <div class="callout callout-warning mb-8">
@@ -642,7 +661,7 @@
           </div>
           <div class="grid sm:grid-cols-3 gap-3 mb-8">
             <div class="callout callout-warning p-3"><p class="text-xs"><strong>Bus-factor rule.</strong> Mike being the only person who can deploy is the biggest risk you have. Every credential lives in one shared password vault from day one, and Paola does one supervised deploy per month so she can keep clients alive for a week without him.</p></div>
-            <div class="callout callout-tip p-3"><p class="text-xs"><strong>Paola holds the go-live veto.</strong> Nothing reaches a client until she has run the 10-call test. The person who owns the relationship decides when it is ready &mdash; this protects Mike from his own optimism.</p></div>
+            <div class="callout callout-tip p-3"><p class="text-xs"><strong>Paola holds the go-live veto.</strong> Nothing reaches a client until she has run the 10-call test &mdash; and test #1 is always &ldquo;are you a real person?&rdquo; If the agent dodges, it does not go live. The person who owns the relationship decides when it is ready &mdash; this protects Mike from his own optimism.</p></div>
             <div class="callout callout-protip p-3"><p class="text-xs"><strong>Reduced Mode.</strong> When one of you is sick, travelling or buried at the day job: keep client delivery and demos already booked; drop prospecting, content and new builds first. Say it out loud on Friday so nobody quietly resents the imbalance.</p></div>
           </div>
 
@@ -761,19 +780,24 @@
           <p class="text-sm text-gray-700 mb-3">Every metric has exactly one owner. &ldquo;Both&rdquo; means nobody, so it appears only where the work is genuinely joint. If a number is in the red column two weeks running, that becomes next week's only priority &mdash; everything else waits.</p>
           <div class="overflow-x-auto mb-3">
             <table class="w-full text-xs border border-gray-200 rounded-lg overflow-hidden">
-              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Metric</th><th class="text-left px-3 py-2 font-semibold">Owner</th><th class="text-right px-3 py-2 font-semibold">Weekly target</th><th class="text-right px-3 py-2 font-semibold text-red-600">Red line</th><th class="text-right px-3 py-2 font-semibold">This week</th></tr></thead>
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Metric</th><th class="text-left px-3 py-2 font-semibold">Owner</th><th class="text-right px-3 py-2 font-semibold">Weekly target</th><th class="text-right px-3 py-2 font-semibold text-red-600">Red line</th><th class="text-right px-3 py-2 font-semibold text-gray-400">Last week</th><th class="text-right px-3 py-2 font-semibold">This week</th></tr></thead>
               <tbody class="divide-y divide-gray-100 bg-white">
-                <tr><td class="px-3 py-2">New prospects added &amp; enriched</td><td class="px-3 py-2"><span class="legend-dot bg-blue-600"></span> Mike</td><td class="px-3 py-2 text-right">50+</td><td class="px-3 py-2 text-right text-red-600">&lt;25</td><td class="px-3 py-2 text-right"><input type="text" data-persist="sc-newprospects" class="w-16 text-right text-xs border-b border-gray-300 bg-transparent px-1" placeholder="—"></td></tr>
-                <tr><td class="px-3 py-2">Cold emails sent</td><td class="px-3 py-2"><span class="legend-dot bg-blue-600"></span> Mike</td><td class="px-3 py-2 text-right">150</td><td class="px-3 py-2 text-right text-red-600">&lt;75</td><td class="px-3 py-2 text-right"><input type="text" data-persist="sc-coldemailsse" class="w-16 text-right text-xs border-b border-gray-300 bg-transparent px-1" placeholder="—"></td></tr>
-                <tr><td class="px-3 py-2">Audit Looms recorded</td><td class="px-3 py-2"><span class="legend-dot bg-blue-600"></span> Mike</td><td class="px-3 py-2 text-right">5</td><td class="px-3 py-2 text-right text-red-600">&lt;2</td><td class="px-3 py-2 text-right"><input type="text" data-persist="sc-auditloomsre" class="w-16 text-right text-xs border-b border-gray-300 bg-transparent px-1" placeholder="—"></td></tr>
-                <tr><td class="px-3 py-2">Demos held (not booked &mdash; held)</td><td class="px-3 py-2"><span class="legend-dot bg-emerald-500"></span> Both</td><td class="px-3 py-2 text-right">3</td><td class="px-3 py-2 text-right text-red-600">0 two weeks running</td><td class="px-3 py-2 text-right"><input type="text" data-persist="sc-demosheldno" class="w-16 text-right text-xs border-b border-gray-300 bg-transparent px-1" placeholder="—"></td></tr>
-                <tr><td class="px-3 py-2">Referral-partner touches</td><td class="px-3 py-2"><span class="legend-dot bg-fuchsia-500"></span> Paola</td><td class="px-3 py-2 text-right">2</td><td class="px-3 py-2 text-right text-red-600">0</td><td class="px-3 py-2 text-right"><input type="text" data-persist="sc-referralpartn" class="w-16 text-right text-xs border-b border-gray-300 bg-transparent px-1" placeholder="—"></td></tr>
-                <tr><td class="px-3 py-2">Client calls QA-scored</td><td class="px-3 py-2"><span class="legend-dot bg-fuchsia-500"></span> Paola</td><td class="px-3 py-2 text-right">10/client</td><td class="px-3 py-2 text-right text-red-600">&lt;5</td><td class="px-3 py-2 text-right"><input type="text" data-persist="sc-clientcallsq" class="w-16 text-right text-xs border-b border-gray-300 bg-transparent px-1" placeholder="—"></td></tr>
-                <tr><td class="px-3 py-2">Every open lead touched in last 7 days</td><td class="px-3 py-2"><span class="legend-dot bg-fuchsia-500"></span> Paola</td><td class="px-3 py-2 text-right">100%</td><td class="px-3 py-2 text-right text-red-600">any lead &gt;7 days cold</td><td class="px-3 py-2 text-right"><input type="text" data-persist="sc-everyopenlea" class="w-16 text-right text-xs border-b border-gray-300 bg-transparent px-1" placeholder="—"></td></tr>
-                <tr class="bg-emerald-50"><td class="px-3 py-2 font-bold">MRR added this week</td><td class="px-3 py-2"><span class="legend-dot bg-emerald-500"></span> Both</td><td class="px-3 py-2 text-right font-bold">$500+</td><td class="px-3 py-2 text-right text-red-600">$0 for 3 weeks</td><td class="px-3 py-2 text-right"><input type="text" data-persist="sc-mrraddedthis" class="w-16 text-right text-xs border-b border-gray-300 bg-transparent px-1" placeholder="—"></td></tr>
+                <tr><td class="px-3 py-2">New prospects added &amp; enriched</td><td class="px-3 py-2"><span class="legend-dot bg-blue-600"></span> Mike</td><td class="px-3 py-2 text-right">50+</td><td class="px-3 py-2 text-right text-red-600">&lt;25</td><td class="px-3 py-2 text-right text-gray-400 text-[11px]" data-lw="lw-newprospects">&mdash;</td><td class="px-3 py-2 text-right"><input type="text" data-persist="sc-newprospects" class="w-16 text-right text-xs border-b border-gray-300 bg-transparent px-1" placeholder="—"></td></tr>
+                <tr><td class="px-3 py-2">Cold emails sent</td><td class="px-3 py-2"><span class="legend-dot bg-blue-600"></span> Mike</td><td class="px-3 py-2 text-right">150</td><td class="px-3 py-2 text-right text-red-600">&lt;75</td><td class="px-3 py-2 text-right text-gray-400 text-[11px]" data-lw="lw-coldemailsse">&mdash;</td><td class="px-3 py-2 text-right"><input type="text" data-persist="sc-coldemailsse" class="w-16 text-right text-xs border-b border-gray-300 bg-transparent px-1" placeholder="—"></td></tr>
+                <tr><td class="px-3 py-2">Audit Looms recorded</td><td class="px-3 py-2"><span class="legend-dot bg-blue-600"></span> Mike</td><td class="px-3 py-2 text-right">5</td><td class="px-3 py-2 text-right text-red-600">&lt;2</td><td class="px-3 py-2 text-right text-gray-400 text-[11px]" data-lw="lw-auditloomsre">&mdash;</td><td class="px-3 py-2 text-right"><input type="text" data-persist="sc-auditloomsre" class="w-16 text-right text-xs border-b border-gray-300 bg-transparent px-1" placeholder="—"></td></tr>
+                <tr><td class="px-3 py-2">Demos held (not booked &mdash; held)</td><td class="px-3 py-2"><span class="legend-dot bg-emerald-500"></span> Both</td><td class="px-3 py-2 text-right">3</td><td class="px-3 py-2 text-right text-red-600">0 two weeks running</td><td class="px-3 py-2 text-right text-gray-400 text-[11px]" data-lw="lw-demosheldno">&mdash;</td><td class="px-3 py-2 text-right"><input type="text" data-persist="sc-demosheldno" class="w-16 text-right text-xs border-b border-gray-300 bg-transparent px-1" placeholder="—"></td></tr>
+                <tr><td class="px-3 py-2">Referral-partner touches</td><td class="px-3 py-2"><span class="legend-dot bg-fuchsia-500"></span> Paola</td><td class="px-3 py-2 text-right">2</td><td class="px-3 py-2 text-right text-red-600">0</td><td class="px-3 py-2 text-right text-gray-400 text-[11px]" data-lw="lw-referralpartn">&mdash;</td><td class="px-3 py-2 text-right"><input type="text" data-persist="sc-referralpartn" class="w-16 text-right text-xs border-b border-gray-300 bg-transparent px-1" placeholder="—"></td></tr>
+                <tr><td class="px-3 py-2">Client calls QA-scored</td><td class="px-3 py-2"><span class="legend-dot bg-fuchsia-500"></span> Paola</td><td class="px-3 py-2 text-right">10/client</td><td class="px-3 py-2 text-right text-red-600">&lt;5</td><td class="px-3 py-2 text-right text-gray-400 text-[11px]" data-lw="lw-clientcallsq">&mdash;</td><td class="px-3 py-2 text-right"><input type="text" data-persist="sc-clientcallsq" class="w-16 text-right text-xs border-b border-gray-300 bg-transparent px-1" placeholder="—"></td></tr>
+                <tr><td class="px-3 py-2">Every open lead touched in last 7 days</td><td class="px-3 py-2"><span class="legend-dot bg-fuchsia-500"></span> Paola</td><td class="px-3 py-2 text-right">100%</td><td class="px-3 py-2 text-right text-red-600">any lead &gt;7 days cold</td><td class="px-3 py-2 text-right text-gray-400 text-[11px]" data-lw="lw-everyopenlea">&mdash;</td><td class="px-3 py-2 text-right"><input type="text" data-persist="sc-everyopenlea" class="w-16 text-right text-xs border-b border-gray-300 bg-transparent px-1" placeholder="—"></td></tr>
+                <tr class="bg-emerald-50"><td class="px-3 py-2 font-bold">MRR added this week</td><td class="px-3 py-2"><span class="legend-dot bg-emerald-500"></span> Both</td><td class="px-3 py-2 text-right font-bold">$500+</td><td class="px-3 py-2 text-right text-red-600">$0 for 3 weeks</td><td class="px-3 py-2 text-right text-gray-400 text-[11px]" data-lw="lw-mrraddedthis">&mdash;</td><td class="px-3 py-2 text-right"><input type="text" data-persist="sc-mrraddedthis" class="w-16 text-right text-xs border-b border-gray-300 bg-transparent px-1" placeholder="—"></td></tr>
               </tbody>
             </table>
           </div>
+          <div class="flex flex-wrap items-center gap-3 mb-4">
+            <button type="button" id="close-week-btn" class="text-xs font-bold px-4 py-2 rounded-lg bg-slate-900 text-white hover:bg-slate-700">Close the week &rarr;</button>
+            <span class="text-xs text-gray-500" id="close-week-msg">Rolls this week&rsquo;s numbers into &ldquo;Last week&rdquo; and clears the inputs, so the two-weeks-red rule actually works.</span>
+          </div>
+          <div id="red-alert" class="hidden callout callout-warning mb-4"><p class="text-sm"><strong>Red two weeks running:</strong> <span id="red-alert-list"></span>. Per your own rule, that is next week&rsquo;s only priority &mdash; everything else waits.</p></div>
           <div class="prompt-block mb-8">
             <button class="copy-btn">Copy</button>
             <code>FRIDAY DEBRIEF — 30 MINUTES, PHONES DOWN
@@ -3294,12 +3318,12 @@ Applications without a Loom video will not be reviewed.</code></div>
             <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
               <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Stage</th><th class="text-left px-3 py-2 font-semibold">What Happens</th><th class="text-left px-3 py-2 font-semibold">Who</th><th class="text-left px-3 py-2 font-semibold">Timeline</th><th class="text-left px-3 py-2 font-semibold">Conversion Rate</th></tr></thead>
               <tbody class="divide-y divide-gray-100 bg-white">
-                <tr class="bg-gray-50"><td class="px-3 py-2 font-semibold">1. Cold Lead</td><td class="px-3 py-2">They receive your email or cold call</td><td class="px-3 py-2">Paola</td><td class="px-3 py-2">Day 0</td><td class="px-3 py-2">100% (starting pool)</td></tr>
-                <tr><td class="px-3 py-2 font-semibold">2. Engaged</td><td class="px-3 py-2">They reply, pick up the phone, or visit your site</td><td class="px-3 py-2">Paola</td><td class="px-3 py-2">Days 1-7</td><td class="px-3 py-2">5-10% of cold leads</td></tr>
+                <tr class="bg-gray-50"><td class="px-3 py-2 font-semibold">1. Cold Lead</td><td class="px-3 py-2">They receive your email or cold call</td><td class="px-3 py-2">Mike</td><td class="px-3 py-2">Day 0</td><td class="px-3 py-2">100% (starting pool)</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">2. Engaged</td><td class="px-3 py-2">They reply, pick up the phone, or visit your site</td><td class="px-3 py-2">Mike</td><td class="px-3 py-2">Days 1-7</td><td class="px-3 py-2">5-10% of cold leads</td></tr>
                 <tr><td class="px-3 py-2 font-semibold">3. Demo Booked</td><td class="px-3 py-2">They agree to a 15-min demo call</td><td class="px-3 py-2">Paola books</td><td class="px-3 py-2">Within 48 hrs of engagement</td><td class="px-3 py-2">40-60% of engaged</td></tr>
                 <tr class="bg-blue-50"><td class="px-3 py-2 font-semibold">4. Demo Completed</td><td class="px-3 py-2">They see the AI in action, hear the pitch</td><td class="px-3 py-2">Both</td><td class="px-3 py-2">Scheduled within 3-5 days</td><td class="px-3 py-2">85-90% show rate</td></tr>
-                <tr><td class="px-3 py-2 font-semibold">5. Proposal Sent</td><td class="px-3 py-2">They receive pricing + service details</td><td class="px-3 py-2">Paola</td><td class="px-3 py-2">Same day as demo</td><td class="px-3 py-2">100% of demos get a proposal</td></tr>
-                <tr><td class="px-3 py-2 font-semibold">6. Follow-Up</td><td class="px-3 py-2">They're thinking about it — you stay top of mind</td><td class="px-3 py-2">Paola</td><td class="px-3 py-2">Days 1-14 after demo</td><td class="px-3 py-2">—</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">5. Proposal Sent</td><td class="px-3 py-2">They receive pricing + service details</td><td class="px-3 py-2">Mike</td><td class="px-3 py-2">Same day as demo</td><td class="px-3 py-2">100% of demos get a proposal</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">6. Follow-Up</td><td class="px-3 py-2">They're thinking about it — you stay top of mind</td><td class="px-3 py-2">Mike</td><td class="px-3 py-2">Days 1-14 after demo</td><td class="px-3 py-2">—</td></tr>
                 <tr class="bg-emerald-50"><td class="px-3 py-2 font-semibold">7. Closed / Signed</td><td class="px-3 py-2">Contract signed, setup fee paid</td><td class="px-3 py-2">Both</td><td class="px-3 py-2">1-14 days after demo</td><td class="px-3 py-2">25-40% of demos</td></tr>
                 <tr class="bg-amber-50"><td class="px-3 py-2 font-semibold">7.5 Handoff</td><td class="px-3 py-2">Mike fills the Handoff Packet before closing his laptop</td><td class="px-3 py-2"><span class="legend-dot bg-blue-600"></span> Mike &rarr; <span class="legend-dot bg-fuchsia-500"></span> Paola</td><td class="px-3 py-2">Same day as signature &mdash; never the next morning</td></tr>
                 <tr><td class="px-3 py-2 font-semibold">8. Onboarding</td><td class="px-3 py-2">AI agent built, tested, and live</td><td class="px-3 py-2">Mike builds, Paola manages</td><td class="px-3 py-2">48-72 hrs after signing</td><td class="px-3 py-2">→ <a href="#onboarding" class="text-blue-600 underline">Onboarding SOP</a></td></tr>
@@ -3402,7 +3426,7 @@ Colibri Code"</code></div>
               </div>
               <div>
                 <p class="font-bold text-amber-700 mb-1">6. The Free Trial Close</p>
-                <p class="text-xs">For &ldquo;I need to think about it&rdquo;: &ldquo;Let me set it up for free. Run it 7 days. If you don&rsquo;t see value, I shut it off and you owe nothing.&rdquo; Trial conversion rate: 70-80%.</p>
+                <p class="text-xs">For &ldquo;I need to think about it&rdquo;: &ldquo;Let me set it up for free. Run it 7 days. If you don&rsquo;t see value, I shut it off and you owe nothing.&rdquo; Pilot conversion rate: 60-80%.</p>
               </div>
             </div>
           </div>
@@ -3487,15 +3511,15 @@ Should I set this up for you?&rdquo;</code></div>
                 <p class="text-xs mt-1">"So [Name], you mentioned you miss about [X] calls a week. At an average job value of [amount they said], that's roughly $[math] a month walking out the door. This agent would catch every single one of those."</p>
               </div>
               <div class="bg-gray-50 rounded-lg p-3">
-                <p class="font-semibold text-blue-700">Minutes 9-11: Pricing + Offer (Paola)</p>
+                <p class="font-semibold text-blue-700">Minutes 9-11: Pricing + Offer (Mike &mdash; one quoter, always)</p>
                 <p class="text-xs mt-1">"Here's how it works. We set everything up for you — custom-scripted to your business, your services, your hours. It's $[setup fee] to build it and $[monthly] per month. Most of our clients see ROI in the first week just from calls they would've missed."</p>
-                <p class="text-xs text-gray-500 mt-1"><em>Present the Bundle as the default. Only mention individual services if they push back on price. If they're a bilingual market, add: "And because you serve a lot of Spanish-speaking customers, we include bilingual support — the agent switches to Spanish automatically."</em></p>
+                <p class="text-xs text-gray-500 mt-1"><em>Present the Bundle as the default (Founding Client rate for clients 1-3). Only mention individual services if they push back on price. If they're a bilingual market, add: "And because you serve a lot of Spanish-speaking customers, we include bilingual support — the agent switches to Spanish automatically."</em></p>
               </div>
               <div class="bg-emerald-50 rounded-lg p-3">
                 <p class="font-semibold text-emerald-700">Minutes 11-13: Handle Objections + Close (Both)</p>
                 <p class="text-xs mt-1">See the <a href="#faq" class="text-blue-600 underline">FAQ &amp; Objections section</a> for every objection and exactly what to say. The most common:</p>
                 <ul class="text-xs mt-1 space-y-1 ml-3">
-                  <li>• "Let me think about it" → Offer the 7-day free trial (see below)</li>
+                  <li>• "Let me think about it" → Offer the 7-day paid pilot ($250, credited to setup) (see below)</li>
                   <li>• "That's too expensive" → Do the ROI math with their numbers</li>
                   <li>• "My customers won't like AI" → "Call the number yourself right now — did you notice it was AI?"</li>
                 </ul>
@@ -3503,13 +3527,13 @@ Should I set this up for you?&rdquo;</code></div>
               <div class="bg-gray-50 rounded-lg p-3">
                 <p class="font-semibold text-blue-700">Minutes 13-15: Next Steps (Paola)</p>
                 <p class="text-xs mt-1">If YES: "Amazing! I'll send over the agreement today. Once signed, Mike will have your agent live within 48 hours. I'll send you a quick onboarding form to fill out — takes 5 minutes."</p>
-                <p class="text-xs mt-1">If MAYBE: "Totally fair. How about this — let me set up a free 7-day trial so you can see it in action with your real calls. Zero risk. If you love it, we'll make it permanent. If not, we turn it off and you owe nothing."</p>
+                <p class="text-xs mt-1">If MAYBE: "Totally fair. How about this — let me set up a $250 7-day paid pilot so you can see it in action with your real calls. Zero risk. If you love it, we'll make it permanent. If not, we turn it off and you owe nothing."</p>
                 <p class="text-xs mt-1">If NO: "No worries at all. I'll follow up in a couple weeks — things change when peak season hits. In the meantime, here's a case study from a [similar trade] company that was in the same boat."</p>
               </div>
             </div>
           </div>
 
-          <h3 class="text-lg font-bold mt-8 mb-4">The 7-Day Free Trial (Your Secret Weapon)</h3>
+          <h3 class="text-lg font-bold mt-8 mb-4">The 7-Day Paid Pilot ($250, credited to setup) &mdash; Your Secret Weapon</h3>
           <div class="bg-white rounded-xl border-2 border-emerald-200 p-5 mb-4">
             <div class="space-y-2 text-sm text-gray-700">
               <p><strong>How it works mechanically:</strong></p>
@@ -6943,6 +6967,7 @@ BUSINESS INFO:
 - Emergency service: Available 24/7 for no heat/no cool emergencies
 
 YOUR BEHAVIOR:
+- You are an AI assistant and you never hide it. Your opening line is: "Thanks for calling [COMPANY], this is [AGENT NAME], an AI assistant. This call is recorded. How can I help?" If anyone asks whether you are a real person, answer plainly and immediately: "I'm an AI assistant" — never deflect.
 - Be warm, friendly, and conversational — you're a helpful receptionist, not a robot
 - Keep responses concise (1-2 sentences). Don't ramble.
 - If you don't know something specific (like exact pricing), say "I'd be happy to have our team get back to you with specific pricing for your situation"
@@ -11068,6 +11093,56 @@ sources.</code></div>
         var d = ccLoad(); d[k] = el.value; ccSave(d);
       });
     });
+  })();
+
+  // ============ COMMAND CENTER: weekly scorecard memory ============
+  (function initWeekRoll(){
+    var RED = {
+      newprospects: function(v){ return v < 25; }, coldemailsse: function(v){ return v < 75; },
+      auditloomsre: function(v){ return v < 2; },  demosheldno: function(v){ return v < 1; },
+      referralpartn: function(v){ return v === 0; }, clientcallsq: function(v){ return v < 5; },
+      everyopenlea: function(v){ return v < 100; }, mrraddedthis: function(v){ return v === 0; }
+    };
+    function num(x){ var n = parseFloat(String(x == null ? '' : x).replace(/[^0-9.\-]/g, '')); return isNaN(n) ? null : n; }
+    function render(){
+      var d = ccLoad(), reds = [];
+      document.querySelectorAll('[data-lw]').forEach(function(td){
+        var key = td.getAttribute('data-lw');            // lw-xxx
+        var short = key.slice(3);
+        var lw = d[key];
+        td.textContent = (lw == null || lw === '') ? '\u2014' : lw;
+        var thisWk = num(d['sc-' + short]), lastWk = num(lw);
+        var test = RED[short];
+        if (test && thisWk !== null && lastWk !== null && test(thisWk) && test(lastWk)) {
+          var row = td.closest('tr');
+          if (row) { row.style.background = '#fef2f2'; }
+          var label = row ? (row.querySelector('td') ? row.querySelector('td').textContent.trim() : short) : short;
+          reds.push(label);
+        }
+      });
+      var box = document.getElementById('red-alert'), list = document.getElementById('red-alert-list');
+      if (box && list) {
+        if (reds.length) { list.textContent = reds.join('; '); box.classList.remove('hidden'); }
+        else { box.classList.add('hidden'); }
+      }
+    }
+    var btn = document.getElementById('close-week-btn');
+    if (btn) btn.addEventListener('click', function(){
+      var d = ccLoad(), moved = 0;
+      document.querySelectorAll('input[data-persist^="sc-"]').forEach(function(inp){
+        var k = inp.getAttribute('data-persist');        // sc-xxx
+        var v = d[k];
+        if (v != null && v !== '') { d['lw-' + k.slice(3)] = v; moved++; }
+        delete d[k]; inp.value = '';
+      });
+      ccSave(d); render();
+      var msg = document.getElementById('close-week-msg');
+      if (msg) msg.textContent = 'Week closed \u2014 ' + moved + ' number(s) rolled into Last week. Start fresh on Monday.';
+    });
+    document.querySelectorAll('input[data-persist^="sc-"]').forEach(function(inp){
+      inp.addEventListener('input', render);
+    });
+    render();
   })();
 
   // ============ COMMAND CENTER: day counter ============

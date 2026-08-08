@@ -91,6 +91,13 @@
         </div>
 
         <!-- ======================== DAY 1 ======================== -->
+        <div class="step-box mb-10" style="border-left:4px solid #2563eb;background:#eff6ff;">
+          <p class="text-sm text-blue-900 font-bold mb-2">Which of these days are yours? Pick your track in the Command Center first.</p>
+          <p class="text-sm text-blue-900 mb-1"><strong>Track A (Sell First / 21-Day Sprint):</strong> do <strong>Days 1, 2, 4, 5 and 7 only</strong>, then go sell. Skip Days 3, 6 and 8-14 until a client is paying &mdash; you will come back for them.</p>
+          <p class="text-sm text-blue-900"><strong>Track B (Build First):</strong> Days 1-15 in order.</p>
+          <p class="text-xs text-blue-800 mt-2">Either way: Paola&rsquo;s Smartlead warm-up and the Twilio A2P 10DLC submission start on Day 1-2 regardless of track, because both take weeks to mature. <a href="agency-plan.html" class="underline font-semibold">Open the Command Center &rarr;</a></p>
+        </div>
+
         <section id="day1" class="mb-16">
           <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-200">
             <span class="day-badge both">Both</span>
@@ -101,7 +108,7 @@
 
           <h3 class="font-bold mt-6 mb-3">1.1 Choose Your Agency Name</h3>
           <div class="step-box">
-            <p class="text-sm text-gray-700"><span class="step-num">1</span>Sit down together. Brainstorm 5-10 names. Criteria: short, easy to spell, says what you do.</p>
+            <p class="text-sm text-gray-700"><span class="step-num">1</span><strong>You already have Colibri Code LLC</strong> &mdash; do not register anything new. This step is only about the client-facing brand name you put on the website and in emails, which can simply be Colibri Code. Spend 10 minutes deciding, not an afternoon.</p>
             <p class="substep text-sm text-gray-600 mt-1">Good examples: "Pitts Automation", "CallCapture AI", "[City] AI Solutions", "[LastName] Tech Services"</p>
             <p class="substep text-sm text-gray-600">Bad examples: "Synergistic Quantum AI Innovations" — nobody will remember or type this</p>
             <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Go to <a href="https://namecheap.com" class="text-blue-600 underline">namecheap.com</a>. Search your top 3 name choices as .com domains. Pick the one that's available.</p>
@@ -570,7 +577,8 @@ Rules:
 - Be conversational and warm, not robotic
 - If they ask about pricing, say "Pricing depends on the specific situation. Our technician can give you an exact quote when they assess the job. We never charge hidden fees."
 - If they ask something you don't know, say "Let me take down your info and have our team get back to you with that answer right away."
-- Never say you are an AI. If asked, say "I'm the scheduling assistant for Comfort Pro."
+- You ARE an AI, and you say so. If the caller asks whether you are a person, a robot, or AI, answer immediately and plainly: "I'm an AI assistant for Comfort Pro — I can book you in right now, or have a technician call you back." Never dodge the question.
+- If asked whether the call is recorded, say: "Yes, calls are recorded so the team can follow up accurately."
 - Keep responses brief — 1-2 sentences max. This is a phone call, not a lecture.</div>
             <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span>Configure <strong>Voice</strong>:</p>
             <p class="substep text-sm text-gray-600 mt-1">Provider: choose ElevenLabs or PlayHT</p>
@@ -602,6 +610,9 @@ Rules:
             <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>In Vapi dashboard → your assistant → "Advanced" or "Server URL" → paste the n8n webhook URL.</p>
             <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span>Call your Twilio number again. After the call ends, check n8n → go to your workflow → "Executions" tab. You should see data from Vapi including the call transcript, caller phone number, and any data the AI collected.</p>
             <p class="text-sm text-gray-700 mt-2"><span class="step-num">6</span>Examine the data structure. Click on the webhook execution and look at the JSON. <strong>Write down the field paths</strong> for: caller phone number, call duration, transcript, and any collected data. You'll reference these when building the full workflow tomorrow.</p>
+          </div>
+          <div class="step-box" style="border-left:4px solid #dc2626;background:#fef2f2;">
+            <p class="text-sm text-red-800"><strong>Do not remove the AI self-ID line &mdash; it is a contract term, not a style choice.</strong> Your client agreement says &ldquo;Provider configures the agent to disclose that it is an AI.&rdquo; Utah gives you a safe harbour only if the agent says it is not human at the outset and when asked; Colorado&rsquo;s Chatbot Safety Act adds penalties from Jan 2027. Every template you clone on Day 11 inherits this line, so a single deletion here propagates to every client. <strong>And it sells:</strong> &ldquo;our agents always identify as AI &mdash; compliance handled&rdquo; closes more contractors than pretending ever did.</p>
           </div>
 
           <div class="step-box tip mt-6">
