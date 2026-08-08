@@ -599,7 +599,7 @@ curl -X POST https://n8n.yourdomain.com/webhook-test/test-hook \
             <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Choose "Blank" template. Name it: "Test HVAC Agent".</p>
             <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span>Configure the <strong>Model</strong> section:</p>
             <p class="substep text-sm text-gray-600 mt-1">Provider: Anthropic (or OpenAI)</p>
-            <p class="substep text-sm text-gray-600">Model: Claude Sonnet (or GPT-4o-mini for cheaper testing)</p>
+            <p class="substep text-sm text-gray-600">Model: claude-haiku-4-5-20251001 (fast + cheap for live calls) or gpt-5.4-mini. Verify current IDs before deploying &mdash; they change every few weeks.</p>
             <p class="substep text-sm text-gray-600">Add your Anthropic API key in the credentials section</p>
             <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>Configure the <strong>System Prompt</strong> (this defines who the AI is). Paste this:</p>
             <div class="cmd-block mt-1"><button class="copy-btn">Copy</button>You are a friendly, professional scheduling assistant for Comfort Pro HVAC, a heating and air conditioning company. Your name is Alex.
