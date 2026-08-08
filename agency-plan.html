@@ -146,6 +146,29 @@
     .sales-price { font-size: 3.5rem; font-weight: 900; background: linear-gradient(135deg, #fbbf24, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .guarantee-badge { background: linear-gradient(135deg, #ecfdf5, #d1fae5); border: 2px solid #34d399; border-radius: 1rem; }
 
+    /* --- callout-tip: used 31x, previously undefined (rendered unstyled) --- */
+    .callout-tip { background: #eff6ff; border-color: #3b82f6; }
+    .callout-tip p { color: #1e40af; }
+    /* every callout gets padding even when a utility class is missing */
+    .callout { padding: 1rem; }
+
+    /* --- anchors must clear the 56px sticky topbar --- */
+    section[id], h2[id], h3[id], div[id] { scroll-margin-top: 5.5rem; }
+
+    /* --- reading sizes: prose only, tables untouched --- */
+    main p.text-sm, main li.text-sm, main .check-item { font-size: 0.9375rem; line-height: 1.7; }
+    main p.text-xs, main li.text-xs { font-size: 0.8125rem; line-height: 1.6; }
+    main h2 { letter-spacing: -0.02em; }
+    main h3 { letter-spacing: -0.01em; }
+
+    /* --- tables: real rounded corners, zebra, hover, scroll affordance --- */
+    main table { border-collapse: separate; border-spacing: 0; }
+    main table thead th:first-child { border-top-left-radius: 0.5rem; }
+    main table thead th:last-child { border-top-right-radius: 0.5rem; }
+    main table tbody tr:not([class*="bg-"]):nth-child(even) { background: #fafbfc; }
+    main table tbody tr:hover { background: #f1f5f9; }
+    main .overflow-x-auto { background-image: linear-gradient(to right, rgba(0,0,0,.06), transparent 12px), linear-gradient(to left, rgba(0,0,0,.06), transparent 12px); background-position: left center, right center; background-repeat: no-repeat; background-size: 12px 100%, 12px 100%; background-attachment: local, local; }
+
     .readiness-opt { flex: 1; padding: 0.4rem 0.5rem; border: 1.5px solid #e2e8f0; border-radius: 0.5rem; background: white; cursor: pointer; font-size: 0.7rem; font-weight: 600; color: #64748b; transition: all 0.15s; }
     .readiness-opt:hover { border-color: #93c5fd; color: #2563eb; }
     .readiness-opt.selected { background: #2563eb; border-color: #2563eb; color: white; }
@@ -7580,8 +7603,9 @@ Date: [Date]
 
 1. SERVICES
 Provider will deliver:
-- AI-powered phone answering agent (24/7)
-- [X] included voice minutes per month
+- AI-powered phone answering agent (24/7), which identifies itself as an
+  AI assistant and states that calls are recorded, on every call
+- [X] included voice minutes per month (see 2. FEES for overage)
 - SMS follow-up automation for missed calls
 - Monthly performance report
 - Ongoing optimization based on call data
@@ -7589,6 +7613,30 @@ Provider will deliver:
 2. FEES
 - Setup fee: $[X] (one-time, due upon signing)
 - Monthly retainer: $[X]/month
+- Included minutes: [X] per month. Usage above the allowance is billed at
+  $0.35 per minute on the following month's invoice. Unused minutes do not
+  carry over beyond one month. Provider will notify Client in writing once
+  usage passes 80% of the monthly allowance.
+- Price changes require 30 days' written notice and never apply to an
+  existing Client's current term.
+
+2A. PERFORMANCE GUARANTEE
+If the AI agent does not book at least [N] qualified appointments in the
+first 30 days of live service, Client's next month is provided at no charge.
+This guarantee applies only where Client has: (a) forwarded the agreed call
+traffic to the Provider-supplied number for the full period, (b) kept a
+working calendar or booking destination connected, and (c) answered
+transferred calls during their stated business hours. These conditions exist
+because the agent cannot book jobs it never receives.
+
+2B. COMPLIANCE AND CONSENT
+Provider configures the agent to disclose that it is an AI and that calls are
+recorded. Client is responsible for confirming that recording and outbound
+contact practices are lawful in the states where Client operates, and for
+supplying only contact lists for which Client holds the required consent.
+Provider will not conduct outbound AI voice campaigns to any list Client has
+not confirmed in writing as consented and screened against the DNC registry.
+Client indemnifies Provider for claims arising from lists Client supplied.
 - Payment due on the 1st of each month via Stripe
 - Late payment: 5-day grace period, then services paused
 
@@ -8436,7 +8484,7 @@ Hi [FIRST NAME],
 
 Quick follow-up — here's what happens when someone calls and you can't answer:
 
-78% hang up and call the next contractor on Google.
+only about half of home-services calls reach a person at all (Invoca, 2026, 70M calls).
 
 Our AI agent picks up in under 1 second, every time. It captures their info, books the appointment, and sends them a confirmation text — all before they even think about calling your competitor.
 
@@ -8896,7 +8944,7 @@ Talk soon,
               <p class="check-item"><strong>Quarterly estimated taxes:</strong> Due January 15, April 15, June 15, September 15. Pay 25% of the previous quarter&rsquo;s profit. Use <a href="https://www.irs.gov/payments/direct-pay" class="text-blue-600 underline">IRS Direct Pay</a> or mail Form 1040-ES.</p>
               <p class="check-item"><strong>Annual filing:</strong> Form 1065 (partnership) or Schedule C (single-member LLC) due April 15. Use a CPA &mdash; it&rsquo;s worth $300-500 for the peace of mind and deductions they&rsquo;ll find.</p>
               <p class="check-item"><strong>Wyoming annual report:</strong> Due on your LLC anniversary month. $60 fee. File online at the Wyoming Secretary of State website.</p>
-              <p class="check-item"><strong>SOFA note:</strong> If you&rsquo;re filing from Germany under SOFA status, your US income is taxed by the US only (not Germany). Keep documentation of your SOFA status and consult a military tax specialist &mdash; H&amp;R Block on-base offices handle this routinely.</p>
+              <p class="check-item"><strong>SOFA note (read Module 2 before relying on this):</strong> NATO SOFA Article X exempts Mike&rsquo;s <em>government salary</em> from German tax &mdash; it does <strong>not</strong> automatically exempt business income. Article X contains an explicit carve-out allowing Germany to tax &ldquo;any profitable enterprise other than his employment.&rdquo; Treat agency profit as potentially German-taxable, keep documentation of SOFA status, and get advice from a tax professional who handles both US and German returns before your first profitable year. Do not treat this course &mdash; or the shorter note that used to sit here &mdash; as tax advice.</p>
             </div>
           </div>
 
@@ -9691,7 +9739,7 @@ MONTHLY COSTS PER CLIENT:
             </div>
             <div class="bg-white rounded-xl border border-gray-200 p-4">
               <p class="font-bold text-sm mb-1">Is the home services market saturated?</p>
-              <p class="text-sm text-gray-600">There are 3.5+ million home service businesses in the US. Fewer than 1% use AI phone agents. The market is barely started. Even in competitive metros, there are thousands of businesses per city with no AI solution. Module 7 covers exactly how to position against competitors.</p>
+              <p class="text-sm text-gray-600">There are 3.5+ million home service businesses in the US. Only ~25% of residential contractors use AI at all (ServiceTitan, 2026). The market is barely started. Even in competitive metros, there are thousands of businesses per city with no AI solution. Module 7 covers exactly how to position against competitors.</p>
             </div>
           </div>
 
@@ -9762,7 +9810,7 @@ MONTHLY COSTS PER CLIENT:
             <div class="p-4"><p class="font-bold text-sm text-blue-700">A2P 10DLC</p><p class="text-sm text-gray-600">Application-to-Person 10-Digit Long Code. US carrier requirement for business SMS. You must register your brand and campaign before sending texts from a regular phone number.</p></div>
             <div class="p-4"><p class="font-bold text-sm text-blue-700">ARPU</p><p class="text-sm text-gray-600">Average Revenue Per User (client). Your monthly revenue divided by number of clients. Target: $800-$1,500/month.</p></div>
             <div class="p-4"><p class="font-bold text-sm text-blue-700">Agentic AI</p><p class="text-sm text-gray-600">AI that reasons, plans, and takes multi-step actions autonomously using tools. Unlike reactive AI (responds to input), agentic AI decides what to do next on its own. Premium tier product.</p></div>
-            <div class="p-4"><p class="font-bold text-sm text-blue-700">CAC</p><p class="text-sm text-gray-600">Customer Acquisition Cost. How much it costs to get one new client. Your target: under $200 (mostly time, not money).</p></div>
+            <div class="p-4"><p class="font-bold text-sm text-blue-700">CAC</p><p class="text-sm text-gray-600">Customer Acquisition Cost. How much it costs to get one new client. Your target: under $400 hard cost, or under $1,200 once you count your own time at $50/hr (see The Four Numbers in Module 7)</p></div>
             <div class="p-4"><p class="font-bold text-sm text-blue-700">CRM</p><p class="text-sm text-gray-600">Customer Relationship Management. Software to track leads and client interactions. You use Supabase (free) or GoHighLevel ($97-$297/mo).</p></div>
             <div class="p-4"><p class="font-bold text-sm text-blue-700">Cold Email Warmup</p><p class="text-sm text-gray-600">Process of gradually building reputation for new email domains. Send small volumes of "good" emails for 2 weeks before outreach. Tools: Smartlead auto-warmup.</p></div>
             <div class="p-4"><p class="font-bold text-sm text-blue-700">DBR (Database Reactivation)</p><p class="text-sm text-gray-600">AI-powered SMS campaign to a business&rsquo;s dormant customer list. Re-engages past customers who haven&rsquo;t booked in 6-12+ months. A zero-risk front-door offer to land new clients. See <a href="#database-reactivation" class="text-blue-600 hover:underline">Database Reactivation</a>.</p></div>
@@ -10376,11 +10424,11 @@ sources.</code></div>
                 <tr><td class="px-2 py-2">1</td><td class="px-2 py-2 font-semibold">Core AI receptionist retainers</td><td class="px-2 py-2">$500-1,500/mo per client</td><td class="px-2 py-2">Day 1 — this is the business</td><td class="px-2 py-2">★★★☆☆ capped by delivery capacity</td></tr>
                 <tr><td class="px-2 py-2">2</td><td class="px-2 py-2 font-semibold">Setup fees</td><td class="px-2 py-2">$1,500-5,000 one-time per client</td><td class="px-2 py-2">Day 1 — charge from client #1</td><td class="px-2 py-2">★★☆☆☆ one-time, but funds growth</td></tr>
                 <tr><td class="px-2 py-2">3</td><td class="px-2 py-2 font-semibold">Expansion add-ons (ARPU growth)</td><td class="px-2 py-2">+$200-800/mo per client</td><td class="px-2 py-2">Month 2 of each client relationship</td><td class="px-2 py-2">★★★★☆ no new sales cost</td></tr>
-                <tr><td class="px-2 py-2">4</td><td class="px-2 py-2 font-semibold">Performance bonuses (per-booking)</td><td class="px-2 py-2">+$15-40 per booked job</td><td class="px-2 py-2">Once tracking is trustworthy (Month 2-3)</td><td class="px-2 py-2">★★★★☆ grows with client success</td></tr>
+                <tr><td class="px-2 py-2">4</td><td class="px-2 py-2 font-semibold">Performance bonuses (per-booking)</td><td class="px-2 py-2">+$20-30 per booked job</td><td class="px-2 py-2">Once tracking is trustworthy (Month 2-3)</td><td class="px-2 py-2">★★★★☆ grows with client success</td></tr>
                 <tr class="bg-amber-50"><td class="px-2 py-2 font-bold" colspan="5">Tier 2: Leverage Streams (Months 6-12) — same assets, new buyers</td></tr>
                 <tr><td class="px-2 py-2">5</td><td class="px-2 py-2 font-semibold">Campaign revenue (reactivation, seasonal)</td><td class="px-2 py-2">$250-1,500 per campaign, 2-4x/yr per client</td><td class="px-2 py-2">5+ clients with customer databases</td><td class="px-2 py-2">★★★☆☆ recurring-ish, project-shaped</td></tr>
                 <tr><td class="px-2 py-2">6</td><td class="px-2 py-2 font-semibold">Affiliate &amp; referral commissions</td><td class="px-2 py-2">$50-500/mo passive, grows with referrals</td><td class="px-2 py-2">You have an audience or client base to recommend to</td><td class="px-2 py-2">★★★★☆ zero delivery cost</td></tr>
-                <tr><td class="px-2 py-2">7</td><td class="px-2 py-2 font-semibold">Paid audits &amp; consulting</td><td class="px-2 py-2">$500-2,500 per engagement</td><td class="px-2 py-2">You have case studies proving expertise</td><td class="px-2 py-2">★★☆☆☆ pure time-for-money, but great lead-gen</td></tr>
+                <tr><td class="px-2 py-2">7</td><td class="px-2 py-2 font-semibold">Paid audits &amp; consulting</td><td class="px-2 py-2">$500-1,500 per engagement</td><td class="px-2 py-2">You have case studies proving expertise</td><td class="px-2 py-2">★★☆☆☆ pure time-for-money, but great lead-gen</td></tr>
                 <tr class="bg-emerald-50"><td class="px-2 py-2 font-bold" colspan="5">Tier 3: Detached-from-Time Streams (Month 12+) — income without delivery hours</td></tr>
                 <tr><td class="px-2 py-2">8</td><td class="px-2 py-2 font-semibold">Digital products (templates, playbooks, community)</td><td class="px-2 py-2">$500-5,000/mo at modest audience size</td><td class="px-2 py-2">Documented systems + proof it works</td><td class="px-2 py-2">★★★★★ sell the same thing infinitely</td></tr>
                 <tr><td class="px-2 py-2">9</td><td class="px-2 py-2 font-semibold">White-label / productized platform</td><td class="px-2 py-2">$200-500/mo per sub-agency or SaaS seat</td><td class="px-2 py-2">Your delivery system is fully templated</td><td class="px-2 py-2">★★★★★ this is the path to a sellable company</td></tr>
@@ -10411,7 +10459,7 @@ sources.</code></div>
               <p class="text-sm text-gray-700 mb-2">You will constantly recommend software to clients and to other agency operators. Sign up for the affiliate programs first (rates verified mid-2026):</p>
               <ul class="text-sm text-gray-700 space-y-1 list-disc pl-5">
                 <li><strong>GoHighLevel:</strong> 40% recurring ($39-199/mo per referred account) plus 5% tier-2 on your referrals' referrals. Two or three referrals covers your own GHL bill forever.</li>
-                <li><strong>Housecall Pro:</strong> up to <strong>$1,000 per referred contractor</strong> — and you're already telling FSM-less clients to get one so your agent can book into a real calendar. This is money you're currently leaving on the table.</li>
+                <li><strong>Housecall Pro:</strong> up to <strong>$1,000 per referred contractor</strong>. <em>Use with care:</em> Housecall Pro now bundles its own AI answering, so only refer clients you have <em>already signed</em> and whose calendar you are integrating &mdash; never an open prospect, or you are paying yourself $1,000 to hand a competitor your lead.</li>
                 <li><strong>Cold-email tools:</strong> Smartlead 20-35% recurring, Instantly 20-40% recurring — natural fit when other operators ask how you do outreach.</li>
                 <li><strong>Others in your stack:</strong> Vapi ~15%, CallRail 15% for 36 months, Apollo 15-20% for year one.</li>
                 <li><strong>Cross-referrals with your partner network:</strong> the bookkeepers, web designers, and marketing agencies from Module 5's referral-partner section should pay you 10-20% for clients you send them — formalize it both directions.</li>
@@ -10515,7 +10563,7 @@ sources.</code></div>
               <thead class="bg-gray-100"><tr><th class="text-left px-2 py-2 font-semibold">Hire</th><th class="text-left px-2 py-2 font-semibold">Trigger (hire when...)</th><th class="text-right px-2 py-2 font-semibold">Cost</th><th class="text-left px-2 py-2 font-semibold">What they take off your plate</th></tr></thead>
               <tbody class="divide-y divide-gray-100 bg-white">
                 <tr><td class="px-2 py-2 font-semibold">1. Lead-gen VA (part-time, PH/LatAm)</td><td class="px-2 py-2">You spend 5+ hrs/week on list building &amp; enrichment</td><td class="px-2 py-2 text-right">$400-700/mo</td><td class="px-2 py-2">Prospect lists, data enrichment, CRM hygiene, review mining (SOP 7)</td></tr>
-                <tr><td class="px-2 py-2 font-semibold">2. Delivery tech (contractor)</td><td class="px-2 py-2">12+ clients, or onboarding backlog &gt; 2 weeks</td><td class="px-2 py-2 text-right">$15-25/hr or $150-250/deployment</td><td class="px-2 py-2">Deployments from your templates, test-call QA, tier-1 support tickets (SOPs 2-6)</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">2. Delivery tech (contractor)</td><td class="px-2 py-2">12+ clients, or onboarding backlog &gt; 2 weeks</td><td class="px-2 py-2 text-right">$15-25/hr or $150-250/deployment</td><td class="px-2 py-2">Deployments from your templates and tier-1 support tickets (SOPs 2-6). <strong>Not</strong> call QA or go-live sign-off &mdash; those stay with Paola, because the builder should never be the only grader of the build</td></tr>
                 <tr><td class="px-2 py-2 font-semibold">3. Appointment setter (commission)</td><td class="px-2 py-2">Demo calendar has empty slots and you have proven scripts</td><td class="px-2 py-2 text-right">$50-100 per held demo (or base + commission)</td><td class="px-2 py-2">Cold calls, follow-up sequences, demo booking (Module 5 scripts)</td></tr>
                 <tr><td class="px-2 py-2 font-semibold">4. Account manager</td><td class="px-2 py-2">20+ clients, or monthly check-ins start slipping</td><td class="px-2 py-2 text-right">$1,500-3,000/mo (part→full time)</td><td class="px-2 py-2">Monthly reports, check-in calls, upsell conversations, churn saves</td></tr>
                 <tr><td class="px-2 py-2 font-semibold">5. Ops manager / integrator</td><td class="px-2 py-2">$50K+ MRR and YOU are the bottleneck on everything</td><td class="px-2 py-2 text-right">$4-7K/mo</td><td class="px-2 py-2">Runs the whole delivery org; you keep vision, sales strategy, product</td></tr>
@@ -10554,7 +10602,7 @@ sources.</code></div>
 
         <section id="marketing-machine" class="mb-16 view-section hidden" data-view="scale">
           <h2 class="text-2xl font-extrabold mb-4">The Customer Acquisition Machine: Channel Economics</h2>
-          <p class="text-gray-700 leading-relaxed mb-4">Module 5 gives you the tactics (cold email, audits, referral partners, content). This lesson gives you the <strong>economics</strong> — what a client actually costs from each channel, so you invest deliberately instead of doing a little of everything. The metric that matters: <strong>CAC vs LTV.</strong> At $1,200 ARPU and 18-month average retention, one client is worth ~$21,600. That means you can rationally spend $1,000+ to acquire a client — most beginners are irrationally cheap here.</p>
+          <p class="text-gray-700 leading-relaxed mb-4">Module 5 gives you the tactics (cold email, audits, referral partners, content). This lesson gives you the <strong>economics</strong> — what a client actually costs from each channel, so you invest deliberately instead of doing a little of everything. The metric that matters: <strong>CAC vs LTV.</strong> At $1,200 ARPU, ~88% gross margin and 18-month average retention, one client is worth ~$19,000 in gross profit (LTV is always gross profit &times; months &mdash; see <a href="#economics" class="text-blue-600 hover:underline">The Four Numbers</a>, never revenue &times; months). That means you can rationally spend $1,000+ to acquire a client — most beginners are irrationally cheap here.</p>
 
           <h3 class="text-lg font-bold mt-6 mb-4">Cost Per Client, by Channel</h3>
           <div class="overflow-x-auto">
@@ -10576,7 +10624,7 @@ sources.</code></div>
           <p class="text-xs text-gray-500 mt-2">* Fully loaded: tool costs + ad spend + your time at $50/hr. Your numbers will differ — the point is to TRACK them. Add a "source" field to every deal in your pipeline from day 1.</p>
 
           <div class="callout-cost mt-4 mb-6">
-            <p class="text-sm"><strong>The LTV:CAC guardrail.</strong> Target LTV:CAC above 5:1 while small (you need the cash flow), and never accept below 3:1. At ~$21K LTV almost every channel above clears the bar — which means the real constraint is <strong>your hours, not money</strong>. That's the argument for hiring the setter and buying ads sooner than feels comfortable.</p>
+            <p class="text-sm"><strong>The LTV:CAC guardrail.</strong> Target LTV:CAC above 5:1 while small (you need the cash flow), and never accept below 3:1. At ~$19K gross-profit LTV almost every channel above clears the bar — which means the real constraint is <strong>your hours, not money</strong>. That's the argument for hiring the setter and buying ads sooner than feels comfortable.</p>
           </div>
 
           <h3 class="text-lg font-bold mt-8 mb-4">The Flywheel: How Channels Feed Each Other</h3>
@@ -10616,9 +10664,9 @@ sources.</code></div>
             <table class="w-full text-xs border border-gray-200 rounded-lg overflow-hidden">
               <thead class="bg-gray-100"><tr><th class="text-left px-2 py-2 font-semibold">Tier</th><th class="text-right px-2 py-2 font-semibold">Setup</th><th class="text-right px-2 py-2 font-semibold">Monthly</th><th class="text-left px-2 py-2 font-semibold">Includes</th></tr></thead>
               <tbody class="divide-y divide-gray-100 bg-white">
-                <tr><td class="px-2 py-2 font-semibold">Starter — AI Receptionist only</td><td class="px-2 py-2 text-right">$1,500</td><td class="px-2 py-2 text-right font-bold">$500 &rarr; $800</td><td class="px-2 py-2">AI receptionist 24/7, booking, SMS confirmations, monthly report</td></tr>
-                <tr><td class="px-2 py-2 font-semibold">"Never Miss a Call" bundle (most popular)</td><td class="px-2 py-2 text-right">$2,500</td><td class="px-2 py-2 text-right font-bold">$1,000 &rarr; $1,200</td><td class="px-2 py-2">Starter + lead follow-up + review automation</td></tr>
-                <tr><td class="px-2 py-2 font-semibold">Scale</td><td class="px-2 py-2 text-right">$3,500-5,000</td><td class="px-2 py-2 text-right font-bold">$1,500+</td><td class="px-2 py-2">Bundle + bilingual + campaigns + dashboard + priority support</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Starter — AI Receptionist only</td><td class="px-2 py-2 text-right">$1,500</td><td class="px-2 py-2 text-right font-bold">$500 &rarr; $800</td><td class="px-2 py-2">AI receptionist 24/7, booking, SMS confirmations, monthly report. <strong>1,000 minutes included</strong>, then $0.35/min</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">"Never Miss a Call" bundle (most popular)</td><td class="px-2 py-2 text-right">$2,500</td><td class="px-2 py-2 text-right font-bold">$1,000 &rarr; $1,200</td><td class="px-2 py-2">Starter + lead follow-up + review automation. <strong>1,500 minutes included</strong>, then $0.35/min</td></tr>
+                <tr><td class="px-2 py-2 font-semibold">Scale</td><td class="px-2 py-2 text-right">$3,500-5,000</td><td class="px-2 py-2 text-right font-bold">$1,500+</td><td class="px-2 py-2">Bundle + bilingual + campaigns + dashboard + priority support. <strong>3,000 minutes included</strong>, then $0.35/min</td></tr>
               </tbody>
             </table>
           </div>
@@ -10781,7 +10829,7 @@ sources.</code></div>
             </div>
             <div class="bg-white rounded-xl border border-gray-200 p-5">
               <h4 class="font-bold text-sm mb-1 text-purple-700">Path C: Sell the Agency</h4>
-              <p class="text-sm text-gray-700 mb-2">Small agencies trade at roughly <strong>2.5-3.5x SDE</strong> (seller's discretionary earnings) per 2026 M&amp;A data — and 70%+ retainer-based revenue adds one to two full turns to the multiple versus project shops. At $30K MRR with 75% margin (~$270K SDE), that's a realistic <strong>$650K-950K exit</strong>. What moves the multiple up:</p>
+              <p class="text-sm text-gray-700 mb-2">Small agencies trade at roughly <strong>2.5-3.5x SDE</strong> (seller's discretionary earnings) per 2026 M&amp;A data — and 70%+ retainer-based revenue adds one to two full turns to the multiple versus project shops. At $30K MRR run at the ~65-70% margin the hiring table assumes at that stage (~$245K SDE), that's a realistic <strong>$610K-860K exit</strong>. What moves the multiple up:</p>
               <ul class="text-xs text-gray-600 space-y-1 list-disc pl-5">
                 <li><strong>Recurring % and contracts:</strong> month-to-month is fine to sell clients, but 12-month agreements sell the <em>company</em> better</li>
                 <li><strong>Churn under 3%/mo</strong> with 24+ months of clean data proving it (each point of monthly churn you cut is worth roughly 15-25% more valuation)</li>
