@@ -265,42 +265,55 @@ Host: @  |  Type: MX  |  Value: ALT4.ASPMX.L.GOOGLE.COM.  |  Priority: 10</div>
             <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span><strong>SSH into your server.</strong> Open Terminal (Mac) or PowerShell (Windows):</p>
             <div class="cmd-block mt-1"><button class="copy-btn">Copy</button>ssh root@YOUR_IP_ADDRESS</div>
             <p class="substep text-sm text-gray-600 mt-1">Type "yes" when asked about fingerprint. Enter the root password from Hetzner's email.</p>
-            <p class="text-sm text-gray-700 mt-2"><span class="step-num">6</span><strong>Install Docker and Docker Compose:</strong></p>
-            <div class="cmd-block mt-1"><button class="copy-btn">Copy</button>apt update && apt upgrade -y
-apt install -y docker.io docker-compose-v2
-systemctl enable docker
-systemctl start docker</div>
-            <p class="text-sm text-gray-700 mt-2"><span class="step-num">7</span><strong>Create n8n directory and config:</strong></p>
-            <div class="cmd-block mt-1"><button class="copy-btn">Copy</button>mkdir -p /opt/n8n && cd /opt/n8n</div>
-            <p class="text-sm text-gray-700 mt-2"><span class="step-num">8</span><strong>Create docker-compose.yml:</strong></p>
-            <div class="cmd-block mt-1"><button class="copy-btn">Copy</button>cat > docker-compose.yml << 'YAML'
-version: '3.8'
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">6</span><strong>Point a subdomain at the server FIRST.</strong> In Namecheap &rarr; your agency domain &rarr; Advanced DNS &rarr; add an <code>A</code> record: Host <code>n8n</code>, Value = your server IP, TTL Automatic. HTTPS certificates cannot issue without this, and Vapi/Twilio webhooks refuse plain HTTP &mdash; there is no working plain-IP version of this setup.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">7</span><strong>Install Docker + firewall.</strong></p>
+            <div class="cmd-block mt-1"><button class="copy-btn">Copy</button>apt update &amp;&amp; apt upgrade -y
+curl -fsSL https://get.docker.com | sh
+ufw allow OpenSSH &amp;&amp; ufw allow 80 &amp;&amp; ufw allow 443 &amp;&amp; ufw --force enable</div>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">8</span><strong>Create the stack (n8n behind Caddy with automatic HTTPS).</strong> Edit the two export lines, then paste the whole block:</p>
+            <div class="cmd-block mt-1"><button class="copy-btn">Copy</button># --- edit these two lines ---
+export N8N_HOST=n8n.yourdomain.com
+export N8N_EMAIL=you@yourdomain.com
+
+mkdir -p /opt/n8n &amp;&amp; cd /opt/n8n
+cat &gt; docker-compose.yml &lt;&lt;YAML
 services:
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports: ["80:80", "443:443"]
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
   n8n:
-    image: n8nio/n8n
-    restart: always
-    ports:
-      - "5678:5678"
+    image: docker.n8n.io/n8nio/n8n
+    restart: unless-stopped
     environment:
-      - N8N_BASIC_AUTH_ACTIVE=true
-      - N8N_BASIC_AUTH_USER=admin
-      - N8N_BASIC_AUTH_PASSWORD=CHANGE_THIS_PASSWORD
-      - N8N_HOST=YOUR_IP_ADDRESS
-      - N8N_PORT=5678
+      - N8N_HOST=\${N8N_HOST}
+      - WEBHOOK_URL=https://\${N8N_HOST}/
       - N8N_PROTOCOL=https
       - GENERIC_TIMEZONE=America/New_York
     volumes:
       - n8n_data:/home/node/.n8n
 volumes:
+  caddy_data:
   n8n_data:
-YAML</div>
-            <p class="substep text-sm text-gray-600 mt-1"><strong>IMPORTANT:</strong> Replace <code>CHANGE_THIS_PASSWORD</code> with a real password. Replace <code>YOUR_IP_ADDRESS</code> with your Hetzner IP. Replace the timezone with yours.</p>
-            <p class="text-sm text-gray-700 mt-2"><span class="step-num">9</span><strong>Start n8n:</strong></p>
-            <div class="cmd-block mt-1"><button class="copy-btn">Copy</button>docker compose up -d</div>
-            <p class="text-sm text-gray-700 mt-2"><span class="step-num">10</span><strong>Verify it works.</strong> Open your browser: <code>http://YOUR_IP_ADDRESS:5678</code>. You should see the n8n login screen. Log in with the username/password you set above.</p>
-            <p class="text-sm text-gray-700 mt-2"><span class="step-num">11</span>Once logged in, click around the interface. Create a blank workflow. Drag a node. Delete it. Just get familiar with the UI. You'll build real workflows on Days 3-4.</p>
-            <p class="text-sm text-gray-700 mt-2"><span class="step-num">12</span><strong class="text-red-700">Now redo this with HTTPS before you go further.</strong> Point an <code>A</code> record <code>n8n</code> &rarr; your server IP, then open the main plan &rarr; Module 3 &rarr; Week 1 &rarr; Day 2 and paste the Caddy + Let&rsquo;s Encrypt block (it begins <code>export N8N_HOST=</code>). <a href="agency-plan.html" class="text-blue-600 underline font-semibold">Open the exact block &rarr;</a></p>
-            <p class="text-sm text-gray-700 mt-2"><span class="step-num">13</span><strong>Verify:</strong> <code>docker compose ps</code> shows both containers running and <code>https://n8n.yourdomain.com</code> loads with a padlock. Your webhook base URL for the rest of the course is <code>https://n8n.yourdomain.com/webhook/</code> &mdash; if yours shows an IP and port, Day 2 is not finished.</p>
+YAML
+
+cat &gt; Caddyfile &lt;&lt;CADDY
+${N8N_HOST} {
+  tls ${N8N_EMAIL}
+  reverse_proxy n8n:5678
+}
+CADDY
+
+printf 'N8N_HOST=%s\nN8N_EMAIL=%s\n' "$N8N_HOST" "$N8N_EMAIL" &gt; /opt/n8n/.env
+docker compose up -d
+sleep 20 &amp;&amp; docker compose ps</div>
+            <p class="substep text-sm text-gray-600 mt-1">Older guides set <code>N8N_BASIC_AUTH_*</code> variables &mdash; n8n removed those in 1.x. Your login is the owner account you create in the next step, not an env var.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">9</span><strong>Verify.</strong> <code>docker compose ps</code> shows <strong>both</strong> containers running, and <code>https://n8n.yourdomain.com</code> loads the setup screen <strong>with a padlock</strong>. No padlock = DNS hasn&rsquo;t propagated; wait 10 minutes, then <code>docker compose restart caddy</code>.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">10</span><strong>Create the n8n owner account immediately</strong> &mdash; the setup screen is public until you do. Password from the shared vault; turn on 2FA under Settings.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">11</span><strong>Write down your webhook base URL:</strong> <code>https://n8n.yourdomain.com/webhook/</code> &mdash; every Vapi and Twilio URL in the rest of this course starts with it. Then click around: create a test workflow, drag a node, get comfortable. Tomorrow you build for real.</p>
           </div>
           
 
