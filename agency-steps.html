@@ -190,7 +190,17 @@ Host: @  |  Type: MX  |  Value: ALT4.ASPMX.L.GOOGLE.COM.  |  Priority: 10</div>
             <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>Repeat for Paola's LinkedIn profile.</p>
             <p class="text-sm text-gray-700 mt-2"><span class="step-num">5</span>Both of you: connect with each other, like each other's profile updates.</p>
           </div>
-          <div class="step-box tip mt-4">
+                    <h3 class="font-bold mt-6 mb-3">1.6 Publish your Privacy Policy + Terms pages (you need these tomorrow)</h3>
+          <div class="step-box" style="border-left:4px solid #dc2626;background:#fef2f2;">
+            <p class="text-sm text-red-800 mb-2"><strong>Do not skip this.</strong> Tomorrow&rsquo;s A2P 10DLC submission (2M.3 step 8) <em>hard-fails with a 400</em> unless both URLs are public and reachable. Fifteen minutes now saves a week of waiting on a rejected registration.</p>
+            <p class="text-sm text-gray-700"><span class="step-num">1</span>In Carrd, add two new pages to the site you just built: <code>/privacy</code> and <code>/terms</code>.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">2</span>Generate the text with a free generator (termsfeed.com or getterms.io) &mdash; company name Colibri Code LLC, your business address, your agency email. Paste it in.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">3</span><strong>The privacy policy must explicitly mention SMS.</strong> Include a line like: &ldquo;We send SMS to customers who contact our clients&rsquo; businesses. Message and data rates may apply. Reply STOP to opt out. We do not sell or share mobile opt-in data with third parties for marketing.&rdquo; Carriers check for this exact language &mdash; without it the campaign gets rejected even when the URL loads.</p>
+            <p class="text-sm text-gray-700 mt-2"><span class="step-num">4</span>Publish, then open both URLs in a private window to confirm they load without a login. Write them down &mdash; you paste them tomorrow.</p>
+            <p class="substep text-sm text-gray-600 mt-1">You will reuse these two URLs for every client&rsquo;s A2P registration, so getting them right once pays off ten times.</p>
+          </div>
+
+<div class="step-box tip mt-4">
             <p class="text-sm text-green-800"><strong>Day 1 Done.</strong> You now have: agency name, 4 domains, professional email, payment processing, a live landing page, and updated LinkedIn profiles. Take a break. Day 2 is heavier.</p>
           </div>
         </section>
@@ -338,7 +348,7 @@ sleep 20 &amp;&amp; docker compose ps</div>
             <p class="substep text-sm text-gray-600 mt-1"><strong>Account SID:</strong> starts with "AC..." — copy and save</p>
             <p class="substep text-sm text-gray-600"><strong>Auth Token:</strong> click to reveal → copy and save</p>
             <p class="substep text-sm text-gray-600"><strong>Phone Number:</strong> your new number, e.g., +15551234567</p>
-                      <p class="text-sm text-gray-700 mt-2"><span class="step-num">8</span><strong class="text-red-700">Submit A2P 10DLC registration NOW, before you leave Twilio.</strong> Console &rarr; Messaging &rarr; Regulatory Compliance &rarr; Onboarding. Register <strong>Colibri Code LLC with its EIN</strong>, create a Standard Brand, then one Campaign (use case: customer care / appointment confirmations). You must supply a public <strong>Privacy Policy URL and Terms &amp; Conditions URL</strong> or the submission hard-fails with a 400.</p>
+                      <p class="text-sm text-gray-700 mt-2"><span class="step-num">8</span><strong class="text-red-700">Submit A2P 10DLC registration NOW, before you leave Twilio.</strong> <em>Preflight:</em> have both URLs from section 1.6 open in a tab &mdash; Twilio rejects the form without them. Console &rarr; Messaging &rarr; Regulatory Compliance &rarr; Onboarding. Register <strong>Colibri Code LLC with its EIN</strong>, create a Standard Brand, then one Campaign (use case: customer care / appointment confirmations). You must supply a public <strong>Privacy Policy URL and Terms &amp; Conditions URL</strong> or the submission hard-fails with a 400.</p>
             <p class="substep text-sm text-gray-600 mt-1">15 minutes to submit, up to 2-4 weeks to approve &mdash; which is exactly why it happens today and not in Week 2. <strong>Do not send a single SMS before approval;</strong> unregistered traffic is filtered and can damage the number. Your Missed-Call Text-Back offer is an SMS product, so this gates your first fast-cash sale. Full detail: <a href="agency-plan.html" class="text-blue-600 underline">main plan &rarr; Phone Setup</a>.</p>
 </div>
           <div class="step-box info">
