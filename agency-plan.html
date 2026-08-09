@@ -10037,7 +10037,7 @@ MONTHLY COSTS PER CLIENT:
                 <tr><td class="px-3 py-2">Prospect lists (HVAC/plumbing by city)</td><td class="px-3 py-2 font-semibold">Outscraper</td><td class="px-3 py-2">$3 / 1,000</td></tr>
                 <tr><td class="px-3 py-2">Personalized cold-email lines at scale</td><td class="px-3 py-2 font-semibold">Claude on review data (or Clay)</td><td class="px-3 py-2">&lt;$0.01/lead</td></tr>
                 <tr><td class="px-3 py-2">Send cold email + warmup</td><td class="px-3 py-2 font-semibold">Instantly or Smartlead</td><td class="px-3 py-2">$37&ndash;94/mo</td></tr>
-                <tr><td class="px-3 py-2">Automated Missed Call Audit</td><td class="px-3 py-2 font-semibold">Twilio + AMD</td><td class="px-3 py-2">~$7.50 / 1,000 calls</td></tr>
+                <tr><td class="px-3 py-2">Automated Missed Call Audit</td><td class="px-3 py-2 font-semibold">Twilio + AMD</td><td class="px-3 py-2">~$15 / 1,000 dialed (AMD $0.0075 + ~$0.0075 Twilio call charge)</td></tr>
                 <tr><td class="px-3 py-2">Market / competitor research</td><td class="px-3 py-2 font-semibold">Perplexity Pro</td><td class="px-3 py-2">$20/mo</td></tr>
                 <tr><td class="px-3 py-2">SOPs, scripts, proposals, copy</td><td class="px-3 py-2 font-semibold">Claude</td><td class="px-3 py-2">$20/mo</td></tr>
                 <tr><td class="px-3 py-2">Demo / explainer videos</td><td class="px-3 py-2 font-semibold">HeyGen</td><td class="px-3 py-2">$29+/mo</td></tr>
@@ -10139,6 +10139,9 @@ MONTHLY COSTS PER CLIENT:
 Inputs (sliders + number fields):
 - Calls received per week
 - Percentage of calls that never reach a person (default 48% — Invoca 2026, 70M calls)
+- Percentage of those that are NEW customer inquiries, not existing customers (default 50%)
+- Percentage you could realistically recover with 24/7 answering (default 50% — some callers
+  leave voicemail or call back anyway; claiming 100% is why prospects stop believing you)
 - Average value of one job ($)
 - Close rate on answered calls (default 46% — Invoca 2026)
 
@@ -10275,7 +10278,44 @@ Clean, professional, white-label friendly (I'll add the client's logo). Mobile r
           </div>
           <p class="text-sm text-gray-600 mt-3">Your actual receptionist voice runs through <strong>Vapi</strong> (Module 6) &mdash; these are for marketing videos. A bilingual HeyGen demo (English + Spanish versions of the same script) is a cheap way to show off Paola's differentiator without filming anything.</p>
           <p class="text-sm text-gray-700 mt-3">For cold-email copy, landing-page copy, and demo scripts, skip dedicated copywriting SaaS (Jasper/Copy.ai) &mdash; <strong>Claude is better for nuanced B2B</strong> and you already pay for it.</p>
-        </section>
+        
+          <h3 class="text-lg font-bold mt-8 mb-3">The Deliverable: Your 90-Second Demo Video (60-minute time box)</h3>
+          <p class="text-sm text-gray-700 mb-3">This is the video that sits on your landing page and goes into cold email #3. <strong>Mike records the English cut, Paola records the Spanish cut</strong> &mdash; that pairing is the differentiator no competitor in your market has. Record it once, badly, today; re-record after client #1 when you have real numbers.</p>
+          <div class="prompt-block mb-3">
+            <button class="copy-btn">Copy</button>
+            <code>90-SECOND DEMO — SHOT LIST AND SCRIPT
+
+[0:00-0:12]  SCREEN: your phone dialling a real contractor's after-hours line.
+             Let it ring out to voicemail. Say nothing. Let them hear it.
+             VOICEOVER: "This is a [trade] company in [city], 7:14pm last night."
+
+[0:12-0:25]  VOICEOVER: "Across 70 million calls, only about half of home-services
+             calls reach a person (Invoca, 2026). The other half call the next
+             name on Google."
+
+[0:25-1:05]  SCREEN: dial YOUR demo number. Play the whole call, unedited.
+             The caller books an appointment. Do not cut this — the length is
+             the proof. Let them hear the pauses.
+
+[1:05-1:20]  SCREEN: the booking appearing in the calendar + the confirmation SMS
+             arriving on a phone. VOICEOVER: "Booked, confirmed, and in the
+             calendar. Nobody touched it."
+
+[1:20-1:30]  TALKING HEAD (you, not an avatar): "I set this up for [trade]
+             companies in [city]. Want me to call YOUR line and send you the
+             recording? It's free and it takes me ten minutes."
+
+RULES
+- No music. No stock footage. No AI avatar for the talking head — you are selling
+  trust, and a synthetic face selling an AI receptionist reads as a joke.
+- Shoot on your phone. 720p is fine. Bad lighting beats a delayed launch.
+- Spanish cut: Paola records the same structure end to end, not a dub.
+- Time box: 60 minutes total. If it takes longer you are polishing, not shipping.</code>
+          </div>
+          <div class="callout callout-tip mb-2">
+            <p class="text-sm"><strong>Tool gate:</strong> you do not need HeyGen or Synthesia for this &mdash; a phone, a screen recorder and Loom's free tier cover the whole shot list. Revisit paid avatar tools only if you are producing weekly localised content, which is a month-6 problem at the earliest.</p>
+          </div>
+</section>
 
         <!-- ai-agents -->
         <section id="ai-agents" class="mb-16 view-section hidden" data-view="ai">
@@ -10308,7 +10348,10 @@ Clean, professional, white-label friendly (I'll add the client's logo). Mobile r
             </ul>
           </div>
 
-          <h3 class="text-lg font-bold mt-6 mb-3">What an AI Ops Assistant Could Actually Do For You</h3>
+          <div class="callout callout-warning p-4 mb-4">
+            <p class="text-sm"><strong>Gate: do not build any of this until you have 5 paying clients.</strong> At 7-10 hrs/week each, an autonomous ops assistant is the single most expensive way to avoid selling. Four of the capabilities below are cron jobs n8n already runs &mdash; build those as n8n workflows in 20 minutes, not as an agent in a weekend. Revisit the agentic version only when you have a real task that genuinely needs judgement rather than a schedule.</p>
+          </div>
+          <h3 class="text-lg font-bold mt-6 mb-3">What an AI Ops Assistant Could Do &mdash; and Which of These n8n Already Does</h3>
           <p class="text-sm text-gray-700 mb-2">If you do add Hermes Agent on a cheap VPS, point it at your own internal data only and let it handle low-stakes, repetitive back-office work, pinging you on Telegram:</p>
           <div class="bg-white rounded-xl border border-gray-200 p-4 mb-4">
             <div class="grid sm:grid-cols-2 gap-2 text-sm text-gray-700">
@@ -10375,7 +10418,7 @@ Cite sources. Flag anything uncertain.</code></div>
 
           <h3 class="text-lg font-bold mt-6 mb-2">3. Build the Missed-Call ROI Calculator (for Claude Artifacts / Lovable)</h3>
           <div class="prompt-block"><button class="copy-btn">Copy</button><code>Build an interactive "Missed Call Revenue Calculator" web app.
-Inputs: calls/week, % that never reach a person (default 48%, Invoca 2026), avg job value $, close rate (default 46%, Invoca 2026).
+Inputs: calls/week, % that never reach a person (default 48%, Invoca 2026), % of those that are new inquiries (default 50%), % realistically recoverable (default 50%), avg job value $, close rate (default 46%, Invoca 2026). The last two inputs are what make the output survive a skeptical owner — the headline number must already be discounted.
 Live output: missed calls/month + /year, lost revenue/month + /year, and a bold headline
 "You're losing about $X/year in missed calls." Add a CTA button "Book a 15-min demo"
 and an email-capture field "Email me my results."
@@ -10507,12 +10550,13 @@ failure, not a pass.</code>
             <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
               <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Old Framing</th><th class="text-left px-3 py-2 font-semibold">AI Employee Framing</th></tr></thead>
               <tbody class="divide-y divide-gray-100 bg-white">
-                <tr><td class="px-3 py-2">"AI phone answering software, $497/mo"</td><td class="px-3 py-2">"A front-desk employee who never sleeps. A human receptionist runs $2,800-3,600/mo all-in &mdash; yours is $497."</td></tr>
+                <tr><td class="px-3 py-2">"AI phone answering software, $800/mo"</td><td class="px-3 py-2">"A front-desk employee who never sleeps. A human receptionist runs $2,800-3,600/mo all-in &mdash; yours is $800."</td></tr>
                 <tr><td class="px-3 py-2">"The system books appointments"</td><td class="px-3 py-2">"Meet <strong>Ava</strong>. She answers every call, speaks Spanish, and texts you each booking." Named agents get owner buy-in and fewer cancellation conversations.</td></tr>
-                <tr><td class="px-3 py-2">Compared against $149/mo DIY tools</td><td class="px-3 py-2">Compared against a salary. You're not the expensive option anymore &mdash; you're 85% cheaper than the alternative they understand.</td></tr>
+                <tr><td class="px-3 py-2">Compared against Jobber&rsquo;s built-in AI receptionist at $99/mo, or Housecall Pro bundling it free</td><td class="px-3 py-2">Compared against a salary. Against a $99 toggle you lose; against a $3,000/mo hire you are <strong>~73% cheaper</strong> and you actually configure, monitor and improve it. Never let the comparison be the toggle &mdash; make it the salary.</td></tr>
               </tbody>
             </table>
           </div>
+          <p class="text-xs text-gray-500 mt-2"><strong>Clients 1-3 hear $497</strong> &mdash; but say the trade out loud: &ldquo;that is the founding rate, in exchange for a written case study and permission to use your call recordings. It is yours for as long as you stay.&rdquo; Everyone after client #3 hears $800 or $1,200. Anchoring the whole pitch at $497 is how you end up unable to raise prices.</p>
           <div class="space-y-1 text-sm text-gray-700 mb-6">
             <p class="check-item">Rename the offer in your proposals: "Your AI Front Desk Employee" instead of "AI receptionist service"</p>
             <p class="check-item">Give every client's agent a name and a one-line "job description" in the onboarding doc</p>
