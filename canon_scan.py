@@ -49,6 +49,17 @@ GROUPS = [('BANNED STAT', BANNED_STATS), ('OFF-LADDER PRICE', OFF_LADDER_PRICES)
 # lines inside the deliberate "stop using these" callout are exempt
 EXEMPT_MARKERS = ['Stop using these three', 'stop-using', 'traces to a 202', 'Oldroyd', 'banned', 'do not quote', 'Never say &ldquo;unlimited', 'Never say "unlimited']
 
+
+CANON_NUMBERS = [
+    (r'~?60 dials', 'stale dial number (canon is 50/week = 15+15+20)'),
+    (r'100 dials', 'stale dial number (canon is 50/week)'),
+    (r'20 dials (?:a|per) day', 'dials/day implies weekday sessions Mike does not have'),
+    (r'3-5\s*pm CET(?![^<]{0,80}(day job|nobody|full-timer))', 'forbidden window quoted without the day-job caveat'),
+    (r'15:00-17:00 CET(?![^<]{0,120}(nobody|day job|Saturday|full-timer))', 'forbidden weekday window without caveat'),
+    (r'golden window(?![^<]{0,120}(Saturday|nobody|day job))', '"golden window" without the Saturday/day-job caveat'),
+]
+GROUPS.append(('CANON NUMBER', CANON_NUMBERS))
+
 total = 0
 for f in FILES:
     lines = open(f).read().split('\n')
