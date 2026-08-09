@@ -185,6 +185,37 @@
     .track-btn:hover { border-color: #2563eb; color: #2563eb; }
     .track-btn.selected { background: #2563eb; border-color: #2563eb; color: #fff; }
 
+    /* --- no horizontal page scroll; wide content scrolls inside its own box --- */
+    html, body { overflow-x: hidden; max-width: 100%; }
+    main, main section { min-width: 0; max-width: 100%; }
+    main .overflow-x-auto { max-width: 100%; -webkit-overflow-scrolling: touch; }
+    .nav-item { min-width: 0; }
+    .nav-item > svg { flex-shrink: 0; }
+
+    /* --- print: prompt blocks are the most-printed asset; make them legible --- */
+    @media print {
+      .prompt-block { background: #fff !important; color: #000 !important; border: 1px solid #999 !important; }
+      .prompt-block code { color: #000 !important; white-space: pre-wrap !important; word-break: break-word; }
+      details[open] .prompt-block, .prompt-block { break-inside: avoid; }
+    }
+
+    /* --- hover must not erase the semantic row colour (Mike/Paola/Both, ladder rungs) --- */
+    main table tbody tr:hover { background: rgba(15, 23, 42, 0.035); }
+    main table tbody tr[class*="bg-"]:hover { background-blend-mode: multiply; }
+
+    /* --- currency columns align --- */
+    main table td.text-right, main table th.text-right { font-variant-numeric: tabular-nums; }
+
+    /* --- mobile: 16px inputs stop iOS zooming; 44px touch targets --- */
+    @media (max-width: 640px) {
+      input[type="text"], input[type="date"], input[type="number"], select, textarea { font-size: 16px !important; }
+      .track-btn, .readiness-opt, .day-done-btn, #close-week-btn { min-height: 44px; }
+      .nav-item { min-height: 44px; }
+    }
+
+    /* --- reading measure: cap prose, leave tables full width --- */
+    main section > p, main section > ul, main section > ol { max-width: 72ch; }
+
     .module-header h2 { font-size: 1.75rem; line-height: 1.15; letter-spacing: -0.02em; }
     @media (min-width: 640px) { .module-header h2 { font-size: 2rem; } }
     main section > h2 { font-size: 1.5rem; }
@@ -2985,7 +3016,7 @@ Worth a 2-minute demo? I can show you exactly how it sounds.
 
           <div class="callout callout-warning p-4 mt-4">
             <p class="font-semibold text-red-800 text-sm mb-1">If You Have 0 Clients by End of Week 8</p>
-            <p class="text-sm text-red-700">Don't panic. Check these in order: (1) Are your emails landing in inbox? Check Smartlead deliverability. (2) Are you sending enough volume? 50+ emails/day minimum. (3) Are you making phone calls? Email alone is slow &#x2014; calls accelerate everything. (4) Is your offer clear? "I'll answer your phones 24/7 for $500/mo" is clearer than "AI-powered communication solutions." (5) Consider offering your first client a 50% discount or 30-day free trial to get proof. The first client is the hardest. After that, everything accelerates.</p>
+            <p class="text-sm text-red-700">Don't panic. Check these in order: (1) Are your emails landing in inbox? Check Smartlead deliverability. (2) Are you sending enough volume? 50+ emails/day minimum. (3) Are you making phone calls? Email alone is slow &#x2014; calls accelerate everything. (4) Is your offer clear? "I'll answer your phones 24/7 for $500/mo" is clearer than "AI-powered communication solutions." (5) Consider the Founding Client rung ($497 setup + $497/mo, grandfathered) in exchange for a written case study and permission to use call recordings to get proof. The first client is the hardest. After that, everything accelerates.</p>
           </div>
         </section>
 
@@ -4083,6 +4114,7 @@ a partnership. Here's my calendar: [CAL.COM LINK]
           <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl border-2 border-purple-200 p-5 mb-6">
             <h3 class="font-bold text-purple-800 mb-3">Domain &amp; Brand Identity Setup</h3>
             <p class="text-sm text-gray-700 mb-3">Your web presence has <strong>two layers</strong> — the legal entity and the client-facing brand. They don&rsquo;t have to match:</p>
+            <div class="overflow-x-auto">
             <table class="w-full text-sm border-collapse mb-3">
               <thead><tr class="bg-purple-100"><th class="px-3 py-2 text-left">Layer</th><th class="px-3 py-2 text-left">Example</th><th class="px-3 py-2 text-left">Used For</th></tr></thead>
               <tbody>
@@ -4091,6 +4123,7 @@ a partnership. Here's my calendar: [CAL.COM LINK]
                 <tr><td class="px-3 py-2 font-semibold">Outreach Domains</td><td class="px-3 py-2">colibri-solutions.com, etc.</td><td class="px-3 py-2">Cold email only (protects main domain reputation)</td></tr>
               </tbody>
             </table>
+            </div>
             <p class="text-xs text-gray-500">Full naming guide with domain ideas is in <strong>Week 1 &rarr; Day 1</strong> of the Build section.</p>
           </div>
 
@@ -4207,7 +4240,7 @@ blue-collar business owners, not marketers. No jargon.</code></div>
                 <tr><td class="px-3 py-2 font-semibold">The Live Test</td><td class="px-3 py-2">"I called 20 HVAC companies in Houston at 6pm. 17 went to voicemail. Here's what that costs them..."</td><td class="px-3 py-2">Video (call on speaker) or LinkedIn post with data</td></tr>
                 <tr><td class="px-3 py-2 font-semibold">Client Result</td><td class="px-3 py-2">"Our AI agent booked 23 appointments for a plumber in Dallas last month. Setup took 2 days."</td><td class="px-3 py-2">Case study post, carousel, or short video</td></tr>
                 <tr><td class="px-3 py-2 font-semibold">Behind the Build</td><td class="px-3 py-2">"Here's exactly how I built an AI phone agent in 4 hours (screen recording)"</td><td class="px-3 py-2">TikTok/Reel walkthrough, or LinkedIn writeup</td></tr>
-                <tr><td class="px-3 py-2 font-semibold">Industry Data</td><td class="px-3 py-2">"78% of customers go with whoever responds first. The average contractor calls back in 4 hours."</td><td class="px-3 py-2">Stat-led LinkedIn post or short-form video</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Industry Data</td><td class="px-3 py-2">"Only 17% of HVAC pros answer a lead within the hour (Jobber, 2026) — and 46% of answered leads become jobs (Invoca, 2026)."</td><td class="px-3 py-2">Stat-led LinkedIn post or short-form video</td></tr>
                 <tr><td class="px-3 py-2 font-semibold">Myth Buster</td><td class="px-3 py-2">"'AI can't handle real customer calls.' I heard this last week. Then I played this recording..."</td><td class="px-3 py-2">Video with call playback, or thread</td></tr>
                 <tr><td class="px-3 py-2 font-semibold">The Warning</td><td class="px-3 py-2">"ChatGPT recommends your competitor, not you. I checked. Here's the screenshot."</td><td class="px-3 py-2">Screenshot post (ties into <a href="#ai-search-geo" class="text-blue-600 hover:underline">GEO service</a>)</td></tr>
                 <tr><td class="px-3 py-2 font-semibold">Personal / Process</td><td class="px-3 py-2">"We run this agency part-time from Germany serving US clients. Here's our daily schedule."</td><td class="px-3 py-2">Relatable story, builds trust and curiosity</td></tr>
@@ -5488,7 +5521,7 @@ Questions? Reply to this email or text me at [YOUR NUMBER].
 
           <!-- 2026 PRICING MODELS -->
           <h3 class="text-lg font-bold mt-10 mb-4">The 2026 Pricing Playbook: How the Best Agencies Structure the Deal</h3>
-          <p class="text-sm text-gray-700 mb-4">Flat retainers still work, but in 2026 the agencies winning the skeptical contractors (and only ~50% of contractors trust AI per ServiceTitan&rsquo;s 2026 survey) use three upgrades to the basic model. Each one either closes a hesitant buyer or expands revenue without a price-increase conversation.</p>
+          <p class="text-sm text-gray-700 mb-4">Flat retainers still work, but in 2026 the agencies winning the skeptical contractors (only ~25% of residential contractors use AI at all today, though 74% call it an efficiency gain &mdash; ServiceTitan, 2026, n&asymp;1,000 &mdash; so three quarters of your market is still unconverted) use three upgrades to the basic model. Each one either closes a hesitant buyer or expands revenue without a price-increase conversation.</p>
 
           <div class="bg-white rounded-xl border-2 border-emerald-300 p-5 mb-4">
             <h4 class="font-bold text-emerald-800 mb-2">1. Hybrid: Base Retainer + Per-Booking Bonus</h4>
@@ -6110,8 +6143,8 @@ Want me to switch it back on before the rush?
               <div class="text-xs text-gray-500 mt-1">Of HVAC pros respond to a lead within the hour &mdash; the slowest of any trade (Jobber Home Service Economic Report, 2026). Speed is the gap you sell.</div>
             </div>
             <div class="bg-white rounded-xl border-2 border-blue-200 p-5 text-center">
-              <div class="text-2xl font-extrabold text-blue-600">78%</div>
-              <div class="text-xs text-gray-500 mt-1">Of customers buy from the company that responds <em>first</em> &mdash; not the cheapest or the best-reviewed</div>
+              <div class="text-2xl font-extrabold text-blue-600">17%</div>
+              <div class="text-xs text-gray-500 mt-1">Of HVAC pros respond to a lead within the hour &mdash; the slowest of any trade (Jobber, 2026). Speed is the whole gap you are selling.</div>
             </div>
             <div class="bg-white rounded-xl border-2 border-amber-200 p-5 text-center">
               <div class="text-2xl font-extrabold text-amber-600">$50&ndash;$300</div>
@@ -6164,7 +6197,7 @@ How fast does someone call those leads back?
 
 [Typical answer: 'end of the day' or 'when I get a chance.']
 
-So here's the thing — the data on this is brutal. 78% of
+So here's the thing — the data on this is clear. Only 17% of HVAC pros respond to a lead within the hour (Jobber's 2026 report), and 46% of the leads that DO get answered turn into a job (Invoca, 2026, across 70 million calls). Speed is the whole game.
 customers go with whoever responds FIRST. If you're calling back
 at 6pm, that lead already booked with someone else at 9:15am —
 and you still paid for it.
@@ -6806,7 +6839,7 @@ already be taken. Want the audit report either way? It's free."</code></div>
               <p class="text-sm text-gray-700"><strong class="text-purple-700">4. Performance proof:</strong> After client #1, you have real data: "Our average client captures 47 additional calls per month and books 12 more appointments." Numbers sell. Stories of specific contractors sell even harder.</p>
             </div>
             <div class="bg-white rounded-xl border-l-4 border-fuchsia-500 p-4">
-              <p class="text-sm text-gray-700"><strong class="text-fuchsia-700">5. Risk reversal:</strong> "Try it for 7 days free. If you don't see the value, walk away." This eliminates the #1 objection ("what if it doesn't work for me?") and costs you almost nothing (~$5 in Vapi/Twilio usage for a week).</p>
+              <p class="text-sm text-gray-700"><strong class="text-fuchsia-700">5. Risk reversal:</strong> "A $250 seven-day pilot, credited in full to your setup if you go ahead &mdash; then a 30-day booked-jobs guarantee: if it doesn't book you at least [N] jobs, your next month is free." This eliminates the #1 objection ("what if it doesn't work for me?") and costs you almost nothing (~$5 in Vapi/Twilio usage for a week).</p>
             </div>
           </div>
 
@@ -6972,7 +7005,7 @@ already be taken. Want the audit report either way? It's free."</code></div>
                 </div>
                 <div>
                   <p class="font-semibold mb-1">Key metric:</p>
-                  <ul class="space-y-1"><li>• Combined weekly hours 14-20 (7-10 each) — the VA-hire trigger is breaching that two weeks running</li><li>• Onboarding time &lt;3 hours/client</li><li>• Monthly maintenance &lt;1.5 hrs/client</li><li>• Total weekly hours: 30-35 (both)</li><li>• Begin upselling expansion packages</li></ul>
+                  <ul class="space-y-1"><li>• Combined weekly hours 14-20 (7-10 each) — the VA-hire trigger is breaching that two weeks running</li><li>• Onboarding time &lt;3 hours/client</li><li>• Monthly maintenance &lt;1.5 hrs/client</li><li>• Delivery load stays under 1 hr/client/month &mdash; if it does not, template before you sell</li><li>• Begin upselling expansion packages</li></ul>
                 </div>
               </div>
             </div>
@@ -8868,16 +8901,16 @@ Talk soon,
             <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
               <thead class="bg-gray-100"><tr><th class="text-left px-3 py-3 font-semibold">Month</th><th class="text-right px-3 py-3 font-semibold">Clients</th><th class="text-right px-3 py-3 font-semibold">Setup Fees</th><th class="text-right px-3 py-3 font-semibold">Monthly Rev</th><th class="text-right px-3 py-3 font-semibold">Tool Costs</th><th class="text-right px-3 py-3 font-semibold">Profit</th></tr></thead>
               <tbody class="divide-y divide-gray-100 bg-white">
-                <tr><td class="px-3 py-2">Month 1</td><td class="px-3 py-2 text-right">0</td><td class="px-3 py-2 text-right">$0</td><td class="px-3 py-2 text-right">$0</td><td class="px-3 py-2 text-right text-red-600">-$150</td><td class="px-3 py-2 text-right text-red-600">-$150</td></tr>
-                <tr><td class="px-3 py-2">Month 2</td><td class="px-3 py-2 text-right">1</td><td class="px-3 py-2 text-right">$2,500</td><td class="px-3 py-2 text-right">$1,000</td><td class="px-3 py-2 text-right text-red-600">-$200</td><td class="px-3 py-2 text-right text-emerald-600 font-bold">$3,300</td></tr>
-                <tr><td class="px-3 py-2">Month 3</td><td class="px-3 py-2 text-right">3</td><td class="px-3 py-2 text-right">$5,000</td><td class="px-3 py-2 text-right">$3,000</td><td class="px-3 py-2 text-right text-red-600">-$300</td><td class="px-3 py-2 text-right text-emerald-600 font-bold">$7,700</td></tr>
-                <tr><td class="px-3 py-2">Month 4</td><td class="px-3 py-2 text-right">5</td><td class="px-3 py-2 text-right">$5,000</td><td class="px-3 py-2 text-right">$5,000</td><td class="px-3 py-2 text-right text-red-600">-$400</td><td class="px-3 py-2 text-right text-emerald-600 font-bold">$9,600</td></tr>
-                <tr><td class="px-3 py-2">Month 5</td><td class="px-3 py-2 text-right">7</td><td class="px-3 py-2 text-right">$5,000</td><td class="px-3 py-2 text-right">$7,000</td><td class="px-3 py-2 text-right text-red-600">-$500</td><td class="px-3 py-2 text-right text-emerald-600 font-bold">$11,500</td></tr>
-                <tr class="bg-emerald-50"><td class="px-3 py-2 font-bold">Month 6</td><td class="px-3 py-2 text-right font-bold">10</td><td class="px-3 py-2 text-right">$7,500</td><td class="px-3 py-2 text-right font-bold">$10,000</td><td class="px-3 py-2 text-right text-red-600">-$700</td><td class="px-3 py-2 text-right text-emerald-600 font-bold">$16,800</td></tr>
+                <tr><td class="px-3 py-2">Month 1</td><td class="px-3 py-2 text-right">0</td><td class="px-3 py-2 text-right">$0</td><td class="px-3 py-2 text-right">$0</td><td class="px-3 py-2 text-right">-$150</td><td class="px-3 py-2 text-right">-$150</td></tr>
+                <tr><td class="px-3 py-2">Month 2</td><td class="px-3 py-2 text-right">1 (Founding)</td><td class="px-3 py-2 text-right">$497</td><td class="px-3 py-2 text-right">$497</td><td class="px-3 py-2 text-right">-$200</td><td class="px-3 py-2 text-right">$794</td></tr>
+                <tr><td class="px-3 py-2">Month 3</td><td class="px-3 py-2 text-right">3 (all Founding)</td><td class="px-3 py-2 text-right">$994</td><td class="px-3 py-2 text-right">$1,491</td><td class="px-3 py-2 text-right">-$310</td><td class="px-3 py-2 text-right">$2,175</td></tr>
+                <tr><td class="px-3 py-2">Month 4</td><td class="px-3 py-2 text-right">5 (+2 Starter)</td><td class="px-3 py-2 text-right">$3,000</td><td class="px-3 py-2 text-right">$2,491</td><td class="px-3 py-2 text-right">-$500</td><td class="px-3 py-2 text-right">$4,991</td></tr>
+                <tr><td class="px-3 py-2">Month 5</td><td class="px-3 py-2 text-right">7 (+2 Starter)</td><td class="px-3 py-2 text-right">$3,000</td><td class="px-3 py-2 text-right">$3,491</td><td class="px-3 py-2 text-right">-$700</td><td class="px-3 py-2 text-right">$5,791</td></tr>
+                <tr class="bg-emerald-50"><td class="px-3 py-2 font-bold">Month 6</td><td class="px-3 py-2 text-right font-bold">10 (+3 Bundle)</td><td class="px-3 py-2 text-right">$7,500</td><td class="px-3 py-2 text-right">$6,991</td><td class="px-3 py-2 text-right">-$1,310</td><td class="px-3 py-2 text-right font-bold">$13,181</td></tr>
               </tbody>
             </table>
           </div>
-          <p class="text-xs text-gray-500 mt-2">Assumes $1,000/mo average retainer and $2,500 average setup fee. Setup fees are one-time. Delivery cost is ~$78/client/month at ~600 minutes &mdash; budget $130 if a client uses the full 1,000-minute allowance, and remember overage bills at $0.35/min so heavy users are profitable, not painful. Profit includes both setup fees and retainers. After month 6, revenue is mostly recurring.</p>
+          <p class="text-xs text-gray-500 mt-2"><strong>Computed from the <a href="#command-center" class="text-blue-600 hover:underline">pricing ladder</a>, not rounded up.</strong> Clients 1-3 are Founding ($497 setup + $497/mo, grandfathered forever), then Starter ($1,500 + $500) and Bundle ($2,500 + $1,000). That is why month-3 MRR looks small &mdash; the early money is in setup fees, and MRR compounds later as new clients come in at higher rungs. Delivery cost ~$78/client/month at ~600 minutes; overage bills at $0.35/min so heavy users stay profitable. <strong>$10K MRR arrives around month 8-10, not month 6</strong>, because your first three clients stay at $497 for life.</p>
 
           <h3 class="text-lg font-bold mt-8 mb-3">Monthly Cost Breakdown (at 10 Clients)</h3>
           <div class="overflow-x-auto">
@@ -8900,8 +8933,8 @@ Talk soon,
           </div>
 
           <div class="callout callout-cost p-4 mt-6">
-            <p class="font-semibold text-amber-800 text-sm mb-1">The Split</p>
-            <p class="text-sm text-amber-700">At $10,000/mo revenue - $700 costs = $9,300 profit. Split between two people = <strong>$4,650/person/month.</strong> At 20 clients ($20K/mo), that&#x2019;s $9,000+ each. This is a real, growing business &#x2014; not a gig.</p>
+            <p class="font-semibold text-emerald-800 text-sm mb-1">The Split</p>
+            <p class="text-sm text-emerald-700">At month 6 on the ladder: <strong>$6,991 MRR &minus; $1,310 costs = $5,681/mo</strong>, or about <strong>$2,840 each</strong> before tax &mdash; plus setup fees, which are most of the early cash. Set aside 25-30% for tax. To reach a genuine $10K MRR you need roughly 14-15 clients at ladder pricing, or 10 clients with add-ons lifting ARPU past $1,000. Both are month 8-12 outcomes, and the honest version is what keeps you from quitting in month 6 when the arithmetic was never going to work.</p>
           </div>
 
           <h3 class="text-lg font-bold mt-8 mb-4">Cash Flow Timeline (When Money Actually Hits Your Account)</h3>
@@ -10082,7 +10115,20 @@ MONTHLY COSTS PER CLIENT:
             <p class="text-sm text-emerald-700"><strong>Lovable</strong> (dashboards + marketing app, ~$25/mo) + <strong>Claude Artifacts</strong> (quick calculators/tools, included in Claude Pro) + <strong>Claude Code</strong> (maintain real code as you grow). Both Lovable and Claude connect cleanly to your Supabase. Total to start: about $45/month.</p>
           </div>
 
-          <h3 class="text-lg font-bold mt-8 mb-3">5 Things to Build With AI This Week</h3>
+          <h3 class="text-lg font-bold mt-8 mb-3">The Build Order &mdash; and the Trigger That Unlocks Each One</h3>
+          <p class="text-sm text-gray-700 mb-3">At 7-10 hrs/week each, building is the most seductive way to avoid selling. Each of these unlocks only when its trigger fires &mdash; do not build ahead of the trigger, however tempting.</p>
+          <div class="overflow-x-auto mb-4">
+            <table class="w-full text-xs border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Build</th><th class="text-left px-3 py-2 font-semibold">Unlocks when</th><th class="text-right px-3 py-2 font-semibold">Budget</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr class="bg-emerald-50"><td class="px-3 py-2 font-semibold">1. Missed-Call ROI Calculator</td><td class="px-3 py-2"><strong>Now</strong> &mdash; it is a lead magnet, it earns its time immediately</td><td class="px-3 py-2 text-right">90 min</td></tr>
+                <tr><td class="px-3 py-2">2. Client dashboard</td><td class="px-3 py-2">Client #1 go-live &mdash; not before. They cannot look at a dashboard that has no calls in it.</td><td class="px-3 py-2 text-right">3 hrs</td></tr>
+                <tr><td class="px-3 py-2">3. Internal CRM / kanban</td><td class="px-3 py-2">5 clients, or when a lead goes cold because you lost track of it. A spreadsheet is fine until then.</td><td class="px-3 py-2 text-right">2 hrs</td></tr>
+                <tr><td class="px-3 py-2">4. Custom n8n nodes</td><td class="px-3 py-2">You have built the same workflow by hand three times</td><td class="px-3 py-2 text-right">2 hrs</td></tr>
+                <tr><td class="px-3 py-2">5. Demo / sales landing page</td><td class="px-3 py-2">Before your first cold-email batch &mdash; the audit Loom needs somewhere to point</td><td class="px-3 py-2 text-right">2 hrs</td></tr>
+              </tbody>
+            </table>
+          </div>
 
           <div class="space-y-4">
             <div class="bg-white rounded-xl border border-gray-200 p-5">
@@ -10120,7 +10166,7 @@ Clean, professional, white-label friendly (I'll add the client's logo). Mobile r
 
             <div class="bg-white rounded-xl border border-gray-200 p-5">
               <div class="flex items-center gap-2 mb-1"><span class="step-num step-mike">3</span><h4 class="font-bold text-sm">Lightweight Internal CRM / Pipeline Board</h4></div>
-              <p class="text-sm text-gray-600 mb-2">A simple kanban (New &rarr; Contacted &rarr; Demo Booked &rarr; Proposal &rarr; Closed) so Paola can track every prospect without paying for a CRM yet. Build in <strong>Lovable</strong> or <strong>Replit Agent</strong>.</p>
+              <p class="text-sm text-gray-600 mb-2">A simple kanban (New &rarr; Contacted &rarr; Demo Booked &rarr; Proposal &rarr; Closed) so Mike can track every prospect without paying for a CRM yet &mdash; Paola reads it, she does not own it. Build in <strong>Lovable</strong> or <strong>Replit Agent</strong>.</p>
             </div>
 
             <div class="bg-white rounded-xl border border-gray-200 p-5">
@@ -10129,7 +10175,7 @@ Clean, professional, white-label friendly (I'll add the client's logo). Mobile r
             </div>
 
             <div class="bg-white rounded-xl border border-gray-200 p-5">
-              <div class="flex items-center gap-2 mb-1"><span class="step-num step-paola">5</span><h4 class="font-bold text-sm">Demo / Sales Landing Page</h4></div>
+              <div class="flex items-center gap-2 mb-1"><span class="step-num step-mike">5</span><h4 class="font-bold text-sm">Demo / Sales Landing Page</h4></div>
               <p class="text-sm text-gray-600 mb-2">A one-page site with your Loom demo, the ROI calculator, a "call our demo number" button, and a Cal.com link. Build the design in <strong>v0</strong> or the whole thing in <strong>Lovable</strong>.</p>
             </div>
           </div>
@@ -10338,7 +10384,7 @@ Clean, mobile-first, blue/emerald accents, big numbers.</code></div>
           <h3 class="text-lg font-bold mt-6 mb-2">4. Write a 4-email cold sequence</h3>
           <div class="prompt-block"><button class="copy-btn">Copy</button><code>Write a 4-email cold outreach sequence for [TRADE] businesses in [CITY].
 We sell a bilingual (English/Spanish) AI phone receptionist that answers 24/7,
-books appointments, and texts confirmations, for ~$1,000/mo.
+books appointments, and texts confirmations, at whatever rung of the ladder they belong on (never name a price in a cold email &mdash; the CTA is the audit, not the quote).
 
 Email 1: lead with the missed-call problem + a specific dollar figure they're losing.
 Email 2: short proof/case-study angle ("an HVAC co. in [city] captured 47 after-hours calls").
