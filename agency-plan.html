@@ -663,7 +663,7 @@
             <div class="bg-white rounded-xl border-2 border-fuchsia-200 p-5">
               <div class="text-xs font-bold text-fuchsia-600 uppercase mb-2"><span class="legend-dot bg-fuchsia-500"></span> Paola &mdash; this week&rsquo;s 90-minute block</div>
               <input type="text" data-persist="wk-paola" placeholder="e.g. Score 10 calls, message 2 referral partners" class="w-full text-sm border border-gray-300 rounded-lg px-3 py-2 mb-2">
-              <p class="text-xs text-gray-500">Default if you are unsure: score this week&rsquo;s client calls, then two referral-partner touches. If a client signed this week, the handoff and 10-call test come first.</p>
+              <p class="text-xs text-gray-500">Default if you are unsure: <strong>no clients yet</strong> &mdash; 10 Live Test calls, then two referral-partner touches, then one SOP. <strong>Clients live</strong> &mdash; score 10 calls and send the monthly reports first. If a client signed this week, the handoff and 10-call test come before everything.</p>
             </div>
           </div>
           <div class="callout callout-tip mb-8">
@@ -11374,9 +11374,11 @@ sources.</code></div>
   // Keyboard navigation
   document.addEventListener('keydown', function(e) {
     if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); navPrev(); }
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); navNext(); }
-    if (e.key === 'Escape') { showView('dashboard'); }
+    if (e.target.isContentEditable) return;
+    if (e.metaKey || e.ctrlKey || e.altKey || e.shiftKey) return;
+    if (e.key === 'ArrowLeft')  { navPrev(); }
+    if (e.key === 'ArrowRight') { navNext(); }
+    if (e.key === 'Escape')     { showView('dashboard'); }
   });
 
   // Make showView global
@@ -11443,21 +11445,31 @@ sources.</code></div>
       var d = ccLoad(), moved = 0;
       document.querySelectorAll('input[data-persist^="sc-"]').forEach(function(inp){
         var k = inp.getAttribute('data-persist');        // sc-xxx
-        if (k === 'sc-activeclients') return;            // a stock, not a weekly flow — never wipe it
+        if (k === 'sc-activeclients') return;            // a stock, not a weekly flow
         var short = k.slice(3);
         var v = d[k];
-        if (v != null && v !== '') { d['lw-' + short] = v; moved++; }
-        // if it was red both weeks, carry the flag so the alert survives the roll
         var t = RED[short];
+        var tw = num(v);
+        var prevLw = num(d['lw-' + short]);              // READ BEFORE OVERWRITING
         if (t) {
-          var tw = num(v), lw = num(d['lw-' + short]);
-          if (tw !== null && lw !== null && t(tw) && t(lw)) { d['redcarry-' + short] = '1'; }
+          if (tw !== null && prevLw !== null && t(tw) && t(prevLw)) {
+            d['redcarry-' + short] = '1';                // genuinely red two weeks running
+          } else if (tw !== null && !t(tw)) {
+            d['redcarry-' + short] = '';                 // recovered — clear it
+          }
         }
+        if (v != null && v !== '') { d['lw-' + short] = v; moved++; }
+        else { delete d['lw-' + short]; }                // never keep a stale 2-week-old number
         delete d[k]; inp.value = '';
+      });
+      ['wk-mike','wk-paola'].forEach(function(k){        // commitments belong to the week just closed
+        delete d[k];
+        var el = document.querySelector('[data-persist="' + k + '"]');
+        if (el) el.value = '';
       });
       ccSave(d); render();
       var msg = document.getElementById('close-week-msg');
-      if (msg) msg.textContent = 'Week closed \u2014 ' + moved + ' number(s) rolled into Last week. Start fresh on Monday.';
+      if (msg) msg.textContent = 'Week closed \u2014 ' + moved + ' number(s) rolled into Last week. Write Monday\u2019s two blocks fresh.';
     });
     document.querySelectorAll('input[data-persist^="sc-"]').forEach(function(inp){
       inp.addEventListener('input', render);
@@ -11512,12 +11524,18 @@ sources.</code></div>
       var week=Math.ceil(day/7);
       lbl.textContent='Day '+day+' of 90';
       var msg;
+      var _c = parseFloat(String(d['sc-activeclients'] || '').replace(/[^0-9.\-]/g, ''));
+      var hasClient = !isNaN(_c) && _c > 0;
       var trk=d['cc-track'];
       if(day<=21) msg = (trk==='B')
         ? 'Build window — Days 1-15 of the steps page is about 7 calendar weeks at your real budget. Outreach starts when the demo answers, not before.'
         : 'Sprint window — dialing should have started in week 1 off Paola\'s Live Test log; the demo goes callable around week 3. Sessions, not calendar days.';
-      else if(day<=45) msg='Target by now: first client live. If not, open the Behind? block below — do not just push harder.';
-      else if(day<=90) msg='Scaling window — raise prices for new clients and add ARPU to existing ones.';
+      else if(day<=45) msg = hasClient
+        ? 'Client #1 is live. The job now is making client #2 identical — same build, same handoff, same 10-call test.'
+        : 'Target by now: first client live. You are not there. Open "Behind schedule?" below and stop at the first line that is true — do not just push harder.';
+      else if(day<=90) msg = hasClient
+        ? 'Scaling window — raise prices for new clients and add ARPU to existing ones.'
+        : 'Day ' + day + ', still no paying client. Do NOT raise prices and do NOT rebuild. Open "Behind schedule?" below and change exactly ONE variable — trade, city, or offer — and write down which.';
       else { lbl.textContent='Day '+day+' — past the 90'; msg='Time to review the contract and set the next 90 days.'; }
       sub.textContent='Week '+week+' · '+msg+(d['cc-target']?' · Target: '+d['cc-target']:'');
     }
@@ -11526,6 +11544,8 @@ sources.</code></div>
     if(si) si.addEventListener('input',render);
     var ti=document.querySelector('[data-persist="cc-target"]');
     if(ti) ti.addEventListener('input',render);
+    var ac=document.querySelector('[data-persist="sc-activeclients"]');
+    if(ac) ac.addEventListener('input',render);   // client count changes what the counter should say
   })();
 
   // ============ COMMAND CENTER: readiness score ============
@@ -11587,7 +11607,7 @@ sources.</code></div>
         Offer: 'Weakest: Offer. Lock the pricing ladder above and your guarantee before any more outreach.',
         Stack: 'Weakest: Stack. Module 3 — get one agent answering one real number this week.',
         Pipeline: 'Weakest: Pipeline. Module 5 — 50 prospects and a live sequence beat any new tooling.',
-        Delivery: 'Weakest: Delivery. Write the SOPs now — the Client Onboarding SOP (Module 5) and Paola&rsquo;s pre-client lane above — before the next client, not after.',
+        Delivery: 'Weakest: Delivery. Write the SOPs now — the Client Onboarding SOP (Module 5) and Paola’s pre-client lane above — before the next client, not after.',
         Cash: 'Weakest: Cash. Module 7 — know your burn, runway, and break-even client count today.'
       };
       adviceEl.textContent = weakest ? GO[weakest] : 'All five solid — go to Module 7 and raise revenue per client before chasing new ones.';
