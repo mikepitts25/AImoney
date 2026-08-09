@@ -1058,17 +1058,21 @@ document.addEventListener('DOMContentLoaded', function() {
   function spLoad(){ try{return JSON.parse(localStorage.getItem(SP_KEY)||'{}');}catch(e){return {};} }
   function spSave(d){ try{localStorage.setItem(SP_KEY,JSON.stringify(d));}catch(e){} }
   var dayBtns=document.querySelectorAll('.day-done-btn');
+  var TRACK_A_DAYS={'day1':1,'day-paola':1,'day2-mike':1,'day2-wife':1,'day4':1,'day5':1,'day7':1};
+  function ccTrack(){ try { return (JSON.parse(localStorage.getItem('agencyCommandCenter')||'{}'))['cc-track']; } catch(e){ return null; } }
   function renderDays(){
-    var d=spLoad(), done=0;
+    var d=spLoad(), done=0, total=0, trk=ccTrack();
     dayBtns.forEach(function(b){
       var k=b.getAttribute('data-day');
-      if(d[k]){ b.classList.add('done'); b.textContent='Day complete'; done++; }
+      var counts = (trk!=='A') || TRACK_A_DAYS[k];
+      if(counts) total++;
+      if(d[k]){ b.classList.add('done'); b.textContent='Day complete'; if(counts) done++; }
       else { b.classList.remove('done'); b.textContent='Mark day complete'; }
     });
     var t=document.getElementById('days-total'), n=document.getElementById('days-done'), f=document.getElementById('days-fill');
-    if(t) t.textContent=dayBtns.length;
+    if(t) t.textContent=total + (trk==='A' ? ' (Track A days)' : '');
     if(n) n.textContent=done;
-    if(f) f.style.width=(dayBtns.length?(done/dayBtns.length)*100:0)+'%';
+    if(f) f.style.width=(total?(done/total)*100:0)+'%';
   }
   dayBtns.forEach(function(b){
     b.addEventListener('click',function(){
