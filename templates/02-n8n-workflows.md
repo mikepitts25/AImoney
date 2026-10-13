@@ -1,5 +1,5 @@
 # n8n Workflow Architecture
-## 4 Core Workflows for an AI Voice Agent Agency
+## 5 Core Workflows for the Overnight Front Office
 
 > **How to use:** Build these workflows in n8n (self-hosted or n8n Cloud).
 > Each section describes the trigger, every node in sequence, and the data
@@ -18,6 +18,8 @@
 | **Twilio** | Account SID + Auth Token from twilio.com/console |
 | **SMTP / Gmail** | Gmail App Password or SMTP credentials for sending emails |
 | **Vapi** | API key from dashboard.vapi.ai > Organization > API Keys |
+| **Anthropic** | API key from platform.claude.com (Workflow 5 pre-sort). Store it as an n8n credential, never in node bodies |
+| **IMAP** | The shared board inbox (Workflow 5b, bring-your-own clients) |
 
 ### Webhook Base URL
 - n8n Cloud: `https://your-instance.app.n8n.cloud/webhook/`
@@ -246,7 +248,7 @@ showing call volume, leads captured, appointments booked, and missed calls.
         |                -- To: client.notification_email
         |                -- Subject: "[{{COMPANY_NAME}}] Daily Call Report - {{date}}"
         |                -- Body (HTML):
-        |                   <h2>Your AI Receptionist Report for {{date}}</h2>
+        |                   <h2>Your Front Office Report for {{date}}</h2>
         |                   <table>
         |                     <tr><td>Total Calls</td><td>{{total_calls}}</td></tr>
         |                     <tr><td>Answered</td><td>{{completed_calls}}</td></tr>
@@ -376,6 +378,135 @@ async function submitLead(e) {
 
 ---
 
+## Workflow 5: The Morning Board (Overnight Front Office, Oct 2026)
+
+**Purpose:** Collect every overnight conversation, whether our Vapi agent or
+the client's own Jobber / Housecall Pro / Zoom / Quo receptionist handled it.
+Claude pre-sorts each one so Paola (or the board VA) reviews instead of
+transcribing. Then publish one sorted board per client before
+`clients.board_send_local`. **Claude only suggests; a human sets every
+`final_tag` the client sees.**
+
+Three small sub-workflows. Times are CET because that's when Paola works.
+Pass 1 runs before work (~07:00 CET = 22:00 Pacific). Pass 2 runs at lunch
+(~12:30 CET = 03:30 Pacific). See *Running the Morning Board* in the
+Command Center.
+
+### 5a. Ingest: ours (extends Workflow 2)
+In the Vapi end-of-call webhook, after the `calls` insert, add:
+```
+[Supabase Node: "Insert board_item"]
+    -- Table: board_items
+    -- client_id, call_id = new call id, source = 'ours',
+    -- occurred_at = started_at, caller_phone, raw_text = transcript,
+    -- language / caller_type from structured_data,
+    -- ai_flags = ['agent_uncertain'] if structured_data.agent_uncertain
+    -- Only when the call started outside the client's business_hours.
+```
+
+### 5b. Ingest: bring-your-own (client's own AI receptionist)
+At onboarding, point the client tool's call-summary notifications at a
+per-client inbox (`clients.board_inbox`, e.g. `board+abchvac@yourdomain.com`).
+If the tool can't send summaries, Paola uses a read-only seat and enters
+items by hand (`source = 'byo_manual'`). **Check what each tool can export
+before promising BYO. It varies by vendor and plan.**
+```
+[Email Trigger (IMAP) Node: "Board inbox"]
+    -- Mailbox: the shared board inbox, poll every 5 min
+    |
+[Supabase Node: "Find client by board_inbox"]
+    -- Match the To: address to clients.board_inbox
+    |
+[Supabase Node: "Insert board_item"]
+    -- source = 'byo_email', occurred_at = email date,
+    -- raw_text = email body (strip signatures/footers in a Code node first)
+```
+
+### 5c. Pre-sort with Claude (runs 06:30 and 12:15 CET)
+```
+[Schedule Trigger: 06:30 and 12:15 CET]
+    |
+[Supabase Node: "Unsorted items"]
+    -- board_items WHERE ai_tag IS NULL AND reviewed_at IS NULL
+    |
+[Split In Batches Node] -- one item at a time
+    |
+    [HTTP Request Node: "Claude pre-sort"]
+        -- POST https://api.anthropic.com/v1/messages
+        -- Headers: x-api-key = {{ANTHROPIC_API_KEY}} (n8n credential),
+        --          anthropic-version = 2023-06-01,
+        --          anthropic-beta = server-side-fallback-2026-07-01,
+        --          content-type = application/json
+        -- Body (JSON):
+        {
+          "model": "claude-opus-5-5",
+          "max_tokens": 2000,
+          "fallbacks": "default",
+          "output_config": {
+            "effort": "low",
+            "format": {"type": "json_schema", "schema": {
+              "type": "object",
+              "properties": {
+                "summary":    {"type": "string"},
+                "tag":        {"type": "string", "enum": ["book_today","call_back","quote_sent","emergency_escalated","existing_customer","spam_vendor","no_action"]},
+                "language":   {"type": "string"},
+                "caller_type":{"type": "string", "enum": ["human","ai_agent","unknown"]},
+                "confidence": {"type": "number"},
+                "flags":      {"type": "array", "items": {"type": "string"}},
+                "owner_action": {"type": "string"}
+              },
+              "required": ["summary","tag","language","caller_type","confidence","flags","owner_action"],
+              "additionalProperties": false
+            }}
+          },
+          "system": "You pre-sort overnight calls for a home-service contractor's Morning Board. A human reviews every item, so flag anything unclear rather than guessing. summary: one line, under 20 words, in English. flags: any of address_unclear, possible_emergency, ai_agent_error, needs_spanish_callback, duplicate_caller. owner_action: the single next step for the dispatcher.",
+          "messages": [{"role": "user", "content": "Business: {{business_name}} ({{service_types}}), service area: {{service_area}}.\n\nConversation ({{source}}):\n{{raw_text}}"}]
+        }
+        |
+    [IF Node: "stop_reason == refusal?"]
+        -- YES -> leave ai_tag NULL and add flag 'needs_manual' (Paola handles it)
+        -- NO  -> [Code Node] JSON.parse(content[0].text) -- find the block where type == "text"
+        |
+    [Supabase Node: "Update board_item"]
+        -- ai_summary, ai_tag, ai_confidence, ai_flags, language, caller_type
+        -- If flags contains 'needs_spanish_callback': spanish_callback = 'pending'
+```
+*Model:* `claude-opus-5-5` at `effort: low` is plenty for one-line triage, and
+volume is tiny (tens of items a night). `fallbacks: "default"` re-runs a rare
+safety decline on another model, so items don't silently drop.
+
+### 5d. Review + publish
+Paola works the `idx_board_unreviewed` queue: she accepts or corrects each
+suggestion, which sets `final_summary`, `final_tag`, `agent_error`,
+`correction_note`, `reviewed_by` and `reviewed_at`. A Supabase table view or a
+small Retool/Glide screen is enough.
+```
+[Schedule Trigger: 12:45 CET, i.e. ~03:45 Pacific]
+    |
+[Supabase Node: "Active clients"]
+    |
+[Split In Batches Node]
+    |
+    [Supabase Node: "SELECT * FROM morning_board WHERE client_id = ..."]
+        |
+    [Code Node: "Render board"]
+        -- Group by tag: emergency_escalated, book_today, call_back, quote_sent,
+        --   then the rest. Count unreviewed rows and show
+        --   "N late-night items not yet reviewed" rather than hiding them.
+        |
+    [Email / Twilio Node: "Send to board_recipients"]
+        -- Subject: "Your morning board, {{date}}: {{book_today_count}} to book today"
+```
+Emergencies never wait for this: the answering layer escalates them live to
+the on-call tech during the call (Workflow 1 / the client's tool).
+
+### What the monthly report pulls (replaces Workflow 3's "AI Receptionist Report")
+`board_monthly`: total board items, flagged book-today, **booked jobs (from
+the client's own job board, never our guess)**, AI errors caught, Spanish
+callbacks done, AI-agent callers. That's the retention artefact.
+
+---
+
 ## Workflow Summary
 
 | # | Workflow | Trigger | Key Nodes | Output |
@@ -384,3 +515,4 @@ async function submitLead(e) {
 | 2 | Missed Call Follow-Up | Vapi end-of-call webhook (POST) | Webhook, IF, Supabase x2, Twilio x2, Email | Missed call logged, SMS to caller, notification to client |
 | 3 | Client Reporting | Schedule Trigger (daily/weekly cron) | Schedule, Supabase x4, Split In Batches, Code, IF, Email | Formatted report emailed to each active client |
 | 4 | Website Lead Capture | Webhook from web form (POST) | Webhook, Set, Supabase x2, Twilio x2, Email, IF, Respond to Webhook | Lead in DB, notifications sent, optional auto-SMS to lead |
+| 5 | Morning Board | Vapi end-of-call + IMAP board inbox + schedules (06:30 / 12:15 / 12:45 CET) | Supabase, IMAP, HTTP Request (Claude), Code, Email/Twilio | Pre-sorted, human-reviewed board per client before 7am local; `board_monthly` for the report |

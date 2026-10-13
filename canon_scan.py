@@ -41,6 +41,8 @@ MODEL_DRIFT = [
     (r'Ubuntu 22\.04', 'stale OS'),
     (r'YOUR_IP:5678', 'plain-IP webhook'),
     (r'N8N_PROTOCOL=http\b', 'plain HTTP n8n'),
+    (r'claude-haiku-4-5-20251001', 'dated Haiku 4.5 id (canon: claude-haiku-5-5, Oct 2026)'),
+    (r'"temperature":\s*0\.\d[^<]{0,200}claude-haiku-5-5|claude-haiku-5-5[^<]{0,200}"temperature":\s*0\.\d', 'Haiku 5.5 rejects non-default temperature'),
 ]
 
 GROUPS = [('BANNED STAT', BANNED_STATS), ('OFF-LADDER PRICE', OFF_LADDER_PRICES),
@@ -59,6 +61,15 @@ CANON_NUMBERS = [
     (r'golden window(?![^<]{0,120}(Saturday|nobody|day job))', '"golden window" without the Saturday/day-job caveat'),
 ]
 GROUPS.append(('CANON NUMBER', CANON_NUMBERS))
+
+# October 2026 revamp: the Overnight Front Office
+OCT_DRIFT = [
+    (r'(?<!formerly &ldquo;)Never Miss a Call(&rdquo;|")? [Bb]undle', 'renamed: Front Office Bundle'),
+    (r'Founding Client offer|\$497 setup \+ \$497', 'retired Founding rung quoted as live'),
+    (r'(overnight desk|Morning Board)[^<]{0,60}\+\$300-500', 'Morning Board is included, not a +$300-500 add-on'),
+    (r'not on a bundled FSM AI tier', 'BYO: an existing AI receptionist is no longer a disqualifier'),
+]
+GROUPS.append(('OCT 2026 DRIFT', OCT_DRIFT))
 
 total = 0
 for f in FILES:

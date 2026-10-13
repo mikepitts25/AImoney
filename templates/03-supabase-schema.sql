@@ -56,15 +56,27 @@ CREATE TABLE clients (
         "saturday":  {"open": "09:00", "close": "13:00"},
         "sunday":    null
     }'::JSONB,
-    timezone            TEXT DEFAULT 'America/New_York',
+    timezone            TEXT DEFAULT 'America/Phoenix', -- ICP is Mountain/Pacific
     emergency_enabled   BOOLEAN DEFAULT true,
     auto_sms_leads      BOOLEAN DEFAULT true,          -- auto-text new web leads
     spanish_support     BOOLEAN DEFAULT false,
     service_call_fee    TEXT,                           -- e.g., "$89"
 
+    -- Overnight Front Office (Oct 2026)
+    answering_layer     TEXT DEFAULT 'ours'             -- whose AI answers the phone
+                        CHECK (answering_layer IN ('ours', 'jobber', 'housecall_pro',
+                                                   'zoom', 'quo', 'other')),
+    board_inbox         TEXT,                           -- BYO: per-client inbox the client's
+                                                        -- tool sends call summaries to
+    board_recipients    TEXT[] DEFAULT '{}',            -- owner + dispatcher (email or E.164)
+    board_send_local    TIME DEFAULT '06:00',           -- board must arrive before this, client tz
+    price_bands         JSONB DEFAULT '{}'::JSONB,      -- {"ac_repair": "$150-450", ...} for
+                                                        -- machine callers (Google Ask for Me)
+
     -- Billing
-    plan                TEXT DEFAULT 'starter'
-                        CHECK (plan IN ('starter', 'growth', 'premium')),
+    plan                TEXT DEFAULT 'front_office'     -- names follow the AImoney ladder
+                        CHECK (plan IN ('front_office', 'scale', 'pilot',
+                                        'text_back', 'reactivation', 'speed_to_lead')),
     monthly_rate        NUMERIC(10,2) DEFAULT 0,
     billing_email       TEXT,
     stripe_customer_id  TEXT,
@@ -402,6 +414,62 @@ CREATE POLICY "Clients can view own invoices"
 
 
 -- ============================================================================
+-- TABLE: board_items  (Overnight Front Office, Oct 2026)
+-- One row per overnight conversation on the Morning Board -- whether it came
+-- from OUR Vapi agent (call_id set) or the client's OWN receptionist
+-- (Jobber / Housecall Pro / Zoom / Quo summary parsed from board_inbox).
+-- Flow: n8n ingests -> Claude pre-sorts (ai_*) -> Paola reviews (final_*)
+--       -> board published before clients.board_send_local.
+-- ============================================================================
+CREATE TABLE board_items (
+    id                  UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    client_id           UUID NOT NULL REFERENCES clients(id) ON DELETE CASCADE,
+    call_id             UUID REFERENCES calls(id) ON DELETE SET NULL,  -- null for BYO
+
+    source              TEXT NOT NULL DEFAULT 'ours'
+                        CHECK (source IN ('ours', 'byo_email', 'byo_manual', 'sms', 'web')),
+    occurred_at         TIMESTAMPTZ NOT NULL,
+    caller_name         TEXT,
+    caller_phone        TEXT,
+    caller_type         TEXT DEFAULT 'human'
+                        CHECK (caller_type IN ('human', 'ai_agent', 'unknown')),
+    language            TEXT DEFAULT 'en',              -- 'en' | 'es' | ...
+    raw_text            TEXT,                           -- transcript or the BYO summary email body
+
+    -- Claude pre-sort (suggestion only -- never shown to the client unreviewed)
+    ai_summary          TEXT,
+    ai_tag              TEXT,
+    ai_confidence       NUMERIC(3,2),                   -- 0.00-1.00
+    ai_flags            TEXT[] DEFAULT '{}',            -- e.g. {'address_unclear','possible_emergency'}
+
+    -- Human review (Paola or the board VA) -- this is what the client sees
+    final_summary       TEXT,
+    final_tag           TEXT
+                        CHECK (final_tag IN ('book_today', 'call_back', 'quote_sent',
+                                             'emergency_escalated', 'existing_customer',
+                                             'spam_vendor', 'no_action')),
+    agent_error         BOOLEAN DEFAULT false,          -- did the answering AI get it wrong?
+    correction_note     TEXT,                           -- what was fixed
+    spanish_callback    TEXT DEFAULT 'not_needed'
+                        CHECK (spanish_callback IN ('not_needed', 'pending', 'done', 'no_answer')),
+    owner_action        TEXT,                           -- the one thing the owner/dispatcher does
+    reviewed_by         TEXT,
+    reviewed_at         TIMESTAMPTZ,
+
+    -- Outcome, filled from the client's own job board for the monthly report
+    booked_job          BOOLEAN,
+    created_at          TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE INDEX idx_board_client_time ON board_items(client_id, occurred_at DESC);
+CREATE INDEX idx_board_unreviewed ON board_items(client_id) WHERE reviewed_at IS NULL;
+
+ALTER TABLE board_items ENABLE ROW LEVEL SECURITY;
+-- Same pattern as the other tables: service_role (n8n, your agency) sees all;
+-- add a client-scoped policy only if clients get direct dashboard access.
+
+
+-- ============================================================================
 -- USEFUL VIEWS (for reporting)
 -- ============================================================================
 
@@ -441,6 +509,44 @@ FROM leads l
 JOIN clients cl ON cl.id = l.client_id
 GROUP BY l.client_id, cl.business_name;
 
+-- The Morning Board: last night's reviewed items per client, client-local time.
+-- "Last night" = 17:00 yesterday to 07:00 today in the client's timezone.
+CREATE OR REPLACE VIEW morning_board AS
+SELECT
+    b.client_id,
+    cl.business_name,
+    (b.occurred_at AT TIME ZONE cl.timezone) AS local_time,
+    b.source, b.caller_name, b.caller_phone, b.caller_type, b.language,
+    COALESCE(b.final_summary, b.ai_summary) AS summary,
+    b.final_tag AS tag,
+    b.owner_action, b.agent_error, b.correction_note, b.spanish_callback,
+    (b.reviewed_at IS NOT NULL) AS reviewed
+FROM board_items b
+JOIN clients cl ON cl.id = b.client_id
+WHERE (b.occurred_at AT TIME ZONE cl.timezone)
+      >= (DATE(NOW() AT TIME ZONE cl.timezone) - 1) + TIME '17:00'
+  AND (b.occurred_at AT TIME ZONE cl.timezone)
+      <  DATE(NOW() AT TIME ZONE cl.timezone) + TIME '07:00'
+ORDER BY b.client_id,
+    CASE b.final_tag WHEN 'emergency_escalated' THEN 0 WHEN 'book_today' THEN 1
+                     WHEN 'call_back' THEN 2 WHEN 'quote_sent' THEN 3 ELSE 4 END,
+    b.occurred_at;
+
+-- Monthly proof: what the board did, per client per month (feeds the report)
+CREATE OR REPLACE VIEW board_monthly AS
+SELECT
+    b.client_id,
+    DATE_TRUNC('month', b.occurred_at AT TIME ZONE cl.timezone) AS month,
+    COUNT(*) AS board_items_total,              -- everything ingested to the board
+    COUNT(*) FILTER (WHERE b.final_tag = 'book_today') AS flagged_book_today,
+    COUNT(*) FILTER (WHERE b.booked_job) AS booked_jobs,
+    COUNT(*) FILTER (WHERE b.agent_error) AS ai_errors_caught,
+    COUNT(*) FILTER (WHERE b.spanish_callback = 'done') AS spanish_callbacks,
+    COUNT(*) FILTER (WHERE b.caller_type = 'ai_agent') AS ai_agent_callers
+FROM board_items b
+JOIN clients cl ON cl.id = b.client_id
+GROUP BY b.client_id, DATE_TRUNC('month', b.occurred_at AT TIME ZONE cl.timezone);
+
 -- Monthly revenue view
 CREATE OR REPLACE VIEW monthly_revenue AS
 SELECT
@@ -464,7 +570,7 @@ GROUP BY DATE_TRUNC('month', i.period_start);
 --     business_name, owner_name, email, phone,
 --     city, state, service_types, service_area,
 --     notification_email, notification_phone,
---     service_call_fee, plan, monthly_rate, status
+--     service_call_fee, plan, monthly_rate, status, answering_layer
 -- ) VALUES (
 --     'ABC Heating & Cooling',
 --     'John Smith',
@@ -476,7 +582,8 @@ GROUP BY DATE_TRUNC('month', i.period_start);
 --     'john@abcheating.com',
 --     '+16025551234',
 --     '$89',
---     'growth',
---     497.00,
---     'active'
+--     'front_office',
+--     1000.00,
+--     'active',
+--     'jobber'
 -- );

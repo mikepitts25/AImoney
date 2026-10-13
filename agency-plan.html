@@ -584,13 +584,13 @@
             </div>
             <div class="text-center p-4 bg-emerald-50 rounded-xl">
               <div class="text-xs text-emerald-600 font-bold uppercase mb-1">Month 3</div>
-              <div class="text-2xl font-extrabold text-emerald-700">$3-5K MRR</div>
-              <p class="text-xs text-gray-500 mt-1">3-5 paying clients, proven delivery process, testimonials collected</p>
+              <div class="text-2xl font-extrabold text-emerald-700">2 clients</div>
+              <p class="text-xs text-gray-500 mt-1">~$1.3-2K MRR, first Morning Board screenshots, one written case study</p>
             </div>
             <div class="text-center p-4 bg-purple-50 rounded-xl">
-              <div class="text-xs text-purple-600 font-bold uppercase mb-1">Month 6</div>
-              <div class="text-2xl font-extrabold text-purple-700">$10K MRR</div>
-              <p class="text-xs text-gray-500 mt-1">10 clients, referral pipeline active, a VA running the Morning Board passes</p>
+              <div class="text-xs text-purple-600 font-bold uppercase mb-1">Month 6 &rarr; 11</div>
+              <div class="text-2xl font-extrabold text-purple-700">5 &rarr; 10 clients</div>
+              <p class="text-xs text-gray-500 mt-1">$3.3-5K MRR at month 6, ~$10K by month 11 at $1,000 (Branch A). The VA runs the Morning Board from client 5. See Financial Projections</p>
             </div>
           </div>
         </div>
@@ -688,7 +688,7 @@
 
           <h4 class="font-bold text-sm mb-2">5. Cut, keep, add</h4>
           <div class="grid sm:grid-cols-3 gap-3 mb-4">
-            <div class="bg-red-50 rounded-xl border border-red-200 p-4"><p class="text-xs font-bold text-red-700 uppercase mb-1">Cut</p><ul class="text-xs text-gray-700 space-y-1"><li>&bull; &ldquo;Ask for Me readiness&rdquo; as the headline. It is now a hook, not a product.</li><li>&bull; Pitching against the client&rsquo;s existing AI receptionist. Run it instead.</li><li>&bull; Selling the overnight desk as an optional +$300-500 tier. It is the reason to buy.</li></ul></div>
+            <div class="bg-red-50 rounded-xl border border-red-200 p-4"><p class="text-xs font-bold text-red-700 uppercase mb-1">Cut</p><ul class="text-xs text-gray-700 space-y-1"><li>&bull; &ldquo;Ask for Me readiness&rdquo; as the headline. It is now a hook, not a product.</li><li>&bull; Pitching against the client&rsquo;s existing AI receptionist. Run it instead.</li><li>&bull; Selling the Morning Board as an optional extra tier. It is the reason to buy.</li></ul></div>
             <div class="bg-slate-50 rounded-xl border border-slate-200 p-4"><p class="text-xs font-bold text-slate-700 uppercase mb-1">Keep</p><ul class="text-xs text-gray-700 space-y-1"><li>&bull; Home services and the Mountain/Pacific plus Spanish-heavy metros.</li><li>&bull; The $1M-3M ICP. Price against a hire, never against a tool.</li><li>&bull; The after-hours Missed Call Audit as the door-opener, the $250 paid pilot, and no outbound on your own Twilio.</li><li>&bull; The 12-18 month horizon.</li></ul></div>
             <div class="bg-emerald-50 rounded-xl border border-emerald-200 p-4"><p class="text-xs font-bold text-emerald-700 uppercase mb-1">Add</p><ul class="text-xs text-gray-700 space-y-1"><li>&bull; One audit line: &ldquo;we asked Google&rsquo;s AI to get your quote, and here&rsquo;s what it heard.&rdquo;</li><li>&bull; Discovery question #4: &ldquo;which AI answering tool do you already pay for?&rdquo;</li><li>&bull; The call-log line: &ldquo;Google stopped keeping your call history; we keep it.&rdquo;</li><li>&bull; Quarterly reactivation, pay-per-booked-job, with &ldquo;booked&rdquo; defined from their own job board.</li></ul></div>
           </div>
@@ -725,6 +725,7 @@
               <li><strong>Calls after ~03:30 Pacific</strong> are auto-tagged by the AI and marked &ldquo;not yet reviewed.&rdquo; Real emergencies never wait for the board: the answering layer escalates them live to the on-call tech, as configured in onboarding.</li>
             </ul>
             <p class="text-sm text-gray-700 mb-2"><strong>The board itself:</strong> one row per conversation. Columns: time, caller, channel (call/text/AI caller), language, one-line summary, tag (<em>book today / call back / quote sent / spam-vendor / emergency escalated</em>), whether the AI got it wrong and what Paola fixed, and the owner action needed. A shared sheet per client is fine to start. With our AI it fills itself from the existing Vapi &rarr; n8n &rarr; Supabase pipeline. With <em>their</em> AI, route the tool&rsquo;s call-summary notifications to a per-client inbox, or give Paola a seat in the tool. <strong>Check what each tool can export or notify before you promise BYO to a client</strong>, because this varies by vendor and plan.</p>
+            <p class="text-sm text-gray-700 mb-2"><strong>Build kit (October 2026):</strong> the <code>board_items</code> table and <code>morning_board</code> / <code>board_monthly</code> views are in <code>templates/03-supabase-schema.sql</code>. <strong>n8n Workflow 5</strong> in <code>templates/02-n8n-workflows.md</code> ingests both ours and BYO, has Claude pre-sort every item (summary, suggested tag, flags), and publishes the board. Paola reviews suggestions instead of writing from scratch. <strong>Claude never sets the tag the client sees; a human does.</strong> Time the first two weeks. If pre-sorting brings review under ~8 minutes per client per day, her block stretches past 5 clients and the VA hire can wait.</p>
             <p class="text-sm text-gray-700 mb-2"><strong>Capacity, stated plainly:</strong> at ~10-15 minutes per client per day across both passes, <strong>Paola&rsquo;s block carries about 4-5 clients</strong>. Weekends need a plan too: either a lighter Saturday/Sunday pass or a stated &ldquo;Monday board covers the weekend.&rdquo; Put that in the agreement.</p>
             <p class="text-sm text-gray-700"><strong>So the VA hire moves from client 12 to client 5.</strong> A Spanish-native Colombian VA at $8-15/hr doing ~20 min per client per day costs roughly $60-110 per client per month, so the margin still works even at the Branch B base. Paola trains them on clients 1-4 and keeps QA, Spanish escalations and the client relationship. Write the SOP from day one as if someone else will run it, because from client 5 someone will.</p>
           </div>
@@ -1692,7 +1693,7 @@ the monthly review.</code>
               <p class="check-item">Send Client #1 a results screenshot within their first week ("Your AI answered 11 calls and booked 4 jobs since Tuesday")</p>
               <p class="check-item">Ask for one referral the moment they say anything positive: "Who's one other owner you know who misses calls?"</p>
               <p class="check-item">Update your outreach opener with the proof: "We just set this up for an HVAC company in [city] &mdash; it booked 4 jobs in its first week"</p>
-              <p class="check-item">Pilot clients: book the Day 7 conversion call &mdash; show the week's numbers, convert to $497 setup + $497/mo</p>
+              <p class="check-item">Pilot clients: book the Day 7 conversion call &mdash; show the week's Morning Boards, convert to the Front Office Bundle (pilot $250 credited; setup waived for clients 1-3)</p>
               <p class="check-item">By Day 21 the cold email domains are warm &mdash; load your Apollo list into Smartlead and let the Week 4+ engine take over (<a href="#leadgen" class="text-blue-600 hover:underline">Lead Generation</a>)</p>
             </div>
           </div>
@@ -1786,7 +1787,7 @@ order of payment. Want me to hold today's spot for an hour?"</code></div>
                 <tr><td class="px-4 py-3 font-semibold text-blue-600">1. Setup</td><td class="px-4 py-3">Weeks 1-2</td><td class="px-4 py-3">Tools ready, demo built, outreach warming up</td></tr>
                 <tr><td class="px-4 py-3 font-semibold text-purple-600">2. Outreach</td><td class="px-4 py-3">Weeks 3-4</td><td class="px-4 py-3">Emails flowing, calls happening, first client signed</td></tr>
                 <tr><td class="px-4 py-3 font-semibold text-emerald-600">3. Deliver</td><td class="px-4 py-3">Weeks 5-8</td><td class="px-4 py-3">Client #1 live, testimonial collected, clients #2-3 closing</td></tr>
-                <tr><td class="px-4 py-3 font-semibold text-amber-600">4. Scale</td><td class="px-4 py-3">Months 3-6</td><td class="px-4 py-3">5-10 clients, $5K-$10K/month recurring</td></tr>
+                <tr><td class="px-4 py-3 font-semibold text-amber-600">4. Scale</td><td class="px-4 py-3">Months 6-12</td><td class="px-4 py-3">5-10 clients, $3K-$10K/month recurring (VA on the Morning Board from client 5)</td></tr>
               </tbody>
             </table>
           </div>
@@ -2270,7 +2271,7 @@ order of payment. Want me to hold today's spot for an hour?"</code></div>
               <p><strong>Supabase</strong> = a spreadsheet on steroids. It stores all your data — every call, every lead, every client. You can pull reports from it. Free for your scale.</p>
               <p><strong>Hetzner VPS</strong> = a rented computer that runs 24/7 in the cloud. It's where n8n lives. You'll never see it physically — you access it through your browser. $5/month.</p>
               <p><strong>Smartlead</strong> = an email sending tool designed for outreach. It sends your cold emails, warms up your email addresses so they don't go to spam, and tracks who opens/replies.</p>
-              <p><strong>LLM</strong> = "Large Language Model" — the AI that understands language. Claude (Haiku 4.5, Sonnet 4.6) and GPT-5.x are LLMs. When we say "LLM cost" we mean the cost of the AI thinking during calls.</p>
+              <p><strong>LLM</strong> = "Large Language Model" — the AI that understands language. Claude (Haiku 5.5, Sonnet 5.5, Opus 5.5) and GPT-5.x are LLMs. When we say "LLM cost" we mean the cost of the AI thinking during calls.</p>
               <p><strong>TTS / STT</strong> = "Text to Speech" / "Speech to Text." TTS is how the AI turns its written response into a voice. STT is how it understands what the caller said. Both happen inside Vapi automatically.</p>
               <p><strong>Webhook</strong> = an automatic notification between tools. When a call ends in Vapi, it sends a webhook (a little data packet) to n8n saying "hey, a call just happened, here's the info." n8n then does something with it. You set this up once and it runs forever.</p>
               <p><strong>API key</strong> = a password that lets one tool talk to another. When Mike sets up Vapi to use Claude, he copies an API key from Anthropic into Vapi. It's how tools authenticate with each other.</p>
@@ -3080,7 +3081,7 @@ sleep 20 &amp;&amp; docker compose ps
             <p class="text-xs font-bold text-emerald-600 uppercase mb-1">Client Onboarding (Day 1-2 after signing) &mdash; every task has one owner</p>
             <p class="text-xs text-gray-500 mb-2">Runs straight off the <a href="#offer-system" class="text-blue-600 hover:underline">Handoff Packet</a>. Paola owns the client-facing half, Mike owns the build half, and Paola signs off before it goes live.</p>
             <div class="space-y-2 text-sm text-gray-700">
-              <p class="check-item"><span class="legend-dot bg-fuchsia-500"></span> <strong>Paola &mdash; Send Stripe invoice</strong> for the setup fee and start the recurring charge <em>at the rung you actually sold</em> &mdash; for clients 1-3 that is the Founding offer ($497 setup + $497/mo), otherwise Starter ($1,500 + $500/mo) or the Bundle ($2,500 + $1,000/mo). Never invent a number here: <a href="#command-center" class="text-blue-600 hover:underline">check the ladder</a>.</p>
+              <p class="check-item"><span class="legend-dot bg-fuchsia-500"></span> <strong>Paola &mdash; Send Stripe invoice</strong> for the setup fee and start the recurring charge <em>at the rung you actually sold</em> &mdash; for clients 1-3 that is the Front Office Bundle with the setup fee waived, otherwise the Bundle with setup ($2,500 + the ladder&rsquo;s monthly) or Scale. Founding and Starter are retired. Never invent a number here: <a href="#command-center" class="text-blue-600 hover:underline">check the ladder</a>.</p>
               <p class="check-item"><span class="legend-dot bg-fuchsia-500"></span> <strong>Paola &mdash; Send onboarding questionnaire</strong> (the template Mike built in Week 2). Get: business name, services, hours, service area, existing phone number, Google Business link.</p>
               <p class="check-item"><span class="legend-dot bg-blue-600"></span> <strong>Mike &mdash; Buy a Twilio phone number</strong> with their area code.</p>
               <p class="check-item"><span class="legend-dot bg-blue-600"></span> <strong>Mike &mdash; Clone your demo Vapi assistant.</strong> Customize greeting, business name, services offered, and appointment availability.</p>
@@ -3337,7 +3338,7 @@ Worth a 2-minute demo? I can show you exactly how it sounds.
 
           <div class="callout callout-warning p-4 mt-4">
             <p class="font-semibold text-red-800 text-sm mb-1">If You Have 0 Clients by End of Week 8</p>
-            <p class="text-sm text-red-700">Don't panic. Check these in order: (1) Are your emails landing in inbox? Check Smartlead deliverability. (2) Are you sending enough volume? 50+ emails/day minimum. (3) Are you making phone calls? Email alone is slow &#x2014; calls accelerate everything. (4) Is your offer clear? "I'll answer your phones 24/7 for $500/mo" is clearer than "AI-powered communication solutions." (5) Consider the Founding Client rung ($497 setup + $497/mo, grandfathered) in exchange for a written case study and permission to use call recordings to get proof. The first client is the hardest. After that, everything accelerates.</p>
+            <p class="text-sm text-red-700">Don't panic. Check these in order: (1) Are your emails landing in inbox? Check Smartlead deliverability. (2) Are you sending enough volume? 50+ emails/day minimum. (3) Are you making phone calls? Email alone is slow &#x2014; calls accelerate everything. (4) Is your offer clear? "A person checks every overnight call and sends you a sorted list before 7am" is clearer than "AI-powered communication solutions." (5) Waive the setup fee (never the monthly) for a written case study and permission to use board screenshots. The $497 Founding rung is retired. The first client is the hardest. After that, everything accelerates.</p>
           </div>
         </section>
 
@@ -3952,7 +3953,7 @@ Should I set this up for you?&rdquo;</code></div>
               <div class="bg-gray-50 rounded-lg p-3">
                 <p class="font-semibold text-blue-700">Minutes 9-11: Pricing + Offer (Mike &mdash; one quoter, always)</p>
                 <p class="text-xs mt-1">"Here's how it works. We set everything up for you — custom-scripted to your business, your services, your hours. It's $[setup fee] to build it and $[monthly] per month. Most of our clients see ROI in the first week just from calls they would've missed."</p>
-                <p class="text-xs text-gray-500 mt-1"><em>Two cases, no blending: <strong>clients 1-3</strong> &mdash; quote Founding, $497 setup + $497/mo, and say the trade out loud (&ldquo;founding rate, in exchange for a written case study; grandfathered forever&rdquo;). <strong>Client 4+</strong> &mdash; present the Bundle as the default, $2,500 + $1,000/mo. Only mention individual services if they push back on price. If they're a bilingual market, add: "And because you serve a lot of Spanish-speaking customers, we include bilingual support — the agent switches to Spanish automatically."</em></p>
+                <p class="text-xs text-gray-500 mt-1"><em>Two cases, no blending: <strong>clients 1-3</strong> &mdash; quote the Front Office Bundle at the ladder price with the setup fee waived, and say the trade out loud (&ldquo;setup waived in exchange for a written case study&rdquo;). <strong>Client 4+</strong> &mdash; the Bundle with setup ($2,500). Offer Scale if they serve many Spanish-speaking customers: "Paola calls your Spanish-speaking customers back herself." Founding ($497) is retired.</em></p>
               </div>
               <div class="bg-emerald-50 rounded-lg p-3">
                 <p class="font-semibold text-emerald-700">Minutes 11-13: Handle Objections + Close (Mike &mdash; one quoter, always)</p>
@@ -5442,8 +5443,7 @@ Questions? Reply to this email or text me at [YOUR NUMBER].
   "backgroundSound": "office",
   "model": {
     "provider": "anthropic",
-    "model": "claude-haiku-4-5-20251001",
-    "temperature": 0.4,
+    "model": "claude-haiku-5-5",
     "messages": [
       { "role": "system", "content": "PASTE YOUR SYSTEM PROMPT HERE (see Agent Script Library)" }
     ],
@@ -5522,7 +5522,7 @@ Questions? Reply to this email or text me at [YOUR NUMBER].
 }</code>
           </div>
           <div class="callout callout-tip mb-8">
-            <p class="text-sm"><strong>Why these specific settings:</strong> <code>temperature 0.4</code> keeps the agent from improvising prices. <code>maxDurationSeconds 420</code> caps a runaway call at about $0.55 of spend. <code>structuredDataSchema</code> is what fills your client dashboard and monthly report automatically &mdash; without it you're reading transcripts by hand at 20 clients. And the <code>firstMessage</code> contains both required disclosures (AI identity + recording) in one natural sentence, which is your entire compliance posture in most states.</p>
+            <p class="text-sm"><strong>Why these specific settings:</strong> No <code>temperature</code> field: Haiku 5.5 rejects a custom value, so the system prompt&rsquo;s price rules (quote only from <code>{{PRICE_BANDS}}</code>) keep the agent from improvising prices. Only on Haiku 4.5 would you add <code>temperature 0.4</code>. <code>maxDurationSeconds 420</code> caps a runaway call at about $0.55 of spend. <code>structuredDataSchema</code> is what fills your client dashboard and monthly report automatically &mdash; without it you're reading transcripts by hand at 20 clients. And the <code>firstMessage</code> contains both required disclosures (AI identity + recording) in one natural sentence, which is your entire compliance posture in most states.</p>
           </div>
 
           <h3 class="text-lg font-bold mt-8 mb-3">Artifact 2: The Webhook Contract</h3>
@@ -7075,8 +7075,8 @@ already be taken. Want the audit report either way? It's free."</code></div>
 // This is what you send to the Anthropic API
 
 {
-  "model": "claude-sonnet-4-6",
-  "max_tokens": 1024,
+  "model": "claude-sonnet-5-5",
+  "max_tokens": 16000,
   "system": "You are a dispatch coordinator for an HVAC company. Your job is to assign incoming service requests to the optimal technician. Consider: tech skills, current location, drive time, availability, and customer priority. Always explain your reasoning.",
   "tools": [
     {
@@ -7713,8 +7713,8 @@ AFTER SAFETY INSTRUCTIONS:
             <p class="font-bold text-red-800 text-sm mb-1">Model Deprecation Alert (June 15, 2026)</p>
             <p class="text-sm text-red-700">Anthropic deprecated the original <code>claude-3-opus</code>, <code>claude-3-sonnet</code>, <code>claude-3-haiku</code>, and <code>claude-opus-4</code> / <code>claude-sonnet-4</code> model IDs. If your voice agent's LLM is set to any of these, it will stop working. Migrate now:</p>
             <ul class="text-sm text-red-700 mt-2 space-y-1 ml-4">
-              <li>&bull; For voice calls (speed matters): use <code>claude-haiku-4-5-20251001</code> ($1/$5 per MTok) &mdash; best latency-to-quality ratio</li>
-              <li>&bull; For complex conversations: use <code>claude-sonnet-4-6</code> ($3/$15 per MTok)</li>
+              <li>&bull; For voice calls (speed matters): use <code>claude-haiku-5-5</code> ($0.10/$0.50 per MTok, Oct 2026), with effort <code>low</code> and <strong>no custom temperature</strong>. <code>claude-haiku-4-5</code> ($1/$5) remains the fallback if Vapi doesn&rsquo;t list 5.5 yet</li>
+              <li>&bull; For complex conversations: use <code>claude-sonnet-5-5</code> ($2/$10 per MTok)</li>
               <li>&bull; Budget alternative: OpenAI <code>gpt-5.4-nano</code> ($0.20/$1.25 per MTok &mdash; the new cheap default) or <code>gpt-5.4-mini</code> ($0.75/$4.50) &mdash; test latency on Vapi before committing</li>
             </ul>
           </div>
@@ -7734,7 +7734,7 @@ AFTER SAFETY INSTRUCTIONS:
 
           <div class="callout callout-action p-4 mb-6">
             <p class="font-semibold text-blue-800 text-sm mb-1">Our Pick: Vapi — Here's Why (Still True in June 2026)</p>
-            <p class="text-sm text-blue-700">Vapi is the best choice for an agency model because: (1) You bring your own LLM (Haiku 4.5 / Sonnet 4.6), so you control quality and cost. (2) It integrates with n8n via webhooks &mdash; your entire workflow stays in your hands. (3) Per-minute pricing = you only pay for actual usage. (4) Bilingual works out of the box. (5) Largest agency community = best troubleshooting. (6) <strong>New in 2026:</strong> Simulations let you run automated test calls against your agent before deploying &mdash; huge for QA. The Monitoring product adds four monitor classes (Effectiveness, Compliance, Technical, Infrastructure) &mdash; set a <strong>Compliance monitor to flag any call where the AI-disclosure line was skipped</strong>, which directly de-risks the TCPA/disclosure exposure in the Legal section. Native MCP support now lets agents reach CRMs/calendars without bespoke webhooks. SIP trunking is available for enterprise clients.</p>
+            <p class="text-sm text-blue-700">Vapi is the best choice for an agency model because: (1) You bring your own LLM (Haiku 5.5 / Sonnet 5.5 as of Oct 2026), so you control quality and cost. (2) It integrates with n8n via webhooks &mdash; your entire workflow stays in your hands. (3) Per-minute pricing = you only pay for actual usage. (4) Bilingual works out of the box. (5) Largest agency community = best troubleshooting. (6) <strong>New in 2026:</strong> Simulations let you run automated test calls against your agent before deploying &mdash; huge for QA. The Monitoring product adds four monitor classes (Effectiveness, Compliance, Technical, Infrastructure) &mdash; set a <strong>Compliance monitor to flag any call where the AI-disclosure line was skipped</strong>, which directly de-risks the TCPA/disclosure exposure in the Legal section. Native MCP support now lets agents reach CRMs/calendars without bespoke webhooks. SIP trunking is available for enterprise clients.</p>
           </div>
 
           <h3 class="text-lg font-bold mt-8 mb-4">TTS Voice Options (late June 2026)</h3>
@@ -7777,8 +7777,8 @@ AFTER SAFETY INSTRUCTIONS:
             <p class="text-sm text-amber-800 mb-2">Your receptionist's system prompt is large (identity, hours, service area, pricing rules, transfer logic) and <em>identical on every call</em>. Anthropic prompt caching reads a cached prefix at <strong>~0.1&times; the normal input price (≈90% off)</strong> after the first call. This is free money you're probably leaving on the table.</p>
             <div class="text-sm text-amber-700 space-y-1">
               <p class="check-item"><strong>How:</strong> Put the stable system prompt + business knowledge <em>before</em> the <code>cache_control</code> breakpoint, and the live call transcript <em>after</em> it. Every turn after the first reads the cached prefix at 1/10th the cost.</p>
-              <p class="check-item"><strong>Batch the offline work:</strong> overnight call-transcript summaries, lead scoring, and CRM enrichment don't need to be real-time. Run them through the <strong>Batch API at 50% off</strong> (Haiku 4.5 batch = $0.50/$2.50). Stack caching + batch and offline jobs cost almost nothing.</p>
-              <p class="check-item"><strong>Keep the live call path on Haiku 4.5</strong> (or test GPT-5.4 Nano) &mdash; never batch the real-time conversation, only the after-the-fact analysis.</p>
+              <p class="check-item"><strong>Batch the offline work:</strong> overnight call-transcript summaries, lead scoring, and CRM enrichment don't need to be real-time. Run them through the <strong>Batch API at 50% off</strong> (Haiku 5.5 is already ~$0.10/$0.50 before the discount; Opus 5.5 batch is $2/$10). Stack caching + batch and offline jobs cost almost nothing.</p>
+              <p class="check-item"><strong>Keep the live call path on Haiku 5.5</strong> (or test GPT-5.4 Nano) &mdash; never batch the real-time conversation, only the after-the-fact analysis.</p>
             </div>
           </div>
 
@@ -7797,7 +7797,7 @@ AFTER SAFETY INSTRUCTIONS:
                   </tbody>
                 </table>
               </div>
-              <p class="text-xs text-gray-500 mt-2">Assumes Vapi at $0.05/min platform + ~$0.03-0.05/min LLM (Haiku 4.5) + ~$0.02/min TTS, Twilio at $0.0085/min + $1/number. Total all-in: ~$0.10-0.13/min. Use Sonnet 4.6 fallback for complex queries only.</p>
+              <p class="text-xs text-gray-500 mt-2">Assumes Vapi at $0.05/min platform + ~$0.03-0.05/min LLM (Haiku 4.5; Haiku 5.5 cuts this to well under $0.01) + ~$0.02/min TTS, Twilio at $0.0085/min + $1/number. Total all-in: ~$0.10-0.13/min. Use Sonnet 4.6 fallback for complex queries only.</p>
             </div>
           </div>
 
@@ -7948,7 +7948,7 @@ sudo dpkg-reconfigure -plow unattended-upgrades</code></div>
               <div class="text-xs text-gray-700 space-y-1">
                 <p><strong>Check Vapi latency settings:</strong> Dashboard &rarr; Agent &rarr; Advanced &rarr; ensure &ldquo;Response Delay&rdquo; is under 800ms.</p>
                 <p><strong>Try a different TTS voice:</strong> Some ElevenLabs voices have more natural cadence. Test &ldquo;Rachel,&rdquo; &ldquo;Josh,&rdquo; or &ldquo;Bella.&rdquo;</p>
-                <p><strong>Verify LLM selection:</strong> Use Haiku 4.5 for speed-critical responses, Sonnet 4.6 for quality-critical conversations. Opus/Fable are overkill and add latency. Also try GPT-5.4 Nano ($0.20/$1.25) &mdash; the new budget pick, competitive on speed.</p>
+                <p><strong>Verify LLM selection:</strong> Use Haiku 5.5 for speed-critical responses, Sonnet 5.5 for quality-critical conversations (Oct 2026; both reject a custom temperature). Opus/Fable are overkill and add latency. Also try GPT-5.4 Nano ($0.20/$1.25) &mdash; the new budget pick, competitive on speed.</p>
                 <p><strong>Check VPS CPU usage:</strong> SSH in and run <code>htop</code>. If CPU is pegged at 100%, your VPS is too small or something else is consuming resources.</p>
               </div>
             </div>
@@ -9271,19 +9271,21 @@ Let's get started!
 
 Hi [CLIENT NAME],
 
-Here's your monthly AI phone agent report for [MONTH]:
+Here's your Front Office report for [MONTH]:
 
-CALLS HANDLED: [X] total
-  - During business hours: [X]
-  - After hours / weekends: [X] (these would have been missed)
+OVERNIGHT CONVERSATIONS ON YOUR BOARD: [X]
+  - Flagged "book today": [X]
+  - Booked jobs (from YOUR job board, not our guess): [X]
+  - Emergencies escalated live to your on-call tech: [X]
+  - Spanish-speaking customers Paola called back: [X]
+  - Times the AI got something wrong and we fixed it: [X]
+  - Automated callers (e.g. Google's AI asking for a quote): [X]
 
-LEADS CAPTURED: [X]
-APPOINTMENTS BOOKED: [X]
 REVIEW REQUESTS SENT: [X]
 NEW GOOGLE REVIEWS: [X]
 
-ESTIMATED REVENUE SAVED: $[X]
-(Based on [X] after-hours calls x your average job value of $[X])
+WHAT THOSE BOOKED JOBS WERE WORTH: $[X]
+(Your booked jobs x your average ticket, from your own numbers)
 
 HIGHLIGHTS:
 - [Notable positive thing, e.g., "Captured 3 emergency plumbing calls on Saturday night"]
@@ -9299,21 +9301,37 @@ Talk soon,
         <section id="financials" class="mb-16 view-section hidden" data-view="reference">
           <h2 class="text-2xl font-extrabold mb-4">Financial Projections</h2>
 
-          <h3 class="text-lg font-bold mt-6 mb-3">Revenue Ramp-Up (Conservative)</h3>
-          <div class="overflow-x-auto">
+          <h3 class="text-lg font-bold mt-6 mb-3">Revenue Ramp-Up (Conservative, October 2026 model)</h3>
+          <p class="text-sm text-gray-700 mb-3">One new client a month, which is what a part-time team that just ran the 100-touch test should plan on. Clients 1-3 get the setup fee waived in exchange for a case study. Costs are tools (~$150/mo) plus <strong>~$150 per client per month</strong>: software, minutes and Morning Board labour at VA rates. That labour is Paola&rsquo;s own time for clients 1-4, and a paid VA from client 5. Pick the table that matches the <a href="#command-center" class="text-blue-600 hover:underline">15 Oct gate</a>.</p>
+          <h4 class="font-bold text-sm mb-2">Branch A &mdash; Front Office at $1,000/mo, $2,500 setup</h4>
+          <div class="overflow-x-auto mb-4">
             <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
-              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-3 font-semibold">Month</th><th class="text-right px-3 py-3 font-semibold">Clients</th><th class="text-right px-3 py-3 font-semibold">Setup Fees</th><th class="text-right px-3 py-3 font-semibold">Monthly Rev</th><th class="text-right px-3 py-3 font-semibold">Tool Costs</th><th class="text-right px-3 py-3 font-semibold">Profit</th></tr></thead>
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-3 font-semibold">Month</th><th class="text-right px-3 py-3 font-semibold">Clients</th><th class="text-right px-3 py-3 font-semibold">Setup Fees</th><th class="text-right px-3 py-3 font-semibold">Monthly Rev</th><th class="text-right px-3 py-3 font-semibold">Costs</th><th class="text-right px-3 py-3 font-semibold">Profit</th></tr></thead>
               <tbody class="divide-y divide-gray-100 bg-white">
                 <tr><td class="px-3 py-2">Month 1</td><td class="px-3 py-2 text-right">0</td><td class="px-3 py-2 text-right">$0</td><td class="px-3 py-2 text-right">$0</td><td class="px-3 py-2 text-right">-$150</td><td class="px-3 py-2 text-right">-$150</td></tr>
-                <tr><td class="px-3 py-2">Month 2</td><td class="px-3 py-2 text-right">1 (Founding)</td><td class="px-3 py-2 text-right">$497</td><td class="px-3 py-2 text-right">$497</td><td class="px-3 py-2 text-right">-$200</td><td class="px-3 py-2 text-right">$794</td></tr>
-                <tr><td class="px-3 py-2">Month 3</td><td class="px-3 py-2 text-right">3 (all Founding)</td><td class="px-3 py-2 text-right">$994</td><td class="px-3 py-2 text-right">$1,491</td><td class="px-3 py-2 text-right">-$310</td><td class="px-3 py-2 text-right">$2,175</td></tr>
-                <tr><td class="px-3 py-2">Month 4</td><td class="px-3 py-2 text-right">5 (+2 Starter)</td><td class="px-3 py-2 text-right">$3,000</td><td class="px-3 py-2 text-right">$2,491</td><td class="px-3 py-2 text-right">-$500</td><td class="px-3 py-2 text-right">$4,991</td></tr>
-                <tr><td class="px-3 py-2">Month 5</td><td class="px-3 py-2 text-right">7 (+2 Starter)</td><td class="px-3 py-2 text-right">$3,000</td><td class="px-3 py-2 text-right">$3,491</td><td class="px-3 py-2 text-right">-$700</td><td class="px-3 py-2 text-right">$5,791</td></tr>
-                <tr class="bg-emerald-50"><td class="px-3 py-2 font-bold">Month 6</td><td class="px-3 py-2 text-right font-bold">10 (+3 Bundle)</td><td class="px-3 py-2 text-right">$7,500</td><td class="px-3 py-2 text-right">$6,991</td><td class="px-3 py-2 text-right">-$1,310</td><td class="px-3 py-2 text-right font-bold">$13,181</td></tr>
+                <tr><td class="px-3 py-2">Month 2</td><td class="px-3 py-2 text-right">1 (setup waived)</td><td class="px-3 py-2 text-right">$0</td><td class="px-3 py-2 text-right">$1,000</td><td class="px-3 py-2 text-right">-$300</td><td class="px-3 py-2 text-right">$700</td></tr>
+                <tr><td class="px-3 py-2">Month 3</td><td class="px-3 py-2 text-right">2 (setup waived)</td><td class="px-3 py-2 text-right">$0</td><td class="px-3 py-2 text-right">$2,000</td><td class="px-3 py-2 text-right">-$450</td><td class="px-3 py-2 text-right">$1,550</td></tr>
+                <tr><td class="px-3 py-2">Month 4</td><td class="px-3 py-2 text-right">3 (setup waived)</td><td class="px-3 py-2 text-right">$0</td><td class="px-3 py-2 text-right">$3,000</td><td class="px-3 py-2 text-right">-$600</td><td class="px-3 py-2 text-right">$2,400</td></tr>
+                <tr><td class="px-3 py-2">Month 5</td><td class="px-3 py-2 text-right">4</td><td class="px-3 py-2 text-right">$2,500</td><td class="px-3 py-2 text-right">$4,000</td><td class="px-3 py-2 text-right">-$750</td><td class="px-3 py-2 text-right">$5,750</td></tr>
+                <tr class="bg-emerald-50"><td class="px-3 py-2">Month 6</td><td class="px-3 py-2 text-right">5 (VA starts)</td><td class="px-3 py-2 text-right">$2,500</td><td class="px-3 py-2 text-right">$5,000</td><td class="px-3 py-2 text-right">-$900</td><td class="px-3 py-2 text-right">$6,600</td></tr>
               </tbody>
             </table>
           </div>
-          <p class="text-xs text-gray-500 mt-2"><strong>Computed from the <a href="#command-center" class="text-blue-600 hover:underline">pricing ladder</a>, not rounded up.</strong> Clients 1-3 are Founding ($497 setup + $497/mo, grandfathered forever), then Starter ($1,500 + $500) and Bundle ($2,500 + $1,000). That is why month-3 MRR looks small &mdash; the early money is in setup fees, and MRR compounds later as new clients come in at higher rungs. Delivery cost ~$78/client/month at ~600 minutes; overage bills at $0.35/min so heavy users stay profitable. <strong>$10K MRR arrives around month 8-10, not month 6</strong>, because your first three clients stay at $497 for life.</p>
+          <h4 class="font-bold text-sm mb-2">Branch B &mdash; Front Office at $650/mo, ~$1,000 setup</h4>
+          <div class="overflow-x-auto mb-4">
+            <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+              <thead class="bg-gray-100"><tr><th class="text-left px-3 py-3 font-semibold">Month</th><th class="text-right px-3 py-3 font-semibold">Clients</th><th class="text-right px-3 py-3 font-semibold">Setup Fees</th><th class="text-right px-3 py-3 font-semibold">Monthly Rev</th><th class="text-right px-3 py-3 font-semibold">Costs</th><th class="text-right px-3 py-3 font-semibold">Profit</th></tr></thead>
+              <tbody class="divide-y divide-gray-100 bg-white">
+                <tr><td class="px-3 py-2">Month 1</td><td class="px-3 py-2 text-right">0</td><td class="px-3 py-2 text-right">$0</td><td class="px-3 py-2 text-right">$0</td><td class="px-3 py-2 text-right">-$150</td><td class="px-3 py-2 text-right">-$150</td></tr>
+                <tr><td class="px-3 py-2">Month 2</td><td class="px-3 py-2 text-right">1 (setup waived)</td><td class="px-3 py-2 text-right">$0</td><td class="px-3 py-2 text-right">$650</td><td class="px-3 py-2 text-right">-$300</td><td class="px-3 py-2 text-right">$350</td></tr>
+                <tr><td class="px-3 py-2">Month 3</td><td class="px-3 py-2 text-right">2 (setup waived)</td><td class="px-3 py-2 text-right">$0</td><td class="px-3 py-2 text-right">$1,300</td><td class="px-3 py-2 text-right">-$450</td><td class="px-3 py-2 text-right">$850</td></tr>
+                <tr><td class="px-3 py-2">Month 4</td><td class="px-3 py-2 text-right">3 (setup waived)</td><td class="px-3 py-2 text-right">$0</td><td class="px-3 py-2 text-right">$1,950</td><td class="px-3 py-2 text-right">-$600</td><td class="px-3 py-2 text-right">$1,350</td></tr>
+                <tr><td class="px-3 py-2">Month 5</td><td class="px-3 py-2 text-right">4</td><td class="px-3 py-2 text-right">$1,000</td><td class="px-3 py-2 text-right">$2,600</td><td class="px-3 py-2 text-right">-$750</td><td class="px-3 py-2 text-right">$2,850</td></tr>
+                <tr class="bg-emerald-50"><td class="px-3 py-2">Month 6</td><td class="px-3 py-2 text-right">5 (VA starts)</td><td class="px-3 py-2 text-right">$1,000</td><td class="px-3 py-2 text-right">$3,250</td><td class="px-3 py-2 text-right">-$900</td><td class="px-3 py-2 text-right">$3,350</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-xs text-gray-500 mt-2"><strong>Computed from the <a href="#command-center" class="text-blue-600 hover:underline">pricing ladder</a>, not rounded up.</strong> The retired Founding ($497) and Starter ($500) rungs are gone, so early MRR is higher than the old projection, but setup cash arrives later because the first three setups are waived. Scale-tier upgrades ($1,500+) and quarterly reactivation are upside not shown here. <strong>Branch A reaches ~$10K MRR at ~10 clients</strong>, which at one client a month is around month 11. <strong>Branch B needs ~15 clients</strong> and therefore a second VA. Plan for whichever branch the market actually gave you.</p>
 
           <h3 class="text-lg font-bold mt-8 mb-3">Monthly Cost Breakdown (at 10 Clients)</h3>
           <div class="overflow-x-auto">
@@ -9337,7 +9355,7 @@ Talk soon,
 
           <div class="callout callout-cost p-4 mt-6">
             <p class="font-semibold text-emerald-800 text-sm mb-1">The Split</p>
-            <p class="text-sm text-emerald-700">At month 6 on the ladder: <strong>$6,991 MRR &minus; $1,310 costs = $5,681/mo</strong>, or about <strong>$2,840 each</strong> before tax &mdash; plus setup fees, which are most of the early cash. Set aside 25-30% for tax. To reach a genuine $10K MRR you need roughly 14-15 clients at ladder pricing, or 10 clients with add-ons lifting ARPU past $1,000. Both are month 8-12 outcomes, and the honest version is what keeps you from quitting in month 6 when the arithmetic was never going to work.</p>
+            <p class="text-sm text-emerald-700">At month 6 (October 2026 model, 5 clients): <strong>Branch A $5,000 MRR &minus; $900 costs = $4,100/mo</strong> (~$2,050 each), <strong>Branch B $3,250 &minus; $900 = $2,350/mo</strong> (~$1,175 each), before tax and plus setup fees. Set aside 25-30% for tax. A genuine $10K MRR needs ~10 clients at $1,000 or ~15 at $650. Both are month 8-12 outcomes, and the honest version is what keeps you from quitting in month 6 when the arithmetic was never going to work.</p>
           </div>
 
           <h3 class="text-lg font-bold mt-8 mb-4">Cash Flow Timeline (When Money Actually Hits Your Account)</h3>
@@ -10451,17 +10469,17 @@ MONTHLY COSTS PER CLIENT:
           </div>
           <p class="text-xs text-gray-500 mt-2">Prices are mid-2026 ballparks and change often &mdash; verify at signup. The whole AI stack above runs roughly <strong>$120&ndash;260/month</strong>, most of which you only add once clients are paying.</p>
 
-          <h3 class="text-lg font-bold mt-8 mb-3">LLM API Pricing Quick Reference (mid-July 2026)</h3>
+          <h3 class="text-lg font-bold mt-8 mb-3">LLM API Pricing Quick Reference (Anthropic rows checked 13 Oct 2026; others last checked July 2026)</h3>
           <p class="text-sm text-gray-700 mb-3">These are the models you'll actually use in your voice agents and automations. Prices are per million tokens (input / output). Both providers offer ~50% batch discounts and ~90% cached-input discounts &mdash; see the <a href="#voice-platforms" class="text-blue-600 hover:underline">cost-lever note</a> on caching your system prompt.</p>
           <div class="overflow-x-auto">
             <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
               <thead class="bg-gray-100"><tr><th class="text-left px-3 py-2 font-semibold">Model</th><th class="text-left px-3 py-2 font-semibold">Input / Output</th><th class="text-left px-3 py-2 font-semibold">Best For</th></tr></thead>
               <tbody class="divide-y divide-gray-100 bg-white text-gray-700">
-                <tr class="bg-blue-50"><td class="px-3 py-2 font-bold text-blue-700">Claude Haiku 4.5</td><td class="px-3 py-2">$1 / $5</td><td class="px-3 py-2">Voice agent LLM (default). Best latency-to-quality for real-time calls. Batch: $0.50 / $2.50.</td></tr>
-                <tr class="bg-emerald-50"><td class="px-3 py-2 font-bold text-emerald-700">Claude Sonnet 5 <span class="text-[10px] font-normal">(NEW Jun 30)</span></td><td class="px-3 py-2">$2 / $10 intro*</td><td class="px-3 py-2">Successor to Sonnet 4.6. *Intro pricing through Aug 31, 2026, then $3/$15. Caveat: its new tokenizer produces ~30% more tokens for the same text, so the real cost is higher than the sticker suggests &mdash; benchmark before switching your call path.</td></tr>
-                <tr><td class="px-3 py-2 font-semibold">Claude Sonnet 4.6</td><td class="px-3 py-2">$3 / $15</td><td class="px-3 py-2">Complex conversations, fallback for Haiku. Proposals and SOPs via API. Still fine &mdash; no rush to migrate mid-client.</td></tr>
-                <tr><td class="px-3 py-2 font-semibold">Claude Opus 4.8</td><td class="px-3 py-2">$5 / $25</td><td class="px-3 py-2">Your own research / coding. Too expensive and slow for client-facing calls.</td></tr>
-                <tr><td class="px-3 py-2 font-semibold">Claude Fable 5</td><td class="px-3 py-2">$10 / $50</td><td class="px-3 py-2">Anthropic's most capable model. Overkill for everything you do &mdash; ignore unless you hit a genuinely hard offline analysis. Never on the call path.</td></tr>
+                <tr class="bg-blue-50"><td class="px-3 py-2 font-bold text-blue-700">Claude Haiku 5.5 <code class="text-[10px]">claude-haiku-5-5</code></td><td class="px-3 py-2">$0.10 / $0.50 <span class="text-[10px]">(prompts &le;100K; $0.50/$2.50 above)</span></td><td class="px-3 py-2"><strong>Voice agent LLM (new default)</strong>, about a tenth of Haiku 4.5&rsquo;s price. Thinking is on by default with effort <code>medium</code>, so set effort <code>low</code> on the call path for latency. <strong>Rejects non-default <code>temperature</code></strong>: clear that field in Vapi or the call fails. A/B it against Haiku 4.5 on 10 test calls before switching a live client.</td></tr>
+                <tr class="bg-emerald-50"><td class="px-3 py-2 font-bold text-emerald-700">Claude Sonnet 5.5 <code class="text-[10px]">claude-sonnet-5-5</code></td><td class="px-3 py-2">$2 / $10</td><td class="px-3 py-2">Complex call flows (multi-step quoting, dispatch). Thinking can&rsquo;t be switched off (a disabled setting returns an error). Start at effort <code>low</code> for live calls. Also rejects non-default sampling.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Claude Opus 5.5 <code class="text-[10px]">claude-opus-5-5</code></td><td class="px-3 py-2">$4 / $20</td><td class="px-3 py-2">Offline work: Morning Board pre-sort (n8n Workflow 5, effort <code>low</code>), proposals, monthly reports, AIGrowthEngine. Never on the live call path. Use <code>fallbacks: "default"</code> so a rare safety decline is re-run rather than dropped.</td></tr>
+                <tr><td class="px-3 py-2 font-semibold">Claude Fable 5.1</td><td class="px-3 py-2">$10 / $50</td><td class="px-3 py-2">Anthropic&rsquo;s most capable model. Overkill for everything you do. Never on the call path.</td></tr>
+                <tr class="text-gray-500"><td class="px-3 py-2">Claude Haiku 4.5 / Sonnet 4.6</td><td class="px-3 py-2">$1 / $5 &middot; $3 / $15</td><td class="px-3 py-2">Previous generation, still served. Keep them only as a fallback if Vapi&rsquo;s model list doesn&rsquo;t offer the 5.5 IDs yet, or on a live client until the A/B passes.</td></tr>
                 <tr class="bg-emerald-50"><td class="px-3 py-2 font-bold text-emerald-700">GPT-5.4 Nano</td><td class="px-3 py-2">$0.20 / $1.25</td><td class="px-3 py-2">New cheapest capable model (replaces o4-mini as the budget pick). Ideal for intent classification, post-call extraction, SMS drafting in n8n.</td></tr>
                 <tr><td class="px-3 py-2 font-semibold">GPT-5.4 mini</td><td class="px-3 py-2">$0.75 / $4.50</td><td class="px-3 py-2">Budget alternative for parsing/classification. Test vs. Haiku for voice if latency holds.</td></tr>
                 <tr><td class="px-3 py-2 font-semibold">Gemini 3.1 Flash-Lite</td><td class="px-3 py-2">$0.25 / $1.50</td><td class="px-3 py-2">Google's cheapest current-gen. Strong cheap text-brain candidate; Flash Live variant does audio-to-audio (~960ms TTFT).</td></tr>
@@ -11059,7 +11077,7 @@ sources.</code></div>
               <p class="check-item"><strong>Vapi raised a $50M Series B (1B+ calls):</strong> Reassurance for your platform-risk story after the June 3 npm incident. Its new Monitoring product can flag calls where the AI-disclosure line was skipped &mdash; compliance automation built in.</p>
               <p class="check-item"><strong>Vertical AI for trades is the breakout category:</strong> Avoca hit a <strong>$1B valuation</strong> building AI agents for HVAC/plumbing/roofing (calls, scheduling, estimate follow-up); Rebar raised $14M for AI HVAC quoting. This <em>validates</em> your exact market &mdash; but they sell direct/enterprise; your edge is local trust + done-for-you delivery to small contractors.</p>
               <p class="check-item"><strong>Colorado AI Act delayed &amp; paused (correction):</strong> Now effective Jan 1, 2027 (SB 189, May 14) and currently court-paused. Earlier "June 30, 2026" guidance is outdated &mdash; don't build against it. <a href="#legal" class="text-blue-600 hover:underline">Updated Legal section</a>.</p>
-              <p class="check-item"><strong>Claude Fable 5 (June 9):</strong> Anthropic&rsquo;s most capable model ($10/$50). Too expensive/slow for voice and its always-on safety classifiers can interrupt &mdash; keep Haiku 4.5 for calls, Sonnet 4.6 for complex tasks. Old <code>claude-opus-4</code>/<code>claude-sonnet-4</code> IDs are deprecated; migrate any configs.</p>
+              <p class="check-item"><strong>Claude Fable 5 (June 9):</strong> Anthropic&rsquo;s most capable model ($10/$50). Too expensive/slow for voice and its always-on safety classifiers can interrupt &mdash; keep Haiku for calls (now Haiku 5.5), Sonnet for complex tasks (now Sonnet 5.5). Old <code>claude-opus-4</code>/<code>claude-sonnet-4</code> IDs are deprecated; migrate any configs.</p>
             </div>
           </div>
 
@@ -11268,7 +11286,7 @@ sources.</code></div>
             <div class="bg-white rounded-xl border border-gray-200 p-5">
               <div class="text-xs font-bold text-blue-600 uppercase mb-1">$10K MRR</div>
               <h4 class="font-bold text-sm mb-2">You Two + One VA</h4>
-              <p class="text-xs text-gray-600 leading-relaxed">Mike: sales + delivery. Paola: onboarding + client comms + QA. VA: lists and CRM hygiene. ~$700/mo total payroll. Margin: ~80%. Everything else is templates doing the work.</p>
+              <p class="text-xs text-gray-600 leading-relaxed">Mike: sales + delivery. Paola: onboarding, client comms, board QA and Spanish callbacks. VA: Morning Board passes (from client 5), then lists and CRM hygiene. ~$700-1,100/mo total payroll. Margin: ~80%. Everything else is templates doing the work.</p>
             </div>
             <div class="bg-white rounded-xl border border-gray-200 p-5">
               <div class="text-xs font-bold text-emerald-600 uppercase mb-1">$30K MRR (~25 clients)</div>
@@ -11376,7 +11394,7 @@ sources.</code></div>
           <div class="bg-white rounded-xl border border-gray-200 p-5 mb-2">
             <p class="text-sm text-gray-700 mb-2">A typical Vapi receptionist call costs <strong>$0.10-0.20/minute all-in</strong>:</p>
             <ul class="text-xs text-gray-600 space-y-1 list-disc pl-5">
-              <li>Voice platform (Vapi base): ~$0.05/min &middot; STT (Deepgram): ~$0.01/min &middot; LLM (GPT-5.4 mini / Haiku 4.5 class): ~$0.01-0.03/min &middot; TTS (Cartesia/11L): ~$0.02-0.07/min &middot; Telephony (Twilio): ~$0.01/min</li>
+              <li>Voice platform (Vapi base): ~$0.05/min &middot; STT (Deepgram): ~$0.01/min &middot; LLM (Haiku 5.5 / GPT-5.4 mini class): ~$0.002-0.03/min &middot; TTS (Cartesia/11L): ~$0.02-0.07/min &middot; Telephony (Twilio): ~$0.01/min</li>
             </ul>
             <p class="text-sm text-gray-700 mt-2">Average home-service call ~2.5 min → <strong>~$0.40/call</strong>. Client at 150 calls/mo → <strong>~$40-70/mo cost vs $800+ billed</strong>. When quoting heavy-volume clients: estimate minutes × $0.15, then add 30% buffer.</p>
           </div>
@@ -11387,12 +11405,12 @@ sources.</code></div>
             <table class="w-full text-xs border border-gray-200 rounded-lg overflow-hidden">
               <thead class="bg-gray-100"><tr><th class="text-left px-2 py-2 font-semibold">Situation</th><th class="text-left px-2 py-2 font-semibold">Default pick</th></tr></thead>
               <tbody class="divide-y divide-gray-100 bg-white">
-                <tr><td class="px-2 py-2">Standard voice receptionist build</td><td class="px-2 py-2 font-semibold">Vapi + Deepgram + Cartesia + GPT-5.4 mini (or Haiku 4.5)</td></tr>
+                <tr><td class="px-2 py-2">Standard voice receptionist build</td><td class="px-2 py-2 font-semibold">Vapi + Deepgram + Cartesia + Haiku 5.5 (or GPT-5.4 mini)</td></tr>
                 <tr><td class="px-2 py-2">Client wants everything in one platform / you resell SaaS</td><td class="px-2 py-2 font-semibold">GoHighLevel (Voice AI + CRM + SaaS mode)</td></tr>
-                <tr><td class="px-2 py-2">Complex multi-step reasoning on calls (quoting, triage)</td><td class="px-2 py-2 font-semibold">Sonnet 4.6 on the voice path; Opus/Fable for offline analysis</td></tr>
+                <tr><td class="px-2 py-2">Complex multi-step reasoning on calls (quoting, triage)</td><td class="px-2 py-2 font-semibold">Sonnet 5.5 on the voice path; Opus 5.5 for offline analysis</td></tr>
                 <tr><td class="px-2 py-2">Automation between tools</td><td class="px-2 py-2 font-semibold">n8n self-hosted (cost) / Make (speed to build)</td></tr>
                 <tr><td class="px-2 py-2">Cold email at volume</td><td class="px-2 py-2 font-semibold">Smartlead + MillionVerifier + Outscraper lists</td></tr>
-                <tr><td class="px-2 py-2">Cheapest acceptable bulk/offline LLM work</td><td class="px-2 py-2 font-semibold">GPT-5.4 Nano or Haiku 4.5 Batch (50% off)</td></tr>
+                <tr><td class="px-2 py-2">Cheapest acceptable bulk/offline LLM work</td><td class="px-2 py-2 font-semibold">Haiku 5.5 (already ~$0.10/M in), or GPT-5.4 Nano; Batch API halves either</td></tr>
                 <tr><td class="px-2 py-2">Scheduling without client's FSM</td><td class="px-2 py-2 font-semibold">Cal.com; with FSM: integrate ServiceTitan/Jobber/Housecall directly</td></tr>
               </tbody>
             </table>
@@ -11478,8 +11496,8 @@ sources.</code></div>
                 <tr><td class="px-2 py-2">STT</td><td class="px-2 py-2 font-bold">Deepgram (Flux)</td><td class="px-2 py-2">~$0.0065/min</td><td class="px-2 py-2">Default: built-in end-of-turn detection = faster feel</td></tr>
                 <tr><td class="px-2 py-2">TTS</td><td class="px-2 py-2 font-bold">Cartesia Sonic</td><td class="px-2 py-2">~$0.02-0.04/min</td><td class="px-2 py-2">Default: ~40-80ms latency; ElevenLabs when voice quality closes deals</td></tr>
                 <tr class="bg-blue-50"><td class="px-2 py-2 font-bold" colspan="4">LLMs (details &amp; prices: Module 6 pricing table)</td></tr>
-                <tr><td class="px-2 py-2">Voice-path LLM</td><td class="px-2 py-2 font-bold">GPT-5.4 mini / Haiku 4.5</td><td class="px-2 py-2">$0.75-1/M in</td><td class="px-2 py-2">Default receptionist brain: fast + cheap</td></tr>
-                <tr><td class="px-2 py-2">Heavy reasoning</td><td class="px-2 py-2">Sonnet 4.6 / Opus 4.8</td><td class="px-2 py-2">$3-5/M in</td><td class="px-2 py-2">Complex call flows; offline analysis, proposals, reports</td></tr>
+                <tr><td class="px-2 py-2">Voice-path LLM</td><td class="px-2 py-2 font-bold">Haiku 5.5 / GPT-5.4 mini</td><td class="px-2 py-2">$0.10-0.75/M in</td><td class="px-2 py-2">Default receptionist brain: fast + cheap</td></tr>
+                <tr><td class="px-2 py-2">Heavy reasoning</td><td class="px-2 py-2">Sonnet 5.5 / Opus 5.5</td><td class="px-2 py-2">$2-4/M in</td><td class="px-2 py-2">Complex call flows; offline analysis, proposals, reports</td></tr>
                 <tr><td class="px-2 py-2">Bulk/offline</td><td class="px-2 py-2">GPT-5.4 Nano / Haiku Batch</td><td class="px-2 py-2">$0.20-0.50/M in</td><td class="px-2 py-2">Review mining, list enrichment, transcript tagging</td></tr>
                 <tr class="bg-blue-50"><td class="px-2 py-2 font-bold" colspan="4">Telephony &amp; SMS</td></tr>
                 <tr><td class="px-2 py-2">Numbers/SMS</td><td class="px-2 py-2 font-bold">Twilio</td><td class="px-2 py-2">$1.15/number, ~$0.008/SMS</td><td class="px-2 py-2">Default; register A2P 10DLC before sending anything</td></tr>
