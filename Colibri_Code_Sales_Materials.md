@@ -1,12 +1,82 @@
 # COLIBRI CODE LLC -- COMPLETE SALES MATERIALS
-## The Overnight Front Office for Home Service Contractors
-### Prepared for Mike (Technical Founder, US sales seat) & Paola (Operations, Morning Board, Spanish-language accounts)
+### Prepared for Mike (Technical Founder, US sales seat) & Paola (Operations, Spanish-language accounts)
 
-*Rewritten 13 Oct 2026 for the October revamp. Replaces the June 2026 version: its $297/$497/$797 tiers, "unlimited calls" pricing and missed-call statistics are retired. When this document and `agency-plan.html` → Command Center disagree, the Command Center wins.*
+*Rebuilt 17 Nov 2026. **Part A sells the core offer, the Booked-Job Desk** (see `operating-plan.html`, which wins over everything else). **Part B** is the October 2026 Overnight Front Office material, now used **only for the after-hours add-on** when a client asks about it. Prices in Part B that differ from the operating plan's ladder are superseded.*
 
 ---
 
-# READ THIS FIRST -- WHAT WE SELL NOW
+# PART A -- THE BOOKED-JOB DESK (the core offer)
+
+**One sentence:**
+> "We turn the customers and estimates you already have into booked jobs -- and you only pay for jobs that land on your schedule."
+
+**Price (quote only this):** free Dormant-Customer Count -> Reactivation Pilot, **$0 up front + $75 per booked job** -> Booked-Job Desk, **$400/mo + $40 per booked job, capped at $1,500**, month-to-month. Add-ons only if asked: after-hours front office $300/mo, speed-to-lead $300/mo.
+
+**Three rules:**
+1. **Never lead with "AI."** Lead with their dormant customers and open estimates -- their own numbers.
+2. **The client's systems send, the client approves every message.** We never own their customers or their phone numbers.
+3. **"Booked" means booked in *their* job board.** Say it early; it's the trust builder.
+
+## A1. Cold call (Mike) -- Tue/Thu 18:00 CET, Sat 15:00 CET
+
+> **Mike:** Hey [First Name], it's Mike with Colibri Code. Quick one -- how many customers do you think you've got in Jobber who haven't booked anything in the last year?
+>
+> *(They guess. Most say "a lot" or "no idea".)*
+>
+> **Mike:** That's usually the cheapest work a shop can get -- they already know you. We send them a short, seasonal note from *your* Jobber -- you approve every word -- and you pay us $75 for each job it books. Nothing up front. If it books nothing, you pay nothing. Could I take fifteen minutes on a screenshare this week to count them with you? Tuesday or Thursday?
+
+**If they say "We already send emails":** "Great -- when did the last one go to people who haven't booked in a year? ... Most shops have the tool and no time. We're the time."
+
+**If they say "I don't want to spam my customers":** "Agreed -- one short note, in your voice, that you approve first, with an unsubscribe on every email. If you don't like the draft, it doesn't go."
+
+**If they say "What's the catch?":** "We only get paid on jobs that show up in your own job board within 30 days. You check our count. If you disagree with a row, it's yours."
+
+**If they say "How do you know who booked because of you?":** "We match the jobs created in your board after the send against the list we sent. Anyone already scheduled is excluded up front."
+
+**If they're on ServiceTitan / big call centre:** "You're probably bigger than who we work with -- happy to point you elsewhere." (Out of ICP.)
+
+**Voicemail (under 20s):** "Hey [Name], Mike with Colibri Code. I help [trade] shops in [city] book jobs from customers who haven't called in a year -- you only pay per booked job. Number is [x]. Again, Mike, [x]."
+
+## A2. Cold email (Mike, from AIGrowthEngine lists)
+
+**Subject:** Your customers from last winter
+
+> Hi [First Name] -- most [trade] shops your size have hundreds of customers in Jobber who haven't booked in a year. A short seasonal note from your own account -- one you approve -- usually brings some of them back.
+>
+> We do that for you, in English and Spanish, and charge $75 per job it books. Nothing up front; you verify the count in your own job board.
+>
+> Worth 15 minutes to count yours?
+>
+> -- Mike, Colibri Code
+
+**Follow-up (day 4):** "Quick bump -- the [season] campaign is the one that works best (e.g. furnace checks before the first cold snap). Happy to count your dormant customers on a 15-min screenshare."
+
+**Breakup (day 10):** "I'll leave it here. If you ever want to know how many past customers you're sitting on, reply 'count' and I'll set it up."
+
+## A3. The Dormant-Customer Count (15-min screenshare -- the close)
+
+1. **Count together (5 min):** in their Jobber/Housecall Pro, filter clients with no job in 12+ months; note the number. Then open estimates older than 7 days.
+2. **Make it concrete (3 min):** "If one in fifty of those [N] books a [$ticket] job, that's [N/50] jobs. You'd pay us [N/50 x $75] and keep the rest." *(Use their numbers; say "if" -- never promise a rate.)*
+3. **Offer the pilot (2 min):** "Let's do one campaign. You approve it, it sends from your account, you pay $75 per booked job, nothing otherwise. I'll send a one-page agreement today."
+4. **Book onboarding with Paola (1 min):** "Paola runs the setup -- 30 minutes to export your list and pick the send date."
+
+## A4. Day-30 conversion (Mike)
+
+> "Here's the ledger -- [X] jobs, [$Y] of work, from your own board. Want this running every month? The Desk is $400 a month plus $40 a job -- a monthly seasonal campaign, a weekly follow-up on open estimates, and review requests after every job. Month-to-month, capped at $1,500."
+
+## A5. Spanish-serving shops (Paola leads the whole call)
+
+> "Hola [Nombre], le habla Paola de Colibri Code. Le pregunto rápido: ¿cuántos clientes tiene que no le han llamado en el último año? Nosotros les mandamos un mensaje corto de su parte -- en inglés y en español, usted lo aprueba -- y solo nos paga $75 por cada trabajo que se agende. Si no se agenda nada, no paga nada. ¿Le parece si los contamos juntos en 15 minutos esta semana?"
+
+---
+
+# PART B -- OVERNIGHT FRONT OFFICE (after-hours ADD-ON only, Oct 2026)
+
+*Use this only when a client asks about after-hours calls. Add-on price per the operating plan: $300/mo.*
+
+---
+
+# B0. READ FIRST -- THE FRONT OFFICE ADD-ON (October 2026 material)
 
 **One sentence:**
 > "Every call, text and AI-caller inquiry from 5pm to 7am gets answered, checked by a bilingual human, and sorted onto your board before your first truck rolls -- on whatever phone system you already have, for a fraction of a night CSR."
@@ -17,7 +87,7 @@
 2. **Don't fight the tool they already have -- run it.** If they pay for Jobber's, Housecall Pro's, Zoom's or Quo's receptionist, that becomes the answering layer and we put the Morning Board on top. If they have nothing, Mike deploys ours.
 3. **Price against a hire, never against software.** A night/weekend CSR costs $3,300-4,600/mo fully loaded. A human answering service runs $300-1,500/mo and sorts nothing.
 
-**Current price (quote only this):**
+**October 2026 prices (SUPERSEDED: as an add-on it is $300/mo per `operating-plan.html`; the table below is kept for history):**
 
 | | Setup | Monthly |
 |---|---|---|

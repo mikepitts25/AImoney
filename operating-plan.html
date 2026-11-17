@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operating Plan — Colibri Code</title>
+  <meta name="robots" content="noindex, nofollow">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="color-scheme" content="only light">
+  <style>
+    :root { color-scheme: only light; }
+    html { scroll-behavior: smooth; }
+    body { background: #f8fafc; }
+    .mike { color: #2563eb; font-weight: 700; }
+    .paola { color: #a21caf; font-weight: 700; }
+    .tbl { width: 100%; font-size: 0.8125rem; border-collapse: collapse; }
+    .tbl th { background: #f1f5f9; text-align: left; padding: 0.5rem 0.75rem; font-weight: 600; }
+    .tbl td { padding: 0.5rem 0.75rem; border-top: 1px solid #e2e8f0; vertical-align: top; }
+    .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.25rem; }
+    .chk { display: flex; gap: 0.5rem; align-items: flex-start; padding: 0.25rem 0; }
+    .chk input { margin-top: 0.2rem; width: 1rem; height: 1rem; flex-shrink: 0; }
+    .chk input:checked + span { color: #94a3b8; text-decoration: line-through; }
+    h2 { scroll-margin-top: 4.5rem; }
+    @media print { nav { display: none; } .card { break-inside: avoid; } }
+  </style>
+</head>
+<body class="text-slate-800">
+
+<nav class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-200">
+  <div class="max-w-4xl mx-auto px-4 py-2 flex gap-4 overflow-x-auto text-sm whitespace-nowrap">
+    <a href="#minute" class="font-semibold text-slate-900">Operating Plan</a>
+    <a href="#offer" class="text-slate-500 hover:text-slate-900">Offer</a>
+    <a href="#delivery" class="text-slate-500 hover:text-slate-900">Delivery</a>
+    <a href="#tools" class="text-slate-500 hover:text-slate-900">Tools</a>
+    <a href="#ninety" class="text-slate-500 hover:text-slate-900">90 days</a>
+    <a href="#scorecard" class="text-slate-500 hover:text-slate-900">Scorecard</a>
+    <a href="#rules" class="text-slate-500 hover:text-slate-900">Rules</a>
+    <a href="agency-plan.html" class="text-emerald-700 hover:text-emerald-900">Reference library &rarr;</a>
+  </div>
+</nav>
+
+<main class="max-w-4xl mx-auto px-4 py-8 space-y-10">
+
+  <!-- HEADER -->
+  <header>
+    <p class="text-xs font-bold uppercase tracking-widest text-emerald-700 mb-2">Colibri Code &middot; Mike + Paola &middot; Rebuilt 17 November 2026</p>
+    <h1 class="text-3xl sm:text-4xl font-extrabold leading-tight mb-3">The Operating Plan: The Booked-Job Desk</h1>
+    <p class="text-slate-600">This is the one page you run the business from. The <a href="agency-plan.html" class="text-emerald-700 underline">AI Agency Blueprint</a> is now a reference library: use it for how-to detail (cold email setup, referral partners, legal), never for what to sell or what to do next. <strong>Where the two disagree, this page wins.</strong></p>
+  </header>
+
+  <!-- ONE MINUTE -->
+  <section>
+    <h2 id="minute" class="text-xl font-extrabold mb-3">The plan in one minute</h2>
+    <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-6 text-white mb-4">
+      <p class="text-[10px] font-bold uppercase tracking-widest text-emerald-300 mb-2">What we say</p>
+      <p class="text-lg sm:text-xl font-extrabold leading-snug mb-3">&ldquo;We turn the customers and estimates you already have into booked jobs, and you only pay for jobs that land on your schedule.&rdquo;</p>
+      <p class="text-sm text-slate-300">We run the revenue tools contractors already pay for and don&rsquo;t use: win back past customers, chase open estimates, ask for reviews. AI drafts, a bilingual person checks every message, and the client&rsquo;s own system sends it. The proof is their own job board.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-3">
+      <div class="card"><p class="text-xs font-bold uppercase text-slate-500 mb-1">Who</p><p class="text-sm">US HVAC, plumbing, electrical and roofing shops at ~$1-3M revenue (30-400 Google reviews), already on <strong>Jobber or Housecall Pro</strong>, with 1,000+ past customers. Mountain/Pacific first, plus Spanish-serving shops (Paola&rsquo;s list).</p></div>
+      <div class="card"><p class="text-xs font-bold uppercase text-slate-500 mb-1">How we get paid</p><p class="text-sm"><strong>$0 to start.</strong> Pilot: $75 per booked job. Then <strong>$400/month + $40 per booked job, capped at $1,500</strong>. No setup fee.</p></div>
+      <div class="card"><p class="text-xs font-bold uppercase text-slate-500 mb-1">Why it works from Germany</p><p class="text-sm">Nothing is live or real-time. You build in your own hours, sends are scheduled for US mornings, and replies go straight to the client&rsquo;s office. No night shifts, and no racing a $29 phone tool.</p></div>
+      <div class="card"><p class="text-xs font-bold uppercase text-slate-500 mb-1">Time it needs</p><p class="text-sm">Minimum <strong>4-6 hours a week each</strong> to get going. Each live client then takes about 3 hours a month in total (Mike ~1.5, Paola ~1.5), so 10 clients is ~8 hours a week combined.</p></div>
+    </div>
+  </section>
+
+  <!-- WHY WE CHANGED -->
+  <section>
+    <h2 id="why" class="text-xl font-extrabold mb-3">Why we changed course (and what we kept)</h2>
+    <div class="grid sm:grid-cols-2 gap-3">
+      <div class="card border-red-200"><p class="text-xs font-bold uppercase text-red-600 mb-2">Dropped as the core</p>
+        <ul class="text-sm space-y-1.5 list-disc pl-4">
+          <li><strong>Selling the overnight phone.</strong> AI answering is a $15-29 feature inside Jobber, Housecall Pro, Zoom and Quo. Managed rivals list $297-789/mo, Housecall Pro adds human backup (HCP Assist), and Smith.ai sells AI plus humans.</li>
+          <li><strong>The Morning Board as the product.</strong> The tools already summarise every call. Paola&rsquo;s CET morning is the US night, so she can tag calls but not act on them. The owner still does the work. Now an add-on.</li>
+          <li><strong>&ldquo;Google&rsquo;s AI is calling you&rdquo; urgency.</strong> It has been live since July, every vendor says it, and businesses can opt out.</li>
+          <li><strong>The $1,000 floor</strong>, and building a custom voice agent before anyone pays.</li>
+          <li><strong>The 11,000-line course as a to-do list.</strong> Four competing calendars is too much for two part-timers.</li>
+        </ul></div>
+      <div class="card border-emerald-200"><p class="text-xs font-bold uppercase text-emerald-700 mb-2">Kept</p>
+        <ul class="text-sm space-y-1.5 list-disc pl-4">
+          <li>The niche and the buyer: owner-run contractors at $1-3M.</li>
+          <li>Price against a hire or a result, never against software.</li>
+          <li>Paola&rsquo;s Spanish, now used where it matters most: Spanish-language campaigns and customer replies.</li>
+          <li>Mountain/Pacific targeting. Your CET evening is their morning, which suits sales calls.</li>
+          <li>No outbound on agency-owned phone numbers. The client&rsquo;s systems send.</li>
+          <li>AIGrowthEngine for finding and qualifying prospects.</li>
+        </ul></div>
+    </div>
+  </section>
+
+  <!-- DURABILITY -->
+  <section>
+    <h2 id="durable" class="text-xl font-extrabold mb-3">Why this should still work in 2027</h2>
+    <div class="card"><ol class="text-sm space-y-2 list-decimal pl-5">
+      <li><strong>The methods are older than AI.</strong> Win-back campaigns, estimate follow-up and review requests worked before ChatGPT and will work after whichever AI vendor wins. AI only makes them cheap enough to run for a 5-truck shop.</li>
+      <li><strong>We sit on top of the client&rsquo;s software, not against it.</strong> Jobber already ships email Campaigns with segments and an AI campaign generator. Every feature a platform releases is more for us to run, not a competitor. Contractors pay for these tools and rarely use them.</li>
+      <li><strong>Outcome pricing survives commoditisation.</strong> If drafting gets cheaper, our cost falls and the price, set per booked job, holds.</li>
+      <li><strong>Reviews compound.</strong> Google&rsquo;s AI caller only reaches shops that rank locally, and lead marketplaces are watching AI-assistant referrals as a new channel. A steady stream of fresh reviews feeds both.</li>
+      <li><strong>Low regulatory exposure.</strong> Email to the client&rsquo;s own customers with an unsubscribe link, and texts only to customers with documented consent, sent from the client&rsquo;s own system. No cold calls or texts from us to consumers, ever.</li>
+    </ol>
+    <p class="text-xs text-slate-500 mt-3"><strong>Honest caveat:</strong> the published reactivation results are vendor claims. This plan is a hypothesis with a 60-day test built in (see <a href="#gates" class="underline">Gates</a>). It is a cheaper test than the old plan&rsquo;s, because a pilot costs nobody anything up front.</p></div>
+  </section>
+
+  <!-- OFFER -->
+  <section>
+    <h2 id="offer" class="text-xl font-extrabold mb-3">The offer ladder (canonical: quote nothing else)</h2>
+    <div class="overflow-x-auto card p-0 mb-3">
+      <table class="tbl">
+        <thead><tr><th>Rung</th><th>Price</th><th>What&rsquo;s in it</th></tr></thead>
+        <tbody>
+          <tr><td class="font-semibold">Dormant-Customer Count <span class="text-xs text-slate-500">(door-opener)</span></td><td>Free</td><td>A 15-minute screenshare. Count how many customers haven&rsquo;t booked in 12+ months, and how many estimates are older than 7 days and still open. It produces a number from <em>their</em> data, not ours.</td></tr>
+          <tr class="bg-emerald-50"><td class="font-semibold">Reactivation Pilot</td><td><strong>$0 up front<br>$75 per booked job</strong></td><td>One seasonal win-back campaign (email, plus texts to consented customers) to dormant customers, in English and Spanish where relevant. Booked jobs are counted for 30 days after sending.</td></tr>
+          <tr class="bg-emerald-50"><td class="font-semibold">Booked-Job Desk</td><td><strong>$400/mo + $40 per booked job</strong><br><span class="text-xs">capped at $1,500/mo</span></td><td>A monthly seasonal campaign, a weekly open-estimate follow-up sweep, review requests after every completed job, Spanish versions, and a monthly ledger from their job board. Month-to-month.</td></tr>
+          <tr><td class="font-semibold">Add-on: After-hours Front Office</td><td>$300/mo</td><td>Only if they ask about after-hours calls. We configure and run <em>their</em> AI receptionist, plus the Morning Board. Build kit: <code>templates/01-03</code>.</td></tr>
+          <tr><td class="font-semibold">Add-on: Speed-to-Lead</td><td>$300/mo</td><td>Only for shops buying leads (Angi, Thumbtack, LSA): instant first response to every paid lead.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-3">
+      <div class="card bg-amber-50 border-amber-200"><p class="text-sm"><strong>&ldquo;Booked job&rdquo; (put this in the pilot agreement):</strong> a job scheduled in the client&rsquo;s own Jobber or Housecall Pro within 30 days of a send, for a customer who was in that send&rsquo;s list and had nothing already scheduled. We reconcile from <em>their</em> job board export on days 7, 14 and 30. Disputed rows go to the client&rsquo;s favour.</p></div>
+      <div class="card"><p class="text-sm"><strong>Why these numbers:</strong> a typical service ticket of $300-800 makes $75 an easy yes. Ten booked jobs a month comes to $800, under a part-time hire and well under a night CSR. Treat every price as a hypothesis: if 3 pilots convert at these prices, raise them for client 4; if none convert, see <a href="#gates" class="underline">Gates</a>.</p></div>
+    </div>
+  </section>
+
+  <!-- DELIVERY -->
+  <section>
+    <h2 id="delivery" class="text-xl font-extrabold mb-3">How one client runs (the delivery loop)</h2>
+    <div class="overflow-x-auto card p-0 mb-3">
+      <table class="tbl">
+        <thead><tr><th>#</th><th>Step</th><th>Owner</th><th>Time</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><strong>Onboard</strong> (30-min screenshare): export customers, jobs and estimates to CSV. Check whether they record text consent. Confirm the sending channel (Jobber Campaigns, Housecall Pro&rsquo;s marketing tools if their plan has them, or their own email domain). Get the review link. Sign the one-page agreement.</td><td><span class="paola">Paola</span></td><td>45 min</td></tr>
+          <tr><td>2</td><td><strong>Segment</strong>: dormant 12+ months, by service type, last job value, language. Exclude anyone scheduled, unsubscribed, or without consent for texts.</td><td><span class="mike">Mike</span></td><td>20 min</td></tr>
+          <tr><td>3</td><td><strong>Draft</strong>: Claude writes 2-3 short variants per segment from the seasonal theme (prompt in <code>templates/05</code>).</td><td><span class="mike">Mike</span></td><td>15 min</td></tr>
+          <tr><td>4</td><td><strong>Review</strong> every message for accuracy, tone and offer, and write the Spanish versions. Nothing sends unreviewed.</td><td><span class="paola">Paola</span></td><td>30 min</td></tr>
+          <tr><td>5</td><td><strong>Client approves</strong> by replying &ldquo;OK&rdquo; to a preview email. No approval, no send.</td><td><span class="paola">Paola</span></td><td>5 min</td></tr>
+          <tr><td>6</td><td><strong>Send</strong> from the client&rsquo;s own tool, scheduled for their local 8-10am.</td><td><span class="mike">Mike</span></td><td>15 min</td></tr>
+          <tr><td>7</td><td><strong>Replies</strong> go straight to the client&rsquo;s office inbox and phone, and their team books. Paola answers Spanish replies in her CET evening (the US morning) if the client wants.</td><td>Client / <span class="paola">Paola</span></td><td>&mdash;</td></tr>
+          <tr><td>8</td><td><strong>Ledger</strong> on days 7, 14 and 30: match the job board export against the send list.</td><td><span class="paola">Paola</span></td><td>20 min</td></tr>
+          <tr><td>9</td><td><strong>Invoice</strong> through Stripe, with the ledger attached.</td><td><span class="paola">Paola</span></td><td>10 min</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-xs text-slate-500">On the Desk retainer, add a <strong>weekly estimate sweep</strong> (Mike, ~15 min: open estimates older than 7 days get a short follow-up, reviewed by Paola) and <strong>review requests</strong>: switched on in the client&rsquo;s tool once, then just checked monthly.</p>
+  </section>
+
+  <!-- TOOLS -->
+  <section>
+    <h2 id="tools" class="text-xl font-extrabold mb-3">The tool stack (proven in November 2026)</h2>
+    <div class="overflow-x-auto card p-0 mb-3">
+      <table class="tbl">
+        <thead><tr><th>Job</th><th>Tool</th><th>Why it&rsquo;s a safe bet</th></tr></thead>
+        <tbody>
+          <tr><td>Client data</td><td>CSV export from Jobber or Housecall Pro. Jobber&rsquo;s API comes later, for the weekly sweep. Housecall Pro&rsquo;s API is MAX-plan only, so stay on CSV for those clients.</td><td>Every FSM exports CSV. No integration needed for the pilot.</td></tr>
+          <tr><td>Sending email</td><td><strong>The client&rsquo;s own tool first</strong>: Jobber Campaigns (Marketing Suite add-on), or Housecall Pro&rsquo;s marketing tools if the client&rsquo;s plan includes them (check at onboarding). Otherwise their email domain through a standard email platform on <em>their</em> account.</td><td>Their sender reputation, their unsubscribe list, their brand. Google, Yahoo and Microsoft now enforce SPF, DKIM, DMARC and one-click unsubscribe, so check all four at onboarding.</td></tr>
+          <tr><td>Texts</td><td>The client&rsquo;s own texting (in Jobber or Housecall Pro, or Quo), <em>only</em> to customers with documented consent.</td><td>We never own consumer-facing numbers. No A2P registration on our side.</td></tr>
+          <tr><td>Drafting</td><td>Claude (<code>claude-opus-5-5</code>) through the API or the Claude app. Prompts are in <code>templates/05</code>.</td><td>Cents per campaign. If a better model ships, swap it with no other change.</td></tr>
+          <tr><td>Pipeline</td><td>Google Sheets, then n8n once it repeats (you already have the n8n kit).</td><td>A sheet is enough for the first 3 clients. Automate only what you&rsquo;ve done by hand twice.</td></tr>
+          <tr><td>Reviews</td><td>The client tool&rsquo;s review requests (Jobber Reviews, Housecall Pro) plus their Google review link.</td><td>Built in, so we just switch it on and watch it.</td></tr>
+          <tr><td>Ledger + billing</td><td>Google Sheet ledger and Stripe invoices.</td><td>Boring and auditable.</td></tr>
+          <tr><td>Prospecting</td><td><a href="https://github.com/mikepitts25/aigrowthengine" class="underline">AIGrowthEngine</a> (finds and scores shops, drafts outreach), your warm network, Spanish-language contractor groups, and referral partners (bookkeepers, supply houses).</td><td>Already built and already pointed at this buyer.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-xs text-slate-500"><strong>Not needed to start:</strong> Vapi, Twilio, Supabase, GoHighLevel, Smartlead. They stay in the reference library for the add-ons and for scaling cold email later.</p>
+  </section>
+
+  <!-- 90 DAYS -->
+  <section>
+    <h2 id="ninety" class="text-xl font-extrabold mb-1">The 90-day plan</h2>
+    <p class="text-sm text-slate-600 mb-3">Day 1 is whenever you choose. Write it here: <input id="startDate" type="date" class="border border-slate-300 rounded px-2 py-0.5 text-sm"> &middot; Ticks are saved in this browser only.</p>
+
+    <div class="space-y-3">
+      <div class="card">
+        <p class="font-bold mb-2">Before Day 1: one evening together (~2 hours)</p>
+        <label class="chk"><input type="checkbox" data-k="p0-1"><span>Read this page together. Agree the minimum weekly hours each of you can really give.</span></label>
+        <label class="chk"><input type="checkbox" data-k="p0-2"><span><span class="mike">Mike:</span> Stripe account live; a Colibri Code Google Workspace with a shared folder.</span></label>
+        <label class="chk"><input type="checkbox" data-k="p0-3"><span><span class="paola">Paola:</span> copy the booked-job ledger and onboarding form from <code>templates/05</code> into the shared folder.</span></label>
+      </div>
+      <div class="card">
+        <p class="font-bold mb-1">Weeks 1-2: build the kit on fake data</p>
+        <p class="text-xs text-slate-500 mb-2">Done when you can run the whole loop on a 200-row sample customer file in under 2 hours.</p>
+        <label class="chk"><input type="checkbox" data-k="w1-1"><span><span class="mike">Mike:</span> segmenting sheet and Claude drafting prompt, tested on the sample CSV in <code>templates/05</code>.</span></label>
+        <label class="chk"><input type="checkbox" data-k="w1-2"><span><span class="mike">Mike:</span> one-page pilot agreement (definition of a booked job, $75, 30-day window, client approves every send).</span></label>
+        <label class="chk"><input type="checkbox" data-k="w1-3"><span><span class="paola">Paola:</span> English and Spanish templates for the next two seasonal themes, plus the consent checklist.</span></label>
+        <label class="chk"><input type="checkbox" data-k="w1-4"><span><span class="paola">Paola:</span> a dry run of the review and ledger steps on the sample. Time it.</span></label>
+      </div>
+      <div class="card">
+        <p class="font-bold mb-1">Weeks 3-4: first conversations, first pilots</p>
+        <p class="text-xs text-slate-500 mb-2">Done when 2 pilots are agreed. Volume each week: 20 warm asks, 50 cold touches, 2 referral-partner conversations.</p>
+        <label class="chk"><input type="checkbox" data-k="w3-1"><span><span class="mike">Mike:</span> ask your network: &ldquo;Who do you know who owns an HVAC, plumbing or electrical business?&rdquo; Offer the free Dormant-Customer Count.</span></label>
+        <label class="chk"><input type="checkbox" data-k="w3-2"><span><span class="mike">Mike:</span> 50 cold touches a week from an AIGrowthEngine list (email, plus calls in the Tue/Thu 18:00 CET and Sat 15:00 windows).</span></label>
+        <label class="chk"><input type="checkbox" data-k="w3-3"><span><span class="paola">Paola:</span> a list of 30 Spanish-serving shops; post value (not pitches) in 3 Spanish-language contractor groups; 2 referral-partner chats a week.</span></label>
+        <label class="chk"><input type="checkbox" data-k="w3-4"><span>Both: every Count call ends with the pilot offer. &ldquo;If it books nothing, you pay nothing.&rdquo;</span></label>
+      </div>
+      <div class="card">
+        <p class="font-bold mb-1">Weeks 5-8: deliver, prove, convert</p>
+        <p class="text-xs text-slate-500 mb-2">Done when the first invoice is paid and the first pilot is converted to the Desk.</p>
+        <label class="chk"><input type="checkbox" data-k="w5-1"><span>Run the delivery loop for each pilot; ledger on days 7, 14 and 30; invoice.</span></label>
+        <label class="chk"><input type="checkbox" data-k="w5-2"><span><span class="paola">Paola:</span> write up a one-paragraph case study (booked jobs, ticket value) in English and Spanish; ask for one referral.</span></label>
+        <label class="chk"><input type="checkbox" data-k="w5-3"><span><span class="mike">Mike:</span> day-30 call: &ldquo;Want this every month?&rdquo; Convert to the Desk at $400 + $40.</span></label>
+        <label class="chk"><input type="checkbox" data-k="w5-4"><span>Keep the weekly volume going. Delivery never pauses selling.</span></label>
+      </div>
+      <div class="card">
+        <p class="font-bold mb-1">Weeks 9-12: repeat and tighten</p>
+        <p class="text-xs text-slate-500 mb-2">Done when 3 or more clients are paying for the Desk.</p>
+        <label class="chk"><input type="checkbox" data-k="w9-1"><span><span class="mike">Mike:</span> automate the steps you&rsquo;ve done by hand twice (n8n), and the weekly estimate sweep through the Jobber API for Jobber clients.</span></label>
+        <label class="chk"><input type="checkbox" data-k="w9-2"><span>Raise prices for new clients if 3 or more pilots converted. Existing clients keep their rate.</span></label>
+        <label class="chk"><input type="checkbox" data-k="w9-3"><span>Offer add-ons only to clients who ask (after-hours, speed-to-lead).</span></label>
+      </div>
+    </div>
+
+    <div id="gates" class="card bg-slate-900 text-white mt-4 border-slate-900" style="scroll-margin-top:4.5rem">
+      <p class="font-bold mb-2">Gates: decide on evidence, not hope</p>
+      <ul class="text-sm space-y-1.5 list-disc pl-4 text-slate-200">
+        <li><strong class="text-white">Day 30:</strong> fewer than 2 pilots agreed after ~200 touches means the <em>offer or the list</em> is wrong. Test the free Count with 10 more owners, and ask why they said no.</li>
+        <li><strong class="text-white">Day 60:</strong> no pilot booked 5 or more jobs? Check the list (too small? too recent?) and the channel (email only? sent in their slow month?). Run one more campaign before changing anything else.</li>
+        <li><strong class="text-white">Day 90:</strong> fewer than 3 Desk clients? Stop and decide together: switch the Desk to a flat $500/mo, narrow to Spanish-serving shops only, or pause. Don&rsquo;t spend a second quarter defending a plan the market answered.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SEASONAL -->
+  <section>
+    <h2 id="seasonal" class="text-xl font-extrabold mb-3">Campaign calendar (what to send when)</h2>
+    <div class="overflow-x-auto card p-0">
+      <table class="tbl">
+        <thead><tr><th>Month</th><th>HVAC</th><th>Plumbing / electrical</th></tr></thead>
+        <tbody>
+          <tr><td>Nov-Dec</td><td>Furnace safety check; carbon monoxide reminder; maintenance-plan renewals</td><td>Water heater flush; pipe-freeze prep; holiday-lighting circuit checks</td></tr>
+          <tr><td>Jan-Feb</td><td>&ldquo;Still heating unevenly?&rdquo;; filter and IAQ; plan renewals</td><td>Frozen-pipe follow-ups; sump pump test; panel inspections</td></tr>
+          <tr><td>Mar-Apr</td><td><strong>AC tune-up before the rush</strong> (the biggest win-back of the year)</td><td>Spring plumbing check; outdoor outlets and GFCI</td></tr>
+          <tr><td>May-Jun</td><td>&ldquo;Beat the first heatwave&rdquo;; system age checks</td><td>Irrigation and hose bibs; surge protection before storm season</td></tr>
+          <tr><td>Jul-Aug</td><td>&ldquo;Running but not cooling?&rdquo; repairs; replacement financing</td><td>Water heater age; generator readiness</td></tr>
+          <tr><td>Sep-Oct</td><td>Furnace tune-up before the cold</td><td>Winterisation; whole-home inspections</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SCORECARD -->
+  <section>
+    <h2 id="scorecard" class="text-xl font-extrabold mb-3">Friday scorecard (20 minutes, both of you)</h2>
+    <div class="overflow-x-auto card p-0">
+      <table class="tbl">
+        <thead><tr><th>Number</th><th>Owner</th><th>Weekly target</th><th>Red if</th></tr></thead>
+        <tbody>
+          <tr><td>Touches (warm + cold + partner)</td><td><span class="mike">Mike</span> / <span class="paola">Paola</span></td><td>70+</td><td>&lt;30</td></tr>
+          <tr><td>Owner conversations held</td><td><span class="mike">Mike</span></td><td>5</td><td>&lt;2</td></tr>
+          <tr><td>Dormant-Customer Counts done</td><td>Both</td><td>2</td><td>0 for two weeks</td></tr>
+          <tr><td>Pilots / Desk clients live</td><td><span class="paola">Paola</span></td><td>grows monthly</td><td>flat for 4 weeks</td></tr>
+          <tr><td>Booked jobs this week (ledger)</td><td><span class="paola">Paola</span></td><td>&mdash;</td><td>0 on a live campaign</td></tr>
+          <tr><td>MRR</td><td><span class="paola">Paola</span></td><td>&mdash;</td><td>&mdash;</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-xs text-slate-500 mt-2">Reduced-mode rule: if one of you is sick or swamped at the day job, keep live client delivery and drop prospecting first. Say so on Friday.</p>
+  </section>
+
+  <!-- UNIT ECONOMICS -->
+  <section>
+    <h2 id="economics" class="text-xl font-extrabold mb-3">What it adds up to (if the hypothesis holds)</h2>
+    <div class="overflow-x-auto card p-0 mb-2">
+      <table class="tbl">
+        <thead><tr><th>Clients</th><th>Monthly revenue (6-10 jobs each)</th><th>Hours per week, combined</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td>3</td><td>$1,900-2,400</td><td>~2 + selling</td><td>Day-90 target</td></tr>
+          <tr><td>6</td><td>$3,800-4,800</td><td>~4 + selling</td><td>Still fits both your current budgets</td></tr>
+          <tr><td>10</td><td>$6,400-8,000</td><td>~8 + selling</td><td>Time to consider a Spanish-speaking VA for drafting and ledgers</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-xs text-slate-500">Costs are small: Claude drafting at a few dollars per client a month, Google Workspace, and Stripe fees (2.9% + $0.30). Sending runs on the client&rsquo;s own tools. The binding constraint is selling, not delivery.</p>
+  </section>
+
+  <!-- RULES -->
+  <section>
+    <h2 id="rules" class="text-xl font-extrabold mb-3">Rules we don&rsquo;t break</h2>
+    <div class="card"><ul class="text-sm space-y-1.5 list-disc pl-5">
+      <li><strong>Only the client&rsquo;s systems send</strong>, to the client&rsquo;s own customers. No purchased lists, ever.</li>
+      <li><strong>Email:</strong> authenticated domain (SPF, DKIM, DMARC), one-click unsubscribe, honour opt-outs immediately, and the client&rsquo;s real address in the footer.</li>
+      <li><strong>Texts:</strong> only to customers with documented consent; send 8am-9pm in the customer&rsquo;s local time; honour STOP. For customers in Florida or Oklahoma, use email only unless written consent is on file (those states&rsquo; laws carry per-message penalties). Ask a lawyer before any client wants more than this.</li>
+      <li><strong>The client approves every send.</strong> We never quote job prices or promise anything on their behalf that they haven&rsquo;t written down.</li>
+      <li><strong>No agency-owned consumer phone numbers</strong>, and no cold calls or texts to consumers. Our own cold outreach goes only to business owners.</li>
+      <li><strong>Every AI-drafted message is reviewed by a person</strong> before it sends.</li>
+    </ul></div>
+  </section>
+
+  <!-- REFERENCE -->
+  <section>
+    <h2 id="reference" class="text-xl font-extrabold mb-3">Reference library (how-to only)</h2>
+    <div class="grid sm:grid-cols-2 gap-2 text-sm">
+      <a class="card hover:border-emerald-400" href="agency-plan.html#database-reactivation"><strong>Database reactivation</strong>: deeper playbook and examples</a>
+      <a class="card hover:border-emerald-400" href="agency-plan.html#leadgen"><strong>Lead generation</strong>: list building</a>
+      <a class="card hover:border-emerald-400" href="agency-plan.html#email-infra"><strong>Cold email infrastructure</strong>: for scaling your own outreach</a>
+      <a class="card hover:border-emerald-400" href="agency-plan.html#referral-partners"><strong>Referral partners</strong>: bookkeepers, supply houses</a>
+      <a class="card hover:border-emerald-400" href="agency-plan.html#discovery-framework"><strong>Discovery calls</strong>: questions and structure</a>
+      <a class="card hover:border-emerald-400" href="agency-plan.html#legal"><strong>Legal and contracts</strong>: LLC, agreements</a>
+      <a class="card hover:border-emerald-400" href="agency-plan.html#speed-to-lead"><strong>Speed-to-Lead</strong>: the add-on</a>
+      <a class="card hover:border-emerald-400" href="agency-plan.html#command-center"><strong>After-hours Front Office</strong>: the add-on (October plan)</a>
+    </div>
+    <p class="text-xs text-slate-500 mt-3">Build kit: <a class="underline" href="templates/05-booked-job-desk.md">templates/05-booked-job-desk.md</a> (agreement, onboarding, prompts, English and Spanish templates, ledger), the scripts <a class="underline" href="tools/draft_campaign.py">tools/draft_campaign.py</a> and <a class="underline" href="tools/reconcile_ledger.py">tools/reconcile_ledger.py</a>, and practice data in <a class="underline" href="templates/sample-customers.csv">sample-customers.csv</a> and <a class="underline" href="templates/sample-jobs.csv">sample-jobs.csv</a>. Sales scripts: <a class="underline" href="Colibri_Code_Sales_Materials.md">Colibri_Code_Sales_Materials.md</a>, Part A.</p>
+  </section>
+
+  <footer class="text-xs text-slate-400 border-t border-slate-200 pt-4">
+    Sources checked 17 Nov 2026: Jobber help center and product updates (Campaigns, Campaign Generator, Marketing Suite); Housecall Pro API overview (MAX plan); Angi Q3 2026 earnings (service requests &minus;2.4% YoY); FSM AI receptionist comparisons (Jobber ~$29 add-on, ServiceTitan per-call, HCP Assist); Google/Yahoo/Microsoft sender requirements; TCPA updates (FCC one-to-one rule vacated Jan 2025; Florida and Oklahoma mini-TCPAs); Android Police (Google &ldquo;Ask for Me&rdquo; opt-out). Many are vendor or secondary sources, so verify anything you put in a contract.
+  </footer>
+</main>
+
+<script>
+(function () {
+  var KEY = 'colibri-opplan-v1';
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { state = {}; }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+  document.querySelectorAll('input[data-k]').forEach(function (el) {
+    el.checked = !!state[el.dataset.k];
+    el.addEventListener('change', function () { state[el.dataset.k] = el.checked; save(); });
+  });
+  var d = document.getElementById('startDate');
+  if (d) { d.value = state.startDate || ''; d.addEventListener('change', function () { state.startDate = d.value; save(); }); }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+first_name,last_name,email,phone,last_job_date,last_service,language,sms_consent,unsubscribed,has_upcoming_job
+Karen,Sample000,karen.0@example.com,6025551000,2024-08-01,furnace repair,en,no,no,no
+Rosa,Sample001,rosa.1@example.com,6025551001,2026-04-25,furnace repair,es,yes,no,no
+Tina,Sample002,tina.2@example.com,6025551002,2025-07-18,duct cleaning,es,no,no,no
+Hector,Sample003,hector.3@example.com,6025551003,2026-01-19,furnace repair,es,no,no,no
+Frank,Sample004,frank.4@example.com,6025551004,2025-09-29,tune-up,es,no,no,no
+Pedro,Sample005,pedro.5@example.com,6025551005,2024-05-26,tune-up,en,no,no,no
+Frank,Sample006,frank.6@example.com,6025551006,2025-06-06,ac repair,en,no,no,no
+Jose,Sample007,jose.7@example.com,6025551007,2026-05-22,water heater,en,yes,no,no
+Nate,Sample008,nate.8@example.com,6025551008,2026-05-13,duct cleaning,es,no,no,no
+Luis,Sample009,luis.9@example.com,6025551009,2024-03-28,furnace repair,en,no,no,no
+Ben,Sample010,ben.10@example.com,6025551010,2025-01-22,tune-up,en,yes,no,no
+Ana,Sample011,ana.11@example.com,6025551011,2024-10-21,furnace repair,en,no,no,no
+Hector,Sample012,hector.12@example.com,6025551012,2024-01-06,tune-up,en,no,no,no
+Nate,Sample013,nate.13@example.com,6025551013,2025-03-27,water heater,en,no,no,no
+Carla,Sample014,carla.14@example.com,6025551014,2025-06-30,furnace repair,es,no,no,no
+Ana,Sample015,ana.15@example.com,6025551015,2024-09-22,ac repair,es,no,no,no
+Victor,Sample016,victor.16@example.com,6025551016,2026-06-30,tune-up,en,yes,no,no
+Maria,Sample017,,6025551017,2026-06-03,tune-up,es,yes,no,no
+Ana,Sample018,,6025551018,2026-03-25,furnace repair,en,yes,no,no
+Irene,Sample019,irene.19@example.com,6025551019,2024-10-03,furnace repair,en,no,no,no
+Pedro,Sample020,pedro.20@example.com,6025551020,2025-12-27,ac repair,en,no,no,no
+Rosa,Sample021,rosa.21@example.com,6025551021,2024-10-08,tune-up,es,no,no,no
+Carla,Sample022,carla.22@example.com,6025551022,2025-05-02,ac repair,en,yes,no,no
+Rosa,Sample023,rosa.23@example.com,6025551023,2025-07-19,ac repair,en,no,no,no
+Hector,Sample024,hector.24@example.com,6025551024,2024-01-13,furnace repair,es,no,no,no
+Gloria,Sample025,gloria.25@example.com,6025551025,2024-11-12,water heater,en,no,no,no
+Hector,Sample026,hector.26@example.com,6025551026,2024-11-26,furnace repair,en,no,no,no
+Carla,Sample027,,6025551027,2026-02-15,ac repair,en,no,no,no
+Karen,Sample028,karen.28@example.com,6025551028,2024-07-30,furnace repair,es,no,no,no
+Elena,Sample029,elena.29@example.com,6025551029,2024-03-09,furnace repair,en,no,no,no
+Luis,Sample030,luis.30@example.com,6025551030,2026-01-23,furnace repair,es,no,no,no
+Gloria,Sample031,gloria.31@example.com,6025551031,2025-08-12,ac repair,en,yes,no,no
+Irene,Sample032,irene.32@example.com,6025551032,2026-01-23,water heater,en,no,no,no
+Rosa,Sample033,rosa.33@example.com,6025551033,2023-12-26,furnace repair,en,no,yes,no
+Frank,Sample034,frank.34@example.com,6025551034,2025-12-16,tune-up,en,no,no,no
+Rosa,Sample035,rosa.35@example.com,6025551035,2024-02-03,furnace repair,en,no,no,no
+Ben,Sample036,ben.36@example.com,6025551036,2023-12-14,furnace repair,en,no,no,no
+Victor,Sample037,victor.37@example.com,6025551037,2023-12-05,ac repair,en,no,no,no
+Hector,Sample038,,6025551038,2025-05-05,ac repair,en,no,no,no
+Olivia,Sample039,olivia.39@example.com,6025551039,2025-06-13,ac repair,en,no,no,no
+Elena,Sample040,elena.40@example.com,6025551040,2024-09-29,furnace repair,en,no,no,no
+Maria,Sample041,,6025551041,2025-11-19,ac repair,en,yes,no,no
+Karen,Sample042,karen.42@example.com,6025551042,2024-10-18,water heater,en,yes,no,no
+Ana,Sample043,ana.43@example.com,6025551043,2023-11-24,tune-up,en,no,no,no
+Hector,Sample044,hector.44@example.com,6025551044,2026-03-18,ac repair,en,yes,no,no
+Elena,Sample045,elena.45@example.com,6025551045,2025-05-07,tune-up,en,no,no,no
+Carla,Sample046,carla.46@example.com,6025551046,2025-10-08,furnace repair,en,yes,yes,no
+Irene,Sample047,irene.47@example.com,6025551047,2025-07-20,furnace repair,es,no,no,no
+Irene,Sample048,irene.48@example.com,6025551048,2026-07-22,ac repair,en,no,no,no
+Frank,Sample049,frank.49@example.com,6025551049,2025-01-18,tune-up,es,no,no,no
+Frank,Sample050,,6025551050,2026-09-11,furnace repair,en,yes,no,no
+Gloria,Sample051,,6025551051,2025-06-02,furnace repair,en,no,no,no
+Sam,Sample052,,6025551052,2024-08-04,ac repair,en,no,no,no
+Elena,Sample053,,6025551053,2024-11-06,furnace repair,en,yes,no,no
+Nate,Sample054,nate.54@example.com,6025551054,2026-04-28,water heater,es,no,no,no
+Hector,Sample055,hector.55@example.com,6025551055,2026-07-18,ac repair,en,yes,yes,no
+Karen,Sample056,karen.56@example.com,6025551056,2024-12-25,ac repair,en,yes,no,no
+Carla,Sample057,carla.57@example.com,6025551057,2023-12-24,ac repair,en,no,yes,no
+Carla,Sample058,carla.58@example.com,6025551058,2026-07-25,ac repair,es,yes,no,no
+Rosa,Sample059,rosa.59@example.com,6025551059,2025-12-05,water heater,en,no,no,no
+Jose,Sample060,jose.60@example.com,6025551060,2025-12-26,tune-up,en,no,no,no
+Elena,Sample061,elena.61@example.com,6025551061,2023-12-21,furnace repair,en,no,no,no
+Hector,Sample062,hector.62@example.com,6025551062,2026-07-25,water heater,es,no,no,no
+Ben,Sample063,ben.63@example.com,6025551063,2025-06-05,furnace repair,en,no,no,no
+Sam,Sample064,sam.64@example.com,6025551064,2026-06-05,tune-up,es,yes,no,no
+Gloria,Sample065,gloria.65@example.com,6025551065,2024-03-20,water heater,en,yes,no,no
+Ben,Sample066,ben.66@example.com,6025551066,2025-09-07,furnace repair,en,yes,no,no
+Victor,Sample067,victor.67@example.com,6025551067,2026-09-23,tune-up,en,yes,no,no
+Pedro,Sample068,pedro.68@example.com,6025551068,2023-11-26,tune-up,en,no,no,no
+Gloria,Sample069,,6025551069,2026-04-26,furnace repair,en,yes,no,no
+Olivia,Sample070,olivia.70@example.com,6025551070,2024-08-17,ac repair,en,yes,no,no
+Irene,Sample071,irene.71@example.com,6025551071,2026-01-20,tune-up,en,yes,no,no
+Pedro,Sample072,pedro.72@example.com,6025551072,2024-01-27,ac repair,en,yes,no,no
+Jose,Sample073,jose.73@example.com,6025551073,2024-06-18,ac repair,en,yes,no,no
+Karen,Sample074,,6025551074,2026-02-15,ac repair,en,no,no,no
+Luis,Sample075,,6025551075,2024-08-10,duct cleaning,es,yes,no,no
+Ben,Sample076,ben.76@example.com,6025551076,2026-07-05,ac repair,en,no,no,no
+Nate,Sample077,nate.77@example.com,6025551077,2025-09-25,water heater,en,no,no,no
+Sam,Sample078,sam.78@example.com,6025551078,2026-05-06,water heater,en,no,no,no
+Jose,Sample079,jose.79@example.com,6025551079,2026-01-31,water heater,en,yes,no,no
+Irene,Sample080,irene.80@example.com,6025551080,2025-06-17,tune-up,en,no,no,no
+Carla,Sample081,carla.81@example.com,6025551081,2024-01-04,tune-up,es,no,no,no
+Elena,Sample082,elena.82@example.com,6025551082,2025-06-06,ac repair,en,no,no,no
+Tina,Sample083,tina.83@example.com,6025551083,2026-09-07,water heater,es,yes,no,no
+Irene,Sample084,irene.84@example.com,6025551084,2026-06-13,duct cleaning,en,no,no,no
+Gloria,Sample085,gloria.85@example.com,6025551085,2025-05-28,tune-up,es,no,no,no
+Ana,Sample086,ana.86@example.com,6025551086,2024-05-31,tune-up,es,no,no,no
+Rosa,Sample087,rosa.87@example.com,6025551087,2024-04-12,furnace repair,en,yes,no,no
+Dan,Sample088,dan.88@example.com,6025551088,2024-03-26,furnace repair,en,yes,no,no
+Ben,Sample089,,6025551089,2025-02-03,ac repair,en,no,no,no
+Dan,Sample090,dan.90@example.com,6025551090,2025-09-21,ac repair,es,no,yes,no
+Olivia,Sample091,olivia.91@example.com,6025551091,2025-01-09,ac repair,en,no,no,no
+Nate,Sample092,nate.92@example.com,6025551092,2025-01-27,ac repair,en,no,no,no
+Irene,Sample093,,6025551093,2024-06-01,ac repair,en,no,no,no
+Luis,Sample094,luis.94@example.com,6025551094,2025-09-08,ac repair,en,no,no,no
+Gloria,Sample095,gloria.95@example.com,6025551095,2025-09-16,ac repair,en,yes,no,no
+Victor,Sample096,,6025551096,2025-09-30,tune-up,en,no,no,no
+Elena,Sample097,elena.97@example.com,6025551097,2026-06-29,furnace repair,en,no,no,no
+Olivia,Sample098,olivia.98@example.com,6025551098,2025-01-13,furnace repair,en,no,no,no
+Rosa,Sample099,rosa.99@example.com,6025551099,2026-08-14,water heater,en,no,no,no
+Dan,Sample100,dan.100@example.com,6025551100,2025-03-24,water heater,es,no,no,no
+Gloria,Sample101,gloria.101@example.com,6025551101,2025-01-24,water heater,en,yes,no,no
+Sam,Sample102,sam.102@example.com,6025551102,2025-09-18,tune-up,en,yes,no,no
+Maria,Sample103,maria.103@example.com,6025551103,2026-08-08,furnace repair,es,yes,no,no
+Karen,Sample104,,6025551104,2024-12-01,furnace repair,en,yes,no,no
+Irene,Sample105,irene.105@example.com,6025551105,2026-06-07,ac repair,en,yes,no,no
+Maria,Sample106,maria.106@example.com,6025551106,2024-05-21,furnace repair,en,no,no,no
+Jose,Sample107,jose.107@example.com,6025551107,2025-12-13,ac repair,en,no,no,no
+Victor,Sample108,victor.108@example.com,6025551108,2025-09-09,ac repair,es,yes,no,yes
+Sam,Sample109,,6025551109,2025-11-23,furnace repair,en,no,no,no
+Dan,Sample110,dan.110@example.com,6025551110,2024-04-16,furnace repair,en,no,no,no
+Sam,Sample111,sam.111@example.com,6025551111,2026-02-12,ac repair,en,yes,no,no
+Irene,Sample112,irene.112@example.com,6025551112,2025-05-30,ac repair,es,yes,no,no
+Karen,Sample113,,6025551113,2025-05-21,tune-up,es,no,no,no
+Olivia,Sample114,olivia.114@example.com,6025551114,2026-03-23,ac repair,en,no,no,yes
+Jose,Sample115,jose.115@example.com,6025551115,2026-07-07,duct cleaning,en,yes,no,no
+Frank,Sample116,frank.116@example.com,6025551116,2025-05-04,furnace repair,en,yes,no,no
+Gloria,Sample117,gloria.117@example.com,6025551117,2024-11-21,ac repair,es,no,yes,no
+Gloria,Sample118,gloria.118@example.com,6025551118,2024-12-17,water heater,en,yes,no,no
+Pedro,Sample119,pedro.119@example.com,6025551119,2026-06-11,water heater,en,no,no,no
+Frank,Sample120,frank.120@example.com,6025551120,2025-04-11,ac repair,en,no,no,no
+Tina,Sample121,tina.121@example.com,6025551121,2024-06-22,water heater,en,no,no,no
+Ana,Sample122,ana.122@example.com,6025551122,2025-12-02,furnace repair,en,no,no,no
+Frank,Sample123,frank.123@example.com,6025551123,2026-07-05,water heater,es,yes,no,no
+Rosa,Sample124,rosa.124@example.com,6025551124,2024-11-05,tune-up,es,yes,no,no
+Gloria,Sample125,,6025551125,2026-07-21,tune-up,en,yes,no,no
+Carla,Sample126,carla.126@example.com,6025551126,2025-11-24,ac repair,en,no,no,no
+Pedro,Sample127,pedro.127@example.com,6025551127,2025-07-29,tune-up,es,yes,no,no
+Gloria,Sample128,gloria.128@example.com,6025551128,2026-08-01,ac repair,es,yes,no,no
+Jose,Sample129,jose.129@example.com,6025551129,2025-01-25,water heater,en,yes,no,no
+Frank,Sample130,frank.130@example.com,6025551130,2024-01-20,tune-up,es,no,no,no
+Frank,Sample131,frank.131@example.com,6025551131,2024-07-21,furnace repair,en,yes,no,no
+Rosa,Sample132,rosa.132@example.com,6025551132,2026-07-27,furnace repair,en,yes,no,no
+Rosa,Sample133,,6025551133,2023-12-21,furnace repair,es,yes,no,no
+Dan,Sample134,dan.134@example.com,6025551134,2024-01-15,ac repair,es,no,no,no
+Luis,Sample135,luis.135@example.com,6025551135,2025-05-20,ac repair,en,no,no,no
+Pedro,Sample136,pedro.136@example.com,6025551136,2025-04-28,ac repair,es,yes,yes,no
+Frank,Sample137,frank.137@example.com,6025551137,2025-03-28,water heater,en,yes,no,no
+Rosa,Sample138,,6025551138,2024-10-12,tune-up,es,no,no,no
+Dan,Sample139,dan.139@example.com,6025551139,2024-08-02,water heater,en,yes,no,no
+Luis,Sample140,luis.140@example.com,6025551140,2026-05-05,ac repair,en,no,no,no
+Rosa,Sample141,rosa.141@example.com,6025551141,2025-01-16,furnace repair,en,yes,no,no
+Nate,Sample142,nate.142@example.com,6025551142,2026-07-13,ac repair,en,no,no,no
+Tina,Sample143,tina.143@example.com,6025551143,2026-03-15,tune-up,en,yes,no,no
+Gloria,Sample144,gloria.144@example.com,6025551144,2024-02-19,furnace repair,en,no,no,no
+Dan,Sample145,,6025551145,2025-12-26,ac repair,es,no,no,yes
+Sam,Sample146,sam.146@example.com,6025551146,2024-04-23,tune-up,en,no,no,no
+Ben,Sample147,ben.147@example.com,6025551147,2026-08-28,ac repair,es,yes,no,no
+Victor,Sample148,victor.148@example.com,6025551148,2025-09-10,ac repair,en,no,no,no
+Nate,Sample149,nate.149@example.com,6025551149,2025-10-26,furnace repair,en,yes,no,no
+Pedro,Sample150,pedro.150@example.com,6025551150,2026-10-05,water heater,en,no,no,no
+Olivia,Sample151,olivia.151@example.com,6025551151,2026-03-17,furnace repair,es,yes,no,no
+Irene,Sample152,irene.152@example.com,6025551152,2025-04-22,water heater,en,no,no,no
+Jose,Sample153,jose.153@example.com,6025551153,2025-07-31,tune-up,en,yes,no,no
+Gloria,Sample154,gloria.154@example.com,6025551154,2024-12-18,water heater,en,yes,no,no
+Sam,Sample155,,6025551155,2026-10-05,water heater,en,no,no,no
+Gloria,Sample156,gloria.156@example.com,6025551156,2026-05-12,ac repair,en,yes,yes,no
+Frank,Sample157,frank.157@example.com,6025551157,2026-01-01,furnace repair,en,yes,no,no
+Carla,Sample158,,6025551158,2026-06-06,water heater,en,yes,no,no
+Carla,Sample159,carla.159@example.com,6025551159,2024-08-23,ac repair,en,yes,yes,no
+Carla,Sample160,carla.160@example.com,6025551160,2025-03-09,furnace repair,en,yes,no,no
+Karen,Sample161,karen.161@example.com,6025551161,2025-05-02,ac repair,en,no,no,no
+Karen,Sample162,karen.162@example.com,6025551162,2023-12-22,ac repair,en,no,yes,no
+Nate,Sample163,nate.163@example.com,6025551163,2026-03-31,furnace repair,en,no,no,no
+Carla,Sample164,carla.164@example.com,6025551164,2025-03-09,furnace repair,en,no,no,no
+Ben,Sample165,ben.165@example.com,6025551165,2024-01-17,ac repair,es,no,no,no
+Rosa,Sample166,rosa.166@example.com,6025551166,2025-11-27,ac repair,en,no,no,no
+Carla,Sample167,carla.167@example.com,6025551167,2026-03-18,water heater,en,yes,no,no
+Carla,Sample168,carla.168@example.com,6025551168,2026-08-28,ac repair,en,yes,no,no
+Maria,Sample169,,6025551169,2025-06-27,furnace repair,en,no,no,no
+Ben,Sample170,ben.170@example.com,6025551170,2024-12-18,tune-up,en,no,no,no
+Olivia,Sample171,olivia.171@example.com,6025551171,2025-05-10,furnace repair,en,yes,no,no
+Rosa,Sample172,rosa.172@example.com,6025551172,2025-02-08,furnace repair,es,no,no,no
+Victor,Sample173,victor.173@example.com,6025551173,2025-11-23,ac repair,en,yes,no,no
+Frank,Sample174,frank.174@example.com,6025551174,2026-03-24,furnace repair,en,no,no,no
+Nate,Sample175,nate.175@example.com,6025551175,2026-03-09,furnace repair,en,yes,no,no
+Ana,Sample176,ana.176@example.com,6025551176,2024-05-07,tune-up,en,no,no,yes
+Irene,Sample177,irene.177@example.com,6025551177,2024-07-12,ac repair,en,no,no,no
+Nate,Sample178,nate.178@example.com,6025551178,2025-07-07,furnace repair,en,no,no,no
+Dan,Sample179,dan.179@example.com,6025551179,2025-06-09,ac repair,en,yes,no,no
+Victor,Sample180,victor.180@example.com,6025551180,2023-11-22,ac repair,en,no,no,yes
+Pedro,Sample181,pedro.181@example.com,6025551181,2026-03-15,tune-up,en,yes,no,no
+Gloria,Sample182,gloria.182@example.com,6025551182,2026-03-25,tune-up,en,no,no,no
+Luis,Sample183,luis.183@example.com,6025551183,2024-06-30,tune-up,en,yes,no,no
+Dan,Sample184,dan.184@example.com,6025551184,2024-10-20,ac repair,en,yes,no,yes
+Nate,Sample185,nate.185@example.com,6025551185,2024-10-27,furnace repair,en,yes,no,no
+Rosa,Sample186,rosa.186@example.com,6025551186,2024-08-07,ac repair,en,yes,no,no
+Gloria,Sample187,gloria.187@example.com,6025551187,2025-07-13,furnace repair,en,yes,no,no
+Nate,Sample188,nate.188@example.com,6025551188,2025-02-23,furnace repair,en,no,no,no
+Hector,Sample189,hector.189@example.com,6025551189,2024-09-08,water heater,en,no,no,no
+Irene,Sample190,irene.190@example.com,6025551190,2025-02-07,tune-up,en,no,no,no
+Luis,Sample191,,6025551191,2025-02-05,furnace repair,es,yes,no,no
+Elena,Sample192,elena.192@example.com,6025551192,2024-11-11,furnace repair,en,no,no,no
+Jose,Sample193,jose.193@example.com,6025551193,2026-03-25,ac repair,en,yes,no,no
+Gloria,Sample194,gloria.194@example.com,6025551194,2025-11-09,furnace repair,en,no,no,no
+Jose,Sample195,jose.195@example.com,6025551195,2025-08-08,tune-up,es,no,no,no
+Nate,Sample196,nate.196@example.com,6025551196,2026-01-06,tune-up,en,yes,no,no
+Pedro,Sample197,pedro.197@example.com,6025551197,2025-11-15,furnace repair,en,yes,no,no
+Pedro,Sample198,pedro.198@example.com,6025551198,2024-03-09,water heater,en,no,no,no
+Luis,Sample199,luis.199@example.com,6025551199,2026-08-21,furnace repair,en,no,no,no

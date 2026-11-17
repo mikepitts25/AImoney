@@ -1,6 +1,6 @@
 import re, sys, html as H
 
-FILES = ['agency-plan.html', 'agency-steps.html']
+FILES = ['agency-plan.html', 'agency-steps.html', 'operating-plan.html']
 
 BANNED_STATS = [
     (r'\b62%\s*(of|hang)', 'banned 62% stat'),
